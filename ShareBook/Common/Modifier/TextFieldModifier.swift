@@ -18,6 +18,6 @@ struct TextFieldModifier: ViewModifier {
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(.gray, lineWidth: 1)
             }
-            .padding(.horizontal)
+            .frame(width: 363, height: 42)
     }
 }

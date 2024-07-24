@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum MyError: Error {
+    case internalAuthError
+}

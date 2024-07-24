@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State var tabIndex = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $tabIndex) {
+            PostsView()
+                .tabItem {
+                    Image(systemName: "house")
+                }
+                .tag(0)
+            
+            NewPostView()
+                .tabItem {
+                    Image(systemName: "plus.square.on.square")
+                }
+                .tag(1)
+            
+            MyPostsView()
+                .tabItem {
+                    Image(systemName: "books.vertical")
+                }
+                .tag(2)
+            
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                }
+                .tag(3)
+        }
+        .tint(.black)
     }
 }
 

@@ -7,18 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
+		CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */; };
+		CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */; };
+		CA6609BC2C4D4BE30091091F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609BB2C4D4BE30091091F /* User.swift */; };
+		CA6609BE2C4D4C590091091F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609BD2C4D4C580091091F /* LoginViewModel.swift */; };
+		CA6609C22C4D4C8E0091091F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609C12C4D4C8E0091091F /* AuthManager.swift */; };
 		CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */; };
 		CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AAC2D2C4B8CA10045449E /* ContentView.swift */; };
 		CA6AAC302C4B8CA20045449E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */; };
 		CA6AAC332C4B8CA20045449E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */; };
+		CA83A48D2C4CB57F004F06E7 /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A48C2C4CB57F004F06E7 /* MyPostsView.swift */; };
+		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
+		CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFE01E2C4FC72600953557 /* Girl3DView.swift */; };
+		CABE31B92C4CAA450010AC20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */; };
+		CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31BB2C4CAB090010AC20 /* FirebaseAuth */; };
+		CABE31BE2C4CAB090010AC20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31BD2C4CAB090010AC20 /* FirebaseFirestore */; };
+		CABE31C02C4CAB090010AC20 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31BF2C4CAB090010AC20 /* FirebaseFirestoreSwift */; };
+		CABE31C22C4CAB090010AC20 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31C12C4CAB090010AC20 /* FirebaseStorage */; };
+		CABE31C52C4CAD390010AC20 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31C42C4CAD390010AC20 /* Kingfisher */; };
+		CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31C62C4CADA60010AC20 /* MainTabView.swift */; };
+		CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31C82C4CAE170010AC20 /* ProfileView.swift */; };
+		CABE31CB2C4CAE550010AC20 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31CA2C4CAE550010AC20 /* PostsView.swift */; };
+		CABE31CD2C4CAE600010AC20 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31CC2C4CAE600010AC20 /* NewPostView.swift */; };
+		CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */; };
+		CAC3304E2C4F4327003C8A71 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = CAC3304D2C4F4327003C8A71 /* SplineRuntime */; };
+		CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3692C4DF2D7006ABFD1 /* SignupViewModel.swift */; };
+		CAD0F3732C4E11C6006ABFD1 /* EnterEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3722C4E11C6006ABFD1 /* EnterEmailView.swift */; };
+		CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */; };
+		CAD0F3772C4E1B9C006ABFD1 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */; };
+		CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */; };
+		CADBA2F62C4E63D5001C6445 /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F52C4E63D5001C6445 /* EnterNameView.swift */; };
+		CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */; };
+		CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */; };
+		CADBA2FD2C4E757C001C6445 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2FC2C4E757C001C6445 /* MyError.swift */; };
+		CAE6015B2C5096D30013413C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6015A2C5096D30013413C /* SplashView.swift */; };
+		CAE6015E2C50F5D50013413C /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CAE6015D2C50F5D50013413C /* KakaoSDKAuth */; };
+		CAE601602C50F5D50013413C /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = CAE6015F2C50F5D50013413C /* KakaoSDKCommon */; };
+		CAE601622C50F5D50013413C /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = CAE601612C50F5D50013413C /* KakaoSDKUser */; };
+		CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonModifier.swift; sourceTree = "<group>"; };
+		CA6609BB2C4D4BE30091091F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CA6609BD2C4D4C580091091F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CA6609C12C4D4C8E0091091F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		CA6AAC282C4B8CA10045449E /* ShareBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareBookApp.swift; sourceTree = "<group>"; };
 		CA6AAC2D2C4B8CA10045449E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CA83A48C2C4CB57F004F06E7 /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
+		CA83A4902C4CB74B004F06E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CAAFE01E2C4FC72600953557 /* Girl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Girl3DView.swift; sourceTree = "<group>"; };
+		CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CABE31C62C4CADA60010AC20 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		CABE31C82C4CAE170010AC20 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CABE31CA2C4CAE550010AC20 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		CABE31CC2C4CAE600010AC20 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGirl3DView.swift; sourceTree = "<group>"; };
+		CAD0F3692C4DF2D7006ABFD1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		CAD0F3722C4E11C6006ABFD1 /* EnterEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailView.swift; sourceTree = "<group>"; };
+		CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItalicFontModifier.swift; sourceTree = "<group>"; };
+		CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
+		CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordView.swift; sourceTree = "<group>"; };
+		CADBA2F52C4E63D5001C6445 /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
+		CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameView.swift; sourceTree = "<group>"; };
+		CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupView.swift; sourceTree = "<group>"; };
+		CADBA2FC2C4E757C001C6445 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		CAE6015A2C5096D30013413C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		CAE601632C50F6570013413C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Kakao.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +88,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE601602C50F5D50013413C /* KakaoSDKCommon in Frameworks */,
+				CAE6015E2C50F5D50013413C /* KakaoSDKAuth in Frameworks */,
+				CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */,
+				CABE31C22C4CAB090010AC20 /* FirebaseStorage in Frameworks */,
+				CABE31BE2C4CAB090010AC20 /* FirebaseFirestore in Frameworks */,
+				CABE31C02C4CAB090010AC20 /* FirebaseFirestoreSwift in Frameworks */,
+				CAC3304E2C4F4327003C8A71 /* SplineRuntime in Frameworks */,
+				CABE31C52C4CAD390010AC20 /* Kingfisher in Frameworks */,
+				CAE601622C50F5D50013413C /* KakaoSDKUser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA4FC6A72C4E992A00525570 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */,
+				CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */,
+				CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */,
+				CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		CA6609BF2C4D4C5F0091091F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA83A4902C4CB74B004F06E7 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA6609C02C4D4C650091091F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA6609BD2C4D4C580091091F /* LoginViewModel.swift */,
+				CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CA6AAC1F2C4B8CA10045449E = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +150,17 @@
 		CA6AAC2A2C4B8CA10045449E /* ShareBook */ = {
 			isa = PBXGroup;
 			children = (
+				CAE601632C50F6570013413C /* Info.plist */,
 				CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */,
 				CA6AAC2D2C4B8CA10045449E /* ContentView.swift */,
+				CABE31C62C4CADA60010AC20 /* MainTabView.swift */,
+				CA83A48F2C4CB6FE004F06E7 /* Manager */,
+				CA6AAC3A2C4B8E600045449E /* VVM */,
+				CA6AAC392C4B8E580045449E /* Model */,
+				CAD0F36D2C4DFB70006ABFD1 /* Common */,
+				CADBA2FB2C4E7552001C6445 /* Error */,
 				CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */,
+				CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */,
 				CA6AAC312C4B8CA20045449E /* Preview Content */,
 			);
 			path = ShareBook;
@@ -65,6 +172,141 @@
 				CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CA6AAC392C4B8E580045449E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CA6609BB2C4D4BE30091091F /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA6AAC3A2C4B8E600045449E /* VVM */ = {
+			isa = PBXGroup;
+			children = (
+				CAD0F3662C4DF2B1006ABFD1 /* Signup */,
+				CA83A4922C4CB74F004F06E7 /* Login */,
+				CABE31CF2C4CAE700010AC20 /* Posts */,
+				CABE31D02C4CAE910010AC20 /* NewPost */,
+				CA83A48E2C4CB584004F06E7 /* MyPosts */,
+				CABE31CE2C4CAE690010AC20 /* Profile */,
+			);
+			path = VVM;
+			sourceTree = "<group>";
+		};
+		CA83A48E2C4CB584004F06E7 /* MyPosts */ = {
+			isa = PBXGroup;
+			children = (
+				CA83A48C2C4CB57F004F06E7 /* MyPostsView.swift */,
+			);
+			path = MyPosts;
+			sourceTree = "<group>";
+		};
+		CA83A48F2C4CB6FE004F06E7 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CA6609C12C4D4C8E0091091F /* AuthManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CA83A4922C4CB74F004F06E7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CA6609BF2C4D4C5F0091091F /* View */,
+				CA6609C02C4D4C650091091F /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CABE31CE2C4CAE690010AC20 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CABE31C82C4CAE170010AC20 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CABE31CF2C4CAE700010AC20 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				CABE31CA2C4CAE550010AC20 /* PostsView.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		CABE31D02C4CAE910010AC20 /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+				CABE31CC2C4CAE600010AC20 /* NewPostView.swift */,
+			);
+			path = NewPost;
+			sourceTree = "<group>";
+		};
+		CAC330482C4F38CC003C8A71 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */,
+				CAE6015A2C5096D30013413C /* SplashView.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
+		CAC3304B2C4F3902003C8A71 /* Spline3D */ = {
+			isa = PBXGroup;
+			children = (
+				CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */,
+				CAAFE01E2C4FC72600953557 /* Girl3DView.swift */,
+			);
+			path = Spline3D;
+			sourceTree = "<group>";
+		};
+		CAD0F3662C4DF2B1006ABFD1 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				CAD0F36B2C4DF2DB006ABFD1 /* View */,
+				CAD0F36C2C4DF2E5006ABFD1 /* ViewModel */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		CAD0F36B2C4DF2DB006ABFD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAD0F3722C4E11C6006ABFD1 /* EnterEmailView.swift */,
+				CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */,
+				CADBA2F52C4E63D5001C6445 /* EnterNameView.swift */,
+				CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */,
+				CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAD0F36C2C4DF2E5006ABFD1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAD0F3692C4DF2D7006ABFD1 /* SignupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CAD0F36D2C4DFB70006ABFD1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CA4FC6A72C4E992A00525570 /* Modifier */,
+				CAC330482C4F38CC003C8A71 /* CommonView */,
+				CAC3304B2C4F3902003C8A71 /* Spline3D */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CADBA2FB2C4E7552001C6445 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CADBA2FC2C4E757C001C6445 /* MyError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +325,17 @@
 			dependencies = (
 			);
 			name = ShareBook;
+			packageProductDependencies = (
+				CABE31BB2C4CAB090010AC20 /* FirebaseAuth */,
+				CABE31BD2C4CAB090010AC20 /* FirebaseFirestore */,
+				CABE31BF2C4CAB090010AC20 /* FirebaseFirestoreSwift */,
+				CABE31C12C4CAB090010AC20 /* FirebaseStorage */,
+				CABE31C42C4CAD390010AC20 /* Kingfisher */,
+				CAC3304D2C4F4327003C8A71 /* SplineRuntime */,
+				CAE6015D2C50F5D50013413C /* KakaoSDKAuth */,
+				CAE6015F2C50F5D50013413C /* KakaoSDKCommon */,
+				CAE601612C50F5D50013413C /* KakaoSDKUser */,
+			);
 			productName = ShareBook;
 			productReference = CA6AAC282C4B8CA10045449E /* ShareBook.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +364,12 @@
 				Base,
 			);
 			mainGroup = CA6AAC1F2C4B8CA10045449E;
+			packageReferences = (
+				CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CABE31C32C4CAD390010AC20 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CAC3304C2C4F4327003C8A71 /* XCRemoteSwiftPackageReference "spline-ios" */,
+				CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = CA6AAC292C4B8CA10045449E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +386,7 @@
 			files = (
 				CA6AAC332C4B8CA20045449E /* Preview Assets.xcassets in Resources */,
 				CA6AAC302C4B8CA20045449E /* Assets.xcassets in Resources */,
+				CABE31B92C4CAA450010AC20 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +397,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */,
+				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
+				CA83A48D2C4CB57F004F06E7 /* MyPostsView.swift in Sources */,
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
+				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
+				CADBA2F62C4E63D5001C6445 /* EnterNameView.swift in Sources */,
+				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
 				CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */,
+				CABE31CD2C4CAE600010AC20 /* NewPostView.swift in Sources */,
+				CADBA2FD2C4E757C001C6445 /* MyError.swift in Sources */,
+				CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */,
+				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
+				CA6609BC2C4D4BE30091091F /* User.swift in Sources */,
+				CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */,
+				CABE31CB2C4CAE550010AC20 /* PostsView.swift in Sources */,
+				CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */,
+				CAD0F3772C4E1B9C006ABFD1 /* GradientBackgroundView.swift in Sources */,
+				CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */,
+				CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */,
+				CAD0F3732C4E11C6006ABFD1 /* EnterEmailView.swift in Sources */,
+				CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */,
+				CA6609C22C4D4C8E0091091F /* AuthManager.swift in Sources */,
+				CAE6015B2C5096D30013413C /* SplashView.swift in Sources */,
+				CA6609BE2C4D4C590091091F /* LoginViewModel.swift in Sources */,
+				CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */,
+				CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */,
+				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +559,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ShareBook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +588,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ShareBook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -342,6 +629,89 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
+		CABE31C32C4CAD390010AC20 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+		CAC3304C2C4F4327003C8A71 /* XCRemoteSwiftPackageReference "spline-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/splinetool/spline-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.22.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CABE31BB2C4CAB090010AC20 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CABE31BD2C4CAB090010AC20 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CABE31BF2C4CAB090010AC20 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		CABE31C12C4CAB090010AC20 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		CABE31C42C4CAD390010AC20 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABE31C32C4CAD390010AC20 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		CAC3304D2C4F4327003C8A71 /* SplineRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAC3304C2C4F4327003C8A71 /* XCRemoteSwiftPackageReference "spline-ios" */;
+			productName = SplineRuntime;
+		};
+		CAE6015D2C50F5D50013413C /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		CAE6015F2C50F5D50013413C /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		CAE601612C50F5D50013413C /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA6AAC202C4B8CA10045449E /* Project object */;
 }

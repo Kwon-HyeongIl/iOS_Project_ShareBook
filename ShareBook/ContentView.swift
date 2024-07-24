@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var signupViewModel = SignupViewModel()
+    @State var isContentReady = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            LoginView()
+                .environment(signupViewModel)
+            
+            if !isContentReady {
+                SplashView()
+                    .transition(.opacity)
+            }
         }
-        .padding()
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                withAnimation {
+                    isContentReady = true
+                }
+            }
+        }
     }
 }
 
