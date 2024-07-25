@@ -30,7 +30,7 @@ struct EnterPasswordView: View {
                 
                 HStack {
                     NavigationLink {
-                        EnterNameView()
+                        EnterUsernameView()
                     } label: {
                         Text("다음")
                             .modifier(ButtonModifier())

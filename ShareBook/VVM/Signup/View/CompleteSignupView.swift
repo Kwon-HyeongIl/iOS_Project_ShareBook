@@ -41,10 +41,9 @@ struct CompleteSignupView: View {
                         .modifier(ItalicFontModifier())
                     
                     Button {
-                        print("\(viewModel.email)")
-                        print("\(viewModel.password)")
-                        print("\(viewModel.name)")
-                        print("\(viewModel.username)")
+                        Task {
+                            await viewModel.createUser()
+                        }
                     } label: {
                         Text("완료")
                             .modifier(ButtonModifier())

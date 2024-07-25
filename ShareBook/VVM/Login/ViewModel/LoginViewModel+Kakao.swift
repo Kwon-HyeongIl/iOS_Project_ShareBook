@@ -8,58 +8,69 @@
 import Foundation
 import KakaoSDKCommon
 import KakaoSDKAuth
+import KakaoSDKUser
+import FirebaseAuth
 
 extension LoginViewModel {
     func kakaoAuthSignIn() {
-        if AuthApi.hasToken() { // 발급된 토큰이 있는지
-            UserApi.shared.accessTokenInfo { _, error in // 해당 토큰이 유효한지
-                if let error = error { // 에러가 발생했으면 토큰이 유효하지 않다.
+        if AuthApi.hasToken() {
+            UserApi.shared.accessTokenInfo { _, error in
+                if let error = error { // 유효하지 않은 토큰
                     self.openKakaoService()
                 } else { // 유효한 토큰
-                    self.loadingInfoDidKakaoAuth()
+                    self.continueFirebaseAuthWithKakao()
                 }
             }
-        } else { // 만료된 토큰
+        } else { // 토큰이 없는 경우
             self.openKakaoService()
         }
     }
     
     func openKakaoService() {
-        if UserApi.isKakaoTalkLoginAvailable() { // 카카오톡 앱 이용 가능한지
+        if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { oauthToken, error in // 카카오톡 앱으로 로그인
-                if let error = error { // 로그인 실패 -> 종료
+                if let error = error {
+                    //로그인 실패
                     print("Kakao Sign In Error: ", error.localizedDescription)
                     return
                 }
                 
-                _ = oauthToken // 로그인 성공
-                self.loadingInfoDidKakaoAuth() // 사용자 정보 불러와서 Firebase Auth 로그인하기
+                // 로그인 성공
+                _ = oauthToken
+                self.continueFirebaseAuthWithKakao()
             }
-        } else { // 카카오톡 앱 이용 불가능한 사람
+        } else {
             UserApi.shared.loginWithKakaoAccount { oauthToken, error in // 카카오 웹으로 로그인
-                if let error = error { // 로그인 실패 -> 종료
+                if let error = error {
+                    // 로그인 실패
                     print("Kakao Sign In Error: ", error.localizedDescription)
                     return
                 }
-                _ = oauthToken // 로그인 성공
-                self.loadingInfoDidKakaoAuth() // 사용자 정보 불러와서 Firebase Auth 로그인하기
+                
+                // 로그인 성공
+                _ = oauthToken
+                self.continueFirebaseAuthWithKakao()
             }
         }
     }
     
-    func loadingInfoDidKakaoAuth() {  // 사용자 정보 불러오기
+    func continueFirebaseAuthWithKakao() {
         UserApi.shared.me { kakaoUser, error in
-            if let error = error {
-                print("카카오톡 사용자 정보 불러오는데 실패했습니다.")
-                
+            if let error {
+                print("Kakao Sign In Error: ", error.localizedDescription)
                 return
             }
+            
             guard let email = kakaoUser?.kakaoAccount?.email else { return }
             guard let password = kakaoUser?.id else { return }
-            guard let userName = kakaoUser?.kakaoAccount?.profile?.nickname else { return }
+            guard let username = kakaoUser?.kakaoAccount?.profile?.nickname else { return }
             
-            self.emailAuthSignUp(email: email, userName: userName, password: "\(password)") {
-                self.emailAuthSignIn(email: email, password: "\(password)")
+            Task {
+                if await AuthManager.shared.isEmailExist(email: email) { // 기존에 가입했던 경우
+                    await AuthManager.shared.login(email: email, password: String(password))
+                } else { // 회원가입
+                    await AuthManager.shared.createUser(email: email, password: String(password), username: username)
+                }
             }
         }
     }

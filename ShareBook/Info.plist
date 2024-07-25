@@ -9,7 +9,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakaoc455ea82c5cc6e5b3680978240a0acac</string>
+				<string>kakao${KAKAO_NATIVE_APP_KEY}</string>
 			</array>
 		</dict>
 		<dict>
@@ -19,8 +19,15 @@
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string></string>
-		<string></string>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
+	<key>KAKAO_NATIVE_APP_KEY</key>
+	<string>${KAKAO_NATIVE_APP_KEY}</string>
 </dict>
 </plist>

@@ -13,8 +13,12 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            LoginView()
-                .environment(signupViewModel)
+            if AuthManager.shared.currentUser != nil {
+                MainTabView()
+            } else {
+                LoginView()
+                    .environment(signupViewModel)
+            }
             
             if !isContentReady {
                 SplashView()

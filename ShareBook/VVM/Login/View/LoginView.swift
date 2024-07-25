@@ -77,9 +77,13 @@ struct LoginView: View {
                                 .resizable()
                                 .frame(width: 60, height: 60)
                             
-                            Image("Kakao_SocialLogin_Logo")
-                                .resizable()
-                                .frame(width: 60, height: 60)
+                            Button {
+                                viewModel.kakaoAuthSignIn()
+                            } label: {
+                                Image("Kakao_SocialLogin_Logo")
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                            }
                             
                             Image("Apple_SocialLogin_Logo")
                                 .resizable()

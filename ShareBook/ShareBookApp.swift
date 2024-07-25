@@ -22,8 +22,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct ShareBookApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+    
     init() {
-            KakaoSDK.initSDK(appKey: "c455ea82c5cc6e5b3680978240a0acac")
+            KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
         }
     
     var body: some Scene {

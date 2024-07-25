@@ -37,7 +37,6 @@
 		CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */; };
 		CAD0F3772C4E1B9C006ABFD1 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */; };
 		CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */; };
-		CADBA2F62C4E63D5001C6445 /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F52C4E63D5001C6445 /* EnterNameView.swift */; };
 		CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */; };
 		CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */; };
 		CADBA2FD2C4E757C001C6445 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2FC2C4E757C001C6445 /* MyError.swift */; };
@@ -46,6 +45,7 @@
 		CAE601602C50F5D50013413C /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = CAE6015F2C50F5D50013413C /* KakaoSDKCommon */; };
 		CAE601622C50F5D50013413C /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = CAE601612C50F5D50013413C /* KakaoSDKUser */; };
 		CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */; };
+		CAE601682C5100FA0013413C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CAE601672C5100FA0013413C /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,13 +74,14 @@
 		CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItalicFontModifier.swift; sourceTree = "<group>"; };
 		CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordView.swift; sourceTree = "<group>"; };
-		CADBA2F52C4E63D5001C6445 /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameView.swift; sourceTree = "<group>"; };
 		CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupView.swift; sourceTree = "<group>"; };
 		CADBA2FC2C4E757C001C6445 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		CAE6015A2C5096D30013413C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CAE601632C50F6570013413C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Kakao.swift"; sourceTree = "<group>"; };
+		CAE601662C51005B0013413C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		CAE601672C5100FA0013413C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +163,8 @@
 				CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */,
 				CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */,
 				CA6AAC312C4B8CA20045449E /* Preview Content */,
+				CAE601662C51005B0013413C /* Config.xcconfig */,
+				CAE601672C5100FA0013413C /* .gitignore */,
 			);
 			path = ShareBook;
 			sourceTree = "<group>";
@@ -276,7 +279,6 @@
 			children = (
 				CAD0F3722C4E11C6006ABFD1 /* EnterEmailView.swift */,
 				CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */,
-				CADBA2F52C4E63D5001C6445 /* EnterNameView.swift */,
 				CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */,
 				CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */,
 			);
@@ -384,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE601682C5100FA0013413C /* .gitignore in Resources */,
 				CA6AAC332C4B8CA20045449E /* Preview Assets.xcassets in Resources */,
 				CA6AAC302C4B8CA20045449E /* Assets.xcassets in Resources */,
 				CABE31B92C4CAA450010AC20 /* GoogleService-Info.plist in Resources */,
@@ -402,7 +405,6 @@
 				CA83A48D2C4CB57F004F06E7 /* MyPostsView.swift in Sources */,
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
-				CADBA2F62C4E63D5001C6445 /* EnterNameView.swift in Sources */,
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
 				CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */,
 				CABE31CD2C4CAE600010AC20 /* NewPostView.swift in Sources */,
@@ -432,6 +434,7 @@
 /* Begin XCBuildConfiguration section */
 		CA6AAC342C4B8CA20045449E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE601662C51005B0013413C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -495,6 +498,7 @@
 		};
 		CA6AAC352C4B8CA20045449E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE601662C51005B0013413C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -551,6 +555,7 @@
 		};
 		CA6AAC372C4B8CA20045449E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE601662C51005B0013413C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -580,6 +585,7 @@
 		};
 		CA6AAC382C4B8CA20045449E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAE601662C51005B0013413C /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

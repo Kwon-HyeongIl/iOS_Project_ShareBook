@@ -11,15 +11,13 @@ import Foundation
 class SignupViewModel {
     var email = ""
     var password = ""
-    var name = ""
     var username = ""
     
     func createUser() async {
-        await AuthManager.shared.createUser(email: email, password: password, name: name, username: username)
+        await AuthManager.shared.createUser(email: email, password: password, username: username)
         
         email = ""
         password = ""
-        name = ""
         username = ""
     }
 }

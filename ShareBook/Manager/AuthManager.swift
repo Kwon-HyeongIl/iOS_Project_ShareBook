@@ -18,21 +18,22 @@ class AuthManager {
     
     var currentUser: User?
     
-    func createUser(email: String, password: String, name: String, username: String) async {
+    func createUser(email: String, password: String, username: String) async {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
-            await uploadUserData(userId: userId, email: email, name: name, username: username)
+            await uploadUserData(userId: userId, email: email, username: username)
             
         } catch {
+            print("회원가입 에러, \(error.localizedDescription)")
             errorMessage = "인증 관련 오류"
             isAlert = true
             return
         }
     }
     
-    func uploadUserData(userId: String, email: String, name: String, username: String) async {
-        self.currentUser = User(id: userId, email: email, name: name, username: username)
+    func uploadUserData(userId: String, email: String, username: String) async {
+        self.currentUser = User(id: userId, email: email, username: username)
         
         do {
             let encodedUser = try Firestore.Encoder().encode(currentUser)
@@ -48,7 +49,7 @@ class AuthManager {
     
     func login(email: String, password: String) async {
         do {
-            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            _ = try await Auth.auth().signIn(withEmail: email, password: password)
             await loadCurrentUserData()
             
         } catch {
@@ -67,6 +68,18 @@ class AuthManager {
             errorMessage = "인증 관련 오류"
             isAlert = true
             return
+        }
+    }
+    
+    func isEmailExist(email: String) async -> Bool {
+        do {
+            let user = try await Firestore.firestore().collection("Users").whereField("email", isEqualTo: email).getDocuments().documents
+            
+            return user.isEmpty ? false : true
+            
+        } catch {
+            print(error.localizedDescription)
+            return false
         }
     }
 }
