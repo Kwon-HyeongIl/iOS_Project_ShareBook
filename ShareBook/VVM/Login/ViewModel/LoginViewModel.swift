@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class LoginViewModel {
+class LoginViewModel: NSObject {
     var email = ""
     var password = ""
     

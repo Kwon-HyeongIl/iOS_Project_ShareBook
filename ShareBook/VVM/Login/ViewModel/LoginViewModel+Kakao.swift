@@ -9,7 +9,6 @@ import Foundation
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
-import FirebaseAuth
 
 extension LoginViewModel {
     func kakaoAuthSignIn() {

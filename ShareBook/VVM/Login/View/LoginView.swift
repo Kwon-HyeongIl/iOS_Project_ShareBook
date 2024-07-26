@@ -73,10 +73,6 @@ struct LoginView: View {
                         .padding(.bottom)
                         
                         HStack(spacing: 20) {
-                            Image("Naver_SocialLogin_Logo")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                            
                             Button {
                                 viewModel.kakaoAuthSignIn()
                             } label: {
@@ -85,10 +81,14 @@ struct LoginView: View {
                                     .frame(width: 60, height: 60)
                             }
                             
-                            Image("Apple_SocialLogin_Logo")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .clipShape(Circle())
+                            Button {
+                                viewModel.appleAuthSignin()
+                            } label: {
+                                Image("Apple_SocialLogin_Logo")
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                                    .clipShape(Circle())
+                            }
                         }
                         .padding(.bottom)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)

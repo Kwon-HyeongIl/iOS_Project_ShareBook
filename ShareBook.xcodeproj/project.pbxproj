@@ -19,6 +19,7 @@
 		CA6AAC332C4B8CA20045449E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */; };
 		CA83A48D2C4CB57F004F06E7 /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A48C2C4CB57F004F06E7 /* MyPostsView.swift */; };
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
+		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFE01E2C4FC72600953557 /* Girl3DView.swift */; };
 		CABE31B92C4CAA450010AC20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */; };
 		CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31BB2C4CAB090010AC20 /* FirebaseAuth */; };
@@ -62,6 +63,8 @@
 		CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA83A48C2C4CB57F004F06E7 /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
 		CA83A4902C4CB74B004F06E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
+		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CAAFE01E2C4FC72600953557 /* Girl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Girl3DView.swift; sourceTree = "<group>"; };
 		CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CABE31C62C4CADA60010AC20 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 			children = (
 				CA6609BD2C4D4C580091091F /* LoginViewModel.swift */,
 				CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */,
+				CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -151,6 +155,7 @@
 		CA6AAC2A2C4B8CA10045449E /* ShareBook */ = {
 			isa = PBXGroup;
 			children = (
+				CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */,
 				CAE601632C50F6570013413C /* Info.plist */,
 				CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */,
 				CA6AAC2D2C4B8CA10045449E /* ContentView.swift */,
@@ -412,6 +417,7 @@
 				CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */,
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
 				CA6609BC2C4D4BE30091091F /* User.swift in Sources */,
+				CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */,
 				CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */,
 				CABE31CB2C4CAE550010AC20 /* PostsView.swift in Sources */,
 				CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */,
@@ -559,6 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShareBook/ShareBook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShareBook/Preview Content\"";
@@ -589,6 +596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShareBook/ShareBook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShareBook/Preview Content\"";

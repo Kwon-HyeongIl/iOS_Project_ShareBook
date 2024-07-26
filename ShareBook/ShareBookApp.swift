@@ -25,16 +25,19 @@ struct ShareBookApp: App {
     let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
     
     init() {
-            KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
-        }
+        // Kakao 로그인 관련 초기화
+        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
+    }
     
     var body: some Scene {
         WindowGroup {
-            ContentView().onOpenURL(perform: { url in
-                            if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                                AuthController.handleOpenUrl(url: url)
-                            }
-                        })
+            ContentView().onOpenURL { url in
+                
+                // Kakao 로그인 URL 처리
+                if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                    AuthController.handleOpenUrl(url: url)
+                }
+            }
         }
     }
 }
