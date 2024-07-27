@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA45F4442C5500FC007CE06E /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45F4432C5500FC007CE06E /* BookDetailView.swift */; };
+		CA45F4462C550108007CE06E /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45F4452C550108007CE06E /* BookDetailViewModel.swift */; };
 		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
 		CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */; };
 		CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */; };
@@ -22,7 +24,13 @@
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CAA0C5F22C54992200E7433D /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5F12C54992200E7433D /* ProfileEditView.swift */; };
-		CAA0C5F52C549FE300E7433D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5F42C549FE300E7433D /* SearchView.swift */; };
+		CAA0C5F52C549FE300E7433D /* NewPostSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */; };
+		CAA0C5FD2C54B34600E7433D /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */; };
+		CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5FE2C54B38600E7433D /* Book.swift */; };
+		CAA0C6012C54B39300E7433D /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C6002C54B39300E7433D /* BookList.swift */; };
+		CAA0C6032C54B3F300E7433D /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C6022C54B3F300E7433D /* HttpManager.swift */; };
+		CAA0C6052C54B5E200E7433D /* HttpManager+NaverBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C6042C54B5E200E7433D /* HttpManager+NaverBook.swift */; };
+		CAA0C6072C54B82C00E7433D /* NewPostSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C6062C54B82C00E7433D /* NewPostSearchViewModel.swift */; };
 		CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFE01E2C4FC72600953557 /* Girl3DView.swift */; };
 		CABE31B92C4CAA450010AC20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */; };
 		CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31BB2C4CAB090010AC20 /* FirebaseAuth */; };
@@ -33,7 +41,6 @@
 		CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31C62C4CADA60010AC20 /* MainTabView.swift */; };
 		CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31C82C4CAE170010AC20 /* ProfileView.swift */; };
 		CABE31CB2C4CAE550010AC20 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31CA2C4CAE550010AC20 /* PostsView.swift */; };
-		CABE31CD2C4CAE600010AC20 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABE31CC2C4CAE600010AC20 /* NewPostView.swift */; };
 		CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */; };
 		CAC3304E2C4F4327003C8A71 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = CAC3304D2C4F4327003C8A71 /* SplineRuntime */; };
 		CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3692C4DF2D7006ABFD1 /* SignupViewModel.swift */; };
@@ -45,15 +52,20 @@
 		CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */; };
 		CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */; };
 		CADBA2FD2C4E757C001C6445 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2FC2C4E757C001C6445 /* MyError.swift */; };
+		CAE3AC9B2C54F02800EE5AC5 /* NewPostSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE3AC9A2C54F02800EE5AC5 /* NewPostSearchCellView.swift */; };
+		CAE3AC9D2C54F08200EE5AC5 /* NewPostSearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE3AC9C2C54F08200EE5AC5 /* NewPostSearchCellViewModel.swift */; };
 		CAE6015B2C5096D30013413C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6015A2C5096D30013413C /* SplashView.swift */; };
 		CAE6015E2C50F5D50013413C /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CAE6015D2C50F5D50013413C /* KakaoSDKAuth */; };
 		CAE601602C50F5D50013413C /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = CAE6015F2C50F5D50013413C /* KakaoSDKCommon */; };
 		CAE601622C50F5D50013413C /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = CAE601612C50F5D50013413C /* KakaoSDKUser */; };
 		CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */; };
 		CAE601682C5100FA0013413C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CAE601672C5100FA0013413C /* .gitignore */; };
+		CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAFE2C262C54F655000A3047 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA45F4432C5500FC007CE06E /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		CA45F4452C550108007CE06E /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonModifier.swift; sourceTree = "<group>"; };
@@ -71,13 +83,18 @@
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CAA0C5F12C54992200E7433D /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
-		CAA0C5F42C549FE300E7433D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostSearchView.swift; sourceTree = "<group>"; };
+		CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		CAA0C5FE2C54B38600E7433D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		CAA0C6002C54B39300E7433D /* BookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
+		CAA0C6022C54B3F300E7433D /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		CAA0C6042C54B5E200E7433D /* HttpManager+NaverBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HttpManager+NaverBook.swift"; sourceTree = "<group>"; };
+		CAA0C6062C54B82C00E7433D /* NewPostSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostSearchViewModel.swift; sourceTree = "<group>"; };
 		CAAFE01E2C4FC72600953557 /* Girl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Girl3DView.swift; sourceTree = "<group>"; };
 		CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CABE31C62C4CADA60010AC20 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		CABE31C82C4CAE170010AC20 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CABE31CA2C4CAE550010AC20 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
-		CABE31CC2C4CAE600010AC20 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGirl3DView.swift; sourceTree = "<group>"; };
 		CAD0F3692C4DF2D7006ABFD1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		CAD0F3722C4E11C6006ABFD1 /* EnterEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailView.swift; sourceTree = "<group>"; };
@@ -88,6 +105,8 @@
 		CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameView.swift; sourceTree = "<group>"; };
 		CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupView.swift; sourceTree = "<group>"; };
 		CADBA2FC2C4E757C001C6445 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		CAE3AC9A2C54F02800EE5AC5 /* NewPostSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostSearchCellView.swift; sourceTree = "<group>"; };
+		CAE3AC9C2C54F08200EE5AC5 /* NewPostSearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostSearchCellViewModel.swift; sourceTree = "<group>"; };
 		CAE6015A2C5096D30013413C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CAE601632C50F6570013413C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Kakao.swift"; sourceTree = "<group>"; };
@@ -105,6 +124,7 @@
 				CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */,
 				CABE31C22C4CAB090010AC20 /* FirebaseStorage in Frameworks */,
 				CABE31BE2C4CAB090010AC20 /* FirebaseFirestore in Frameworks */,
+				CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */,
 				CABE31C02C4CAB090010AC20 /* FirebaseFirestoreSwift in Frameworks */,
 				CAC3304E2C4F4327003C8A71 /* SplineRuntime in Frameworks */,
 				CABE31C52C4CAD390010AC20 /* Kingfisher in Frameworks */,
@@ -115,6 +135,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA45F4422C5500DB007CE06E /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CA45F4472C55010D007CE06E /* View */,
+				CA45F4482C550116007CE06E /* ViewModel */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		CA45F4472C55010D007CE06E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA45F4432C5500FC007CE06E /* BookDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA45F4482C550116007CE06E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA45F4452C550108007CE06E /* BookDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CA4FC6A72C4E992A00525570 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +217,7 @@
 				CA6AAC3A2C4B8E600045449E /* VVM */,
 				CA6AAC392C4B8E580045449E /* Model */,
 				CAD0F36D2C4DFB70006ABFD1 /* Common */,
+				CAA0C5FB2C54B31F00E7433D /* Http */,
 				CADBA2FB2C4E7552001C6445 /* Error */,
 				CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */,
 				CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */,
@@ -194,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				CA6609BB2C4D4BE30091091F /* User.swift */,
+				CAA0C5FE2C54B38600E7433D /* Book.swift */,
+				CAA0C6002C54B39300E7433D /* BookList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,11 +251,11 @@
 			children = (
 				CAD0F3662C4DF2B1006ABFD1 /* Signup */,
 				CA83A4922C4CB74F004F06E7 /* Login */,
-				CAA0C5F32C549FBD00E7433D /* Search */,
 				CABE31CF2C4CAE700010AC20 /* Posts */,
-				CABE31D02C4CAE910010AC20 /* NewPost */,
+				CAA0C5F32C549FBD00E7433D /* NewPostSearch */,
 				CA83A48E2C4CB584004F06E7 /* MyPosts */,
 				CABE31CE2C4CAE690010AC20 /* Profile */,
+				CA45F4422C5500DB007CE06E /* Book */,
 			);
 			path = VVM;
 			sourceTree = "<group>";
@@ -242,6 +290,8 @@
 			children = (
 				CA6609C12C4D4C8E0091091F /* AuthManager.swift */,
 				CAD8FEFD2C53D6900000446B /* ImageManager.swift */,
+				CAA0C6022C54B3F300E7433D /* HttpManager.swift */,
+				CAA0C6042C54B5E200E7433D /* HttpManager+NaverBook.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -255,12 +305,39 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		CAA0C5F32C549FBD00E7433D /* Search */ = {
+		CAA0C5F32C549FBD00E7433D /* NewPostSearch */ = {
 			isa = PBXGroup;
 			children = (
-				CAA0C5F42C549FE300E7433D /* SearchView.swift */,
+				CAA0C6082C54BB4300E7433D /* View */,
+				CAA0C6092C54BB4800E7433D /* ViewModel */,
 			);
-			path = Search;
+			path = NewPostSearch;
+			sourceTree = "<group>";
+		};
+		CAA0C5FB2C54B31F00E7433D /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		CAA0C6082C54BB4300E7433D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */,
+				CAE3AC9A2C54F02800EE5AC5 /* NewPostSearchCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAA0C6092C54BB4800E7433D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAA0C6062C54B82C00E7433D /* NewPostSearchViewModel.swift */,
+				CAE3AC9C2C54F08200EE5AC5 /* NewPostSearchCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CABE31CE2C4CAE690010AC20 /* Profile */ = {
@@ -278,14 +355,6 @@
 				CABE31CA2C4CAE550010AC20 /* PostsView.swift */,
 			);
 			path = Posts;
-			sourceTree = "<group>";
-		};
-		CABE31D02C4CAE910010AC20 /* NewPost */ = {
-			isa = PBXGroup;
-			children = (
-				CABE31CC2C4CAE600010AC20 /* NewPostView.swift */,
-			);
-			path = NewPost;
 			sourceTree = "<group>";
 		};
 		CAC330482C4F38CC003C8A71 /* CommonView */ = {
@@ -378,6 +447,7 @@
 				CAE6015D2C50F5D50013413C /* KakaoSDKAuth */,
 				CAE6015F2C50F5D50013413C /* KakaoSDKCommon */,
 				CAE601612C50F5D50013413C /* KakaoSDKUser */,
+				CAFE2C262C54F655000A3047 /* Alamofire */,
 			);
 			productName = ShareBook;
 			productReference = CA6AAC282C4B8CA10045449E /* ShareBook.app */;
@@ -412,6 +482,7 @@
 				CABE31C32C4CAD390010AC20 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CAC3304C2C4F4327003C8A71 /* XCRemoteSwiftPackageReference "spline-ios" */,
 				CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				CAFE2C252C54F655000A3047 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = CA6AAC292C4B8CA10045449E /* Products */;
 			projectDirPath = "";
@@ -441,22 +512,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE3AC9B2C54F02800EE5AC5 /* NewPostSearchCellView.swift in Sources */,
 				CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */,
+				CAA0C6032C54B3F300E7433D /* HttpManager.swift in Sources */,
 				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
+				CAA0C6052C54B5E200E7433D /* HttpManager+NaverBook.swift in Sources */,
+				CAA0C6072C54B82C00E7433D /* NewPostSearchViewModel.swift in Sources */,
+				CA45F4462C550108007CE06E /* BookDetailViewModel.swift in Sources */,
 				CA83A48D2C4CB57F004F06E7 /* MyPostsView.swift in Sources */,
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
+				CAA0C6012C54B39300E7433D /* BookList.swift in Sources */,
 				CA6AC97E2C53CA3900703DB5 /* ProfileViewModel.swift in Sources */,
 				CAD8FEFE2C53D6900000446B /* ImageManager.swift in Sources */,
+				CAE3AC9D2C54F08200EE5AC5 /* NewPostSearchCellViewModel.swift in Sources */,
 				CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */,
-				CABE31CD2C4CAE600010AC20 /* NewPostView.swift in Sources */,
 				CADBA2FD2C4E757C001C6445 /* MyError.swift in Sources */,
 				CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */,
+				CAA0C5FD2C54B34600E7433D /* HttpMethod.swift in Sources */,
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
+				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CA6609BC2C4D4BE30091091F /* User.swift in Sources */,
 				CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */,
-				CAA0C5F52C549FE300E7433D /* SearchView.swift in Sources */,
+				CAA0C5F52C549FE300E7433D /* NewPostSearchView.swift in Sources */,
 				CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */,
 				CABE31CB2C4CAE550010AC20 /* PostsView.swift in Sources */,
 				CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */,
@@ -471,6 +550,7 @@
 				CA6609BE2C4D4C590091091F /* LoginViewModel.swift in Sources */,
 				CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */,
 				CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */,
+				CA45F4442C5500FC007CE06E /* BookDetailView.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +797,14 @@
 				minimumVersion = 2.22.5;
 			};
 		};
+		CAFE2C252C54F655000A3047 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -764,6 +852,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		CAFE2C262C54F655000A3047 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAFE2C252C54F655000A3047 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

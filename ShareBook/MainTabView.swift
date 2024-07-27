@@ -12,35 +12,29 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $tabIndex) {
-            SearchView()
+            PostsView()
                 .tabItem {
-                    Image(systemName: "magnifyingglass")
+                    Image(systemName: "house")
                 }
                 .tag(0)
             
-            NewPostView()
+            NewPostSearchView()
                 .tabItem {
                     Image(systemName: "plus.square.on.square")
                 }
                 .tag(1)
             
-            PostsView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
-                .tag(2)
-            
             MyPostsView()
                 .tabItem {
                     Image(systemName: "books.vertical")
                 }
-                .tag(3)
+                .tag(2)
             
             ProfileView()
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                 }
-                .tag(4)
+                .tag(3)
         }
         .tint(.black)
     }

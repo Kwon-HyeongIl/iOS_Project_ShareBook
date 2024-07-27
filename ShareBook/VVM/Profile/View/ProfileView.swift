@@ -80,7 +80,7 @@ struct ProfileView: View {
                                     .padding(.trailing, 50)
                                     
                                     VStack {
-                                        Text("북마크")
+                                        Text("담은 글")
                                             .fontWeight(.semibold)
                                         Text("n개")
                                             .fontWeight(.semibold)
@@ -93,7 +93,26 @@ struct ProfileView: View {
                         }
                     }
                     
-                    VStack {
+                    ScrollView {
+                        NavigationLink {
+                            ProfileEditView()
+                        } label: {
+                            HStack {
+                                Text("나중에 읽을 책")
+                                    .font(.system(size: 18, weight: .semibold))
+                                    .padding(.leading, 10)
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.gray)
+                                    .padding(.trailing, 10)
+                            }
+                            .padding()
+                        }
+                        
+                        Divider()
+                            .padding(.horizontal)
+                        
                         NavigationLink {
                             ProfileEditView()
                         } label: {
@@ -108,7 +127,6 @@ struct ProfileView: View {
                                     .padding(.trailing, 10)
                             }
                             .padding()
-                            
                         }
                         
                         Divider()
