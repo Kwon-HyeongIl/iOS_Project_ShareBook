@@ -18,6 +18,12 @@ class AuthManager {
     
     var currentUser: User?
     
+    init() {
+        Task {
+            await loadCurrentUserData()
+        }
+    }
+    
     func createUser(email: String, password: String, username: String) async {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
@@ -80,6 +86,15 @@ class AuthManager {
         } catch {
             print(error.localizedDescription)
             return false
+        }
+    }
+    
+    func signout() {
+        do {
+            try Auth.auth().signOut()
+            currentUser = nil
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

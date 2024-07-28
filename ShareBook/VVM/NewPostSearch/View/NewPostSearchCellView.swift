@@ -23,28 +23,36 @@ struct NewPostSearchCellView: View {
                 HStack {
                     KFImage(URL(string: viewModel.book.image))
                         .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 100)
+                        .frame(width: 90, height: 125)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.leading)
                     Spacer()
                     
-                    VStack(spacing: 20) {
+                    VStack(alignment: .leading, spacing: 15) {
                         Text("\(viewModel.book.title)")
-                            .font(.title3)
+                            .font(.system(size: 17))
                             .fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
+                            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                            .truncationMode(.tail)
+                            .frame(width: 200, alignment: .leading)
+                            .multilineTextAlignment(.leading)
                         
                         Text("\(viewModel.book.author)")
+                            .font(.system(size: 14))
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                            .frame(width: 150, alignment: .leading)
                         
                         Text("\(viewModel.book.pubdate)")
+                            .font(.system(size: 13))
                             .foregroundStyle(.gray)
                     }
-                    .padding(.trailing, 50)
+                    .padding(.horizontal, 20)
+                    .padding(.trailing, 10)
                 }
-                .frame(width: 370, height: 170)
+                .frame(width: 360, height: 160)
                 .background(.ultraThinMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
             }
             .tint(.black)

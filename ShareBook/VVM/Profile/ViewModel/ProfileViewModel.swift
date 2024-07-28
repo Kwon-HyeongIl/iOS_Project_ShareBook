@@ -25,4 +25,8 @@ class ProfileViewModel {
         self.profileImage = imageSelection.image
         self.uiImage = imageSelection.uiImage
     }
+    
+    func signout() {
+        AuthManager.shared.signout()
+    }
 }

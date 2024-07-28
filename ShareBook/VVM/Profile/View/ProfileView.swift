@@ -31,20 +31,26 @@ struct ProfileView: View {
                                     .padding(.trailing, 25)
                             }
                             
-                            Text("\(viewModel.user?.username ?? "")님")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
+                            HStack {
+                                Text("\(viewModel.user?.username ?? "")님")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                                    .padding(.leading, 17)
+                                Spacer()
+                            }
                                 
-                            Text("오늘은 책에서 어떤 가치를 발견 하셨나요?")
+                            Text("오늘은 어떤 가치를 발견 하셨나요?")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.leading, 17)
                             
                             ZStack {
                                 Rectangle()
                                     .foregroundStyle(.thickMaterial)
-                                    .frame(width: 350, height: 100)
+                                    .frame(width: 360, height: 100)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                                 
@@ -209,6 +215,14 @@ struct ProfileView: View {
                             .padding()
                         }
 
+                        Button {
+                            viewModel.signout()
+                        } label: {
+                            Text("로그아웃")
+                                .font(.callout)
+                                .foregroundStyle(.blue)
+                        }
+                        .padding(.top, 15)
                     }
                     .tint(.black)
                     

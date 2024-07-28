@@ -10,9 +10,9 @@ import SplineRuntime
 
 struct Girl3DView: View {
     var body: some View {
-        let url = URL(string: "https://build.spline.design/OXLvOKSJCJsWX1vI51tS/scene.splineswift")!
+        let url = Bundle.main.url(forResource: "girl3D", withExtension: "splineswift")!
         
-        SplineView(sceneFileURL: url).ignoresSafeArea(.all)
+        SplineView(sceneFileURL: url)
             .clipShape(Rectangle())
             .scaledToFill()
             .frame(width: 395, height: 550)

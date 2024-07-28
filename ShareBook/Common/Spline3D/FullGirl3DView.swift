@@ -10,7 +10,7 @@ import SplineRuntime
 
 struct FullGirl3DView: View {
     var body: some View {
-        let url = URL(string: "https://build.spline.design/7BgJtNEz09DV9AFPcOx2/scene.splineswift")!
+        let url = Bundle.main.url(forResource: "fullGirl3D", withExtension: "splineswift")!
         
         SplineView(sceneFileURL: url)
             .clipShape(Rectangle())

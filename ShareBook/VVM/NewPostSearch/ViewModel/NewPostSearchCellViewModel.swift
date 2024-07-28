@@ -13,5 +13,16 @@ class NewPostSearchCellViewModel {
     
     init(book: Book) {
         self.book = book
+        self.book.pubdate = convertDateFormat(book: book)
+    }
+    
+    func convertDateFormat(book: Book) -> String {
+        let rawDate = book.pubdate
+        
+        let year = rawDate.prefix(4)
+        let month = rawDate.dropFirst(4).prefix(2)
+        let day = rawDate.suffix(2)
+        
+        return "\(year).\(month).\(day)"
     }
 }
