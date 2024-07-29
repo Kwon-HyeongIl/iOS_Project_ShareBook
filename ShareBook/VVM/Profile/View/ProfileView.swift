@@ -55,24 +55,23 @@ struct ProfileView: View {
                                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                                 
                                 HStack {
-                                    
                                     if let profileImage = viewModel.profileImage {
                                         profileImage
                                             .resizable()
                                             .frame(width: 60, height: 60)
-                                            .padding(.trailing, 40)
+                                            .padding(.trailing, 50)
                                         
                                     } else if let imageUrl = viewModel.user?.profileImageUrl {
                                         KFImage(URL(string: imageUrl))
                                             .resizable()
                                             .frame(width: 60, height: 60)
-                                            .padding(.trailing, 40)
+                                            .padding(.trailing, 50)
                                         
                                     } else {
                                         Image(systemName: "person.circle.fill")
                                             .resizable()
                                             .frame(width: 60, height: 60)
-                                            .padding(.trailing, 40)
+                                            .padding(.trailing, 50)
                                     }
 
                                     
@@ -83,7 +82,7 @@ struct ProfileView: View {
                                             .fontWeight(.semibold)
                                             .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
                                     }
-                                    .padding(.trailing, 50)
+                                    .padding(.trailing, 60)
                                     
                                     VStack {
                                         Text("담은 글")

@@ -24,7 +24,7 @@ struct EnterPasswordView: View {
                     .font(.callout)
                     .padding(.bottom, 20)
                 
-                TextField("비밀번호", text: $viewModel.password)
+                SecureField("비밀번호", text: $viewModel.password)
                     .modifier(TextFieldModifier())
                     .padding(.bottom, 5)
                 

@@ -9,8 +9,6 @@ import Foundation
 
 
 class HttpManager {
-
-    static var bookList = [Book]()
     
     private init() {}
 }

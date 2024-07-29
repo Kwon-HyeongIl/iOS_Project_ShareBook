@@ -24,7 +24,7 @@ struct NewPostSearchCellView: View {
                     KFImage(URL(string: viewModel.book.image))
                         .resizable()
                         .frame(width: 90, height: 125)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .clipShape(RoundedRectangle(cornerRadius: 7))
                         .padding(.leading)
                     Spacer()
                     

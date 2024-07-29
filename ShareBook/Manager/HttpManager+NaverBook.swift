@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 extension HttpManager {
-    static func requestSearchBookList(searchQuery: String) {
+    static func requestSearchBookList(searchQuery: String, completion: @escaping ([Book]) -> Void) {
         let baseURL = "https://openapi.naver.com/v1/search/book.json"
         
         let headers: HTTPHeaders = [
@@ -37,16 +37,12 @@ extension HttpManager {
                 
                     if statusCode == 200 {
                         DispatchQueue.main.async {
-                            self.bookList = data.items
+                            completion(data.items)
                         }
                     }
                 case .failure(let error):
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    static func getBookList() -> [Book] {
-        return self.bookList
     }
 }
