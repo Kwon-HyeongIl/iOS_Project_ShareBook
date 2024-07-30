@@ -36,12 +36,12 @@ extension HttpManager {
                     guard let statusCode = response.response?.statusCode else { return }
                 
                     if statusCode == 200 {
-                        DispatchQueue.main.async {
-                            completion(data.items)
-                        }
+                        completion(data.items)
                     }
+                
                 case .failure(let error):
-                print(error.localizedDescription)
+                    print(error.localizedDescription)
+                    completion([])
             }
         }
     }

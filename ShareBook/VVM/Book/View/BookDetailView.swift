@@ -18,6 +18,30 @@ struct BookDetailView: View {
     var body: some View {
         GradientBackgroundView {
             VStack {
+                HStack {
+                    Spacer()
+                    Image(systemName: "link")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(.white)
+                        .padding(.trailing, 3)
+                    
+                    Button {
+                        Task {
+                            viewModel.isBookmark ? await viewModel.unbookmark(book: viewModel.book) : await viewModel.bookmark(book: viewModel.book)
+                        }
+                    } label: {
+                        Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .foregroundStyle(viewModel.isBookmark ? Color(red: 112/255, green: 173/255, blue: 179/255) : .white)
+                            .padding(.trailing)
+                    }
+                    
+                }
+                
                 KFImage(URL(string: viewModel.book.image))
                     .resizable()
                     .frame(width: 170, height: 230)
@@ -28,9 +52,12 @@ struct BookDetailView: View {
                 VStack {
                     ScrollView {
                         Text("\(viewModel.book.title)")
-                            .font(.title2)
+                            .font(.title)
                             .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                            .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                             .padding(.top, 20)
+                            .padding(.horizontal)
                         
                         HStack {
                             Text("\(viewModel.book.author)")
@@ -49,20 +76,24 @@ struct BookDetailView: View {
                             Text("발행")
                         }
                         .padding(.top, 5)
+                        .padding(.bottom, 10)
+                        
+                        Divider()
+                            .padding(.horizontal, 30)
                         
                         Text("\(viewModel.book.description)")
                             .multilineTextAlignment(.center)
-                            .padding(.top, 30)
+                            .padding(.top, 20)
                             .padding(.horizontal)
                             .padding(.bottom)
                         
                     }
                 }
-                .frame(width: 370, height: 350)
+                .frame(width: 370, height: 380)
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                .padding(.bottom, 15)
+                .padding(.bottom, 90)
             }
             
             

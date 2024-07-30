@@ -12,6 +12,6 @@ struct User: Codable, Identifiable {
     let id: String
     let email: String
     let username: String
-    
+
     var profileImageUrl: String?
 }

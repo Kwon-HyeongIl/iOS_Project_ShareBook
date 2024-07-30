@@ -14,7 +14,7 @@ extension LoginViewModel {
     func kakaoAuthSignIn() {
         if AuthApi.hasToken() {
             UserApi.shared.accessTokenInfo { _, error in
-                if let error = error { // 유효하지 않은 토큰
+                if let error { // 유효하지 않은 토큰
                     self.openKakaoService()
                 } else { // 유효한 토큰
                     self.continueFirebaseAuthWithKakao()
@@ -59,7 +59,7 @@ extension LoginViewModel {
                 print("Kakao Sign In Error: ", error.localizedDescription)
                 return
             }
-            
+        
             guard let email = kakaoUser?.kakaoAccount?.email else { return }
             guard let password = kakaoUser?.id else { return }
             guard let username = kakaoUser?.kakaoAccount?.profile?.nickname else { return }

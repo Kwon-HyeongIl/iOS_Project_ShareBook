@@ -76,18 +76,18 @@ class AuthManager {
             return
         }
     }
-    
+
     func isEmailExist(email: String) async -> Bool {
-        do {
-            let user = try await Firestore.firestore().collection("Users").whereField("email", isEqualTo: email).getDocuments().documents
-            
-            return user.isEmpty ? false : true
-            
-        } catch {
-            print(error.localizedDescription)
-            return false
+            do {
+                let user = try await Firestore.firestore().collection("Users").whereField("email", isEqualTo: email).getDocuments().documents
+                
+                return user.isEmpty ? false : true
+                
+            } catch {
+                print(error.localizedDescription)
+                return false
+            }
         }
-    }
     
     func signout() {
         do {
@@ -97,4 +97,5 @@ class AuthManager {
             print(error.localizedDescription)
         }
     }
+    
 }

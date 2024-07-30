@@ -71,27 +71,28 @@ struct ProfileView: View {
                                         Image(systemName: "person.circle.fill")
                                             .resizable()
                                             .frame(width: 60, height: 60)
-                                            .padding(.trailing, 50)
+                                            .padding(.trailing, 30)
                                     }
 
                                     
                                     VStack {
                                         Text("작성한 글")
                                             .fontWeight(.semibold)
+                                            .frame(maxWidth: 100)
                                         Text("n개")
                                             .fontWeight(.semibold)
                                             .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
                                     }
-                                    .padding(.trailing, 60)
                                     
                                     VStack {
-                                        Text("담은 글")
+                                        Text("하트 누른 글")
                                             .fontWeight(.semibold)
                                         Text("n개")
                                             .fontWeight(.semibold)
                                             .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
                                     }
                                     .padding(.trailing, 5)
+                                    .padding(.leading)
                                 }
                             }
                             .padding()
@@ -103,7 +104,7 @@ struct ProfileView: View {
                             ProfileEditView()
                         } label: {
                             HStack {
-                                Text("나중에 읽을 책")
+                                Text("북마크한 책")
                                     .font(.system(size: 18, weight: .semibold))
                                     .padding(.leading, 10)
                                 Spacer()

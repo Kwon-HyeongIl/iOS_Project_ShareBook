@@ -23,13 +23,13 @@ extension LoginViewModel: ASAuthorizationControllerDelegate, ASAuthorizationCont
     // 로그인 성공시 (내부적으로 호출)
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            
             let userIdentifier = appleIDCredential.user
             let fullName = (appleIDCredential.fullName?.familyName ?? "") + (appleIDCredential.fullName?.givenName ?? "")
-            guard let email = appleIDCredential.email else { return }
+//            guard let email = appleIDCredential.email else { return }
+            guard let email = JwtManager.extractEmailFromJwt(from: String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? "") else { return }
             
-//            let IdentityToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
-//            let AuthorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+            //            let IdentityToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
+            //            let AuthorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
             
             Task {
                 if await AuthManager.shared.isEmailExist(email: email) { // 기존에 가입했던 경우
