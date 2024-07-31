@@ -31,6 +31,7 @@ struct SocialLoginEditView: View {
                         .fontWeight(.semibold)
                         .toggleStyle(SwitchToggleStyle())
                         .tint(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .padding(.leading, 5)
                         .padding(.bottom, 5)
                         .onChange(of: viewModel.isKakapLogin) {
                             if viewModel.isKakapLogin { // 토글 Off -> On
@@ -57,6 +58,7 @@ struct SocialLoginEditView: View {
                         .fontWeight(.semibold)
                         .toggleStyle(SwitchToggleStyle())
                         .tint(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .padding(.leading, 5)
                         .onChange(of: viewModel.isAppleLogin) {
                             if viewModel.isAppleLogin {
                                 // 애플 로그인 연동

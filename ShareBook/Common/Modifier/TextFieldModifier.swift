@@ -12,12 +12,13 @@ struct TextFieldModifier: ViewModifier {
         content
             .textInputAutocapitalization(.never)
             .padding(12)
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .background(.regularMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
             .overlay {
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: 10)
                     .stroke(.gray, lineWidth: 1)
+                    .opacity(0.5)
             }
-            .frame(width: 363, height: 42)
+            .frame(width: 353, height: 42)
     }
 }

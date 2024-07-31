@@ -25,6 +25,7 @@ struct GradientBackgroundView<Content: View>: View {
             
             content
         }
+        .preferredColorScheme(.light)
     }
 }
 

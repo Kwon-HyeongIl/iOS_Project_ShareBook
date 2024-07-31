@@ -15,7 +15,7 @@ struct LoginView: View {
             GradientBackgroundView {
                 ZStack {
                     FullGirl3DView()
-                        .padding(.bottom, 250)
+                        .padding(.bottom, 220)
                     
                     VStack {
                         Image("ShareBook_TextLogo")
@@ -46,7 +46,7 @@ struct LoginView: View {
                         
                         HStack {
                             Text("비밀번호를 잊으셨나요?")
-                                .font(.system(size: 15))
+                                .font(.system(size: 13))
                                 .padding(.leading, 25)
                             Spacer()
                             
@@ -54,11 +54,12 @@ struct LoginView: View {
                                 EnterEmailView()
                             } label: {
                                 Text("회원가입")
-                                    .font(.system(size: 15))
+                                    .font(.system(size: 13))
                                     .foregroundStyle(.blue)
                                     .padding(.trailing, 25)
                             }
                         }
+                        .padding(.horizontal, 30)
                         .padding(.bottom, 30)
                         .padding(.top, 5)
                         
@@ -66,7 +67,8 @@ struct LoginView: View {
                             VStack {
                                 Divider().frame(width: 100)
                             }
-                            Text("Or, Continue with")
+                            Text("또는, 다음으로 계속하기")
+                                .font(.system(size: 13))
                                 .foregroundStyle(.gray)
                             VStack {
                                 Divider().frame(width: 100)
@@ -80,7 +82,7 @@ struct LoginView: View {
                             } label: {
                                 Image("Kakao_SocialLogin_Logo")
                                     .resizable()
-                                    .frame(width: 60, height: 60)
+                                    .frame(width: 55, height: 55)
                             }
                             
                             Button {
@@ -88,7 +90,7 @@ struct LoginView: View {
                             } label: {
                                 Image("Apple_SocialLogin_Logo")
                                     .resizable()
-                                    .frame(width: 60, height: 60)
+                                    .frame(width: 55, height: 55)
                                     .clipShape(Circle())
                             }
                         }

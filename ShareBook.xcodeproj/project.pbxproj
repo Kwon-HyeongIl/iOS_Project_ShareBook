@@ -14,6 +14,7 @@
 		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
 		CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */; };
 		CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */; };
+		CA584B882C5AA08E001D9194 /* fullGirl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA584B872C5AA08E001D9194 /* fullGirl3D.splineswift */; };
 		CA6609BC2C4D4BE30091091F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609BB2C4D4BE30091091F /* User.swift */; };
 		CA6609BE2C4D4C590091091F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609BD2C4D4C580091091F /* LoginViewModel.swift */; };
 		CA6609C22C4D4C8E0091091F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609C12C4D4C8E0091091F /* AuthManager.swift */; };
@@ -27,7 +28,6 @@
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA91CDE72C56558A00793F34 /* scatteredBook3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDE62C56558A00793F34 /* scatteredBook3D.splineswift */; };
 		CA91CDE92C56559200793F34 /* girl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDE82C56559200793F34 /* girl3D.splineswift */; };
-		CA91CDEB2C56559A00793F34 /* fullGirl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDEA2C56559A00793F34 /* fullGirl3D.splineswift */; };
 		CAA0C5F22C54992200E7433D /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5F12C54992200E7433D /* ProfileEditView.swift */; };
 		CAA0C5F52C549FE300E7433D /* NewPostSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */; };
 		CAA0C5FD2C54B34600E7433D /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */; };
@@ -83,6 +83,7 @@
 		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonModifier.swift; sourceTree = "<group>"; };
+		CA584B872C5AA08E001D9194 /* fullGirl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = fullGirl3D.splineswift; sourceTree = "<group>"; };
 		CA6609BB2C4D4BE30091091F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA6609BD2C4D4C580091091F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CA6609C12C4D4C8E0091091F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA91CDE62C56558A00793F34 /* scatteredBook3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = scatteredBook3D.splineswift; sourceTree = "<group>"; };
 		CA91CDE82C56559200793F34 /* girl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = girl3D.splineswift; sourceTree = "<group>"; };
-		CA91CDEA2C56559A00793F34 /* fullGirl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = fullGirl3D.splineswift; sourceTree = "<group>"; };
 		CAA0C5F12C54992200E7433D /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostSearchView.swift; sourceTree = "<group>"; };
 		CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 				CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */,
 				CA91CDE62C56558A00793F34 /* scatteredBook3D.splineswift */,
 				CA91CDE82C56559200793F34 /* girl3D.splineswift */,
-				CA91CDEA2C56559A00793F34 /* fullGirl3D.splineswift */,
+				CA584B872C5AA08E001D9194 /* fullGirl3D.splineswift */,
 				CAE601632C50F6570013413C /* Info.plist */,
 				CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */,
 				CA6AAC2D2C4B8CA10045449E /* ContentView.swift */,
@@ -540,7 +540,7 @@
 				CA6AAC332C4B8CA20045449E /* Preview Assets.xcassets in Resources */,
 				CA6AAC302C4B8CA20045449E /* Assets.xcassets in Resources */,
 				CABE31B92C4CAA450010AC20 /* GoogleService-Info.plist in Resources */,
-				CA91CDEB2C56559A00793F34 /* fullGirl3D.splineswift in Resources */,
+				CA584B882C5AA08E001D9194 /* fullGirl3D.splineswift in Resources */,
 				CA91CDE72C56558A00793F34 /* scatteredBook3D.splineswift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
