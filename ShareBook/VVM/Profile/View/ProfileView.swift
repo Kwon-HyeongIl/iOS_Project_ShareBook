@@ -104,107 +104,41 @@ struct ProfileView: View {
                             ProfileEditView()
                         } label: {
                             HStack {
+                                Image(systemName: "bookmark")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 27, height: 27)
+                                    .padding(.leading, 5)
+                                
                                 Text("북마크한 책")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .padding(.leading, 10)
+                                    .font(.system(size: 17, weight: .semibold))
+                                    .padding(.leading, 5)
                                 Spacer()
                                 
                                 Image(systemName: "chevron.right")
                                     .foregroundStyle(.gray)
                                     .padding(.trailing, 10)
                             }
-                            .padding()
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 10)
                         }
                         
                         Divider()
                             .padding(.horizontal)
                         
                         NavigationLink {
-                            ProfileEditView()
+                            AccountRelatedView()
                         } label: {
                             HStack {
-                                Text("프로필 수정")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .padding(.leading, 10)
-                                Spacer()
+                                Image(systemName: "person")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26, height: 26)
+                                    .padding(.leading, 5)
                                 
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(.gray)
-                                    .padding(.trailing, 10)
-                            }
-                            .padding()
-                        }
-                        
-                        Divider()
-                            .padding(.horizontal)
-                        
-                        NavigationLink {
-                            
-                        } label: {
-                            HStack {
-                                Text("로그인 방식 변경")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .padding(.leading, 10)
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(.gray)
-                                    .padding(.trailing, 10)
-
-                            }
-                            .padding()
-                        }
-                        
-                        Divider()
-                            .padding(.horizontal)
-                        
-                        NavigationLink {
-                            
-                        } label: {
-                            HStack {
-                                Text("공지사항")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .padding(.leading, 10)
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(.gray)
-                                    .padding(.trailing, 10)
-
-                            }
-                            .padding()
-                        }
-                        
-                        Divider()
-                            .padding(.horizontal)
-                        
-                        NavigationLink {
-                            
-                        } label: {
-                            HStack {
-                                Text("알림 설정")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .padding(.leading, 10)
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(.gray)
-                                    .padding(.trailing, 10)
-
-                            }
-                            .padding()
-                        }
-                        
-                        Divider()
-                            .padding(.horizontal)
-                        
-                        NavigationLink {
-                            
-                        } label: {
-                            HStack {
                                 Text("계정 관련")
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .padding(.leading, 10)
+                                    .font(.system(size: 17, weight: .semibold))
+                                    .padding(.leading, 5)
                                 Spacer()
                                 
                                 Image(systemName: "chevron.right")
@@ -212,17 +146,73 @@ struct ProfileView: View {
                                     .padding(.trailing, 10)
 
                             }
-                            .padding()
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 10)
+                        }
+                        
+                        Divider()
+                            .padding(.horizontal)
+                        
+                        NavigationLink {
+                            
+                        } label: {
+                            HStack {
+                                Image(systemName: "bell")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 25, height: 25)
+                                    .padding(.leading, 5)
+                                
+                                Text("알림 설정")
+                                    .font(.system(size: 17, weight: .semibold))
+                                    .padding(.leading, 5)
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.gray)
+                                    .padding(.trailing, 10)
+
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 10)
+                        }
+                        
+                        Divider()
+                            .padding(.horizontal)
+                        
+                        NavigationLink {
+                            
+                        } label: {
+                            HStack {
+                                Image(systemName: "speaker.wave.2")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26, height: 26)
+                                    .padding(.leading, 5)
+                                
+                                Text("공지 사항")
+                                    .font(.system(size: 17, weight: .semibold))
+                                    .padding(.leading, 5)
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.gray)
+                                    .padding(.trailing, 10)
+
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 10)
                         }
 
                         Button {
                             viewModel.signout()
                         } label: {
                             Text("로그아웃")
-                                .font(.callout)
+                                .font(.system(size: 12))
                                 .foregroundStyle(.blue)
                         }
-                        .padding(.top, 15)
+                        .padding(.horizontal, 10)
+                        .padding(.top, 20)
                     }
                     .tint(.black)
                     

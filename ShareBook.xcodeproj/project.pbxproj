@@ -69,6 +69,9 @@
 		CAE601682C5100FA0013413C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CAE601672C5100FA0013413C /* .gitignore */; };
 		CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */; };
 		CAEDAB562C5A015A0077883E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAEDAB552C5A015A0077883E /* CryptoSwift */; };
+		CAEDAB582C5A4BF20077883E /* AccountRelatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDAB572C5A4BF20077883E /* AccountRelatedView.swift */; };
+		CAEDAB5A2C5A54D60077883E /* SocialLoginEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDAB592C5A54D60077883E /* SocialLoginEditView.swift */; };
+		CAEDAB5C2C5A61800077883E /* SocialLoginEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDAB5B2C5A61800077883E /* SocialLoginEditViewModel.swift */; };
 		CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAFE2C262C54F655000A3047 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +132,9 @@
 		CAE601662C51005B0013413C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		CAE601672C5100FA0013413C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Hash.swift"; sourceTree = "<group>"; };
+		CAEDAB572C5A4BF20077883E /* AccountRelatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRelatedView.swift; sourceTree = "<group>"; };
+		CAEDAB592C5A54D60077883E /* SocialLoginEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginEditView.swift; sourceTree = "<group>"; };
+		CAEDAB5B2C5A61800077883E /* SocialLoginEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginEditViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +292,8 @@
 			children = (
 				CABE31C82C4CAE170010AC20 /* ProfileView.swift */,
 				CAA0C5F12C54992200E7433D /* ProfileEditView.swift */,
+				CAEDAB572C5A4BF20077883E /* AccountRelatedView.swift */,
+				CAEDAB592C5A54D60077883E /* SocialLoginEditView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */,
+				CAEDAB5B2C5A61800077883E /* SocialLoginEditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -557,6 +566,8 @@
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
+				CAEDAB582C5A4BF20077883E /* AccountRelatedView.swift in Sources */,
+				CAEDAB5C2C5A61800077883E /* SocialLoginEditViewModel.swift in Sources */,
 				CAA0C6012C54B39300E7433D /* BookList.swift in Sources */,
 				CA6AC97E2C53CA3900703DB5 /* ProfileViewModel.swift in Sources */,
 				CAD8FEFE2C53D6900000446B /* ImageManager.swift in Sources */,
@@ -579,6 +590,7 @@
 				CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */,
 				CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */,
 				CAD0F3732C4E11C6006ABFD1 /* EnterEmailView.swift in Sources */,
+				CAEDAB5A2C5A54D60077883E /* SocialLoginEditView.swift in Sources */,
 				CAA0C5F22C54992200E7433D /* ProfileEditView.swift in Sources */,
 				CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */,
 				CA6609C22C4D4C8E0091091F /* AuthManager.swift in Sources */,
