@@ -24,11 +24,20 @@ class AuthManager {
         }
     }
     
-    func createUser(email: String, password: String, username: String) async {
+    func createUser(email: String, password: String, username: String, kakaoHashedUid: String = "", appleHashedUid: String = "") async {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
-            await uploadUserData(userId: userId, email: email, username: username)
+            
+            if kakaoHashedUid.isEmpty && appleHashedUid.isEmpty { // 베이직 화원가입
+                await uploadUserData(userId: userId, email: email, username: username)
+                
+            } else if kakaoHashedUid.isEmpty { // 애플 회원가입
+                await uploadUserData(userId: userId, email: email, username: username, appleHashedUid: appleHashedUid)
+                
+            } else { // 카카오 회원가입
+                await uploadUserData(userId: userId, email: email, username: username, kakaoHashedUid: kakaoHashedUid)
+            }
             
         } catch {
             print("회원가입 에러, \(error.localizedDescription)")
@@ -38,8 +47,16 @@ class AuthManager {
         }
     }
     
-    func uploadUserData(userId: String, email: String, username: String) async {
-        self.currentUser = User(id: userId, email: email, username: username)
+    func uploadUserData(userId: String, email: String, username: String, kakaoHashedUid: String = "", appleHashedUid: String = "") async {
+        if kakaoHashedUid.isEmpty && appleHashedUid.isEmpty { // 베이직 회원가입
+            self.currentUser = User(id: userId, username: username, authEmail: email)
+            
+        } else if kakaoHashedUid.isEmpty { // 애플 회원가입
+            self.currentUser = User(id: userId, username: username, authEmail: email, appleHashedUid: appleHashedUid)
+            
+        } else { // 카카오 회원가입
+            self.currentUser = User(id: userId, username: username, authEmail: email, kakaoHashedUid: kakaoHashedUid)
+        }
         
         do {
             let encodedUser = try Firestore.Encoder().encode(currentUser)
@@ -76,18 +93,34 @@ class AuthManager {
             return
         }
     }
-
-    func isEmailExist(email: String) async -> Bool {
-            do {
-                let user = try await Firestore.firestore().collection("Users").whereField("email", isEqualTo: email).getDocuments().documents
-                
-                return user.isEmpty ? false : true
-                
-            } catch {
-                print(error.localizedDescription)
-                return false
-            }
+    
+    func getAuthEmailWithKakaoUid(uid: String) async -> String? {
+        do {
+            let user = try await Firestore.firestore().collection("Users").whereField("kakaoUid", isEqualTo: uid).getDocuments().documents
+            if user.isEmpty { return nil }
+            let findUser = try user.first?.data(as: User.self)
+            
+            return findUser?.authEmail
+            
+        } catch {
+            print(error.localizedDescription)
+            return nil
         }
+    }
+    
+    func getAuthEmailWithAppleUid(uid: String) async -> String? {
+        do {
+            let user = try await Firestore.firestore().collection("Users").whereField("appleUid", isEqualTo: uid).getDocuments().documents
+            if user.isEmpty { return nil }
+            let findUser = try user.first?.data(as: User.self)
+            
+            return findUser?.authEmail
+            
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
     
     func signout() {
         do {

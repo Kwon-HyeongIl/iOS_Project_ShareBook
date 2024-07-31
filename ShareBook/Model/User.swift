@@ -10,8 +10,13 @@ import FirebaseAuth
 
 struct User: Codable, Identifiable {
     let id: String
-    let email: String
     let username: String
+    
+    var authEmail: String
+    var kakaoHashedUid: String?
+    var appleHashedUid: String?
 
+    var contactEmail: String?
+    
     var profileImageUrl: String?
 }

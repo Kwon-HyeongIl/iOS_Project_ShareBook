@@ -67,6 +67,8 @@
 		CAE601622C50F5D50013413C /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = CAE601612C50F5D50013413C /* KakaoSDKUser */; };
 		CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */; };
 		CAE601682C5100FA0013413C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CAE601672C5100FA0013413C /* .gitignore */; };
+		CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */; };
+		CAEDAB562C5A015A0077883E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAEDAB552C5A015A0077883E /* CryptoSwift */; };
 		CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAFE2C262C54F655000A3047 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +128,7 @@
 		CAE601642C50FCB80013413C /* LoginViewModel+Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Kakao.swift"; sourceTree = "<group>"; };
 		CAE601662C51005B0013413C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		CAE601672C5100FA0013413C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Hash.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 				CABE31BE2C4CAB090010AC20 /* FirebaseFirestore in Frameworks */,
 				CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */,
 				CABE31C02C4CAB090010AC20 /* FirebaseFirestoreSwift in Frameworks */,
+				CAEDAB562C5A015A0077883E /* CryptoSwift in Frameworks */,
 				CAC3304E2C4F4327003C8A71 /* SplineRuntime in Frameworks */,
 				CABE31C52C4CAD390010AC20 /* Kingfisher in Frameworks */,
 				CAE601622C50F5D50013413C /* KakaoSDKUser in Frameworks */,
@@ -306,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6609C12C4D4C8E0091091F /* AuthManager.swift */,
+				CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */,
 				CAD8FEFD2C53D6900000446B /* ImageManager.swift */,
 				CAA0C6022C54B3F300E7433D /* HttpManager.swift */,
 				CAA0C6042C54B5E200E7433D /* HttpManager+NaverBook.swift */,
@@ -469,6 +474,7 @@
 				CAE6015F2C50F5D50013413C /* KakaoSDKCommon */,
 				CAE601612C50F5D50013413C /* KakaoSDKUser */,
 				CAFE2C262C54F655000A3047 /* Alamofire */,
+				CAEDAB552C5A015A0077883E /* CryptoSwift */,
 			);
 			productName = ShareBook;
 			productReference = CA6AAC282C4B8CA10045449E /* ShareBook.app */;
@@ -504,6 +510,7 @@
 				CAC3304C2C4F4327003C8A71 /* XCRemoteSwiftPackageReference "spline-ios" */,
 				CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				CAFE2C252C54F655000A3047 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CAEDAB542C5A015A0077883E /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = CA6AAC292C4B8CA10045449E /* Products */;
 			projectDirPath = "";
@@ -546,6 +553,7 @@
 				CA45F4462C550108007CE06E /* BookDetailViewModel.swift in Sources */,
 				CA83A48D2C4CB57F004F06E7 /* MyPostsView.swift in Sources */,
 				CAD8FE052C55EAD5000E3150 /* ScatteredBook3DView.swift in Sources */,
+				CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */,
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
@@ -827,6 +835,14 @@
 				minimumVersion = 2.22.5;
 			};
 		};
+		CAEDAB542C5A015A0077883E /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.2;
+			};
+		};
 		CAFE2C252C54F655000A3047 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -882,6 +898,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		CAEDAB552C5A015A0077883E /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAEDAB542C5A015A0077883E /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 		CAFE2C262C54F655000A3047 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
