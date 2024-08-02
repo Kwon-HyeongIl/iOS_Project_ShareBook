@@ -108,10 +108,11 @@ struct ProfileView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 27, height: 27)
+                                    .fontWeight(.light)
                                     .padding(.leading, 5)
                                 
                                 Text("북마크한 책")
-                                    .font(.system(size: 17, weight: .semibold))
+                                    .font(.system(size: 17, weight: .medium))
                                     .padding(.leading, 5)
                                 Spacer()
                                 
@@ -134,10 +135,11 @@ struct ProfileView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 26, height: 26)
+                                    .fontWeight(.light)
                                     .padding(.leading, 5)
                                 
                                 Text("계정 관련")
-                                    .font(.system(size: 17, weight: .semibold))
+                                    .font(.system(size: 17, weight: .medium))
                                     .padding(.leading, 5)
                                 Spacer()
                                 
@@ -161,10 +163,11 @@ struct ProfileView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 25, height: 25)
+                                    .fontWeight(.light)
                                     .padding(.leading, 5)
                                 
                                 Text("알림 설정")
-                                    .font(.system(size: 17, weight: .semibold))
+                                    .font(.system(size: 17, weight: .medium))
                                     .padding(.leading, 5)
                                 Spacer()
                                 
@@ -188,10 +191,11 @@ struct ProfileView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 26, height: 26)
+                                    .fontWeight(.light)
                                     .padding(.leading, 5)
                                 
                                 Text("공지 사항")
-                                    .font(.system(size: 17, weight: .semibold))
+                                    .font(.system(size: 17, weight: .medium))
                                     .padding(.leading, 5)
                                 Spacer()
                                 

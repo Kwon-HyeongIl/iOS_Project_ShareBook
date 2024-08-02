@@ -22,7 +22,7 @@ struct AccountRelatedView: View {
                         HStack {
                             Text("프로필 정보 수정")
                                 .foregroundStyle(.black)
-                                .font(.system(size: 17, weight: .semibold))
+                                .font(.system(size: 17, weight: .medium))
                                 .padding(.leading, 10)
                             Spacer()
                             
@@ -43,7 +43,7 @@ struct AccountRelatedView: View {
                         HStack {
                             Text("간편 로그인 설정")
                                 .foregroundStyle(.black)
-                                .font(.system(size: 17, weight: .semibold))
+                                .font(.system(size: 17, weight: .medium))
                                 .padding(.leading, 10)
                             Spacer()
                             

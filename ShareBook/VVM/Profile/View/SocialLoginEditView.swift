@@ -28,7 +28,7 @@ struct SocialLoginEditView: View {
                     
                     Toggle("Kakao 로그인 연동", isOn: $viewModel.isKakapLogin)
                         .font(.system(size: 18))
-                        .fontWeight(.semibold)
+                        .fontWeight(.medium)
                         .toggleStyle(SwitchToggleStyle())
                         .tint(Color(red: 112/255, green: 173/255, blue: 179/255))
                         .padding(.leading, 5)
@@ -55,7 +55,7 @@ struct SocialLoginEditView: View {
                     
                     Toggle("Apple 로그인 연동", isOn: $viewModel.isAppleLogin)
                         .font(.system(size: 18))
-                        .fontWeight(.semibold)
+                        .fontWeight(.medium)
                         .toggleStyle(SwitchToggleStyle())
                         .tint(Color(red: 112/255, green: 173/255, blue: 179/255))
                         .padding(.leading, 5)
