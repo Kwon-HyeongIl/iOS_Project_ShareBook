@@ -128,7 +128,7 @@ struct ProfileView: View {
                             .padding(.horizontal)
                         
                         NavigationLink {
-                            AccountRelatedView()
+                            
                         } label: {
                             HStack {
                                 Image(systemName: "person")
