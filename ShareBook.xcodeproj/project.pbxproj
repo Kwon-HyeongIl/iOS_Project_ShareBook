@@ -313,15 +313,11 @@
 		CA83A48F2C4CB6FE004F06E7 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				CA6609C12C4D4C8E0091091F /* AuthManager.swift */,
-				CAD01ED62C5F4960001E479F /* AuthManager+SocialLogin.swift */,
-				CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */,
-				CAD8FEFD2C53D6900000446B /* ImageManager.swift */,
-				CAA0C6022C54B3F300E7433D /* HttpManager.swift */,
-				CAA0C6042C54B5E200E7433D /* HttpManager+NaverBook.swift */,
-				CAC116DF2C573FB40047E7D4 /* BookManager.swift */,
-				CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */,
-				CA2CA1B02C591682001D8B89 /* JwtManager.swift */,
+				CAD01ED82C5F4A29001E479F /* Auth */,
+				CAD01ED92C5F4A3A001E479F /* Image */,
+				CAD01EDA2C5F4A40001E479F /* Http */,
+				CAD01EDB2C5F4A47001E479F /* Book */,
+				CAD01EDC2C5F4A5E001E479F /* Jwt */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -405,6 +401,50 @@
 				CA2567042C56A060009F13A2 /* Test3DView.swift */,
 			);
 			path = Spline3D;
+			sourceTree = "<group>";
+		};
+		CAD01ED82C5F4A29001E479F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CA6609C12C4D4C8E0091091F /* AuthManager.swift */,
+				CAD01ED62C5F4960001E479F /* AuthManager+SocialLogin.swift */,
+				CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		CAD01ED92C5F4A3A001E479F /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				CAD8FEFD2C53D6900000446B /* ImageManager.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		CAD01EDA2C5F4A40001E479F /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				CAA0C6022C54B3F300E7433D /* HttpManager.swift */,
+				CAA0C6042C54B5E200E7433D /* HttpManager+NaverBook.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		CAD01EDB2C5F4A47001E479F /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CAC116DF2C573FB40047E7D4 /* BookManager.swift */,
+				CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		CAD01EDC2C5F4A5E001E479F /* Jwt */ = {
+			isa = PBXGroup;
+			children = (
+				CA2CA1B02C591682001D8B89 /* JwtManager.swift */,
+			);
+			path = Jwt;
 			sourceTree = "<group>";
 		};
 		CAD0F3662C4DF2B1006ABFD1 /* Signup */ = {

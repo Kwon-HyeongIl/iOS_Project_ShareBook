@@ -16,10 +16,12 @@ class JwtManager {
         let length = Double(base64.lengthOfBytes(using: .utf8))
         let requiredLength = 4 * ceil(length / 4.0)
         let paddingLength = requiredLength - length
+        
         if paddingLength > 0 {
             let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
             base64.append(padding)
         }
+        
         return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
     }
 
@@ -29,6 +31,7 @@ class JwtManager {
               let payload = json as? [String: Any] else {
             return nil
         }
+        
         return payload
     }
 
@@ -39,6 +42,7 @@ class JwtManager {
         if let payload = decodeJWTPart(String(segments[1])),
            let email = payload["email"] as? String {
             return email
+            
         } else {
             return nil
         }
