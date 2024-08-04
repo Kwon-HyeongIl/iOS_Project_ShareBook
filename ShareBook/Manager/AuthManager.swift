@@ -94,33 +94,7 @@ class AuthManager {
         }
     }
     
-    func getAuthEmailWithKakaoUid(uid: String) async -> String? {
-        do {
-            let user = try await Firestore.firestore().collection("Users").whereField("kakaoHashedUid", isEqualTo: uid).getDocuments().documents
-            if user.isEmpty { return nil }
-            let findUser = try user.first?.data(as: User.self)
-            
-            return findUser?.authEmail
-            
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
-    }
     
-    func getAuthEmailWithAppleUid(uid: String) async -> String? {
-        do {
-            let user = try await Firestore.firestore().collection("Users").whereField("appleHashedUid", isEqualTo: uid).getDocuments().documents
-            if user.isEmpty { return nil }
-            let findUser = try user.first?.data(as: User.self)
-            
-            return findUser?.authEmail
-            
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
-    }
     
     func signout() {
         do {
