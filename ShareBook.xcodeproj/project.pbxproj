@@ -23,6 +23,7 @@
 		CA6AAC302C4B8CA20045449E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */; };
 		CA6AAC332C4B8CA20045449E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */; };
 		CA6AC97E2C53CA3900703DB5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */; };
+		CA812E7C2C5F7A5A00B9BC8A /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA812E7B2C5F7A5A00B9BC8A /* CustomTabView.swift */; };
 		CA83A48D2C4CB57F004F06E7 /* MyPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A48C2C4CB57F004F06E7 /* MyPostsView.swift */; };
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
@@ -92,6 +93,7 @@
 		CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		CA812E7B2C5F7A5A00B9BC8A /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		CA83A48C2C4CB57F004F06E7 /* MyPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsView.swift; sourceTree = "<group>"; };
 		CA83A4902C4CB74B004F06E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			children = (
 				CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */,
 				CAE6015A2C5096D30013413C /* SplashView.swift */,
+				CA812E7B2C5F7A5A00B9BC8A /* CustomTabView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
 				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */,
+				CA812E7C2C5F7A5A00B9BC8A /* CustomTabView.swift in Sources */,
 				CA6609BC2C4D4BE30091091F /* User.swift in Sources */,
 				CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */,
 				CAA0C5F52C549FE300E7433D /* NewPostSearchView.swift in Sources */,

@@ -8,35 +8,33 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State var tabIndex = 0
+    @State private var selectedTab: Tab = .house
+    
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     
     var body: some View {
-        TabView(selection: $tabIndex) {
-            PostsView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
-                .tag(0)
+        ZStack {
+            switch selectedTab {
+            case .house:
+                PostsView()
+                
+            case .plusSquareOnSquare:
+                NewPostSearchView()
+                
+            case .booksVertical:
+                MyPostsView()
+                
+            case .personCropCircle:
+                ProfileView()
+            }
             
-            NewPostSearchView()
-                .tabItem {
-                    Image(systemName: "plus.square.on.square")
-                }
-                .tag(1)
-            
-            MyPostsView()
-                .tabItem {
-                    Image(systemName: "books.vertical")
-                }
-                .tag(2)
-            
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                }
-                .tag(3)
+            VStack {
+                Spacer()
+                CustomTabView(selectedTab: $selectedTab)
+            }
         }
-        .tint(.black)
     }
 }
 
