@@ -18,30 +18,6 @@ struct BookDetailView: View {
     var body: some View {
         GradientBackgroundView {
             VStack {
-                HStack {
-                    Spacer()
-                    Image(systemName: "link")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .foregroundStyle(.white)
-                        .padding(.trailing, 3)
-                    
-                    Button {
-                        Task {
-                            viewModel.isBookmark ? await viewModel.unbookmark(book: viewModel.book) : await viewModel.bookmark(book: viewModel.book)
-                        }
-                    } label: {
-                        Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30, height: 30)
-                            .foregroundStyle(viewModel.isBookmark ? Color(red: 112/255, green: 173/255, blue: 179/255) : .white)
-                            .padding(.trailing)
-                    }
-                    
-                }
-                
                 KFImage(URL(string: viewModel.book.image))
                     .resizable()
                     .frame(width: 170, height: 230)
@@ -93,12 +69,39 @@ struct BookDetailView: View {
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                .padding(.bottom, 90)
             }
             
             
         }
         .modifier(BackButtonModifier())
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "link")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .foregroundStyle(.white)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    Task {
+                        viewModel.isBookmark ? await viewModel.unbookmark() : await viewModel.bookmark()
+                    }
+                } label: {
+                    Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .foregroundStyle(viewModel.isBookmark ? Color(red: 112/255, green: 173/255, blue: 179/255) : .white)
+                        .padding(.trailing, 5)
+                }
+            }
+        }
     }
 }
 

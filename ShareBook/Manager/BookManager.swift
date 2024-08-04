@@ -42,7 +42,7 @@ class BookManager {
         guard let userId = AuthManager.shared.currentUser?.id else { return false}
         
         do {
-            return try await Firestore.firestore()
+            return try await !Firestore.firestore()
                 .collection("Users").document(userId)
                 .collection("Users_Bookmark").whereField("isbn", isEqualTo: isbn).getDocuments().isEmpty
         } catch {

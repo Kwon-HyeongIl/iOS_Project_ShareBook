@@ -16,21 +16,21 @@ class BookDetailViewModel {
         self.book = book
         
         Task {
-            await isBookmark(isbn: book.isbn)
+            await isBookmark()
         }
     }
     
-    func bookmark(book: Book) async {
-        await BookManager.bookmark(book: book)
+    func bookmark() async {
+        await BookManager.bookmark(book: self.book)
         self.isBookmark = true
     }
     
-    func unbookmark(book: Book) async {
-        await BookManager.unbookmark(book: book)
+    func unbookmark() async {
+        await BookManager.unbookmark(book: self.book)
         self.isBookmark = false
     }
     
-    private func isBookmark(isbn: String) async {
-        self.isBookmark = await BookManager.isBookmark(isbn: isbn)
+    private func isBookmark() async {
+        self.isBookmark = await BookManager.isBookmark(isbn: self.book.isbn)
     }
 }
