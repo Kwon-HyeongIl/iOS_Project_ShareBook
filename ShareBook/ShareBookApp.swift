@@ -35,7 +35,7 @@ struct ShareBookApp: App {
                 
                 // Kakao 로그인 URL 처리
                 if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                    AuthController.handleOpenUrl(url: url)
+                    _ = AuthController.handleOpenUrl(url: url)
                 }
             }
         }

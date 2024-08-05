@@ -1,14 +1,14 @@
 //
-//  SearchCellView.swift
+//  NewPostBookCoverView.swift
 //  ShareBook
 //
-//  Created by 권형일 on 7/27/24.
+//  Created by 권형일 on 8/5/24.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct BookCoverView: View {
+struct NewPostBookCoverView: View {
     @State var viewModel: BookCoverViewModel
     
     init(book: Book) {
@@ -17,7 +17,7 @@ struct BookCoverView: View {
     
     var body: some View {
         NavigationLink {
-            BookDetailView(book: viewModel.book)
+            NewPostBookDetailVIew(book: viewModel.book)
         } label: {
             HStack {
                 KFImage(URL(string: viewModel.book.image))
@@ -59,5 +59,5 @@ struct BookCoverView: View {
 }
 
 #Preview {
-    BookCoverView(book: Book.DUMMY_BOOK)
+    NewPostBookCoverView(book: Book.DUMMY_BOOK)
 }

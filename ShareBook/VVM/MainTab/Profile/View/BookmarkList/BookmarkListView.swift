@@ -14,7 +14,7 @@ struct BookmarkListView: View {
         GradientBackgroundView {
             VStack {
                 Text("북마크한 책")
-                    .font(.title)
+                    .font(.title2)
                     .fontWeight(.semibold)
                 
                 ScrollView {

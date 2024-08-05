@@ -13,9 +13,8 @@ struct ScatteredBook3DView: View {
         let url = Bundle.main.url(forResource: "scatteredBook3D", withExtension: "splineswift")!
          
         SplineView(sceneFileURL: url)
-            .clipShape(Rectangle())
             .scaledToFill()
-            .frame(width: 395, height: 550)
+            .frame(width: 250, height: 170)
     }
 }
 

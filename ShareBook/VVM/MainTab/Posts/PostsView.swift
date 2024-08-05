@@ -9,7 +9,21 @@ import SwiftUI
 
 struct PostsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            GradientBackgroundView {
+                VStack {
+                    Image("ShareBook_TextLogo")
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Rectangle())
+                        .frame(width: 100)
+                    
+                    ScrollView {
+                        
+                    }
+                }
+            }
+        }
     }
 }
 

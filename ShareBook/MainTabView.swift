@@ -15,26 +15,29 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        ZStack {
-            switch selectedTab {
-            case .house:
-                PostsView()
+        NavigationStack {
+            ZStack {
+                switch selectedTab {
+                case .house:
+                    PostsView()
+                    
+                case .plusSquareOnSquare:
+                    NewPostSearchView()
+                    
+                case .booksVertical:
+                    MyPostsView()
+                    
+                case .personCropCircle:
+                    ProfileView()
+                }
                 
-            case .plusSquareOnSquare:
-                NewPostSearchView()
-                
-            case .booksVertical:
-                MyPostsView()
-                
-            case .personCropCircle:
-                ProfileView()
-            }
-            
-            VStack {
-                Spacer()
-                CustomTabView(selectedTab: $selectedTab)
+                VStack {
+                    Spacer()
+                    CustomTabView(selectedTab: $selectedTab)
+                }
             }
         }
+        .tint(.black)
     }
 }
 

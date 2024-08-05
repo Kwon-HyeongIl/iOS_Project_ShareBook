@@ -26,7 +26,7 @@ class ImageManager {
         let reference = Storage.storage().reference(withPath: "/\(path)/\(fileName)")
 
         do {
-            let metaData = try await reference.putDataAsync(imageData)
+            _ = try await reference.putDataAsync(imageData)
             let url = try await reference.downloadURL()
             
             return url.absoluteString

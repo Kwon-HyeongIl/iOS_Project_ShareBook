@@ -1,14 +1,14 @@
 //
-//  BookDetailView.swift
+//  NewPostBookDetailVIew.swift
 //  ShareBook
 //
-//  Created by 권형일 on 7/27/24.
+//  Created by 권형일 on 8/5/24.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct BookDetailView: View {
+struct NewPostBookDetailVIew: View {
     @State var viewModel: BookDetailViewModel
     
     init(book: Book) {
@@ -18,12 +18,32 @@ struct BookDetailView: View {
     var body: some View {
         GradientBackgroundView {
             VStack {
-                KFImage(URL(string: viewModel.book.image))
-                    .resizable()
-                    .frame(width: 170, height: 230)
-                    .clipShape(RoundedRectangle(cornerRadius: 7))
-                    .shadow(color: .gray.opacity(0.8), radius: 10, x: 5, y: 5)
-                    .padding(.bottom)
+                ZStack {
+                    HStack {
+                        KFImage(URL(string: viewModel.book.image))
+                            .resizable()
+                            .frame(width: 170, height: 230, alignment: .center)
+                            .clipShape(RoundedRectangle(cornerRadius: 7))
+                            .shadow(color: .gray.opacity(0.8), radius: 10, x: 5, y: 5)
+                            .padding(.bottom, 10)
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    NavigationLink {
+                        
+                    } label: {
+                        HStack {
+                            Text("글 작성")
+                                .font(.system(size: 18))
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .frame(width: 13, height: 13)
+                        }
+                        .foregroundStyle(.blue)
+                        .padding(.leading, 280)
+                        .padding(.top, 195)
+                    }
+                }
                 
                 VStack {
                     ScrollView {
@@ -106,5 +126,5 @@ struct BookDetailView: View {
 }
 
 #Preview {
-    BookDetailView(book: Book.DUMMY_BOOK)
+    NewPostBookDetailVIew(book: Book.DUMMY_BOOK)
 }
