@@ -8,11 +8,11 @@
 import SwiftUI
 import Kingfisher
 
-struct NewPostSearchCellView: View {
-    @State var viewModel: NewPostSearchCellViewModel
+struct BookCoverView: View {
+    @State var viewModel: BookCoverViewModel
     
     init(book: Book) {
-        self.viewModel = NewPostSearchCellViewModel(book: book)
+        self.viewModel = BookCoverViewModel(book: book)
     }
     
     var body: some View {
@@ -52,6 +52,7 @@ struct NewPostSearchCellView: View {
             .frame(width: 360, height: 160)
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
+            .padding(.horizontal)
             .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
         }
         .tint(.black)
@@ -59,5 +60,5 @@ struct NewPostSearchCellView: View {
 }
 
 #Preview {
-    NewPostSearchCellView(book: Book.DUMMY_BOOK)
+    BookCoverView(book: Book.DUMMY_BOOK)
 }

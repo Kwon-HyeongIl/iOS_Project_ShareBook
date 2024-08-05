@@ -16,6 +16,7 @@ struct Book: Codable, Hashable {
     var pubdate: String
     let description: String
     let link: String
+    var bookmarkDate: Date?
 }
 
 extension Book {

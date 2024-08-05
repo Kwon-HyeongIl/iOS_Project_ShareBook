@@ -70,7 +70,7 @@ struct BookDetailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
             }
-            
+            .padding(.bottom, 30)
             
         }
         .modifier(BackButtonModifier())

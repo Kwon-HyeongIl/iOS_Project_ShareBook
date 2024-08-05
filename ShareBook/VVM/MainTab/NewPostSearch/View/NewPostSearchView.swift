@@ -41,7 +41,7 @@ struct NewPostSearchView: View {
                 
                 ScrollView {
                     ForEach(viewModel.bookList, id: \.self) { book in
-                        NewPostSearchCellView(book: book)
+                        BookCoverView(book: book)
                     }
                 }
             }

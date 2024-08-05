@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class NewPostSearchCellViewModel {
+class BookCoverViewModel {
     var book: Book
     
     init(book: Book) {

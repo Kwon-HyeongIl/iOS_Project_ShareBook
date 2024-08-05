@@ -18,7 +18,7 @@ struct ProfileView: View {
                     ZStack {
                         Rectangle()
                             .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
-                            .frame(width: .infinity, height: 300)
+                            .frame(height: 300)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                         
@@ -102,7 +102,7 @@ struct ProfileView: View {
                     
                     ScrollView {
                         NavigationLink {
-                            ProfileEditView()
+                            BookmarkListView()
                         } label: {
                             HStack {
                                 Image(systemName: "bookmark")
