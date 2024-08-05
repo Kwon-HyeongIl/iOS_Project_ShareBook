@@ -246,6 +246,7 @@
 				CAD0F36D2C4DFB70006ABFD1 /* Common */,
 				CAA0C5FB2C54B31F00E7433D /* Http */,
 				CADBA2FB2C4E7552001C6445 /* Error */,
+				CA812E7F2C5F976800B9BC8A /* Text */,
 				CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */,
 				CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */,
 				CA6AAC312C4B8CA20045449E /* Preview Content */,
@@ -302,6 +303,13 @@
 				CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CA812E7F2C5F976800B9BC8A /* Text */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 		CA83A48E2C4CB584004F06E7 /* MyPosts */ = {

@@ -21,7 +21,7 @@ struct GradientBackgroundView<Content: View>: View {
                         Gradient.Stop(color: Color(red: 207/255, green: 220/255, blue: 230/255), location: 0.6),
                         Gradient.Stop(color: Color(red: 197/255, green: 224/255, blue: 208/255), location: 1)
                     ], startPoint: .topLeading, endPoint: .bottomTrailing)
-            .ignoresSafeArea()
+            .ignoresSafeArea(edges: .vertical)
             
             content
         }

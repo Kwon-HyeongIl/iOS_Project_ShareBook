@@ -18,7 +18,8 @@ struct ProfileView: View {
                     ZStack {
                         Rectangle()
                             .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
-                            .frame(height: 300)
+                            .frame(width: .infinity, height: 300)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                         
                         VStack {
@@ -50,7 +51,7 @@ struct ProfileView: View {
                             ZStack {
                                 Rectangle()
                                     .foregroundStyle(.thickMaterial)
-                                    .frame(width: 360, height: 100)
+                                    .frame(height: 100)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                                 
