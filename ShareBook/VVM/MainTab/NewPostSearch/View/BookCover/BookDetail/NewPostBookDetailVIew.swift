@@ -85,12 +85,14 @@ struct NewPostBookDetailVIew: View {
                         
                     }
                 }
-                .frame(width: 370, height: 380)
+                .frame(maxHeight: .infinity)
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding(.horizontal)
                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                
             }
-            .padding(.bottom, 30)
+            .padding(.bottom)
             
         }
         .modifier(BackButtonModifier())

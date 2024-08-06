@@ -85,7 +85,7 @@ struct ProfileView: View {
                                 }
                                 
                                 VStack {
-                                    Text("하트 누른 글")
+                                    Text("관심 있는 글")
                                         .fontWeight(.semibold)
                                     Text("n개")
                                         .fontWeight(.semibold)
