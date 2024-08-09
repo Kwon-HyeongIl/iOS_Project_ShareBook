@@ -173,13 +173,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CA0846CF2C607B8000D86A91 /* BookmarkList */ = {
+		CA0846CF2C607B8000D86A91 /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
 				CA0846CD2C607B7000D86A91 /* BookmarkListView.swift */,
-				CA7A1F362C66139200202921 /* BookCover */,
+				CAE3AC9A2C54F02800EE5AC5 /* BookCoverView.swift */,
+				CA45F4432C5500FC007CE06E /* BookDetailView.swift */,
 			);
-			path = BookmarkList;
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		CA0846D12C607D2F00D86A91 /* MainTab */ = {
@@ -191,14 +192,6 @@
 				CABE31CE2C4CAE690010AC20 /* Profile */,
 			);
 			path = MainTab;
-			sourceTree = "<group>";
-		};
-		CA10EEC32C60CC4D00901979 /* UploadPost */ = {
-			isa = PBXGroup;
-			children = (
-				CA10EEC12C60CC4700901979 /* NewPostUploadPostView.swift */,
-			);
-			path = UploadPost;
 			sourceTree = "<group>";
 		};
 		CA4FC6A72C4E992A00525570 /* Modifier */ = {
@@ -306,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				CABE31C82C4CAE170010AC20 /* ProfileView.swift */,
-				CA0846CF2C607B8000D86A91 /* BookmarkList */,
+				CA0846CF2C607B8000D86A91 /* Bookmark */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,23 +311,6 @@
 				CA7A1F3A2C661C4300202921 /* Bookmark */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CA7A1F362C66139200202921 /* BookCover */ = {
-			isa = PBXGroup;
-			children = (
-				CAE3AC9A2C54F02800EE5AC5 /* BookCoverView.swift */,
-				CA7A1F372C6613A300202921 /* BookDetail */,
-			);
-			path = BookCover;
-			sourceTree = "<group>";
-		};
-		CA7A1F372C6613A300202921 /* BookDetail */ = {
-			isa = PBXGroup;
-			children = (
-				CA45F4432C5500FC007CE06E /* BookDetailView.swift */,
-			);
-			path = BookDetail;
 			sourceTree = "<group>";
 		};
 		CA7A1F3A2C661C4300202921 /* Bookmark */ = {
@@ -404,7 +380,9 @@
 			isa = PBXGroup;
 			children = (
 				CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */,
-				CAAE480A2C60C3860048FE40 /* BookCover */,
+				CAAE48082C60C3660048FE40 /* NewPostBookCoverView.swift */,
+				CAAE480B2C60C3990048FE40 /* NewPostBookDetailVIew.swift */,
+				CA10EEC12C60CC4700901979 /* NewPostUploadPostView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,24 +395,6 @@
 				CA10EEC42C60CC6400901979 /* NewPostUploadPostViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CAAE480A2C60C3860048FE40 /* BookCover */ = {
-			isa = PBXGroup;
-			children = (
-				CAAE48082C60C3660048FE40 /* NewPostBookCoverView.swift */,
-				CAAE480D2C60C3CE0048FE40 /* BookDetail */,
-			);
-			path = BookCover;
-			sourceTree = "<group>";
-		};
-		CAAE480D2C60C3CE0048FE40 /* BookDetail */ = {
-			isa = PBXGroup;
-			children = (
-				CAAE480B2C60C3990048FE40 /* NewPostBookDetailVIew.swift */,
-				CA10EEC32C60CC4D00901979 /* UploadPost */,
-			);
-			path = BookDetail;
 			sourceTree = "<group>";
 		};
 		CABE31CE2C4CAE690010AC20 /* Profile */ = {
