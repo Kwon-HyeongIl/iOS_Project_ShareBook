@@ -9,15 +9,15 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostBookCoverView: View {
-    @State var viewModel: BookCoverViewModel
+    @State var viewModel: BookViewModel
     
     init(book: Book) {
-        self.viewModel = BookCoverViewModel(book: book)
+        self.viewModel = BookViewModel(book: book)
     }
     
     var body: some View {
         NavigationLink {
-            NewPostBookDetailVIew(book: viewModel.book)
+            NewPostBookDetailVIew(viewModel: viewModel)
         } label: {
             HStack {
                 KFImage(URL(string: viewModel.book.image))
@@ -49,7 +49,7 @@ struct NewPostBookCoverView: View {
                 .padding(.horizontal, 20)
                 .padding(.trailing, 10)
             }
-            .frame(width: 360, height: 160)
+            .frame(height: 160)
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .padding(.horizontal)

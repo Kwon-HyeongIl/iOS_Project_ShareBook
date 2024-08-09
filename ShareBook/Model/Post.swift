@@ -11,7 +11,7 @@ struct Post: Codable, Identifiable {
     let id: String
     let userId: String
     let impressivePhrase: String
-    let caption: String
+    let feelingCaption: String
     var like: Int
     let date: Date
     

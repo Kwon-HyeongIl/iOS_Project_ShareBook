@@ -9,5 +9,12 @@ import Foundation
 
 @Observable
 class UploadPostViewModel {
+    var book: Book
     
+    var impressivePhrase = ""
+    var feelingCaption = ""
+    
+    init(book: Book) {
+        self.book = book
+    }
 }
