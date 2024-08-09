@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookmarkListView: View {
-    @State var viewModel = BookmarkListViewModel()
+    @State var viewModel = ProfileBookmarkListViewModel()
     
     var body: some View {
         GradientBackgroundView {

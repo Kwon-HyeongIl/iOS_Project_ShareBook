@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class BookViewModel {
+class NewPostBookViewModel {
     var book: Book
     var isBookmark = false
     

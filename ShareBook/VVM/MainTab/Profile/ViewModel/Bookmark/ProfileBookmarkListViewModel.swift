@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class BookmarkListViewModel {
+class ProfileBookmarkListViewModel {
     var bookList: [Book] = []
     
     init() {

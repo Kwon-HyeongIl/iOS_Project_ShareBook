@@ -8,11 +8,11 @@
 import SwiftUI
 import Kingfisher
 
-struct UploadPostView: View {
-    @State var viewModel: UploadPostViewModel
+struct NewPostUploadPostView: View {
+    @State var viewModel: NewPostUploadPostViewModel
     
     init(book: Book) {
-        self.viewModel = UploadPostViewModel(book: book)
+        self.viewModel = NewPostUploadPostViewModel(book: book)
     }
     
     var body: some View {
@@ -112,5 +112,5 @@ struct UploadPostView: View {
 }
 
 #Preview {
-    UploadPostView(book: Book.DUMMY_BOOK)
+    NewPostUploadPostView(book: Book.DUMMY_BOOK)
 }

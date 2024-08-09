@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostBookDetailVIew: View {
-    @Bindable var viewModel: BookViewModel
+    @Bindable var viewModel: NewPostBookViewModel
     
     var body: some View {
         GradientBackgroundView {
@@ -26,7 +26,7 @@ struct NewPostBookDetailVIew: View {
                     .frame(maxWidth: .infinity)
                     
                     NavigationLink {
-                        UploadPostView(book: viewModel.book)
+                        NewPostUploadPostView(book: viewModel.book)
                     } label: {
                         HStack {
                             Text("글 작성")
@@ -124,5 +124,5 @@ struct NewPostBookDetailVIew: View {
 }
 
 #Preview {
-    NewPostBookDetailVIew(viewModel: BookViewModel(book: Book.DUMMY_BOOK))
+    NewPostBookDetailVIew(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK))
 }

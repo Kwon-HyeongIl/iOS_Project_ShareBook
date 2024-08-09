@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookDetailView: View {
-    @Bindable var viewModel: BookViewModel
+    @Bindable var viewModel: ProfileBookmarkBookViewModel
     
     var body: some View {
         GradientBackgroundView {
@@ -102,5 +102,5 @@ struct BookDetailView: View {
 }
 
 #Preview {
-    BookDetailView(viewModel: BookViewModel(book: Book.DUMMY_BOOK))
+    BookDetailView(viewModel: ProfileBookmarkBookViewModel(book: Book.DUMMY_BOOK))
 }

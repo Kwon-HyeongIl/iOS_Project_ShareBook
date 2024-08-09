@@ -9,10 +9,10 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostBookCoverView: View {
-    @State var viewModel: BookViewModel
+    @State var viewModel: NewPostBookViewModel
     
     init(book: Book) {
-        self.viewModel = BookViewModel(book: book)
+        self.viewModel = NewPostBookViewModel(book: book)
     }
     
     var body: some View {
