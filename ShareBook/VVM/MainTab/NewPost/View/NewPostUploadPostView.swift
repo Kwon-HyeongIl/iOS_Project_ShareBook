@@ -11,8 +11,11 @@ import Kingfisher
 struct NewPostUploadPostView: View {
     @State var viewModel: NewPostUploadPostViewModel
     
-    init(book: Book) {
+    @Binding var isActive: Bool
+    
+    init(book: Book, isActive: Binding<Bool>) {
         self.viewModel = NewPostUploadPostViewModel(book: book)
+        self._isActive = isActive
     }
     
     var body: some View {
@@ -98,7 +101,7 @@ struct NewPostUploadPostView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-
+                    isActive = false
                 } label: {
                     Image(systemName: "house")
                         .resizable()
@@ -113,5 +116,5 @@ struct NewPostUploadPostView: View {
 }
 
 #Preview {
-    NewPostUploadPostView(book: Book.DUMMY_BOOK)
+    NewPostUploadPostView(book: Book.DUMMY_BOOK, isActive: .constant(true))
 }

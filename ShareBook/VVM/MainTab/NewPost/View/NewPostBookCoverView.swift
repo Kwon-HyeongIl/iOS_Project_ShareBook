@@ -11,14 +11,17 @@ import Kingfisher
 struct NewPostBookCoverView: View {
     @State var viewModel: NewPostBookViewModel
     
+    @State var isActive = false
+    
     init(book: Book) {
         self.viewModel = NewPostBookViewModel(book: book)
     }
     
     var body: some View {
-        NavigationLink {
-            NewPostBookDetailView(viewModel: viewModel)
-        } label: {
+        NavigationLink(
+            destination: NewPostBookDetailView(viewModel: viewModel, isActive: $isActive),
+            isActive: $isActive,
+            label: {
             HStack {
                 KFImage(URL(string: viewModel.book.image))
                     .resizable()
@@ -54,7 +57,7 @@ struct NewPostBookCoverView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .padding(.horizontal)
             .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-        }
+        })
     }
 }
 

@@ -15,7 +15,7 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack {
                 switch selectedTab {
                 case .house:
@@ -37,6 +37,7 @@ struct MainTabView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .tint(.black)
     }
 }
