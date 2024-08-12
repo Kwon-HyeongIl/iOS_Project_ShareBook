@@ -17,4 +17,8 @@ class NewPostUploadPostViewModel {
     init(book: Book) {
         self.book = book
     }
+    
+    func uploadPost() async {
+        await PostManager.uploadPost(impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, book: book)
+    }
 }

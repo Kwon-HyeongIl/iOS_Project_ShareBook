@@ -68,7 +68,9 @@ struct NewPostUploadPostView: View {
                             .padding(.bottom, 20)
                         
                         Button {
-                            
+                            Task {
+                                await viewModel.uploadPost()
+                            }
                         } label: {
                             Text("작성")
                                 .foregroundStyle(.white)

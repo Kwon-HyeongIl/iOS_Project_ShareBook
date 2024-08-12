@@ -45,6 +45,7 @@
 		CAAE48092C60C3660048FE40 /* NewPostBookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE48082C60C3660048FE40 /* NewPostBookCoverView.swift */; };
 		CAAE480C2C60C3990048FE40 /* NewPostBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE480B2C60C3990048FE40 /* NewPostBookDetailView.swift */; };
 		CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFE01E2C4FC72600953557 /* Girl3DView.swift */; };
+		CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB2E9932C69FB52006E1063 /* PostManager.swift */; };
 		CABE31B92C4CAA450010AC20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */; };
 		CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31BB2C4CAB090010AC20 /* FirebaseAuth */; };
 		CABE31BE2C4CAB090010AC20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CABE31BD2C4CAB090010AC20 /* FirebaseFirestore */; };
@@ -123,6 +124,7 @@
 		CAAE48082C60C3660048FE40 /* NewPostBookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostBookCoverView.swift; sourceTree = "<group>"; };
 		CAAE480B2C60C3990048FE40 /* NewPostBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostBookDetailView.swift; sourceTree = "<group>"; };
 		CAAFE01E2C4FC72600953557 /* Girl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Girl3DView.swift; sourceTree = "<group>"; };
+		CAB2E9932C69FB52006E1063 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		CABE31B82C4CAA450010AC20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CABE31C62C4CADA60010AC20 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		CABE31C82C4CAE170010AC20 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				CAD01EDA2C5F4A40001E479F /* Http */,
 				CAD01EDB2C5F4A47001E479F /* Book */,
 				CAD01EDC2C5F4A5E001E479F /* Jwt */,
+				CAB2E9952C69FB55006E1063 /* Post */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -395,6 +398,14 @@
 				CA10EEC42C60CC6400901979 /* NewPostUploadPostViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CAB2E9952C69FB55006E1063 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				CAB2E9932C69FB52006E1063 /* PostManager.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		CABE31CE2C4CAE690010AC20 /* Profile */ = {
@@ -674,6 +685,7 @@
 				CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */,
 				CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */,
 				CA45F4442C5500FC007CE06E /* BookDetailView.swift in Sources */,
+				CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA7A1F392C661B8C00202921 /* ProfileBookmarkBookViewModel.swift in Sources */,
 			);
