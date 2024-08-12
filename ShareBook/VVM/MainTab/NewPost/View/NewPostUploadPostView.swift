@@ -11,11 +11,13 @@ import Kingfisher
 struct NewPostUploadPostView: View {
     @State var viewModel: NewPostUploadPostViewModel
     
-    @Binding var isActive: Bool
+    @Binding var stackActive: Bool
+    @Binding var selectedTab: Tab
     
-    init(book: Book, isActive: Binding<Bool>) {
+    init(book: Book, stackActive : Binding<Bool>, selectedTab: Binding<Tab>) {
         self.viewModel = NewPostUploadPostViewModel(book: book)
-        self._isActive = isActive
+        self._stackActive = stackActive
+        self._selectedTab = selectedTab
     }
     
     var body: some View {
@@ -74,6 +76,8 @@ struct NewPostUploadPostView: View {
                             Task {
                                 await viewModel.uploadPost()
                             }
+                            stackActive = false
+                            selectedTab = .house
                         } label: {
                             Text("작성")
                                 .foregroundStyle(.white)
@@ -101,7 +105,8 @@ struct NewPostUploadPostView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    isActive = false
+                    stackActive = false
+                    selectedTab = .house
                 } label: {
                     Image(systemName: "house")
                         .resizable()
@@ -116,5 +121,5 @@ struct NewPostUploadPostView: View {
 }
 
 #Preview {
-    NewPostUploadPostView(book: Book.DUMMY_BOOK, isActive: .constant(true))
+    NewPostUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.plusSquareOnSquare))
 }

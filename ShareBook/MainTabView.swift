@@ -22,7 +22,7 @@ struct MainTabView: View {
                     PostsView()
                     
                 case .plusSquareOnSquare:
-                    NewPostSearchView()
+                    NewPostSearchView(selectedTab: $selectedTab)
                     
                 case .booksVertical:
                     MyPostsView()
