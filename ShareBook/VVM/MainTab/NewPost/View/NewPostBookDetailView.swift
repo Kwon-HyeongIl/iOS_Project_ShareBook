@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct NewPostBookDetailVIew: View {
+struct NewPostBookDetailView: View {
     @Bindable var viewModel: NewPostBookViewModel
     
     var body: some View {
@@ -124,5 +124,5 @@ struct NewPostBookDetailVIew: View {
 }
 
 #Preview {
-    NewPostBookDetailVIew(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK))
+    NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK))
 }

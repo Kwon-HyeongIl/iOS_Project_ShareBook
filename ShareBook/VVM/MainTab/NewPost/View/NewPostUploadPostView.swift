@@ -81,7 +81,6 @@ struct NewPostUploadPostView: View {
                                 .padding(.bottom, 20)
                         }
                         
-                            
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -97,7 +96,7 @@ struct NewPostUploadPostView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    
+
                 } label: {
                     Image(systemName: "house")
                         .resizable()

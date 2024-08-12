@@ -17,7 +17,7 @@ struct NewPostBookCoverView: View {
     
     var body: some View {
         NavigationLink {
-            NewPostBookDetailVIew(viewModel: viewModel)
+            NewPostBookDetailView(viewModel: viewModel)
         } label: {
             HStack {
                 KFImage(URL(string: viewModel.book.image))
