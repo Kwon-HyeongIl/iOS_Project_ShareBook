@@ -30,8 +30,11 @@ struct PostsView: View {
                                         PostCoverView(post: post)
                                     }
                                 }
+                                .scrollTargetLayout()
                             }
                             .scrollIndicators(.hidden)
+                            .scrollTargetBehavior(.viewAligned)
+                            
                             
                             HStack {
                                 Text("전체 책")
