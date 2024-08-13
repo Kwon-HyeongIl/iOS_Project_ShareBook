@@ -28,6 +28,11 @@ struct PostsView: View {
                                 LazyHStack {
                                     ForEach(viewModel.posts) { post in
                                         PostCoverView(post: post)
+                                            .scrollTransition(.interactive, axis: .horizontal) {
+                                                view, phase in
+                                                view
+                                                    .scaleEffect(phase.isIdentity ? 1 : 0.95)
+                                            }
                                     }
                                 }
                                 .scrollTargetLayout()
