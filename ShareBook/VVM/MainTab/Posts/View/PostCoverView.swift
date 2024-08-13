@@ -55,8 +55,13 @@ struct PostCoverView: View {
                 Spacer()
                 
                 Text("\(viewModel.post.user.username)")
+                    .font(.system(size: 15))
                     .foregroundStyle(Color.sBColor)
+                    .frame(width: 70, alignment: .trailing)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
                     .padding(.trailing, 35)
+                    
             }
             .padding(.top, 1)
             .padding(.bottom, 20)
