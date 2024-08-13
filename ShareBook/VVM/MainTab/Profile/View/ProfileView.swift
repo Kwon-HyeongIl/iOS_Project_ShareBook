@@ -16,7 +16,7 @@ struct ProfileView: View {
             VStack {
                 ZStack {
                     Rectangle()
-                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .foregroundStyle(Color.sBColor)
                         .frame(height: 300)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
@@ -81,7 +81,7 @@ struct ProfileView: View {
                                         .frame(maxWidth: 100)
                                     Text("n개")
                                         .fontWeight(.semibold)
-                                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                                        .foregroundStyle(Color.sBColor)
                                 }
                                 
                                 VStack {
@@ -89,7 +89,7 @@ struct ProfileView: View {
                                         .fontWeight(.semibold)
                                     Text("n개")
                                         .fontWeight(.semibold)
-                                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                                        .foregroundStyle(Color.sBColor)
                                 }
                                 .padding(.trailing, 5)
                                 .padding(.leading)

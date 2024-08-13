@@ -64,7 +64,7 @@ struct BookDetailView: View {
                 .frame(width: 370, height: 380)
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
             }
             .padding(.bottom, 30)
             
@@ -79,7 +79,7 @@ struct BookDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .foregroundStyle(Color.sBColor)
                 }
             }
             
@@ -93,7 +93,7 @@ struct BookDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .foregroundStyle(Color.sBColor)
                         .padding(.trailing, 5)
                 }
             }

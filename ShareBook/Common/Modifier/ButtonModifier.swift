@@ -12,7 +12,7 @@ struct ButtonModifier: ViewModifier {
         content
             .foregroundStyle(.white)
             .frame(width: 353, height: 42)
-            .background(Color(red: 112/255, green: 173/255, blue: 179/255))
+            .background(Color.sBColor)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
     }

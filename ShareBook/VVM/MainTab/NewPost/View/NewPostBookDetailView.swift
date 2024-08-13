@@ -88,7 +88,7 @@ struct NewPostBookDetailView: View {
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .padding(.horizontal)
-                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                 
             }
             .padding(.bottom)
@@ -104,7 +104,7 @@ struct NewPostBookDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .foregroundStyle(Color.sBColor)
                 }
             }
             
@@ -118,7 +118,7 @@ struct NewPostBookDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .foregroundStyle(Color.sBColor)
                         .padding(.trailing, 5)
                 }
             }

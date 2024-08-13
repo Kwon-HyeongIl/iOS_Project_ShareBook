@@ -83,7 +83,7 @@ struct NewPostUploadPostView: View {
                                 .foregroundStyle(.white)
                                 .frame(height: 34)
                                 .frame(maxWidth: .infinity)
-                                .background(Color(red: 112/255, green: 173/255, blue: 179/255))
+                                .background(Color.sBColor)
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                                 .padding(.horizontal, 130)
@@ -97,7 +97,7 @@ struct NewPostUploadPostView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal)
                     .padding(.bottom)
-                    .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                 }
             }
         }
@@ -112,7 +112,7 @@ struct NewPostUploadPostView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-                        .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
+                        .foregroundStyle(Color.sBColor)
                         .padding(.trailing, 5)
                 }
             }

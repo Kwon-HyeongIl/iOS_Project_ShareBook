@@ -20,3 +20,7 @@ struct User: Codable, Identifiable {
     
     var profileImageUrl: String?
 }
+
+extension User {
+    static var DUMMY_USER: User = User(id: UUID().uuidString, username: "행이", authEmail: "test@naver.com")
+}
