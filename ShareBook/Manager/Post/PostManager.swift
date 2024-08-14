@@ -40,4 +40,24 @@ class PostManager {
             return []
         }
     }
+    
+    static func loadMyAllPost() async -> [Post] {
+        guard let userId = AuthManager.shared.currentUser?.id else { return [] }
+        
+        do {
+            let documents = try await Firestore.firestore().collection("Posts")
+                .order(by: "date", descending: true).whereField("userId", isEqualTo: userId)
+                .getDocuments().documents
+            
+            let posts = try documents.compactMap({ document in
+                return try document.data(as: Post.self)
+            })
+            
+            return posts
+            
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
 }
