@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct PostDetailView: View {
-    @Bindable var viewModel: PostViewModel
+struct HomePostDetailView: View {
+    @Bindable var viewModel: HomePostViewModel
     
     var body: some View {
         GradientBackgroundView {
@@ -19,5 +19,5 @@ struct PostDetailView: View {
 }
 
 #Preview {
-    PostDetailView(viewModel: PostViewModel(post: Post.DUMMY_POST))
+    HomePostDetailView(viewModel: HomePostViewModel(post: Post.DUMMY_POST))
 }

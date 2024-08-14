@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class PostViewModel {
+class HomePostViewModel {
     var post: Post
     var isLike = false
     

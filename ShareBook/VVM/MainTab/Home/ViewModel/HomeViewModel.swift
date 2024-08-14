@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class PostsViewModel {
+class HomeViewModel {
     var posts: [Post] = []
     
     init() {

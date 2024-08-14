@@ -19,7 +19,7 @@ struct MainTabView: View {
             ZStack {
                 switch selectedTab {
                 case .house:
-                    PostsView()
+                    HomeView()
                     
                 case .plusSquareOnSquare:
                     NewPostSearchView(selectedTab: $selectedTab)
