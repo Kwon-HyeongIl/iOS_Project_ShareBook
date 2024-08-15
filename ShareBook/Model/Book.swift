@@ -9,6 +9,7 @@ import Foundation
 
 struct Book: Codable, Hashable {
     let isbn: String
+    
     let title: String
     let image: String
     let author: String

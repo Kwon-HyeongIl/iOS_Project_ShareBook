@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CommentView: View {
     @State var viewModel: CommentViewModel
@@ -15,7 +16,56 @@ struct CommentView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GradientBackgroundView {
+            VStack {
+                Text("댓글")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .padding(.bottom, 15)
+                    .padding(.top, 30)
+                
+                Divider()
+                
+                ScrollView {
+                    LazyVStack(alignment: .leading) {
+                        ForEach(viewModel.comments) { comment in
+                            CommentCellView(comment: comment)
+                        }
+                    }
+                }
+                
+                Divider()
+                
+                HStack {
+                    if let profileImageUrl = viewModel.currentUser?.profileImageUrl {
+                        KFImage(URL(string: profileImageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 35, height: 35)
+                            .clipShape(Circle())
+                    } else {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .clipShape(Circle())
+                    }
+                    
+                    TextField("댓글 작성", text: $viewModel.commentText, axis: .vertical)
+                        .padding(.leading, 5)
+                    
+                    Button {
+                        Task {
+                            await viewModel.uploadComment()
+                            await viewModel.loadAllUserComment()
+                        }
+                    } label: {
+                        Text("작성")
+                            .foregroundStyle(Color.sBColor)
+                    }
+                }
+                .padding()
+            }
+        }
     }
 }
 
