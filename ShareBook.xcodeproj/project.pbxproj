@@ -37,6 +37,8 @@
 		CA6609BC2C4D4BE30091091F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609BB2C4D4BE30091091F /* User.swift */; };
 		CA6609BE2C4D4C590091091F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609BD2C4D4C580091091F /* LoginViewModel.swift */; };
 		CA6609C22C4D4C8E0091091F /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6609C12C4D4C8E0091091F /* AuthManager.swift */; };
+		CA66D5872C6E2D35000DCAC2 /* PostManager+Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66D5862C6E2D35000DCAC2 /* PostManager+Like.swift */; };
+		CA66D5892C6E31A5000DCAC2 /* HomePostViewModel+Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA66D5882C6E31A5000DCAC2 /* HomePostViewModel+Like.swift */; };
 		CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */; };
 		CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AAC2D2C4B8CA10045449E /* ContentView.swift */; };
 		CA6AAC302C4B8CA20045449E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AAC2F2C4B8CA20045449E /* Assets.xcassets */; };
@@ -132,6 +134,8 @@
 		CA6609BB2C4D4BE30091091F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA6609BD2C4D4C580091091F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CA6609C12C4D4C8E0091091F /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		CA66D5862C6E2D35000DCAC2 /* PostManager+Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostManager+Like.swift"; sourceTree = "<group>"; };
+		CA66D5882C6E31A5000DCAC2 /* HomePostViewModel+Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePostViewModel+Like.swift"; sourceTree = "<group>"; };
 		CA6AAC282C4B8CA10045449E /* ShareBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareBookApp.swift; sourceTree = "<group>"; };
 		CA6AAC2D2C4B8CA10045449E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -502,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB2E9932C69FB52006E1063 /* PostManager.swift */,
+				CA66D5862C6E2D35000DCAC2 /* PostManager+Like.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -656,6 +661,7 @@
 			children = (
 				CADD90792C6A55740023C512 /* HomeViewModel.swift */,
 				CADD907D2C6A559F0023C512 /* HomePostViewModel.swift */,
+				CA66D5882C6E31A5000DCAC2 /* HomePostViewModel+Like.swift */,
 				CA1126B02C6D1579009277F3 /* HomeBookViewModel.swift */,
 				CA1126B92C6D27D2009277F3 /* Comment */,
 			);
@@ -760,6 +766,7 @@
 			files = (
 				CA1126A72C6D0BB7009277F3 /* MyPostsViewModel.swift in Sources */,
 				CAE3AC9B2C54F02800EE5AC5 /* BookCoverView.swift in Sources */,
+				CA66D5872C6E2D35000DCAC2 /* PostManager+Like.swift in Sources */,
 				CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */,
 				CA0846D42C607F8200D86A91 /* ProfileBookmarkListViewModel.swift in Sources */,
 				CAA0C6032C54B3F300E7433D /* HttpManager.swift in Sources */,
@@ -831,6 +838,7 @@
 				CA7A1F392C661B8C00202921 /* ProfileBookmarkBookViewModel.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
 				CA1126B82C6D27CF009277F3 /* CommentViewModel.swift in Sources */,
+				CA66D5892C6E31A5000DCAC2 /* HomePostViewModel+Like.swift in Sources */,
 				CA1126B12C6D1579009277F3 /* HomeBookViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

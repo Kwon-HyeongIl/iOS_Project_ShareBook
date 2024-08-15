@@ -14,5 +14,10 @@ class HomePostViewModel {
     
     init(post: Post) {
         self.post = post
+        
+        Task {
+            await isLike()
+        }
     }
+    
 }

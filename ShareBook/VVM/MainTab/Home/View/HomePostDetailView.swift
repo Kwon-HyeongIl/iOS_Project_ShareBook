@@ -19,15 +19,27 @@ struct HomePostDetailView: View {
             ScrollView {
                 VStack {
                     HStack {
-                        KFImage(URL(string: viewModel.post.user.profileImageUrl ?? ""))
-                            .resizable()
-                            .frame(width: 35, height: 35)
-                            .clipShape(Circle())
-                            .overlay {
-                                Circle()
-                                    .stroke(Color.sBColor, lineWidth: 2)
-                            }
-                            .padding(.leading, 20)
+                        if let profileImageUrl = viewModel.post.user.profileImageUrl {
+                            KFImage(URL(string: profileImageUrl))
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .clipShape(Circle())
+                                .overlay {
+                                    Circle()
+                                        .stroke(Color.sBColor, lineWidth: 2)
+                                }
+                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                .padding(.leading, 20)
+                                
+                        } else {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .clipShape(Circle())
+                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                .padding(.leading, 20)
+                        }
+                            
                         
                         Text("\(viewModel.post.user.username)")
                             .fontWeight(.semibold)
@@ -94,29 +106,60 @@ struct HomePostDetailView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal)
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                    .padding(.bottom, 10)
                     
                     HStack {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30)
-                            .foregroundStyle(Color.sBColor)
-                            .padding(.leading, 30)
-                        
-                        Button {
-                            isCommentSheetShowing = true
-                        } label: {
-                            Image(systemName: "bubble.right")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 30)
-                                .foregroundStyle(Color.sBColor)
+                        HStack() {
+                            Button {
+                                Task {
+                                    await viewModel.isLike ? viewModel.unlike() : viewModel.like()
+                                }
+                            } label: {
+                                Image(systemName: viewModel.isLike ? "heart.fill" : "heart")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20)
+                                    .foregroundStyle(Color.sBColor)
+                            }
+                            
+                            Text("좋아요")
+                                .font(.system(size: 17))
+                            
+                            Text("\(viewModel.post.like)")
+                                .font(.system(size: 17))
+                            
                         }
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding(.leading)
+                        .padding(.trailing, 5)
+                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                         
-                        
-                        Spacer()
+                        HStack() {
+                            Button {
+                                isCommentSheetShowing = true
+                            } label: {
+                                Image(systemName: "bubble.right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 19)
+                                    .foregroundStyle(Color.sBColor)
+                                
+                                Text("댓글")
+                                    .font(.system(size: 17))
+                                    .foregroundStyle(.black)
+                            }
+                        }
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding(.trailing)
+                        .padding(.leading, 5)
+                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                     }
-                    .padding(.vertical, 10)
                 }
                 
             }

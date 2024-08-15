@@ -16,58 +16,92 @@ struct HomeHotPostCoverView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             NavigationLink {
                 HomePostDetailView(viewModel: viewModel)
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
                         .resizable()
-                        .frame(width: 210, height: 270)
+                        .frame(width: 190, height: 255)
                         .clipShape(RoundedRectangle(cornerRadius: 7))
                         .blur(radius: 3.0)
                     
                     Text("\(viewModel.post.impressivePhrase)")
                         .fontWeight(.semibold)
-                        .font(.title3)
+                        .font(.system(size: 18))
                         .foregroundStyle(.white)
                         .lineLimit(7)
                         .truncationMode(.tail)
                         .padding(.horizontal)
                 }
                 .padding(.top, 40)
+                .padding(.bottom, 10)
             }
             
-            HStack {
+            HStack(spacing: 0) {
+                if let profileImageUrl = viewModel.post.user.profileImageUrl {
+                    KFImage(URL(string: profileImageUrl))
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle()
+                                .stroke(Color.sBColor, lineWidth: 2)
+                        }
+                        .padding(.leading, 27)
+                        
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .clipShape(Circle())
+                        .padding(.leading, 27)
+                }
+                
+                Text("\(viewModel.post.user.username)")
+                    .font(.system(size: 13))
+                    .frame(width: 70, alignment: .leading)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .padding(.leading, 7)
+                
+                Spacer()
+                
                 Button {
-                    
+                    Task {
+                        await viewModel.isLike ? viewModel.unlike() : viewModel.like()
+                    }
                 } label: {
                     Image(systemName: viewModel.isLike ? "heart.fill" : "heart")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 16)
                         .foregroundStyle(Color.sBColor)
                 }
-                .padding(.leading, 35)
+                .padding(.trailing, 3)
+                
+                Text("\(viewModel.post.like)")
+                    .font(.system(size: 13))
+                    .foregroundStyle(Color.sBColor)
+                    .padding(.trailing, 10)
                 
                 Button {
                     
                 } label: {
                     Image(systemName: "bubble.right")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 16)
                         .foregroundStyle(Color.sBColor)
                 }
+                .padding(.trailing, 25)
                 
-                Spacer()
                 
-                Text("\(viewModel.post.user.username)")
-                    .font(.system(size: 15))
-                    .foregroundStyle(Color.sBColor)
-                    .frame(width: 70, alignment: .trailing)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .padding(.trailing, 35)
             }
-            .padding(.top, 1)
-            .padding(.bottom, 25)
+            .padding(.bottom, 30)
         }
-        .frame(width: 260, height: 330)
+        .frame(width: 225, height: 310)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding(.horizontal, 5)

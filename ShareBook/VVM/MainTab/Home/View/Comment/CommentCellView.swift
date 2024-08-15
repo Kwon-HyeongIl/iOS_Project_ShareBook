@@ -19,6 +19,7 @@ struct CommentCellView: View {
                     .scaledToFill()
                     .frame(width: 35, height: 35)
                     .clipShape(Circle())
+                    .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                     .padding(.leading)
                 
             } else {
@@ -26,18 +27,19 @@ struct CommentCellView: View {
                     .resizable()
                     .frame(width: 35, height: 35)
                     .clipShape(Circle())
+                    .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                     .padding(.leading)
             }
             
             VStack(alignment: .leading) {
                 HStack {
                     Text(comment.commentUser?.username ?? "")
-                        .font(.system(size: 15))
+                        .font(.system(size: 14))
                         .lineLimit(1)
                         .truncationMode(.tail)
                     
                     Text(comment.date.relativeTimeString())
-                        .font(.system(size: 13))
+                        .font(.system(size: 12))
                         .foregroundStyle(.gray)
                         .lineLimit(3)
                         .truncationMode(.tail)
@@ -45,18 +47,13 @@ struct CommentCellView: View {
                 }
                 
                 Text(comment.commentText)
-                    .font(.system(size: 15))
+                    .font(.system(size: 14))
             }
             .padding(.leading, 5)
             .padding(.vertical)
             
             Spacer()
         }
-        .frame(maxWidth: .infinity)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .padding(.horizontal)
-        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
     }
 }
 

@@ -16,7 +16,7 @@ struct HomePostCoverView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             NavigationLink {
                 HomePostDetailView(viewModel: viewModel)
             } label: {
@@ -36,40 +36,68 @@ struct HomePostCoverView: View {
                         .padding(.horizontal)
                 }
                 .padding(.top, 30)
+                .padding(.bottom, 8)
             }
             
-            HStack {
+            HStack(spacing: 0) {
+                if let profileImageUrl = viewModel.post.user.profileImageUrl {
+                    KFImage(URL(string: profileImageUrl))
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle()
+                                .stroke(Color.sBColor, lineWidth: 2)
+                        }
+                        .padding(.leading, 18)
+                        
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .clipShape(Circle())
+                        .padding(.leading, 18)
+                }
+                
+                Text("\(viewModel.post.user.username)")
+                    .font(.system(size: 11))
+                    .frame(width: 40, alignment: .leading)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .padding(.leading, 5)
+                
+                Spacer()
+                
                 Button {
-                    
+                    Task {
+                        await viewModel.isLike ? viewModel.unlike() : viewModel.like()
+                    }
                 } label: {
                     Image(systemName: viewModel.isLike ? "heart.fill" : "heart")
                         .resizable()
-                        .frame(width: 13, height: 13)
+                        .scaledToFill()
+                        .frame(width: 12)
                         .foregroundStyle(Color.sBColor)
+                        
                 }
-                .padding(.leading, 35)
+                .padding(.trailing, 3)
+                
+                Text("\(viewModel.post.like)")
+                    .font(.system(size: 10))
+                    .foregroundStyle(Color.sBColor)
+                    .padding(.trailing, 7)
                 
                 Button {
                     
                 } label: {
                     Image(systemName: "bubble.right")
                         .resizable()
-                        .frame(width: 13, height: 13)
+                        .scaledToFill()
+                        .frame(width: 12)
                         .foregroundStyle(Color.sBColor)
                 }
-                
-                Spacer()
-                
-                Text("\(viewModel.post.user.username)")
-                    .font(.system(size: 14))
-                    .foregroundStyle(Color.sBColor)
-                    .frame(width: 70, alignment: .trailing)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .padding(.trailing, 35)
-                    
+                .padding(.trailing, 17)
             }
-            .padding(.top, 1)
             .padding(.bottom, 20)
         }
         .frame(width: 160, height: 240)

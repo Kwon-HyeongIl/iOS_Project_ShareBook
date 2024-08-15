@@ -48,7 +48,7 @@ struct HomeView: View {
                         HStack {
                             Text("금주의 인기 책 구절")
                                 .fontWeight(.semibold)
-                                .font(.title)
+                                .font(.title2)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
                                 .padding(.leading, 20)
@@ -69,7 +69,7 @@ struct HomeView: View {
                         
                         Text("모든 책 구절")
                             .fontWeight(.semibold)
-                            .font(.title)
+                            .font(.title2)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
                             .padding(.leading, 20)
@@ -79,22 +79,24 @@ struct HomeView: View {
                             HStack {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 90, height: 30)
+                                        .frame(width: 70, height: 27)
                                         .foregroundStyle(.white)
                                         .opacity(0.5)
                                     
                                     Text("인문학")
                                         .foregroundStyle(Color.sBColor)
+                                        .font(.system(size: 15))
                                 }
                                 
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 90, height: 30)
+                                        .frame(width: 70, height: 27)
                                         .foregroundStyle(.white)
                                         .opacity(0.5)
                                     
                                     Text("경제학")
                                         .foregroundStyle(Color.sBColor)
+                                        .font(.system(size: 15))
                                 }
                             }
                         }
