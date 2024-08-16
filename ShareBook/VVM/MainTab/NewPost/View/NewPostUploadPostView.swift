@@ -45,18 +45,13 @@ struct NewPostUploadPostView: View {
                                 .padding(.horizontal, 30)
                             
                             if viewModel.impressivePhrase.isEmpty {
-                                Text("\"네 장미꽃을 그렇게 소중하게 만든 것은 \n그 꽃을 위해 네가 소비한 시간이란다\"")
+                                Text("큰 따옴표(\")는 자동으로 붙습니다")
                                     .modifier(ItalicFontModifier())
                                     .font(.caption)
                                     .multilineTextAlignment(.center)
                                     .opacity(0.2)
                                     .padding(.bottom, 70)
                                     .padding(.top, 40)
-                                Text("- 어린왕자")
-                                    .modifier(ItalicFontModifier())
-                                    .font(.caption)
-                                    .opacity(0.1)
-                                    .padding(.top, 30)
                             }
                         }
                         

@@ -31,7 +31,7 @@ struct HomeView: View {
                     ZStack {
                         ScrollView(.horizontal) {
                             LazyHStack {
-                                ForEach(viewModel.posts) { post in
+                                ForEach(viewModel.hotPosts) { post in
                                     HomeHotPostCoverView(post: post)
                                         .scrollTransition(.interactive, axis: .horizontal) {
                                             view, phase in
@@ -105,10 +105,12 @@ struct HomeView: View {
                     }
                 }
                 .refreshable {
-                    await viewModel.loadAllPost()
+                    await viewModel.loadHotPosts()
+                    await viewModel.loadAllPosts()
                 }
                 .task {
-                    await viewModel.loadAllPost()
+                    await viewModel.loadHotPosts()
+                    await viewModel.loadAllPosts()
                 }
             }
         }

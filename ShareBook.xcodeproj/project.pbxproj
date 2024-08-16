@@ -51,7 +51,7 @@
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA91CDE92C56559200793F34 /* girl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDE82C56559200793F34 /* girl3D.splineswift */; };
-		CA9EC3BB2C6F5EB700E0596F /* HomePostViewModel+Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EC3BA2C6F5EB700E0596F /* HomePostViewModel+Comment.swift */; };
+		CA9EC3BD2C6F70CE00E0596F /* HomePostViewModel+Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EC3BC2C6F70CE00E0596F /* HomePostViewModel+Comment.swift */; };
 		CAA0C5F52C549FE300E7433D /* NewPostSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */; };
 		CAA0C5FD2C54B34600E7433D /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */; };
 		CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5FE2C54B38600E7433D /* Book.swift */; };
@@ -151,7 +151,7 @@
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA91CDE82C56559200793F34 /* girl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = girl3D.splineswift; sourceTree = "<group>"; };
-		CA9EC3BA2C6F5EB700E0596F /* HomePostViewModel+Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePostViewModel+Comment.swift"; sourceTree = "<group>"; };
+		CA9EC3BC2C6F70CE00E0596F /* HomePostViewModel+Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePostViewModel+Comment.swift"; sourceTree = "<group>"; };
 		CAA0C5F42C549FE300E7433D /* NewPostSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostSearchView.swift; sourceTree = "<group>"; };
 		CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		CAA0C5FE2C54B38600E7433D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -664,7 +664,7 @@
 				CADD90792C6A55740023C512 /* HomeViewModel.swift */,
 				CADD907D2C6A559F0023C512 /* HomePostViewModel.swift */,
 				CA66D5882C6E31A5000DCAC2 /* HomePostViewModel+Like.swift */,
-				CA9EC3BA2C6F5EB700E0596F /* HomePostViewModel+Comment.swift */,
+				CA9EC3BC2C6F70CE00E0596F /* HomePostViewModel+Comment.swift */,
 				CA1126B02C6D1579009277F3 /* HomeBookViewModel.swift */,
 				CA1126B92C6D27D2009277F3 /* Comment */,
 			);
@@ -803,7 +803,7 @@
 				CADBA2FD2C4E757C001C6445 /* MyError.swift in Sources */,
 				CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */,
 				CA2567052C56A060009F13A2 /* Test3DView.swift in Sources */,
-				CA9EC3BB2C6F5EB700E0596F /* HomePostViewModel+Comment.swift in Sources */,
+				CA9EC3BD2C6F70CE00E0596F /* HomePostViewModel+Comment.swift in Sources */,
 				CAA0C5FD2C54B34600E7433D /* HttpMethod.swift in Sources */,
 				CA7A1F352C66108000202921 /* NewPostBookViewModel.swift in Sources */,
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,

@@ -18,6 +18,6 @@ class MyPostsViewModel {
     }
     
     func loadMyAllPost() async {
-        self.posts = await PostManager.loadMyAllPost()
+        self.posts = await PostManager.loadMyAllPosts()
     }
 }

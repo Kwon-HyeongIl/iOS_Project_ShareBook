@@ -60,6 +60,7 @@ struct CommentView: View {
                         Task {
                             await viewModel.uploadComment()
                             await viewModel.loadAllUserComment()
+                            viewModel.commentText = ""
                         }
                     } label: {
                         Text("작성")

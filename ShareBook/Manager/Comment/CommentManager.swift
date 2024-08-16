@@ -17,6 +17,10 @@ class CommentManager {
                 .collection("Posts").document(comment.postId)
                 .collection("Post_Comment").addDocument(data: encodedComment)
             
+            try await Firestore.firestore()
+                .collection("Posts").document(comment.postId)
+                .updateData(["commentCount": FieldValue.increment(Int64(1))])
+            
         } catch {
             print(error.localizedDescription)
         }

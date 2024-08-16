@@ -82,7 +82,7 @@ struct HomePostCoverView: View {
                 }
                 .padding(.trailing, 3)
                 
-                Text("\(viewModel.post.like)")
+                Text("\(viewModel.post.likeCount)")
                     .font(.system(size: 10))
                     .foregroundStyle(Color.sBColor)
                     .padding(.trailing, 7)

@@ -66,6 +66,7 @@ struct HomePostDetailView: View {
                             .padding(.bottom, 20)
 
                         Text("\(viewModel.post.impressivePhrase)")
+                            .multilineTextAlignment(.center)
                             .fontWeight(.semibold)
                         
                         Image(systemName: "quote.closing")
@@ -130,8 +131,8 @@ struct HomePostDetailView: View {
                             Text("좋아요")
                                 .font(.system(size: 17))
                             
-                            Text("\(viewModel.post.like)")
-                                .font(.system(size: 16))
+                            Text("\(viewModel.post.likeCount)")
+                                .font(.system(size: 15))
                             
                         }
                         .padding(.vertical, 10)
@@ -157,7 +158,7 @@ struct HomePostDetailView: View {
                                     .foregroundStyle(.black)
                                 
                                 Text("\(viewModel.commentCount)")
-                                    .font(.system(size: 16))
+                                    .font(.system(size: 15))
                                     .foregroundStyle(.black)
                             }
                         }
@@ -174,10 +175,14 @@ struct HomePostDetailView: View {
             }
             
         }
-        .sheet(isPresented: $isCommentSheetShowing, content: {
+        .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
+            Task {
+                await viewModel.loadPostCommentCount()
+            }
+        }, content: {
             CommentView(post: viewModel.post)
                 .presentationDragIndicator(.visible)
-                .presentationDetents([.fraction(0.72), .large])
+                .presentationDetents([.fraction(0.6), .large])
         })
         .modifier(BackButtonModifier())
     }

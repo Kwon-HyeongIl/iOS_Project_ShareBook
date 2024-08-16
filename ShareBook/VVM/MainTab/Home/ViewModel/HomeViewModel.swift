@@ -9,15 +9,21 @@ import Foundation
 
 @Observable
 class HomeViewModel {
+    var hotPosts: [Post] = []
     var posts: [Post] = []
     
     init() {
         Task {
-            await loadAllPost()
+            await loadHotPosts()
+            await loadAllPosts()
         }
     }
     
-    func loadAllPost() async {
-        self.posts = await PostManager.loadAllPost()
+    func loadHotPosts() async {
+        self.hotPosts = await PostManager.loadHotPosts()
+    }
+    
+    func loadAllPosts() async {
+        self.posts = await PostManager.loadAllPosts()
     }
 }
