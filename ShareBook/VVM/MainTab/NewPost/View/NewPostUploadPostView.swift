@@ -14,6 +14,10 @@ struct NewPostUploadPostView: View {
     @Binding var stackActive: Bool
     @Binding var selectedTab: Tab
     
+    @State var isImpressivePhraseShowing = true
+    @State var isFeelingCaptionShowing = false
+    @State var isGenreShowing = false
+    
     init(book: Book, stackActive : Binding<Bool>, selectedTab: Binding<Tab>) {
         self.viewModel = NewPostUploadPostViewModel(book: book)
         self._stackActive = stackActive
@@ -22,72 +26,206 @@ struct NewPostUploadPostView: View {
     
     var body: some View {
         GradientBackgroundView {
-            VStack {
-                Text("글 작성")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                BookCoverView(book: viewModel.book)
-                    .padding(.bottom, 10)
-                
-                ScrollView {
+            ScrollView {
+                VStack {
+                    Text("글 작성")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    
+                    BookCoverView(book: viewModel.book)
+                        .padding(.bottom, 10)
+                    
                     VStack {
-                        Text("인상깊은 구절")
-                            .fontWeight(.semibold)
-                            .padding(.top)
-                        
-                        ZStack {
-                            TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
-                                .padding(.horizontal)
-                                .frame(height: 180)
-                                .background(.regularMaterial)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .padding(.horizontal, 30)
+                        if isImpressivePhraseShowing {
+                            Text("인상깊은 구절")
+                                .fontWeight(.semibold)
+                                .padding(.top)
                             
-                            if viewModel.impressivePhrase.isEmpty {
-                                Text("큰 따옴표(\")는 자동으로 붙습니다")
-                                    .modifier(ItalicFontModifier())
-                                    .font(.caption)
-                                    .multilineTextAlignment(.center)
-                                    .opacity(0.2)
-                                    .padding(.bottom, 70)
-                                    .padding(.top, 40)
+                            ZStack {
+                                TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
+                                    .padding(.horizontal)
+                                    .frame(height: 160)
+                                    .background(.regularMaterial)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .padding(.horizontal, 30)
+                                
+                                if viewModel.impressivePhrase.isEmpty {
+                                    Text("큰 따옴표(\")는 자동으로 붙습니다")
+                                        .modifier(ItalicFontModifier())
+                                        .font(.caption)
+                                        .multilineTextAlignment(.center)
+                                        .opacity(0.2)
+                                }
                             }
+                            
+                        } else if !isImpressivePhraseShowing {
+                            Text("인상깊은 구절")
+                                .fontWeight(.semibold)
+                                .opacity(0.5)
+                                .padding(.top)
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(height: 30)
+                                .foregroundStyle(.gray)
+                                .opacity(0.5)
+                                .padding(.horizontal, 30)
+                                .padding(.bottom)
+                            
+                            Divider()
+                                .padding(.horizontal, 35)
                         }
                         
-                        Text("간략한 소감 (생략 가능)")
-                            .fontWeight(.semibold)
-                            .padding(.top)
-                        
-                        TextField("", text: $viewModel.feelingCaption, axis: .vertical)
-                            .padding(.horizontal)
-                            .frame(height: 180)
-                            .background(.regularMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding(.horizontal, 30)
-                            .padding(.bottom, 20)
-                        
-                        Button {
-                            Task {
-                                await viewModel.uploadPost()
+                        if isFeelingCaptionShowing {
+                            Text("느낀점")
+                                .fontWeight(.semibold)
+                                .padding(.top)
+                            
+                            ZStack {
+                                TextField("", text: $viewModel.feelingCaption, axis: .vertical)
+                                    .padding(.horizontal)
+                                    .frame(height: 160)
+                                    .background(.regularMaterial)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .padding(.horizontal, 30)
+                                    .padding(.bottom, 20)
+                                
+                                if viewModel.feelingCaption.isEmpty {
+                                    Text("생략 가능")
+                                        .modifier(ItalicFontModifier())
+                                        .font(.caption)
+                                        .multilineTextAlignment(.center)
+                                        .opacity(0.2)
+                                        .padding(.bottom)
+                                }
                             }
-                            stackActive = false
-                            selectedTab = .house
-                        } label: {
-                            Text("작성")
-                                .foregroundStyle(.white)
-                                .frame(height: 34)
-                                .frame(maxWidth: .infinity)
-                                .background(Color.sBColor)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
-                                .padding(.horizontal, 130)
-                                .padding(.bottom, 20)
+                            
+                        } else if !isImpressivePhraseShowing && isGenreShowing {
+                            Text("느낀점")
+                                .fontWeight(.semibold)
+                                .opacity(0.5)
+                                .padding(.top)
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(height: 30)
+                                .foregroundStyle(.gray)
+                                .opacity(0.5)
+                                .padding(.horizontal, 30)
+                                .padding(.bottom)
+                            
+                            Divider()
+                                .padding(.horizontal, 35)
+                        }
+                        
+                        if isGenreShowing {
+                            Text("임시 장르 선택")
+                        }
+                        
+                        if isImpressivePhraseShowing {
+                            Button {
+                                withAnimation {
+                                    isImpressivePhraseShowing = false
+                                    isFeelingCaptionShowing = true
+                                }
+                            } label: {
+                                Text("다음")
+                                    .foregroundStyle(.white)
+                                    .frame(width: 110, height: 34)
+                                    .background(Color.sBColor)
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                    .padding(.bottom, 20)
+                                    .padding(.top)
+                            }
+                            
+                        } else if isFeelingCaptionShowing {
+                            ZStack {
+                                HStack {
+                                    Button {
+                                        withAnimation {
+                                            isImpressivePhraseShowing = true
+                                            isFeelingCaptionShowing = false
+                                        }
+                                    } label: {
+                                        Image(systemName: "chevron.left")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 10)
+                                            .foregroundStyle(Color.sBColor)
+                                            .fontWeight(.bold)
+                                            .padding(.bottom, 20)
+                                            .padding(.top)
+                                            .padding(.leading, 40)
+                                    }
+                                    
+                                    Spacer()
+                                }
+                                
+                                HStack {
+                                    Button {
+                                        withAnimation {
+                                            isFeelingCaptionShowing = false
+                                            isGenreShowing = true
+                                        }
+                                    } label: {
+                                        Text("다음")
+                                            .foregroundStyle(.white)
+                                            .frame(width: 110, height: 34)
+                                            .background(Color.sBColor)
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                            .padding(.bottom, 20)
+                                            .padding(.top)
+                                    }
+                                }
+                            }
+                            
+                        } else if isGenreShowing {
+                            ZStack {
+                                HStack {
+                                    Button {
+                                        withAnimation {
+                                            isFeelingCaptionShowing = true
+                                            isGenreShowing = false
+                                        }
+                                    } label: {
+                                        Image(systemName: "chevron.left")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 10)
+                                            .foregroundStyle(Color.sBColor)
+                                            .fontWeight(.bold)
+                                            .padding(.bottom, 20)
+                                            .padding(.top)
+                                            .padding(.leading, 40)
+                                    }
+                                    
+                                    Spacer()
+                                }
+                                
+                                HStack {
+                                    Button {
+                                        Task {
+                                            await viewModel.uploadPost()
+                                        }
+                                        stackActive = false
+                                        selectedTab = .house
+                                    } label: {
+                                        Text("작성")
+                                            .foregroundStyle(.white)
+                                            .frame(width: 110, height: 34)
+                                            .background(Color.sBColor)
+                                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                                            .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                            .padding(.bottom, 20)
+                                            .padding(.top)
+                                    }
+                                }
+                            }
                         }
                         
                         
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(maxWidth: .infinity)
                     .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal)
@@ -95,20 +233,20 @@ struct NewPostUploadPostView: View {
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                 }
             }
-        }
-        .modifier(BackButtonModifier())
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    stackActive = false
-                    selectedTab = .house
-                } label: {
-                    Image(systemName: "house")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .foregroundStyle(Color.sBColor)
-                        .padding(.trailing, 5)
+            .modifier(BackButtonModifier())
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        stackActive = false
+                        selectedTab = .house
+                    } label: {
+                        Image(systemName: "house")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .foregroundStyle(Color.sBColor)
+                            .padding(.trailing, 5)
+                    }
                 }
             }
         }

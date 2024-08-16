@@ -9,12 +9,12 @@ import Foundation
 import FirebaseFirestore
 
 class PostManager {
-    static func uploadPost(impressivePhrase: String, feelingCaption: String, book: Book) async {
+    static func uploadPost(impressivePhrase: String, feelingCaption: String, genre: Genre, book: Book) async {
         guard let userId = AuthManager.shared.currentUser?.id else { return }
         guard let user = AuthManager.shared.currentUser else { return }
         let postId = UUID().uuidString
         
-        let post = Post(id: postId, userId: userId, impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, likeCount: 0, date: Date(), book: book, user: user)
+        let post = Post(id: postId, userId: userId, impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, likeCount: 0, date: Date(), book: book, genre: genre, user: user)
         
         do {
             let encodedPost = try Firestore.Encoder().encode(post)

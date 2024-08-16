@@ -13,12 +13,13 @@ class NewPostUploadPostViewModel {
     
     var impressivePhrase = ""
     var feelingCaption = ""
+    var genre = Genre.humanities
     
     init(book: Book) {
         self.book = book
     }
     
     func uploadPost() async {
-        await PostManager.uploadPost(impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, book: book)
+        await PostManager.uploadPost(impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, genre: genre, book: book)
     }
 }
