@@ -20,5 +20,5 @@ struct Post: Codable, Identifiable {
 }
 
 extension Post {
-    static var DUMMY_POST: Post = Post(id: UUID().uuidString, userId: UUID().uuidString, impressivePhrase: "\"네 장미꽃을 그렇게 소중하게 만든 것은 \n그 꽃을 위해 네가 소비한 시간이란다\"", feelingCaption: "느낌", like: 3, date: Date(), book: Book.DUMMY_BOOK, user: User.DUMMY_USER)
+    static var DUMMY_POST: Post = Post(id: UUID().uuidString, userId: UUID().uuidString, impressivePhrase: "\"네 장미꽃을 그렇게 소중하게 만든 것은 \n그 꽃을 위해 네가 소비한 시간이란다\"", feelingCaption: "느낌", like: 30, date: Date(), book: Book.DUMMY_BOOK, user: User.DUMMY_USER)
 }

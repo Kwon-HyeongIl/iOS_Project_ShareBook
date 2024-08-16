@@ -61,7 +61,7 @@ struct HomePostCoverView: View {
                 
                 Text("\(viewModel.post.user.username)")
                     .font(.system(size: 11))
-                    .frame(width: 40, alignment: .leading)
+                    .frame(width: 30, alignment: .leading)
                     .lineLimit(1)
                     .truncationMode(.tail)
                     .padding(.leading, 5)
@@ -96,7 +96,12 @@ struct HomePostCoverView: View {
                         .frame(width: 12)
                         .foregroundStyle(Color.sBColor)
                 }
-                .padding(.trailing, 17)
+                .padding(.trailing, 3)
+                
+                Text("\(viewModel.commentCount)")
+                    .font(.system(size: 10))
+                    .foregroundStyle(Color.sBColor)
+                    .padding(.trailing, 17)
             }
             .padding(.bottom, 20)
         }

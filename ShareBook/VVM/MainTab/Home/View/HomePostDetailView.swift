@@ -44,6 +44,11 @@ struct HomePostDetailView: View {
                         Text("\(viewModel.post.user.username)")
                             .fontWeight(.semibold)
                         
+                        Text("\(viewModel.post.date.relativeTimeString())")
+                            .font(.system(size: 14))
+                            .foregroundStyle(.gray)
+                            .padding(.leading, 5)
+                        
                         Spacer()
                     }
                     
@@ -126,7 +131,7 @@ struct HomePostDetailView: View {
                                 .font(.system(size: 17))
                             
                             Text("\(viewModel.post.like)")
-                                .font(.system(size: 17))
+                                .font(.system(size: 16))
                             
                         }
                         .padding(.vertical, 10)
@@ -150,6 +155,10 @@ struct HomePostDetailView: View {
                                 Text("댓글")
                                     .font(.system(size: 17))
                                     .foregroundStyle(.black)
+                                
+                                Text("\(viewModel.commentCount)")
+                                    .font(.system(size: 16))
+                                    .foregroundStyle(.black)
                             }
                         }
                         .padding(.vertical, 10)
@@ -168,6 +177,7 @@ struct HomePostDetailView: View {
         .sheet(isPresented: $isCommentSheetShowing, content: {
             CommentView(post: viewModel.post)
                 .presentationDragIndicator(.visible)
+                .presentationDetents([.fraction(0.72), .large])
         })
         .modifier(BackButtonModifier())
     }

@@ -41,10 +41,10 @@ class CommentManager {
         }
     }
     
-    static func loadUserCommentCount(postId: String) async -> Int {
+    static func loadPostCommentCount(postId: String) async -> Int {
         do {
             return try await Firestore.firestore()
-                .collection("Post").document(postId)
+                .collection("Posts").document(postId)
                 .collection("Post_Comment").getDocuments().documents.count
             
         } catch {

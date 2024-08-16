@@ -11,12 +11,14 @@ import Foundation
 class HomePostViewModel {
     var post: Post
     var isLike = false
+    var commentCount = 0
     
     init(post: Post) {
         self.post = post
         
         Task {
             await isLike()
+            await loadPostCommentCount()
         }
     }
     
