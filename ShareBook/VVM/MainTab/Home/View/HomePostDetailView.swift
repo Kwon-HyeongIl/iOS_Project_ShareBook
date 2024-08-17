@@ -63,8 +63,8 @@ struct HomePostDetailView: View {
                             .frame(width: 30)
                             .foregroundStyle(Color.sBColor)
                             .padding(.top, 50)
-                            .padding(.bottom, 20)
-
+                            .padding(.bottom, 30)
+                        
                         Text("\(viewModel.post.impressivePhrase)")
                             .multilineTextAlignment(.center)
                             .fontWeight(.semibold)
@@ -74,7 +74,7 @@ struct HomePostDetailView: View {
                             .scaledToFill()
                             .frame(width: 30)
                             .foregroundStyle(Color.sBColor)
-                            .padding(.top, 20)
+                            .padding(.top, 30)
                             .padding(.bottom, 50)
                         
                         Divider()
@@ -97,10 +97,12 @@ struct HomePostDetailView: View {
                                     
                                 } else {
                                     Text("느낀점")
-                                        .font(.system(size: 15))
-                                        .padding(.bottom, 5)
+                                        .font(.system(size: 13))
                                     
                                     Image(systemName: "chevron.down")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 13)
                                 }
                             }
                             .foregroundStyle(Color.sBColor)
@@ -114,62 +116,70 @@ struct HomePostDetailView: View {
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                     .padding(.bottom, 10)
                     
-                    HStack {
-                        HStack() {
-                            Button {
-                                Task {
-                                    await viewModel.isLike ? viewModel.unlike() : viewModel.like()
-                                }
-                            } label: {
+                    HStack(spacing: 5) {
+                        Button {
+                            Task {
+                                await viewModel.isLike ? viewModel.unlike() : viewModel.like()
+                            }
+                        } label: {
+                            HStack(spacing: 5) {
                                 Image(systemName: viewModel.isLike ? "heart.fill" : "heart")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 20)
+                                    .frame(width: 15)
                                     .foregroundStyle(Color.sBColor)
+                                    .padding(.leading)
+                                
+                                Text("좋아요")
+                                    .font(.system(size: 15))
+                                    .foregroundStyle(.black)
+                                
+                                Text("\(viewModel.post.likeCount)")
+                                    .font(.system(size: 13))
+                                    .foregroundStyle(.black)
                             }
-                            
-                            Text("좋아요")
-                                .font(.system(size: 17))
-                            
-                            Text("\(viewModel.post.likeCount)")
-                                .font(.system(size: 15))
-                            
                         }
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity)
-                        .background(.ultraThinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .padding(.leading)
-                        .padding(.trailing, 5)
-                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                         
-                        HStack() {
-                            Button {
-                                isCommentSheetShowing = true
-                            } label: {
+                        Button {
+                            isCommentSheetShowing = true
+                        } label: {
+                            HStack(spacing: 5) {
                                 Image(systemName: "bubble.right")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 19)
+                                    .frame(width: 15)
                                     .foregroundStyle(Color.sBColor)
+                                    .padding(.leading, 10)
                                 
                                 Text("댓글")
-                                    .font(.system(size: 17))
+                                    .font(.system(size: 15))
                                     .foregroundStyle(.black)
                                 
                                 Text("\(viewModel.commentCount)")
-                                    .font(.system(size: 15))
+                                    .font(.system(size: 13))
                                     .foregroundStyle(.black)
                             }
                         }
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity)
-                        .background(.ultraThinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .padding(.trailing)
-                        .padding(.leading, 5)
-                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                        
+                        Spacer()
+                        
+                        Image(systemName: "book")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 15)
+                            .foregroundStyle(Color.sBColor)
+
+                        Text("\(viewModel.post.genre.rawValue)")
+                            .font(.system(size: 15))
+                            .padding(.trailing)
+                        
                     }
+                    .padding(.vertical, 15)
+                    .frame(maxWidth: .infinity)
+                    .background(.ultraThinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding(.horizontal)
+                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                 }
                 
             }
@@ -182,7 +192,7 @@ struct HomePostDetailView: View {
         }, content: {
             CommentView(post: viewModel.post)
                 .presentationDragIndicator(.visible)
-                .presentationDetents([.fraction(0.6), .large])
+                .presentationDetents([.fraction(0.7), .large])
         })
         .modifier(BackButtonModifier())
     }

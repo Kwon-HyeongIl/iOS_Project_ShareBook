@@ -38,7 +38,7 @@ struct NewPostBookDetailView: View {
                                 .resizable()
                                 .frame(width: 13, height: 13)
                         }
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(Color.sBColor)
                         .padding(.leading, 280)
                         .padding(.top, 195)
                     }

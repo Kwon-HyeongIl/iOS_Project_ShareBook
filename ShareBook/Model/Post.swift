@@ -23,19 +23,21 @@ struct Post: Codable, Identifiable {
     let user: User
 }
 
-enum Genre: Codable {
-    case humanities
-    case self_improvement
-    case animation
-    case studying
-    case fiction
-    case detective
-    case mystery
-    case scientific
-    case health
-    case cooking
-    case traveling
-    case history
+enum Genre: String, Codable, CaseIterable, Identifiable {
+    var id: String { self.rawValue }
+    
+    case humanities = "인문학"
+    case self_improvement = "자기개발"
+    case animation = "애니메이션"
+    case studying = "공부"
+    case fiction = "소설"
+    case detective = "추리"
+    case mystery = "미스테리"
+    case scientific = "과학"
+    case health = "건강"
+    case cooking = "요리"
+    case traveling = "여행"
+    case history = "역사"
 }
 
 extension Post {

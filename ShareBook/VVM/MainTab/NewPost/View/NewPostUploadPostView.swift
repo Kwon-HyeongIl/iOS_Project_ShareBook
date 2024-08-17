@@ -117,24 +117,49 @@ struct NewPostUploadPostView: View {
                         }
                         
                         if isGenreShowing {
-                            Text("임시 장르 선택")
+                            VStack {
+                                Text("책 장르")
+                                    .fontWeight(.semibold)
+                                    .padding(.top)
+                                
+                                Picker("tt", selection: $viewModel.genre) {
+                                    ForEach(Genre.allCases) { genre in
+                                        Text(genre.rawValue).tag(genre)
+                                    }
+                                }
+                                .pickerStyle(.wheel)
+                                .padding(.horizontal, 30)
+                            }
                         }
                         
                         if isImpressivePhraseShowing {
                             Button {
                                 withAnimation {
-                                    isImpressivePhraseShowing = false
-                                    isFeelingCaptionShowing = true
+                                    if !viewModel.impressivePhrase.isEmpty {
+                                        isImpressivePhraseShowing = false
+                                        isFeelingCaptionShowing = true
+                                    }
                                 }
                             } label: {
-                                Text("다음")
-                                    .foregroundStyle(.white)
-                                    .frame(width: 110, height: 34)
-                                    .background(Color.sBColor)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
-                                    .padding(.bottom, 20)
-                                    .padding(.top)
+                                if viewModel.impressivePhrase.isEmpty {
+                                    Text("다음")
+                                        .foregroundStyle(.white)
+                                        .frame(width: 110, height: 34)
+                                        .background(.gray)
+                                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                        .padding(.bottom, 20)
+                                        .padding(.top)
+                                } else {
+                                    Text("다음")
+                                        .foregroundStyle(.white)
+                                        .frame(width: 110, height: 34)
+                                        .background(Color.sBColor)
+                                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                        .padding(.bottom, 20)
+                                        .padding(.top)
+                                }
                             }
                             
                         } else if isFeelingCaptionShowing {
@@ -154,7 +179,7 @@ struct NewPostUploadPostView: View {
                                             .fontWeight(.bold)
                                             .padding(.bottom, 20)
                                             .padding(.top)
-                                            .padding(.leading, 40)
+                                            .padding(.leading, 50)
                                     }
                                     
                                     Spacer()
@@ -196,7 +221,7 @@ struct NewPostUploadPostView: View {
                                             .fontWeight(.bold)
                                             .padding(.bottom, 20)
                                             .padding(.top)
-                                            .padding(.leading, 40)
+                                            .padding(.leading, 50)
                                     }
                                     
                                     Spacer()
