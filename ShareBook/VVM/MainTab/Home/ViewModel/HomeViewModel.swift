@@ -26,4 +26,8 @@ class HomeViewModel {
     func loadAllPosts() async {
         self.posts = await PostManager.loadAllPosts()
     }
+    
+    func loadSpecificGenrePosts(genre: Genre) async {
+        self.posts = await PostManager.loadSpecificGenrePosts(genre: genre)
+    }
 }

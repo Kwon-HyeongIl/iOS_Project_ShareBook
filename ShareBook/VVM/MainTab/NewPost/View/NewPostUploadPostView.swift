@@ -122,8 +122,8 @@ struct NewPostUploadPostView: View {
                                     .fontWeight(.semibold)
                                     .padding(.top)
                                 
-                                Picker("tt", selection: $viewModel.genre) {
-                                    ForEach(Genre.allCases) { genre in
+                                Picker("책 장르", selection: $viewModel.genre) {
+                                    ForEach(Genre.allCases.dropFirst()) { genre in
                                         Text(genre.rawValue).tag(genre)
                                     }
                                 }

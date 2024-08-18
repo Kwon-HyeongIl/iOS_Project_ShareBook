@@ -52,11 +52,9 @@ class PostManager {
                 .limit(to: 8)
                 .getDocuments().documents
             
-            let posts = try documents.compactMap({ document in
-                return try document.data(as: Post.self)
+            return try documents.compactMap({ document in
+                try document.data(as: Post.self)
             })
-            
-            return posts
             
         } catch {
             print(error.localizedDescription)
@@ -72,11 +70,26 @@ class PostManager {
                 .order(by: "date", descending: true).whereField("userId", isEqualTo: userId)
                 .getDocuments().documents
             
-            let posts = try documents.compactMap({ document in
-                return try document.data(as: Post.self)
+            return try documents.compactMap({ document in
+                try document.data(as: Post.self)
             })
             
-            return posts
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
+    static func loadSpecificGenrePosts(genre: Genre) async -> [Post] {
+        do {
+            let documents = try await Firestore.firestore().collection("Posts")
+                .whereField("genre", isEqualTo: genre.rawValue) // FireStore에 RawValue 값이 저장
+                .order(by: "date", descending: true)
+                .getDocuments().documents
+            
+            return try documents.compactMap({ document in
+                try document.data(as: Post.self)
+            })
             
         } catch {
             print(error.localizedDescription)

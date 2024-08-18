@@ -49,14 +49,14 @@ struct HomeHotPostCoverView: View {
                             Circle()
                                 .stroke(Color.sBColor, lineWidth: 2)
                         }
-                        .padding(.leading, 27)
+                        .padding(.leading, 20)
                         
                 } else {
                     Image(systemName: "person.circle.fill")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .clipShape(Circle())
-                        .padding(.leading, 27)
+                        .padding(.leading, 20)
                 }
                 
                 Text("\(viewModel.post.user.username)")
@@ -100,7 +100,7 @@ struct HomeHotPostCoverView: View {
                 Text("\(viewModel.commentCount)")
                     .font(.system(size: 13))
                     .foregroundStyle(Color.sBColor)
-                    .padding(.trailing, 25)
+                    .padding(.trailing, 20)
             }
             .padding(.bottom, 30)
         }

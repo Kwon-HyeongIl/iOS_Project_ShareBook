@@ -28,6 +28,7 @@
 		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
 		CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */; };
 		CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */; };
+		CA56F23B2C72380500F4980D /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56F23A2C72380500F4980D /* Genre.swift */; };
 		CA5793802C64C85700D2562F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA57937F2C64C85700D2562F /* TestView.swift */; };
 		CA584B882C5AA08E001D9194 /* fullGirl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA584B872C5AA08E001D9194 /* fullGirl3D.splineswift */; };
 		CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D06E2C6DB72500A652EA /* CommentManager.swift */; };
@@ -126,6 +127,7 @@
 		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonModifier.swift; sourceTree = "<group>"; };
+		CA56F23A2C72380500F4980D /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		CA57937F2C64C85700D2562F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CA584B872C5AA08E001D9194 /* fullGirl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = fullGirl3D.splineswift; sourceTree = "<group>"; };
 		CA62D06E2C6DB72500A652EA /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
@@ -290,6 +292,14 @@
 				CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		CA56F23C2C72381100F4980D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				CA56F23A2C72380500F4980D /* Genre.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		CA62D0702C6DB72A00A652EA /* Comment */ = {
@@ -632,6 +642,7 @@
 				CAC330482C4F38CC003C8A71 /* CommonView */,
 				CAC3304B2C4F3902003C8A71 /* Spline3D */,
 				CA62D0772C6DC59300A652EA /* Date */,
+				CA56F23C2C72381100F4980D /* Enum */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -776,6 +787,7 @@
 				CA1126B32C6D16FC009277F3 /* HomeBookDetailView.swift in Sources */,
 				CA2CA1B12C591682001D8B89 /* JwtManager.swift in Sources */,
 				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
+				CA56F23B2C72380500F4980D /* Genre.swift in Sources */,
 				CAA0C6052C54B5E200E7433D /* HttpManager+NaverBook.swift in Sources */,
 				CAAE48092C60C3660048FE40 /* NewPostBookCoverView.swift in Sources */,
 				CAA0C6072C54B82C00E7433D /* NewPostSearchViewModel.swift in Sources */,

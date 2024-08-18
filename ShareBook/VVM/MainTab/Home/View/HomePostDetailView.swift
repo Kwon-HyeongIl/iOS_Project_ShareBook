@@ -24,10 +24,6 @@ struct HomePostDetailView: View {
                                 .resizable()
                                 .frame(width: 35, height: 35)
                                 .clipShape(Circle())
-                                .overlay {
-                                    Circle()
-                                        .stroke(Color.sBColor, lineWidth: 2)
-                                }
                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                                 .padding(.leading, 20)
                                 
@@ -45,9 +41,9 @@ struct HomePostDetailView: View {
                             .fontWeight(.semibold)
                         
                         Text("\(viewModel.post.date.relativeTimeString())")
-                            .font(.system(size: 14))
+                            .font(.system(size: 13))
                             .foregroundStyle(.gray)
-                            .padding(.leading, 5)
+                            .padding(.leading, 4)
                         
                         Spacer()
                     }
@@ -131,7 +127,8 @@ struct HomePostDetailView: View {
                                     .padding(.leading)
                                 
                                 Text("좋아요")
-                                    .font(.system(size: 15))
+                                    .font(.system(size: 14))
+                                    .fontWeight(.medium)
                                     .foregroundStyle(.black)
                                 
                                 Text("\(viewModel.post.likeCount)")
@@ -152,7 +149,8 @@ struct HomePostDetailView: View {
                                     .padding(.leading, 10)
                                 
                                 Text("댓글")
-                                    .font(.system(size: 15))
+                                    .font(.system(size: 14))
+                                    .fontWeight(.medium)
                                     .foregroundStyle(.black)
                                 
                                 Text("\(viewModel.commentCount)")
@@ -170,7 +168,8 @@ struct HomePostDetailView: View {
                             .foregroundStyle(Color.sBColor)
 
                         Text("\(viewModel.post.genre.rawValue)")
-                            .font(.system(size: 15))
+                            .font(.system(size: 14))
+                            .fontWeight(.medium)
                             .padding(.trailing)
                         
                     }
