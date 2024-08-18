@@ -31,19 +31,18 @@ struct HomeView: View {
                     ZStack {
                         ScrollView(.horizontal) {
                             LazyHStack {
-                                ForEach(viewModel.hotPosts) { post in
-                                    HomeHotPostCoverView(post: post)
-                                        .scrollTransition(.interactive, axis: .horizontal) {
-                                            view, phase in
+                                ForEach(viewModel.hotPosts.indices, id: \.self) { index in
+                                    HomeHotPostCoverView(post: viewModel.hotPosts[index])
+                                        .padding(.leading, index == 0 ? 10 : 0)
+                                        .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 10 : 0)
+                                        .scrollTransition(.interactive, axis: .horizontal) { view, phase in
                                             view
                                                 .scaleEffect(phase.isIdentity ? 1 : 0.95)
                                         }
                                 }
                             }
-                            .scrollTargetLayout()
                         }
                         .scrollIndicators(.hidden)
-                        .scrollTargetBehavior(.viewAligned)
                         
                         HStack {
                             Text("금주의 인기 책 구절")
@@ -54,7 +53,7 @@ struct HomeView: View {
                                 .padding(.leading, 20)
                                 .padding(.top)
                         }
-                        .padding(.bottom, 400)
+                        .padding(.bottom, 380)
                         
                         Divider()
                             .padding(.top, 380)
