@@ -36,7 +36,7 @@ struct CustomTabView: View {
                             
                     }
                     .onTapGesture {
-                        withAnimation(.easeInOut(duration: 0.1)) {
+                        withAnimation(.smooth(duration: 0.4)) {
                             selectedTab = tab
                         }
                     }
