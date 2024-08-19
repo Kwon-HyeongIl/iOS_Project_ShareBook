@@ -134,7 +134,7 @@ struct NewPostUploadPostView: View {
                         
                         if isImpressivePhraseShowing {
                             Button {
-                                withAnimation {
+                                withAnimation(.easeInOut(duration: 0.4)) {
                                     if !viewModel.impressivePhrase.isEmpty {
                                         isImpressivePhraseShowing = false
                                         isFeelingCaptionShowing = true
@@ -166,7 +166,7 @@ struct NewPostUploadPostView: View {
                             ZStack {
                                 HStack {
                                     Button {
-                                        withAnimation {
+                                        withAnimation(.easeInOut(duration: 0.4)) {
                                             isImpressivePhraseShowing = true
                                             isFeelingCaptionShowing = false
                                         }
@@ -187,7 +187,7 @@ struct NewPostUploadPostView: View {
                                 
                                 HStack {
                                     Button {
-                                        withAnimation {
+                                        withAnimation(.easeInOut(duration: 0.4)) {
                                             isFeelingCaptionShowing = false
                                             isGenreShowing = true
                                         }
@@ -208,7 +208,7 @@ struct NewPostUploadPostView: View {
                             ZStack {
                                 HStack {
                                     Button {
-                                        withAnimation {
+                                        withAnimation(.easeInOut(duration: 0.4)) {
                                             isFeelingCaptionShowing = true
                                             isGenreShowing = false
                                         }

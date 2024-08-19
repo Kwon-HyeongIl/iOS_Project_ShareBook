@@ -83,11 +83,11 @@ struct HomePostDetailView: View {
                         }
                         
                         Button {
-                            withAnimation {
+                            withAnimation(.easeInOut(duration: 0.4)) {
                                 isFeelingCaptionExpanding.toggle()
                             }
                         } label: {
-                            VStack {
+                            HStack {
                                 if isFeelingCaptionExpanding {
                                     Image(systemName: "chevron.up")
                                     
@@ -186,10 +186,10 @@ struct HomePostDetailView: View {
         }
         .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
             Task {
-                await viewModel.loadPostCommentCount()
+                await viewModel.loadAllPostCommentAndCommentReplyCount()
             }
         }, content: {
-            CommentView(post: viewModel.post)
+            CommentListView(post: viewModel.post)
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.7), .large])
         })

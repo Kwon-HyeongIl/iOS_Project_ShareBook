@@ -8,7 +8,7 @@
 import Foundation
 
 extension HomePostViewModel {
-    func loadPostCommentCount() async {
-        self.commentCount = await CommentManager.loadPostCommentCount(postId: post.id)
+    func loadAllPostCommentAndCommentReplyCount() async {
+        self.commentCount = await CommentManager.loadAllPostCommentAndCommentReplyCount(postId: post.id)
     }
 }

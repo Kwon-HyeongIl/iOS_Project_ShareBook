@@ -18,7 +18,7 @@ class HomePostViewModel {
         
         Task {
             await isLike()
-            await loadPostCommentCount()
+            await loadAllPostCommentAndCommentReplyCount()
         }
     }
     

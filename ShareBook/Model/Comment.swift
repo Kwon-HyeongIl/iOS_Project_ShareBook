@@ -18,9 +18,11 @@ struct Comment: Codable, Identifiable {
     let commentUserId: String
     var commentUser: User?
     
+    var commentReplyCount: Int?
+    
     let date: Date
 }
 
 extension Comment {
-    static var DUMMY_COMMENT: Comment = Comment(id: UUID().uuidString, commentText: "dummy comment", postId: UUID().uuidString, postUserId: UUID().uuidString, commentUserId: UUID().uuidString, commentUser: User.DUMMY_USER, date: Date())
+    static var DUMMY_COMMENT: Comment = Comment(id: UUID().uuidString, commentText: "dummy commentajdfhpaoidhfpaoiehfpoaiehfpaoisfh;asdoilfoaweiofhawoeifha;owiehfoaisehf;alsehfa;oiesfaoeisfa;eshfa;lwehfaoweihfoaiwehf;aoiewhf;oashf;oaiehf;aoiewhf;aorihfga;oerifhaoeirhfaoiewfh;aoiwefh", postId: UUID().uuidString, postUserId: UUID().uuidString, commentUserId: UUID().uuidString, commentUser: User.DUMMY_USER, commentReplyCount: 0, date: Date())
 }

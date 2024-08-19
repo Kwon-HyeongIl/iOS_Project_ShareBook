@@ -15,7 +15,8 @@ class CommentManager {
         do {
             try await Firestore.firestore()
                 .collection("Posts").document(comment.postId)
-                .collection("Post_Comment").addDocument(data: encodedComment)
+                .collection("Post_Comments").document(comment.id)
+                .setData(encodedComment)
             
             try await Firestore.firestore()
                 .collection("Posts").document(comment.postId)
@@ -30,7 +31,7 @@ class CommentManager {
         do {
             let documents = try await Firestore.firestore()
                 .collection("Posts").document(postId)
-                .collection("Post_Comment").order(by: "date", descending: true)
+                .collection("Post_Comments").order(by: "date")
                 .getDocuments().documents
             
             let comments = try documents.compactMap { document in
@@ -45,11 +46,26 @@ class CommentManager {
         }
     }
     
-    static func loadPostCommentCount(postId: String) async -> Int {
+    static func loadAllPostCommentAndCommentReplyCount(postId: String) async -> Int {
         do {
-            return try await Firestore.firestore()
+            let commentDocuments = try await Firestore.firestore()
                 .collection("Posts").document(postId)
-                .collection("Post_Comment").getDocuments().documents.count
+                .collection("Post_Comments").getDocuments().documents
+            
+            let comments = try commentDocuments.compactMap { document in
+                try document.data(as: Comment.self)
+            }
+            
+            var totalCommentCount = comments.count
+            
+            for comment in comments {
+                totalCommentCount += try await Firestore.firestore()
+                    .collection("Posts").document(postId)
+                    .collection("Post_Comments").document(comment.id)
+                    .collection("Comment_Replys").getDocuments().documents.count
+            }
+            
+            return totalCommentCount
             
         } catch {
             print(error.localizedDescription)

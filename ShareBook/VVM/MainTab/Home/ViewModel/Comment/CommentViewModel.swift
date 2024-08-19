@@ -1,41 +1,33 @@
 //
-//  CommentViewModel.swift
+//  CommentCellViewModel.swift
 //  ShareBook
 //
-//  Created by 권형일 on 8/15/24.
+//  Created by 권형일 on 8/19/24.
 //
 
 import Foundation
 
 @Observable
 class CommentViewModel {
-    var comments: [Comment] = []
+    var comment: Comment
+    var commentReplys: [Comment] = []
+    
     var commentText = ""
     
-    var post: Post
-
     var currentUser: User?
     
-    init(post: Post) {
-        self.post = post
+    init(comment: Comment) {
+        self.comment = comment
         
         guard let user = AuthManager.shared.currentUser else { return }
         self.currentUser = user
         
         Task {
-            await loadAllUserComment()
+            await loadAllCommentCommentReplys()
         }
     }
     
-    func loadAllUserComment() async {
-        self.comments = await CommentManager.loadUserAllComment(postId: post.id)
-    }
-    
-    func uploadComment() async {
-        guard let userId = AuthManager.shared.currentUser?.id else { return }
-        
-        let comment = Comment(id: UUID().uuidString, commentText: commentText, postId: post.id, postUserId: post.userId, commentUserId: userId, commentUser: currentUser, date: Date())
-        
-        await CommentManager.uploadComment(comment: comment)
+    func loadAllCommentCommentReplys() async {
+        self.commentReplys = await CommentManager.loadAllCommentCommentReplys(postId: comment.postId, upperCommentId: comment.id)
     }
 }
