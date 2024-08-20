@@ -44,6 +44,7 @@ struct CommentReplyView: View {
                         .lineLimit(3)
                         .truncationMode(.tail)
                         .padding(.leading, 2)
+                        .padding(.bottom, 1.5)
                 }
                 
                 Text(commentReply.commentText)

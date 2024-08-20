@@ -11,6 +11,8 @@ import Kingfisher
 struct HomeHotPostCoverView: View {
     @State private var viewModel: HomePostViewModel
     
+    @State var isCommentSheetShowing = false
+    
     init(post: Post) {
         self.viewModel = HomePostViewModel(post: post)
     }
@@ -87,7 +89,7 @@ struct HomeHotPostCoverView: View {
                     .padding(.trailing, 10)
                 
                 Button {
-                    
+                    isCommentSheetShowing = true
                 } label: {
                     Image(systemName: "bubble.right")
                         .resizable()
@@ -110,6 +112,15 @@ struct HomeHotPostCoverView: View {
         .padding(.horizontal, 5)
         .padding(.vertical)
         .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+        .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
+            Task {
+                await viewModel.loadAllPostCommentAndCommentReplyCount()
+            }
+        }, content: {
+            CommentListView(post: viewModel.post)
+                .presentationDragIndicator(.visible)
+                .presentationDetents([.fraction(0.7), .large])
+        })
     }
 }
 
