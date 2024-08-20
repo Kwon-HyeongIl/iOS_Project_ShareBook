@@ -64,7 +64,7 @@ struct CommentView: View {
                 
                 if isCommentReplyShowing {
                     LazyVStack(alignment: .leading) {
-                        ForEach(viewModel.commentReplys) { commentReply in
+                        ForEach(viewModel.commentReplies) { commentReply in
                             CommentReplyView(commentReply: commentReply)
                                 
                         }
@@ -87,7 +87,7 @@ struct CommentView: View {
                         }
                     }
                     
-                    if !viewModel.commentReplys.isEmpty && !isCommentReplyShowing {
+                    if !viewModel.commentReplies.isEmpty && !isCommentReplyShowing {
                         Button {
                             withAnimation(.easeInOut(duration: 0.4)) {
                                 isCommentReplyShowing = true

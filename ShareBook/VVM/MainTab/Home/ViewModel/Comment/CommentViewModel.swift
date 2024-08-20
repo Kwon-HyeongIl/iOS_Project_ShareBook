@@ -10,7 +10,7 @@ import Foundation
 @Observable
 class CommentViewModel {
     var comment: Comment
-    var commentReplys: [Comment] = []
+    var commentReplies: [Comment] = []
     
     var commentText = ""
     
@@ -23,11 +23,11 @@ class CommentViewModel {
         self.currentUser = user
         
         Task {
-            await loadAllCommentCommentReplys()
+            await loadAllCommentCommentReplies()
         }
     }
     
-    func loadAllCommentCommentReplys() async {
-        self.commentReplys = await CommentManager.loadAllCommentCommentReplys(postId: comment.postId, upperCommentId: comment.id)
+    func loadAllCommentCommentReplies() async {
+        self.commentReplies = await CommentManager.loadAllCommentCommentReplies(postId: comment.postId, upperCommentId: comment.id)
     }
 }

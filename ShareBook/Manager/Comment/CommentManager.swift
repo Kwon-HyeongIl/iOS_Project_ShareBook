@@ -62,7 +62,7 @@ class CommentManager {
                 totalCommentCount += try await Firestore.firestore()
                     .collection("Posts").document(postId)
                     .collection("Post_Comments").document(comment.id)
-                    .collection("Comment_Replys").getDocuments().documents.count
+                    .collection("Comment_Replies").getDocuments().documents.count
             }
             
             return totalCommentCount

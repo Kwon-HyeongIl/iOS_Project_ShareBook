@@ -16,7 +16,7 @@ extension CommentManager {
             try await Firestore.firestore()
                 .collection("Posts").document(commentReply.postId)
                 .collection("Post_Comments").document(upperCommentId)
-                .collection("Comment_Replys").addDocument(data: encodedCommentReply)
+                .collection("Comment_Replies").addDocument(data: encodedCommentReply)
             
             try await Firestore.firestore()
                 .collection("Posts").document(commentReply.postId)
@@ -28,12 +28,12 @@ extension CommentManager {
         }
     }
     
-    static func loadAllCommentCommentReplys(postId: String, upperCommentId: String) async -> [Comment] {
+    static func loadAllCommentCommentReplies(postId: String, upperCommentId: String) async -> [Comment] {
         do {
             let documents = try await Firestore.firestore()
                 .collection("Posts").document(postId)
                 .collection("Post_Comments").document(upperCommentId)
-                .collection("Comment_Replys").order(by: "date")
+                .collection("Comment_Replies").order(by: "date")
                 .getDocuments().documents
             
             return try documents.compactMap { document in
