@@ -11,14 +11,16 @@ import Kingfisher
 struct MyPostsPostCoverView: View {
     @State private var viewModel: MyPostsPostViewModel
     
+    @State var isCommentSheetShowing = false
+    
     init(post: Post) {
         self.viewModel = MyPostsPostViewModel(post: post)
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             NavigationLink {
-//                HomePostDetailView(viewModel: viewModel)
+                MyPostsPostDetailView(viewModel: viewModel)
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
@@ -36,40 +38,73 @@ struct MyPostsPostCoverView: View {
                         .padding(.horizontal)
                 }
                 .padding(.top, 30)
+                .padding(.bottom, 8)
             }
             
-            HStack {
-                Button {
-                    
-                } label: {
-                    Image(systemName: viewModel.isLike ? "heart.fill" : "heart")
+            HStack(spacing: 0) {
+                if let profileImageUrl = viewModel.post.user.profileImageUrl {
+                    KFImage(URL(string: profileImageUrl))
                         .resizable()
-                        .frame(width: 13, height: 13)
-                        .foregroundStyle(Color.sBColor)
+                        .frame(width: 15, height: 15)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle()
+                                .stroke(Color.sBColor, lineWidth: 2)
+                        }
+                        .padding(.leading, 18)
+                        
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .clipShape(Circle())
+                        .padding(.leading, 18)
                 }
-                .padding(.leading, 35)
                 
-                Button {
-                    
-                } label: {
-                    Image(systemName: "bubble.right")
-                        .resizable()
-                        .frame(width: 13, height: 13)
-                        .foregroundStyle(Color.sBColor)
-                }
+                Text("\(viewModel.post.user.username)")
+                    .font(.system(size: 11))
+                    .frame(width: 30, alignment: .leading)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .padding(.leading, 5)
                 
                 Spacer()
                 
-                Text("\(viewModel.post.user.username)")
-                    .font(.system(size: 14))
+                Button {
+                    Task {
+                        await viewModel.isLike ? viewModel.unlike() : viewModel.like()
+                    }
+                } label: {
+                    Image(systemName: viewModel.isLike ? "heart.fill" : "heart")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 12)
+                        .foregroundStyle(Color.sBColor)
+                        
+                }
+                .padding(.trailing, 3)
+                
+                Text("\(viewModel.post.likeCount)")
+                    .font(.system(size: 10))
                     .foregroundStyle(Color.sBColor)
-                    .frame(width: 70, alignment: .trailing)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .padding(.trailing, 35)
-                    
+                    .padding(.trailing, 7)
+                
+                Button {
+                    isCommentSheetShowing = true
+                } label: {
+                    Image(systemName: "bubble.right")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 12)
+                        .foregroundStyle(Color.sBColor)
+                }
+                .padding(.trailing, 3)
+                
+                Text("\(viewModel.commentCount)")
+                    .font(.system(size: 10))
+                    .foregroundStyle(Color.sBColor)
+                    .padding(.trailing, 17)
             }
-            .padding(.top, 1)
             .padding(.bottom, 20)
         }
         .frame(width: 160, height: 240)
@@ -77,6 +112,15 @@ struct MyPostsPostCoverView: View {
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding(15)
         .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+        .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
+            Task {
+                await viewModel.loadAllPostCommentAndCommentReplyCount()
+            }
+        }, content: {
+            CommentListView(post: viewModel.post)
+                .presentationDragIndicator(.visible)
+                .presentationDetents([.fraction(0.7), .large])
+        })
     }
 }
 

@@ -62,12 +62,12 @@ class PostManager {
         }
     }
     
-    static func loadMyAllPosts() async -> [Post] {
+    static func loadAllMyPosts() async -> [Post] {
         guard let userId = AuthManager.shared.currentUser?.id else { return [] }
         
         do {
             let documents = try await Firestore.firestore().collection("Posts")
-                .order(by: "date", descending: true).whereField("userId", isEqualTo: userId)
+                .whereField("userId", isEqualTo: userId).order(by: "date", descending: true)
                 .getDocuments().documents
             
             return try documents.compactMap({ document in

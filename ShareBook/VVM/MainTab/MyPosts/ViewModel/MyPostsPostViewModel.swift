@@ -11,6 +11,7 @@ import Foundation
 class MyPostsPostViewModel {
     var post: Post
     var isLike = false
+    var commentCount = 0
     
     init(post: Post) {
         self.post = post

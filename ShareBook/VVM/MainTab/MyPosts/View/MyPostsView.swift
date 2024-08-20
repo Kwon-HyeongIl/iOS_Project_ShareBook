@@ -10,6 +10,8 @@ import SwiftUI
 struct MyPostsView: View {
     @State var viewModel = MyPostsViewModel()
     
+    @State private var selectedGenre = Genre.all
+    
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 2),
         GridItem(.flexible(), spacing: 2)
@@ -24,24 +26,28 @@ struct MyPostsView: View {
                 
                 ScrollView(.horizontal) {
                     HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 90, height: 30)
-                                .foregroundStyle(.white)
-                                .opacity(0.5)
-                            
-                            Text("인문학")
-                                .foregroundStyle(Color.sBColor)
-                        }
-                        
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 90, height: 30)
-                                .foregroundStyle(.white)
-                                .opacity(0.5)
-                            
-                            Text("경제학")
-                                .foregroundStyle(Color.sBColor)
+                        ForEach(Genre.allCases.indices, id: \.self) { index in
+                            Button {
+                                Task {
+                                    await viewModel.loadSpecificGenrePosts(genre: Genre.allCases[index])
+                                }
+                                selectedGenre = Genre.allCases[index]
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(height: 27)
+                                        .foregroundStyle(selectedGenre == Genre.allCases[index] ? Color.sBColor : .white)
+                                        .opacity(0.5)
+                                    
+                                    Text("\(Genre.allCases[index].rawValue)")
+                                        .foregroundStyle(selectedGenre == Genre.allCases[index] ? .white : .black)
+                                        .font(.system(size: 13))
+                                        .opacity(selectedGenre == Genre.allCases[index] ? 1.0 : 0.6)
+                                        .padding(.horizontal)
+                                }
+                                .padding(.leading, index == 0 ? 15 : 0)
+                                .padding(.trailing, index == Genre.allCases.count - 1 ? 15 : 0)
+                            }
                         }
                     }
                 }

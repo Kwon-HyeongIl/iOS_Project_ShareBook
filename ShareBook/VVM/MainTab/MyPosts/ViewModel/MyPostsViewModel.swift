@@ -13,11 +13,15 @@ class MyPostsViewModel {
     
     init() {
         Task {
-            await loadMyAllPost()
+            await loadAllMyPosts()
         }
     }
     
-    func loadMyAllPost() async {
-        self.posts = await PostManager.loadMyAllPosts()
+    func loadAllMyPosts() async {
+        self.posts = await PostManager.loadAllMyPosts()
+    }
+    
+    func loadSpecificGenrePosts(genre: Genre) async {
+        self.posts = await PostManager.loadSpecificGenrePosts(genre: genre)
     }
 }
