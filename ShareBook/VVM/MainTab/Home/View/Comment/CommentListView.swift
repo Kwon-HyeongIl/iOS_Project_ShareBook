@@ -14,6 +14,8 @@ struct CommentListView: View {
     @State private var selectedCommentId = ""
     @State private var selectedCommentUsername = ""
     
+    @State private var isLoadReplies = false
+    
     init(post: Post) {
         self.viewModel = CommentListViewModel(post: post)
     }
@@ -32,7 +34,7 @@ struct CommentListView: View {
                 ScrollView {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.comments) { comment in
-                            CommentView(comment: comment, selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername)
+                            CommentView(comment: comment, selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies)
                         }
                     }
                 }
@@ -109,14 +111,17 @@ struct CommentListView: View {
                     
                     Button {
                         Task {
-                            if selectedCommentId.isEmpty {
+                            if selectedCommentId.isEmpty { // 댓글 작성
                                 await viewModel.uploadComment()
                                 await viewModel.loadAllUserComment()
-                            } else {
+                                
+                            } else { // 답글 작성
                                 await viewModel.uploadCommentReply(upperCommentId: selectedCommentId)
-                                await viewModel.loadAllUserComment()
+                                
                                 selectedCommentId = ""
                                 selectedCommentUsername = ""
+                                
+                                isLoadReplies.toggle()
                             }
                             viewModel.commentText = ""
                         }

@@ -20,7 +20,6 @@ struct CommentReplyView: View {
                         .frame(width: 25)
                         .clipShape(Circle())
                         .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                        .padding(.top)
                     
                 } else {
                     Image(systemName: "person.circle.fill")
@@ -29,18 +28,18 @@ struct CommentReplyView: View {
                         .frame(width: 25)
                         .clipShape(Circle())
                         .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                        .padding(.top, 5)
                 }
             
             VStack(alignment: .leading) {
                 HStack {
                     Text(commentReply.commentUser?.username ?? "")
-                        .font(.system(size: 13))
+                        .font(.system(size: 12))
+                        .fontWeight(.semibold)
                         .lineLimit(1)
                         .truncationMode(.tail)
                     
                     Text(commentReply.date.relativeTimeString())
-                        .font(.system(size: 11))
+                        .font(.system(size: 10))
                         .foregroundStyle(.gray)
                         .lineLimit(3)
                         .truncationMode(.tail)
@@ -48,11 +47,11 @@ struct CommentReplyView: View {
                 }
                 
                 Text(commentReply.commentText)
-                    .font(.system(size: 13))
+                    .font(.system(size: 12))
             }
         }
         .padding(.trailing)
-        .padding(.vertical)
+        .padding(.vertical, 5)
     }
 }
 

@@ -13,12 +13,17 @@ struct CommentView: View {
     
     @Binding var selectedComment: String
     @Binding var selectedCommentUsername: String
+    
+    @Binding var isLoadReplies: Bool
+    
     @State private var isCommentReplyShowing = false
     
-    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>) {
+    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>) {
         self.viewModel = CommentViewModel(comment: comment)
+        
         self._selectedComment = selectedCommentToReply
         self._selectedCommentUsername = selectedCommentUsername
+        self._isLoadReplies = isLoadReplies
     }
     
     var body: some View {
@@ -47,12 +52,13 @@ struct CommentView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(viewModel.comment.commentUser?.username ?? "")
-                        .font(.system(size: 13))
+                        .font(.system(size: 12))
+                        .fontWeight(.semibold)
                         .lineLimit(1)
                         .truncationMode(.tail)
                     
                     Text(viewModel.comment.date.relativeTimeString())
-                        .font(.system(size: 11))
+                        .font(.system(size: 10))
                         .foregroundStyle(.gray)
                         .lineLimit(3)
                         .truncationMode(.tail)
@@ -60,7 +66,7 @@ struct CommentView: View {
                 }
                 
                 Text(viewModel.comment.commentText)
-                    .font(.system(size: 13))
+                    .font(.system(size: 12))
                 
                 if isCommentReplyShowing {
                     LazyVStack(alignment: .leading) {
@@ -69,7 +75,6 @@ struct CommentView: View {
                                 
                         }
                     }
-//                    .transition(.move(edge: .top).combined(with: .opacity))
                 }
                 
                 HStack {
@@ -108,6 +113,7 @@ struct CommentView: View {
                         }
                     }
                 }
+                .padding(.top, 1)
                 
                 if isCommentReplyShowing {
                     Button {
@@ -136,9 +142,14 @@ struct CommentView: View {
             Spacer()
         }
         .padding(.trailing)
+        .onChange(of: isLoadReplies) {
+            Task {
+                await viewModel.loadAllCommentCommentReplies()
+            }
+        }
     }
 }
 
 #Preview {
-    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"))
+    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false))
 }
