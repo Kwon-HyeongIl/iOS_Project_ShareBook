@@ -14,6 +14,8 @@ struct MyPostsPostDetailView: View {
     @State var isFeelingCaptionExpanding = false
     @State var isCommentSheetShowing = false
     
+    @State var deleteAlertShowing = false
+    
     var body: some View {
         GradientBackgroundView {
             ScrollView {
@@ -179,6 +181,34 @@ struct MyPostsPostDetailView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal)
                     .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                    
+                    
+                    Button {
+                        deleteAlertShowing = true
+                    } label: {
+                        Text("글 삭제")
+                            .font(.system(size: 14))
+                            .fontWeight(.bold)
+                            .foregroundStyle(.red)
+                            .opacity(0.7)
+                            .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                            .padding(.top)
+                    }
+                    .alert("삭제 하시겠습니까?", isPresented: $deleteAlertShowing) {
+                        Button(role: .cancel) {
+                            
+                        } label: {
+                            Text("취소")
+                        }
+                        
+                        Button(role: .destructive) {
+                            
+                        } label: {
+                            Text("삭제")
+                        }
+                    } message: {
+                        Text("삭제한 글은 다시 복원할 수 없습니다.")
+                    }
                 }
                 
             }
