@@ -96,4 +96,14 @@ class PostManager {
             return []
         }
     }
+    
+    static func deletePost(postId: String) async {
+        do {
+            try await Firestore.firestore()
+                .collection("Posts").document(postId)
+                .delete()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

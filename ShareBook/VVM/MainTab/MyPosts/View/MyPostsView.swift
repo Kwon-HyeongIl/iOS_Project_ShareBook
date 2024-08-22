@@ -61,6 +61,15 @@ struct MyPostsView: View {
                     }
                 }
             }
+            .task {
+                Task {
+                    if selectedGenre == Genre.all {
+                        await viewModel.loadAllMyPosts()
+                    } else {
+                        await viewModel.loadSpecificGenrePosts(genre: selectedGenre)
+                    }
+                }
+            }
         }
     }
 }

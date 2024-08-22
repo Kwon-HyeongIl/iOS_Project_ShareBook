@@ -16,4 +16,8 @@ class MyPostsPostViewModel {
     init(post: Post) {
         self.post = post
     }
+    
+    func deletePost() async {
+        await PostManager.deletePost(postId: post.id)
+    }
 }

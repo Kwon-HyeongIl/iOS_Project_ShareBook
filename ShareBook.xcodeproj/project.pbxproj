@@ -306,6 +306,7 @@
 		CA4FC6A72C4E992A00525570 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */,
 				CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */,
 				CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */,
 				CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */,
@@ -658,7 +659,6 @@
 			isa = PBXGroup;
 			children = (
 				CA2146D82C6B175E00BE8C3F /* Color */,
-				CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */,
 				CA4FC6A72C4E992A00525570 /* Modifier */,
 				CAC330482C4F38CC003C8A71 /* CommonView */,
 				CAC3304B2C4F3902003C8A71 /* Spline3D */,

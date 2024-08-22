@@ -16,6 +16,8 @@ struct MyPostsPostDetailView: View {
     
     @State var deleteAlertShowing = false
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         GradientBackgroundView {
             ScrollView {
@@ -190,7 +192,7 @@ struct MyPostsPostDetailView: View {
                             .font(.system(size: 14))
                             .fontWeight(.bold)
                             .foregroundStyle(.red)
-                            .opacity(0.7)
+                            .opacity(0.6)
                             .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                             .padding(.top)
                     }
@@ -202,7 +204,10 @@ struct MyPostsPostDetailView: View {
                         }
                         
                         Button(role: .destructive) {
-                            
+                            Task {
+                                await viewModel.deletePost()
+                                dismiss()
+                            }
                         } label: {
                             Text("삭제")
                         }
