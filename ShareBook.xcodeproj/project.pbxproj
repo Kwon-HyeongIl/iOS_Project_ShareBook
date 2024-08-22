@@ -24,6 +24,8 @@
 		CA2AAFDF2C6CE5E800E873DB /* HomePostCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2AAFDE2C6CE5E800E873DB /* HomePostCoverView.swift */; };
 		CA2CA1B12C591682001D8B89 /* JwtManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CA1B02C591682001D8B89 /* JwtManager.swift */; };
 		CA2FDAC92C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FDAC82C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift */; };
+		CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */; };
+		CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */; };
 		CA45F4442C5500FC007CE06E /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45F4432C5500FC007CE06E /* BookDetailView.swift */; };
 		CA4CE8ED2C74E3D4007CB103 /* MyPostsPostViewModel+Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CE8EC2C74E3D4007CB103 /* MyPostsPostViewModel+Like.swift */; };
 		CA4CE8EF2C74E3DD007CB103 /* MyPostsPostViewModel+Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CE8EE2C74E3DD007CB103 /* MyPostsPostViewModel+Comment.swift */; };
@@ -130,6 +132,8 @@
 		CA2AAFDE2C6CE5E800E873DB /* HomePostCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCoverView.swift; sourceTree = "<group>"; };
 		CA2CA1B02C591682001D8B89 /* JwtManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwtManager.swift; sourceTree = "<group>"; };
 		CA2FDAC82C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentListViewModel+Reply.swift"; sourceTree = "<group>"; };
+		CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsView.swift; sourceTree = "<group>"; };
+		CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsViewModel.swift; sourceTree = "<group>"; };
 		CA45F4432C5500FC007CE06E /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		CA4CE8EC2C74E3D4007CB103 /* MyPostsPostViewModel+Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPostsPostViewModel+Like.swift"; sourceTree = "<group>"; };
 		CA4CE8EE2C74E3DD007CB103 /* MyPostsPostViewModel+Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPostsPostViewModel+Comment.swift"; sourceTree = "<group>"; };
@@ -301,6 +305,22 @@
 				CA2146D92C6B177900BE8C3F /* ShareBookBasicColor.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		CA3139AC2C77766F001AF2AE /* MoreOptions */ = {
+			isa = PBXGroup;
+			children = (
+				CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */,
+			);
+			path = MoreOptions;
+			sourceTree = "<group>";
+		};
+		CA3139AF2C77859C001AF2AE /* MoreOptions */ = {
+			isa = PBXGroup;
+			children = (
+				CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */,
+			);
+			path = MoreOptions;
 			sourceTree = "<group>";
 		};
 		CA4FC6A72C4E992A00525570 /* Modifier */ = {
@@ -686,6 +706,7 @@
 				CA1126AE2C6D1544009277F3 /* HomeBookCoverView.swift */,
 				CA1126B22C6D16FC009277F3 /* HomeBookDetailView.swift */,
 				CA1126B62C6D27B1009277F3 /* Comment */,
+				CA3139AC2C77766F001AF2AE /* MoreOptions */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -699,6 +720,7 @@
 				CA9EC3BC2C6F70CE00E0596F /* HomePostViewModel+Comment.swift */,
 				CA1126B02C6D1579009277F3 /* HomeBookViewModel.swift */,
 				CA1126B92C6D27D2009277F3 /* Comment */,
+				CA3139AF2C77859C001AF2AE /* MoreOptions */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -802,6 +824,7 @@
 				CA4CE8EF2C74E3DD007CB103 /* MyPostsPostViewModel+Comment.swift in Sources */,
 				CA4CE8F12C74E438007CB103 /* MyPostsPostDetailView.swift in Sources */,
 				CA2FDAC92C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift in Sources */,
+				CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */,
 				CA1126A72C6D0BB7009277F3 /* MyPostsViewModel.swift in Sources */,
 				CAE3AC9B2C54F02800EE5AC5 /* BookCoverView.swift in Sources */,
 				CA66D5872C6E2D35000DCAC2 /* PostManager+Like.swift in Sources */,
@@ -879,6 +902,7 @@
 				CAB7FE422C73B73500A2D967 /* CommentListView.swift in Sources */,
 				CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
+				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
 				CA7A1F392C661B8C00202921 /* ProfileBookmarkBookViewModel.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
 				CA1126B82C6D27CF009277F3 /* CommentListViewModel.swift in Sources */,

@@ -12,7 +12,13 @@ struct HomePostDetailView: View {
     @Bindable var viewModel: HomePostViewModel
     
     @State var isFeelingCaptionExpanding = false
+    
     @State var isCommentSheetShowing = false
+    @State var isMoreOptionsSheetShowing = false
+    
+    @State var isDeletePost = false
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         GradientBackgroundView {
@@ -46,6 +52,17 @@ struct HomePostDetailView: View {
                             .padding(.leading, 4)
                         
                         Spacer()
+                        
+                        Button {
+                            isMoreOptionsSheetShowing = true
+                        } label: {
+                            Image(systemName: "ellipsis")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20)
+                                .foregroundStyle(.black)
+                                .padding(.trailing, 25)
+                        }
                     }
                     
                     HomeBookCoverView(book: viewModel.post.book)
@@ -193,6 +210,14 @@ struct HomePostDetailView: View {
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.7), .large])
         })
+        .sheet(isPresented: $isMoreOptionsSheetShowing) {
+            MoreOptionsView(post: viewModel.post, isDeletePost: $isDeletePost)
+                .presentationDragIndicator(.visible)
+                .presentationDetents([.fraction(0.2), .large])
+        }
+        .onChange(of: isDeletePost) {
+            dismiss()
+        }
         .modifier(BackButtonModifier())
     }
 }

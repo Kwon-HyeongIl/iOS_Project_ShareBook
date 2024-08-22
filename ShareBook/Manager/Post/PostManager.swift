@@ -102,6 +102,7 @@ class PostManager {
             try await Firestore.firestore()
                 .collection("Posts").document(postId)
                 .delete()
+            
         } catch {
             print(error.localizedDescription)
         }
