@@ -8,8 +8,8 @@
 import SwiftUI
 import Kingfisher
 
-struct NewPostUploadPostView: View {
-    @State var viewModel: NewPostUploadPostViewModel
+struct BookSearchUploadPostView: View {
+    @State var viewModel: BookSearchUploadPostViewModel
     
     @Binding var stackActive: Bool
     @Binding var selectedTab: Tab
@@ -19,7 +19,7 @@ struct NewPostUploadPostView: View {
     @State var isGenreShowing = false
     
     init(book: Book, stackActive : Binding<Bool>, selectedTab: Binding<Tab>) {
-        self.viewModel = NewPostUploadPostViewModel(book: book)
+        self.viewModel = BookSearchUploadPostViewModel(book: book)
         self._stackActive = stackActive
         self._selectedTab = selectedTab
     }
@@ -279,5 +279,5 @@ struct NewPostUploadPostView: View {
 }
 
 #Preview {
-    NewPostUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.plusSquareOnSquare))
+    BookSearchUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.plusMagnifyngglass))
 }

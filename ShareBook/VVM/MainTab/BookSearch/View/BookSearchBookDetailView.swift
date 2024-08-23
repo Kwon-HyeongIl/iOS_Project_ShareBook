@@ -8,8 +8,8 @@
 import SwiftUI
 import Kingfisher
 
-struct NewPostBookDetailView: View {
-    @Bindable var viewModel: NewPostBookViewModel
+struct BookSearchBookDetailView: View {
+    @Bindable var viewModel: BookSearchBookViewModel
     
     @Binding var stackActive: Bool
     @Binding var selectedTab: Tab
@@ -29,7 +29,7 @@ struct NewPostBookDetailView: View {
                     .frame(maxWidth: .infinity)
                     
                     NavigationLink {
-                        NewPostUploadPostView(book: viewModel.book, stackActive: $stackActive, selectedTab: $selectedTab)
+                        BookSearchUploadPostView(book: viewModel.book, stackActive: $stackActive, selectedTab: $selectedTab)
                     } label: {
                         HStack {
                             Text("글 작성")
@@ -127,5 +127,5 @@ struct NewPostBookDetailView: View {
 }
 
 #Preview {
-    NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true), selectedTab: .constant(.plusSquareOnSquare))
+    BookSearchBookDetailView(viewModel: BookSearchBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true), selectedTab: .constant(.plusMagnifyngglass))
 }

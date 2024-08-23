@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MyPostsView: View {
-    @State var viewModel = MyPostsViewModel()
+struct LikesView: View {
+    @State var viewModel = LikesViewModel()
     
     @State private var selectedGenre = Genre.all
     
@@ -56,7 +56,7 @@ struct MyPostsView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 0) {
                         ForEach(viewModel.posts) { post in
-                            MyPostsPostCoverView(post: post)
+                            LikesPostCoverView(post: post)
                         }
                     }
                 }
@@ -75,5 +75,5 @@ struct MyPostsView: View {
 }
 
 #Preview {
-    MyPostsView()
+    LikesView()
 }

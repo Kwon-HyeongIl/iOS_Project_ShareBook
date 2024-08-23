@@ -8,8 +8,8 @@
 import SwiftUI
 import Kingfisher
 
-struct MyPostsPostDetailView: View {
-    @Bindable var viewModel: MyPostsPostViewModel
+struct LikesPostDetailView: View {
+    @Bindable var viewModel: LikesPostViewModel
     
     @State var isFeelingCaptionExpanding = false
     @State var isCommentSheetShowing = false
@@ -233,5 +233,5 @@ struct MyPostsPostDetailView: View {
 }
 
 #Preview {
-    MyPostsPostDetailView(viewModel: MyPostsPostViewModel(post: Post.DUMMY_POST))
+    LikesPostDetailView(viewModel: LikesPostViewModel(post: Post.DUMMY_POST))
 }

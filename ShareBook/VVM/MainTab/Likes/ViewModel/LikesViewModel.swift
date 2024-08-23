@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class MyPostsViewModel {
+class LikesViewModel {
     var posts: [Post] = []
     
     init() {

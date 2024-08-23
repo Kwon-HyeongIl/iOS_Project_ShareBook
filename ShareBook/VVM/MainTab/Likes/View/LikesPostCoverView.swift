@@ -8,19 +8,19 @@
 import SwiftUI
 import Kingfisher
 
-struct MyPostsPostCoverView: View {
-    @State private var viewModel: MyPostsPostViewModel
+struct LikesPostCoverView: View {
+    @State private var viewModel: LikesPostViewModel
     
     @State var isCommentSheetShowing = false
     
     init(post: Post) {
-        self.viewModel = MyPostsPostViewModel(post: post)
+        self.viewModel = LikesPostViewModel(post: post)
     }
     
     var body: some View {
         VStack(spacing: 0) {
             NavigationLink {
-                MyPostsPostDetailView(viewModel: viewModel)
+                LikesPostDetailView(viewModel: viewModel)
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
@@ -125,5 +125,5 @@ struct MyPostsPostCoverView: View {
 }
 
 #Preview {
-    MyPostsPostCoverView(post: Post.DUMMY_POST)
+    LikesPostCoverView(post: Post.DUMMY_POST)
 }

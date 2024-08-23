@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class MyPostsPostViewModel {
+class LikesPostViewModel {
     var post: Post
     var isLike = false
     var commentCount = 0

@@ -55,9 +55,9 @@ struct CustomTabView: View {
 
 enum Tab: String, CaseIterable {
     case house = "house"
-    case plusSquareOnSquare = "plus.square.on.square"
-    case booksVertical = "books.vertical"
-    case personCropCircle = "person.crop.circle"
+    case plusMagnifyngglass = "plus.magnifyingglass"
+    case heart = "heart"
+    case person = "person"
 }
 
 #Preview {

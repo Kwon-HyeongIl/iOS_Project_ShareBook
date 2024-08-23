@@ -21,13 +21,13 @@ struct MainTabView: View {
                 case .house:
                     HomeView()
                     
-                case .plusSquareOnSquare:
-                    NewPostSearchView(selectedTab: $selectedTab)
+                case .plusMagnifyngglass:
+                    BookSearchView(selectedTab: $selectedTab)
                     
-                case .booksVertical:
-                    MyPostsView()
+                case .heart:
+                    LikesView()
                     
-                case .personCropCircle:
+                case .person:
                     ProfileView()
                 }
                 

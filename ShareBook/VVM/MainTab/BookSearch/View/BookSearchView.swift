@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct NewPostSearchView: View {
-    @State var viewModel = NewPostSearchViewModel()
+struct BookSearchView: View {
+    @State var viewModel = BookSearchViewModel()
     @State var searchQuery = ""
     @State var isShowing = true
     
@@ -40,7 +40,7 @@ struct NewPostSearchView: View {
             
             ScrollView {
                 ForEach(viewModel.bookList, id: \.self) { book in
-                    NewPostBookCoverView(book: book, selectedTab: $selectedTab)
+                    BookSearchBookCoverView(book: book, selectedTab: $selectedTab)
                 }
             }
         }
@@ -53,5 +53,5 @@ struct NewPostSearchView: View {
 }
 
 #Preview {
-    NewPostSearchView(selectedTab: .constant(.plusSquareOnSquare))
+    BookSearchView(selectedTab: .constant(.plusMagnifyngglass))
 }
