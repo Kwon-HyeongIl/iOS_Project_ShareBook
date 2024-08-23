@@ -53,6 +53,9 @@
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA91CDE92C56559200793F34 /* girl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDE82C56559200793F34 /* girl3D.splineswift */; };
+		CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */; };
+		CA9A3FA72C78B74500804B8E /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA62C78B74500804B8E /* BookViewModel.swift */; };
+		CA9A3FA92C78B77300804B8E /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA82C78B77300804B8E /* BookDetailView.swift */; };
 		CA9EC3BD2C6F70CE00E0596F /* HomePostViewModel+Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EC3BC2C6F70CE00E0596F /* HomePostViewModel+Comment.swift */; };
 		CAA0C5F52C549FE300E7433D /* BookSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5F42C549FE300E7433D /* BookSearchView.swift */; };
 		CAA0C5FD2C54B34600E7433D /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */; };
@@ -157,6 +160,9 @@
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA91CDE82C56559200793F34 /* girl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = girl3D.splineswift; sourceTree = "<group>"; };
+		CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
+		CA9A3FA62C78B74500804B8E /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		CA9A3FA82C78B77300804B8E /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		CA9EC3BC2C6F70CE00E0596F /* HomePostViewModel+Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePostViewModel+Comment.swift"; sourceTree = "<group>"; };
 		CAA0C5F42C549FE300E7433D /* BookSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchView.swift; sourceTree = "<group>"; };
 		CAA0C5FC2C54B34600E7433D /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
@@ -278,6 +284,23 @@
 				CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */,
 			);
 			path = MoreOptions;
+			sourceTree = "<group>";
+		};
+		CA3E7B2E2C78B86800F610A4 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CA1126AE2C6D1544009277F3 /* HomeBookCoverView.swift */,
+				CA1126B22C6D16FC009277F3 /* HomeBookDetailView.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		CA3E7B2F2C78B87C00F610A4 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CA1126B02C6D1579009277F3 /* HomeBookViewModel.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 		CA4FC6A72C4E992A00525570 /* Modifier */ = {
@@ -515,6 +538,23 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		CA9A3FA22C78B6B600804B8E /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */,
+				CA9A3FA82C78B77300804B8E /* BookDetailView.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		CA9A3FA52C78B73500804B8E /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CA9A3FA62C78B74500804B8E /* BookViewModel.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
 		CAA0C5F32C549FBD00E7433D /* BookSearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,6 +579,7 @@
 				CAAE48082C60C3660048FE40 /* BookSearchBookCoverView.swift */,
 				CAAE480B2C60C3990048FE40 /* BookSearchBookDetailView.swift */,
 				CA10EEC12C60CC4700901979 /* BookSearchUploadPostView.swift */,
+				CA9A3FA22C78B6B600804B8E /* Book */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -549,6 +590,7 @@
 				CAA0C6062C54B82C00E7433D /* BookSearchViewModel.swift */,
 				CA7A1F342C66108000202921 /* BookSearchBookViewModel.swift */,
 				CA10EEC42C60CC6400901979 /* BookSearchUploadPostViewModel.swift */,
+				CA9A3FA52C78B73500804B8E /* Book */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -701,8 +743,7 @@
 				CADD90772C6A55680023C512 /* HomeHotPostCoverView.swift */,
 				CA2AAFDE2C6CE5E800E873DB /* HomePostCoverView.swift */,
 				CADD907F2C6A55BC0023C512 /* HomePostDetailView.swift */,
-				CA1126AE2C6D1544009277F3 /* HomeBookCoverView.swift */,
-				CA1126B22C6D16FC009277F3 /* HomeBookDetailView.swift */,
+				CA3E7B2E2C78B86800F610A4 /* Book */,
 				CA1126B62C6D27B1009277F3 /* Comment */,
 				CA3139AC2C77766F001AF2AE /* MoreOptions */,
 			);
@@ -716,7 +757,7 @@
 				CADD907D2C6A559F0023C512 /* HomePostViewModel.swift */,
 				CA66D5882C6E31A5000DCAC2 /* HomePostViewModel+Like.swift */,
 				CA9EC3BC2C6F70CE00E0596F /* HomePostViewModel+Comment.swift */,
-				CA1126B02C6D1579009277F3 /* HomeBookViewModel.swift */,
+				CA3E7B2F2C78B87C00F610A4 /* Book */,
 				CA1126B92C6D27D2009277F3 /* Comment */,
 				CA3139AF2C77859C001AF2AE /* MoreOptions */,
 			);
@@ -850,6 +891,7 @@
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
 				CAA0C6012C54B39300E7433D /* BookList.swift in Sources */,
 				CA6AC97E2C53CA3900703DB5 /* ProfileViewModel.swift in Sources */,
+				CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */,
 				CAD8FEFE2C53D6900000446B /* ImageManager.swift in Sources */,
 				CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */,
 				CADBA2FD2C4E757C001C6445 /* MyError.swift in Sources */,
@@ -894,6 +936,8 @@
 				CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */,
 				CAB7FE422C73B73500A2D967 /* CommentListView.swift in Sources */,
 				CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */,
+				CA9A3FA92C78B77300804B8E /* BookDetailView.swift in Sources */,
+				CA9A3FA72C78B74500804B8E /* BookViewModel.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
