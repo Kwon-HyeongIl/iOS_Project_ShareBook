@@ -65,7 +65,7 @@ struct HomePostDetailView: View {
                         }
                     }
                     
-                    HomeBookCoverView(book: viewModel.post.book)
+                    BookCoverView(book: viewModel.post.book)
                         .padding(.bottom, 10)
                         .padding(.vertical, 5)
                     

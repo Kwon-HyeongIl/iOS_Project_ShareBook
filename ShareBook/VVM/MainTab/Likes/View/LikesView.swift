@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct LikesView: View {
+    @State private var selectedTab: LikesTab = .likePosts
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            HStack {
+                Text("관심")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .padding(.leading)
+                
+                Spacer()
+            }
+            .padding(.bottom)
+            
+            LikesHeadTabView(selectedTab: $selectedTab)
+            
+            ScrollView {
+                switch selectedTab {
+                case .likePosts:
+                    LikePostsView()
+                    
+                case .bookmarkBooks:
+                    BookmarkBooksView()
+                }
+            }
+        }
     }
 }
 
