@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+@Observable
+class BookmarkBooksViewModel {
+    var books: [Book] = []
+    
+    init() {
+        Task {
+            await loadAllBookmarkBooks()
+        }
+    }
+    
+    func loadAllBookmarkBooks() async {
+        self.books = await BookManager.loadAllBookmarkBooks()
+    }
+}

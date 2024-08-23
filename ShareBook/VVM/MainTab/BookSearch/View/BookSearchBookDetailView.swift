@@ -127,5 +127,5 @@ struct BookSearchBookDetailView: View {
 }
 
 #Preview {
-    BookSearchBookDetailView(viewModel: BookSearchBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true), selectedTab: .constant(.plusMagnifyngglass))
+    BookSearchBookDetailView(viewModel: BookSearchBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true), selectedTab: .constant(.booksVertical))
 }

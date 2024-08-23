@@ -64,5 +64,5 @@ struct BookSearchBookCoverView: View {
 }
 
 #Preview {
-    BookSearchBookCoverView(book: Book.DUMMY_BOOK, selectedTab: .constant(.plusMagnifyngglass))
+    BookSearchBookCoverView(book: Book.DUMMY_BOOK, selectedTab: .constant(.booksVertical))
 }

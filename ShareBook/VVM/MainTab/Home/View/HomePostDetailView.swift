@@ -66,8 +66,6 @@ struct HomePostDetailView: View {
                     }
                     
                     BookCoverView(book: viewModel.post.book)
-                        .padding(.bottom, 10)
-                        .padding(.vertical, 5)
                     
                     VStack {
                         Image(systemName: "quote.opening")

@@ -53,5 +53,5 @@ struct BookSearchView: View {
 }
 
 #Preview {
-    BookSearchView(selectedTab: .constant(.plusMagnifyngglass))
+    BookSearchView(selectedTab: .constant(.booksVertical))
 }

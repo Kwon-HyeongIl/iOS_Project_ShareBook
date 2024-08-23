@@ -41,7 +41,6 @@
 		CA6AAC332C4B8CA20045449E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */; };
 		CA6AC97E2C53CA3900703DB5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */; };
 		CA70E7F62C785E6400E3B91B /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E7F52C785E6400E3B91B /* LikesView.swift */; };
-		CA70E7F82C785E6D00E3B91B /* LikesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E7F72C785E6D00E3B91B /* LikesViewModel.swift */; };
 		CA70E7FC2C785EA100E3B91B /* LikePostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E7FB2C785EA100E3B91B /* LikePostsView.swift */; };
 		CA70E7FF2C785EC300E3B91B /* LikePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E7FE2C785EC300E3B91B /* LikePostsViewModel.swift */; };
 		CA70E8022C785ED600E3B91B /* BookmarkBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E8012C785ED600E3B91B /* BookmarkBooksView.swift */; };
@@ -145,7 +144,6 @@
 		CA6AAC322C4B8CA20045449E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		CA70E7F52C785E6400E3B91B /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
-		CA70E7F72C785E6D00E3B91B /* LikesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewModel.swift; sourceTree = "<group>"; };
 		CA70E7FB2C785EA100E3B91B /* LikePostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostsView.swift; sourceTree = "<group>"; };
 		CA70E7FE2C785EC300E3B91B /* LikePostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostsViewModel.swift; sourceTree = "<group>"; };
 		CA70E8012C785ED600E3B91B /* BookmarkBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkBooksView.swift; sourceTree = "<group>"; };
@@ -473,7 +471,6 @@
 		CA70E7FA2C785E7400E3B91B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CA70E7F72C785E6D00E3B91B /* LikesViewModel.swift */,
 				CA70E8002C785EC700E3B91B /* LikePosts */,
 				CA70E8062C785F0500E3B91B /* BookmarkBooks */,
 			);
@@ -897,7 +894,6 @@
 				CA70E8052C785EF100E3B91B /* BookmarkBooksViewModel.swift in Sources */,
 				CA7A1F352C66108000202921 /* BookSearchBookViewModel.swift in Sources */,
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
-				CA70E7F82C785E6D00E3B91B /* LikesViewModel.swift in Sources */,
 				CA10EEC52C60CC6400901979 /* BookSearchUploadPostViewModel.swift in Sources */,
 				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */,

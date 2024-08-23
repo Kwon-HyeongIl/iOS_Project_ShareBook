@@ -279,5 +279,5 @@ struct BookSearchUploadPostView: View {
 }
 
 #Preview {
-    BookSearchUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.plusMagnifyngglass))
+    BookSearchUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.booksVertical))
 }

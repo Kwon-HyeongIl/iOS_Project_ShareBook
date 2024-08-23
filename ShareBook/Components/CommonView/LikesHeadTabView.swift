@@ -15,6 +15,7 @@ struct LikesHeadTabView: View {
             ForEach(LikesTab.allCases, id: \.self) { tab in
                 VStack(spacing: 0) {
                     Text("\(tab.rawValue)")
+                        .font(.system(size: 15))
                         .fontWeight(.semibold)
                         .foregroundStyle(selectedTab == tab ? Color.sBColor : .primary)
                         .opacity(selectedTab == tab ? 1.0 : 0.7)

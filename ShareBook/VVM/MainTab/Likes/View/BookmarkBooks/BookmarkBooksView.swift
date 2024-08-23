@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct BookmarkBooksView: View {
+    @State private var viewModel = BookmarkBooksViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            LazyVStack {
+                ForEach(viewModel.books.indices, id: \.self) { index in
+                    BookCoverView(book: viewModel.books[index])
+                        .padding(.top, index == 0 ? 10 : 0)
+                        .padding(.bottom, index == viewModel.books.count-1 ? 20 : 0)
+                }
+            }
+        }
     }
 }
 

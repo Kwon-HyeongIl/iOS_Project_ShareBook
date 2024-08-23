@@ -21,7 +21,7 @@ struct MainTabView: View {
                 case .house:
                     HomeView()
                     
-                case .plusMagnifyngglass:
+                case .booksVertical:
                     BookSearchView(selectedTab: $selectedTab)
                     
                 case .heart:
