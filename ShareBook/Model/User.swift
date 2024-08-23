@@ -19,8 +19,10 @@ struct User: Codable, Identifiable {
     var contactEmail: String?
     
     var profileImageUrl: String?
+    
+    var titleBook: Book?
 }
 
 extension User {
-    static var DUMMY_USER: User = User(id: UUID().uuidString, username: "행이", authEmail: "test@naver.com")
+    static var DUMMY_USER: User = User(id: UUID().uuidString, username: "행이", authEmail: "test@naver.com", titleBook: Book.DUMMY_BOOK)
 }
