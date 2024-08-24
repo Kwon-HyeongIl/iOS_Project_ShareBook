@@ -31,11 +31,11 @@ class HomeViewModel {
         self.posts = await PostManager.loadSpecificGenrePosts(genre: genre)
     }
     
-    func calNumBase70And393(geometryWidth: CGFloat) -> CGFloat {
-        return 70 + ((geometryWidth - 393) * (0.15))
+    func calNumBase70And393(proxyWidth: CGFloat) -> CGFloat {
+        return 70 + ((proxyWidth - 393) * (0.15))
     }
     
-    func calNumBase26And393(geometryWidth: CGFloat) -> CGFloat {
-        return 26 + ((geometryWidth - 393) * (0.6))
+    func calNumBase26And393(proxyWidth: CGFloat) -> CGFloat {
+        return 26 + ((proxyWidth - 393) * (0.6))
     }
 }

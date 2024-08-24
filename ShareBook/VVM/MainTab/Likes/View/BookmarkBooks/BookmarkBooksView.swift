@@ -20,6 +20,11 @@ struct BookmarkBooksView: View {
                 }
             }
         }
+        .task {
+            Task {
+                await viewModel.loadAllBookmarkBooks()
+            }
+        }
     }
 }
 

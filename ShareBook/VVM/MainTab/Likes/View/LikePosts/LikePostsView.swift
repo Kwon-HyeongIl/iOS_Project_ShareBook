@@ -32,6 +32,11 @@ struct LikePostsView: View {
                 Spacer()
             }
         }
+        .task {
+            Task {
+                await viewModel.loadAllLikePosts()
+            }
+        }
         
     }
 }

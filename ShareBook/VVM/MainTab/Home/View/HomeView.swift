@@ -19,7 +19,7 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader { proxy in
             GradientBackgroundView {
                 VStack(spacing: 0) {
                     Image("ShareBook_TextLogo")
@@ -33,7 +33,7 @@ struct HomeView: View {
                     ScrollView {
                         ZStack {
                             ScrollView(.horizontal) {
-                                LazyHStack(spacing: viewModel.calNumBase70And393(geometryWidth: geometry.size.width)) {
+                                LazyHStack(spacing: viewModel.calNumBase70And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.hotPosts.indices, id: \.self) { index in
                                         PostCoverView(post: viewModel.hotPosts[index])
                                             .scaleEffect(1.3)
@@ -66,10 +66,10 @@ struct HomeView: View {
                         
                         ZStack {
                             VStack {
-                                LazyVGrid(columns: columns, spacing: viewModel.calNumBase26And393(geometryWidth: geometry.size.width)) {
+                                LazyVGrid(columns: columns, spacing: viewModel.calNumBase26And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.posts) { post in
                                         PostCoverView(post: post)
-                                            .scaleEffect(geometry.size.width / 380)
+                                            .scaleEffect(proxy.size.width / 380)
                                     }
                                 }
                                 .padding(.top, 90)
