@@ -8,8 +8,8 @@
 import SwiftUI
 import Kingfisher
 
-struct BookSearchUploadPostView: View {
-    @State var viewModel: BookSearchUploadPostViewModel
+struct NewPostUploadPostView: View {
+    @State var viewModel: NewPostUploadPostViewModel
     
     @Binding var stackActive: Bool
     @Binding var selectedTab: Tab
@@ -19,7 +19,7 @@ struct BookSearchUploadPostView: View {
     @State var isGenreShowing = false
     
     init(book: Book, stackActive : Binding<Bool>, selectedTab: Binding<Tab>) {
-        self.viewModel = BookSearchUploadPostViewModel(book: book)
+        self.viewModel = NewPostUploadPostViewModel(book: book)
         self._stackActive = stackActive
         self._selectedTab = selectedTab
     }
@@ -67,7 +67,7 @@ struct BookSearchUploadPostView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 30)
                                 .foregroundStyle(.gray)
-                                .opacity(0.5)
+                                .opacity(0.4)
                                 .padding(.horizontal, 30)
                                 .padding(.bottom)
                             
@@ -108,7 +108,7 @@ struct BookSearchUploadPostView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(height: 30)
                                 .foregroundStyle(.gray)
-                                .opacity(0.5)
+                                .opacity(0.4)
                                 .padding(.horizontal, 30)
                                 .padding(.bottom)
                             
@@ -147,7 +147,7 @@ struct BookSearchUploadPostView: View {
                                         .frame(width: 110, height: 34)
                                         .background(.gray)
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                                         .padding(.bottom, 20)
                                         .padding(.top)
                                 } else {
@@ -156,7 +156,7 @@ struct BookSearchUploadPostView: View {
                                         .frame(width: 110, height: 34)
                                         .background(Color.sBColor)
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                                         .padding(.bottom, 20)
                                         .padding(.top)
                                 }
@@ -197,7 +197,7 @@ struct BookSearchUploadPostView: View {
                                             .frame(width: 110, height: 34)
                                             .background(Color.sBColor)
                                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                                            .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                                             .padding(.bottom, 20)
                                             .padding(.top)
                                     }
@@ -240,7 +240,7 @@ struct BookSearchUploadPostView: View {
                                             .frame(width: 110, height: 34)
                                             .background(Color.sBColor)
                                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                                            .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                                             .padding(.bottom, 20)
                                             .padding(.top)
                                     }
@@ -255,7 +255,7 @@ struct BookSearchUploadPostView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal)
                     .padding(.bottom)
-                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                 }
             }
             .modifier(BackButtonModifier())
@@ -279,5 +279,5 @@ struct BookSearchUploadPostView: View {
 }
 
 #Preview {
-    BookSearchUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.booksVertical))
+    NewPostUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.plusSquareOnSquare ))
 }

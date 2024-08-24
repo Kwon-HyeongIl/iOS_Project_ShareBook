@@ -34,7 +34,7 @@ struct CommentView: View {
                         .scaledToFit()
                         .frame(width: 32)
                         .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                         .padding(.leading)
                         .padding(.top)
                     
@@ -44,7 +44,7 @@ struct CommentView: View {
                         .scaledToFit()
                         .frame(width: 32)
                         .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                         .padding(.leading)
                         .padding(.top)
                 }

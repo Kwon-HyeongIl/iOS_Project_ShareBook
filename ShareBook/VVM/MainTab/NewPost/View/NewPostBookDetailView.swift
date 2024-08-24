@@ -8,8 +8,8 @@
 import SwiftUI
 import Kingfisher
 
-struct BookSearchBookDetailView: View {
-    @Bindable var viewModel: BookSearchBookViewModel
+struct NewPostBookDetailView: View {
+    @Bindable var viewModel: NewPostBookViewModel
     
     @Binding var stackActive: Bool
     @Binding var selectedTab: Tab
@@ -29,7 +29,7 @@ struct BookSearchBookDetailView: View {
                     .frame(maxWidth: .infinity)
                     
                     NavigationLink {
-                        BookSearchUploadPostView(book: viewModel.book, stackActive: $stackActive, selectedTab: $selectedTab)
+                        NewPostUploadPostView(book: viewModel.book, stackActive: $stackActive, selectedTab: $selectedTab)
                     } label: {
                         HStack {
                             Text("글 작성")
@@ -50,7 +50,7 @@ struct BookSearchBookDetailView: View {
                             .font(.title)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.center)
-                            .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                             .padding(.top, 20)
                             .padding(.horizontal)
                         
@@ -88,7 +88,7 @@ struct BookSearchBookDetailView: View {
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .padding(.horizontal)
-                .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                 
             }
             .padding(.bottom)
@@ -127,5 +127,5 @@ struct BookSearchBookDetailView: View {
 }
 
 #Preview {
-    BookSearchBookDetailView(viewModel: BookSearchBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true), selectedTab: .constant(.booksVertical))
+    NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true), selectedTab: .constant(.plusSquareOnSquare ))
 }

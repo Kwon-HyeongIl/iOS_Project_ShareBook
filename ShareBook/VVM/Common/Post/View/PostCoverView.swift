@@ -29,13 +29,27 @@ struct PostCoverView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 7))
                         .blur(radius: 3.0)
                     
-                    Text("\(viewModel.post.impressivePhrase)")
-                        .fontWeight(.semibold)
-                        .font(.system(size: 14))
-                        .foregroundStyle(.white)
-                        .lineLimit(7)
-                        .truncationMode(.tail)
-                        .padding(.horizontal)
+                    VStack(spacing: 13) {
+                        Image(systemName: "quote.opening")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(.white)
+                            .frame(width: 13)
+                        
+                        Text("\(viewModel.post.impressivePhrase)")
+                            .fontWeight(.semibold)
+                            .font(.system(size: 14))
+                            .foregroundStyle(.white)
+                            .lineLimit(7)
+                            .truncationMode(.tail)
+                            .padding(.horizontal)
+                        
+                        Image(systemName: "quote.closing")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(.white)
+                            .frame(width: 13)
+                    }
                 }
                 .padding(.top, 30)
                 .padding(.bottom, 8)
@@ -66,6 +80,7 @@ struct PostCoverView: View {
                     .frame(width: 30, alignment: .leading)
                     .lineLimit(1)
                     .truncationMode(.tail)
+                    .opacity(0.8)
                     .padding(.leading, 5)
                 
                 Spacer()
@@ -110,7 +125,7 @@ struct PostCoverView: View {
         .frame(width: 165, height: 235)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
         .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
             Task {
                 await viewModel.loadAllPostCommentAndCommentReplyCount()

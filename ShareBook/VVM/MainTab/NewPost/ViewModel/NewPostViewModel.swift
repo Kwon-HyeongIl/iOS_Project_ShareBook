@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class BookSearchViewModel {
+class NewPostViewModel {
     var bookList = [Book]()
     
     func searchBookWithTitle(searchQuery: String) {

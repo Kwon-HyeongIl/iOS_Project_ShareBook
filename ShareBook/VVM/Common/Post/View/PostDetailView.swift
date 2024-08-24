@@ -66,12 +66,13 @@ struct PostDetailView: View {
                     }
                     
                     BookCoverView(book: viewModel.post.book)
+                        .padding(.vertical, 10)
                     
                     VStack {
                         Image(systemName: "quote.opening")
                             .resizable()
-                            .scaledToFill()
-                            .frame(width: 30)
+                            .scaledToFit()
+                            .frame(width: 25)
                             .foregroundStyle(Color.sBColor)
                             .padding(.top, 50)
                             .padding(.bottom, 30)
@@ -82,8 +83,8 @@ struct PostDetailView: View {
                         
                         Image(systemName: "quote.closing")
                             .resizable()
-                            .scaledToFill()
-                            .frame(width: 30)
+                            .scaledToFit()
+                            .frame(width: 25)
                             .foregroundStyle(Color.sBColor)
                             .padding(.top, 30)
                             .padding(.bottom, 50)
@@ -124,7 +125,7 @@ struct PostDetailView: View {
                     .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal)
-                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                     .padding(.bottom, 10)
                     
                     HStack(spacing: 5) {
@@ -139,15 +140,18 @@ struct PostDetailView: View {
                                     .scaledToFit()
                                     .frame(width: 15)
                                     .foregroundStyle(Color.sBColor)
+                                    .fontWeight(.semibold)
                                     .padding(.leading)
                                 
                                 Text("좋아요")
                                     .font(.system(size: 14))
-                                    .fontWeight(.medium)
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(.black)
+                                    .padding(.leading, 3)
                                 
                                 Text("\(viewModel.post.likeCount)")
                                     .font(.system(size: 13))
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(.black)
                             }
                         }
@@ -161,15 +165,18 @@ struct PostDetailView: View {
                                     .scaledToFit()
                                     .frame(width: 15)
                                     .foregroundStyle(Color.sBColor)
+                                    .fontWeight(.semibold)
                                     .padding(.leading, 10)
                                 
                                 Text("댓글")
                                     .font(.system(size: 14))
-                                    .fontWeight(.medium)
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(.black)
+                                    .padding(.leading, 3)
                                 
                                 Text("\(viewModel.commentCount)")
                                     .font(.system(size: 13))
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(.black)
                             }
                         }
@@ -180,20 +187,22 @@ struct PostDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 15)
+                            .fontWeight(.semibold)
                             .foregroundStyle(Color.sBColor)
 
                         Text("\(viewModel.post.genre.rawValue)")
                             .font(.system(size: 14))
-                            .fontWeight(.medium)
+                            .fontWeight(.semibold)
+                            .padding(.leading, 3)
                             .padding(.trailing)
-                        
+                            
                     }
                     .padding(.vertical, 15)
                     .frame(maxWidth: .infinity)
                     .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.horizontal)
-                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                 }
                 
             }

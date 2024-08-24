@@ -47,7 +47,7 @@ struct CustomTabView: View {
             .frame(height: 70)
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 30))
-            .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
             .padding()
         }
     }
@@ -55,7 +55,7 @@ struct CustomTabView: View {
 
 enum Tab: String, CaseIterable {
     case house = "house"
-    case booksVertical = "books.vertical"
+    case plusSquareOnSquare = "plus.square.on.square"
     case heart = "heart"
     case person = "person"
 }

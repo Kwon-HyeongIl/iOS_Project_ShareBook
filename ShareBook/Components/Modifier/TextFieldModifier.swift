@@ -17,7 +17,7 @@ struct TextFieldModifier: ViewModifier {
             .overlay {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(.gray, lineWidth: 1)
-                    .opacity(0.5)
+                    .opacity(0.35)
             }
             .frame(width: 353, height: 42)
     }

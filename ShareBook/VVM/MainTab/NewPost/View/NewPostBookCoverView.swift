@@ -8,20 +8,20 @@
 import SwiftUI
 import Kingfisher
 
-struct BookSearchBookCoverView: View {
-    @State var viewModel: BookSearchBookViewModel
+struct NewPostBookCoverView: View {
+    @State var viewModel: NewPostBookViewModel
     
     @State var stackActive = false
     @Binding var selectedTab: Tab
     
     init(book: Book, selectedTab: Binding<Tab>) {
-        self.viewModel = BookSearchBookViewModel(book: book)
+        self.viewModel = NewPostBookViewModel(book: book)
         self._selectedTab = selectedTab
     }
     
     var body: some View {
         NavigationLink(
-            destination: BookSearchBookDetailView(viewModel: viewModel, stackActive: $stackActive, selectedTab: $selectedTab),
+            destination: NewPostBookDetailView(viewModel: viewModel, stackActive: $stackActive, selectedTab: $selectedTab),
             isActive: $stackActive,
             label: {
                 HStack {
@@ -58,11 +58,11 @@ struct BookSearchBookCoverView: View {
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .padding(.horizontal)
-                .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
             })
     }
 }
 
 #Preview {
-    BookSearchBookCoverView(book: Book.DUMMY_BOOK, selectedTab: .constant(.booksVertical))
+    NewPostBookCoverView(book: Book.DUMMY_BOOK, selectedTab: .constant(.plusSquareOnSquare ))
 }

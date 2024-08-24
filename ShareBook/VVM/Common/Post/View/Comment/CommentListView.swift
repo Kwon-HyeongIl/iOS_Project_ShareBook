@@ -48,7 +48,7 @@ struct CommentListView: View {
                             .scaledToFill()
                             .frame(width: 35, height: 35)
                             .clipShape(Circle())
-                            .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                             .padding(.bottom, 2)
                         
                     } else {
@@ -56,7 +56,7 @@ struct CommentListView: View {
                             .resizable()
                             .frame(width: 35, height: 35)
                             .clipShape(Circle())
-                            .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                             .padding(.bottom, 2)
                     }
                     

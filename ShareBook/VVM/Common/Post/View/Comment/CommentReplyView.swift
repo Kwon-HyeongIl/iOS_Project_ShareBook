@@ -19,7 +19,7 @@ struct CommentReplyView: View {
                         .scaledToFit()
                         .frame(width: 25)
                         .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                     
                 } else {
                     Image(systemName: "person.circle.fill")
@@ -27,7 +27,7 @@ struct CommentReplyView: View {
                         .scaledToFit()
                         .frame(width: 25)
                         .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                 }
             
             VStack(alignment: .leading) {
