@@ -2,14 +2,14 @@
 //  PostDetailView.swift
 //  ShareBook
 //
-//  Created by 권형일 on 8/12/24.
+//  Created by 권형일 on 8/24/24.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct HomePostDetailView: View {
-    @Bindable var viewModel: HomePostViewModel
+struct PostDetailView: View {
+    @Bindable var viewModel: PostCoverViewModel
     
     @State var isFeelingCaptionExpanding = false
     
@@ -221,5 +221,5 @@ struct HomePostDetailView: View {
 }
 
 #Preview {
-    HomePostDetailView(viewModel: HomePostViewModel(post: Post.DUMMY_POST))
+    PostDetailView(viewModel: PostCoverViewModel(post: Post.DUMMY_POST))
 }

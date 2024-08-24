@@ -1,13 +1,13 @@
 //
-//  HomePostViewModel+Like.swift
+//  PostViewModel+Like.swift
 //  ShareBook
 //
-//  Created by 권형일 on 8/15/24.
+//  Created by 권형일 on 8/24/24.
 //
 
 import Foundation
 
-extension HomePostViewModel {
+extension PostCoverViewModel {
     func isLike() async {
         self.isLike = await PostManager.isLike(post: post)
     }

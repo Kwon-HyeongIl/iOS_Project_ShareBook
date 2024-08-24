@@ -1,31 +1,31 @@
 //
-//  PostsPostCoverBookView.swift
+//  PostView.swift
 //  ShareBook
 //
-//  Created by 권형일 on 8/14/24.
+//  Created by 권형일 on 8/24/24.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct HomePostCoverView: View {
-    @State private var viewModel: HomePostViewModel
+struct PostCoverView: View {
+    @State private var viewModel: PostCoverViewModel
     
     @State var isCommentSheetShowing = false
     
     init(post: Post) {
-        self.viewModel = HomePostViewModel(post: post)
+        self.viewModel = PostCoverViewModel(post: post)
     }
     
     var body: some View {
         VStack(spacing: 0) {
             NavigationLink {
-                HomePostDetailView(viewModel: viewModel)
+                PostDetailView(viewModel: viewModel)
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
                         .resizable()
-                        .frame(width: 130, height: 190)
+                        .frame(width: 145, height: 195)
                         .clipShape(RoundedRectangle(cornerRadius: 7))
                         .blur(radius: 3.0)
                     
@@ -107,10 +107,9 @@ struct HomePostCoverView: View {
             }
             .padding(.bottom, 20)
         }
-        .frame(width: 160, height: 240)
+        .frame(width: 165, height: 235)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .padding(15)
         .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
         .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
             Task {
@@ -125,5 +124,5 @@ struct HomePostCoverView: View {
 }
 
 #Preview {
-    HomePostCoverView(post: Post.DUMMY_POST)
+    PostCoverView(post: Post.DUMMY_POST)
 }

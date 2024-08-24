@@ -14,8 +14,8 @@ struct HomeView: View {
     @State private var selectedGenre = Genre.all
     
     let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 2),
-        GridItem(.flexible(), spacing: 2)
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
     ]
     
     var body: some View {
@@ -32,10 +32,11 @@ struct HomeView: View {
                 ScrollView {
                     ZStack {
                         ScrollView(.horizontal) {
-                            LazyHStack {
+                            LazyHStack(spacing: 45) {
                                 ForEach(viewModel.hotPosts.indices, id: \.self) { index in
-                                    HomeHotPostCoverView(post: viewModel.hotPosts[index])
-                                        .padding(.leading, index == 0 ? 10 : 0)
+                                    PostCoverView(post: viewModel.hotPosts[index])
+                                        .scaleEffect(1.25)
+                                        .padding(.leading, index == 0 ? 30 : 0)
                                         .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 10 : 0)
                                         .scrollTransition(.interactive, axis: .horizontal) { view, phase in
                                             view
@@ -63,10 +64,15 @@ struct HomeView: View {
                     }
                     
                     ZStack {
-                        LazyVGrid(columns: columns, spacing: 0) {
-                            ForEach(viewModel.posts) { post in
-                                HomePostCoverView(post: post)
+                        VStack {
+                            LazyVGrid(columns: columns, spacing: 20) {
+                                ForEach(viewModel.posts) { post in
+                                    PostCoverView(post: post)
+                                }
                             }
+                            .padding(.top, 90)
+                            
+                            Spacer()
                         }
                         
                         Text("모든 책 구절")
