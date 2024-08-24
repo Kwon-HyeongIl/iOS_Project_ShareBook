@@ -12,10 +12,14 @@ extension PostManager {
     static func like(post: Post) async {
         guard let userId = AuthManager.shared.currentUser?.id else { return }
         
+        let userLikePost = UserLikePost(id: UUID().uuidString, postId: post.id, date: Date())
+        
+        guard let encodedUserLikePost = try? Firestore.Encoder().encode(userLikePost) else { return }
+        
         async let _ = Firestore.firestore()
             .collection("Users").document(userId)
             .collection("User_Like").document(post.id)
-            .setData([:])
+            .setData(encodedUserLikePost)
         
         async let _ = Firestore.firestore()
             .collection("Posts").document(post.id)
@@ -59,4 +63,16 @@ extension PostManager {
             return false
         }
     }
+    
+//    static func loadAllLikePosts() async -> [Post] {
+//        guard let userId = AuthManager.shared.currentUser?.id else { return [] }
+//        
+//        do {
+//            let likePostIdDocuments try await Firestore.firestore()
+//                .collection("Users").document(userId)
+//                .collection("User_Like")
+//        } catch {
+//            
+//        }
+//    }
 }
