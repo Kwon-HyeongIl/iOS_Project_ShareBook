@@ -110,7 +110,7 @@ struct PostCoverView: View {
         .frame(width: 165, height: 235)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
+        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
         .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
             Task {
                 await viewModel.loadAllPostCommentAndCommentReplyCount()

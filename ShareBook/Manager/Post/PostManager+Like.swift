@@ -64,15 +64,35 @@ extension PostManager {
         }
     }
     
-//    static func loadAllLikePosts() async -> [Post] {
-//        guard let userId = AuthManager.shared.currentUser?.id else { return [] }
-//        
-//        do {
-//            let likePostIdDocuments try await Firestore.firestore()
-//                .collection("Users").document(userId)
-//                .collection("User_Like")
-//        } catch {
-//            
-//        }
-//    }
+    static func loadAllLikePosts() async -> [Post] {
+        guard let userId = AuthManager.shared.currentUser?.id else { return [] }
+        
+        do {
+            let documents = try await Firestore.firestore()
+                .collection("Users").document(userId)
+                .collection("User_Like").order(by: "date", descending: true)
+                .getDocuments().documents
+            
+            let postIds = try documents.compactMap({ document in
+                try document.data(as: UserLikePost.self).postId
+            })
+            
+            let postRef = Firestore.firestore().collection("Posts")
+            var posts: [Post] = []
+            
+            for postId in postIds {
+                let document = try await Firestore.firestore()
+                    .collection("Posts").document(postId)
+                    .getDocument()
+                
+                posts.append(try document.data(as: Post.self))
+            }
+            
+            return posts
+            
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
 }

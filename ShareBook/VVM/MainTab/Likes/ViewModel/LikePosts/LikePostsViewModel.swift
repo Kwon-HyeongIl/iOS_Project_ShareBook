@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+@Observable
+class LikePostsViewModel {
+    var posts: [Post] = []
+    
+    init() {
+        Task {
+            await loadAllLikePosts()
+        }
+    }
+    
+    func loadAllLikePosts() async {
+        self.posts = await PostManager.loadAllLikePosts()
+    }
+    
+    func calNumBase26And393(geometryWidth: CGFloat) -> CGFloat {
+        return 26 + ((geometryWidth - 393) * (0.6))
+    }
+}

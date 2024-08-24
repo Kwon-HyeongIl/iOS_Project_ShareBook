@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct LikePostsView: View {
+    @State private var viewModel = LikePostsViewModel()
+    
+    let proxyWidth: CGFloat
+    
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
+    ]
+    
     var body: some View {
-        Text("t")
+        ScrollView {
+            VStack {
+                LazyVGrid(columns: columns, spacing: viewModel.calNumBase26And393(geometryWidth: proxyWidth)) {
+                    ForEach(viewModel.posts) { post in
+                        PostCoverView(post: post)
+                            .scaleEffect(proxyWidth / 380)
+                    }
+                }
+                .padding(.vertical)
+                .padding(.horizontal, 5)
+                
+                Spacer()
+            }
+        }
+        
     }
 }
 
 #Preview {
-    LikePostsView()
+    LikePostsView(proxyWidth: 100)
 }
