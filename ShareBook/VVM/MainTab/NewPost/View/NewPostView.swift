@@ -12,8 +12,6 @@ struct NewPostView: View {
     @State var searchQuery = ""
     @State var isShowing = true
     
-    @Binding var selectedTab: Tab
-    
     var body: some View {
         GradientBackgroundView {
             if isShowing {
@@ -40,7 +38,7 @@ struct NewPostView: View {
             
             ScrollView {
                 ForEach(viewModel.bookList, id: \.self) { book in
-                    NewPostBookCoverView(book: book, selectedTab: $selectedTab)
+                    NewPostBookCoverView(book: book)
                 }
             }
         }
@@ -53,5 +51,5 @@ struct NewPostView: View {
 }
 
 #Preview {
-    NewPostView(selectedTab: .constant(.plusSquareOnSquare ))
+    NewPostView()
 }

@@ -12,16 +12,14 @@ struct NewPostBookCoverView: View {
     @State var viewModel: NewPostBookViewModel
     
     @State var stackActive = false
-    @Binding var selectedTab: Tab
     
-    init(book: Book, selectedTab: Binding<Tab>) {
+    init(book: Book) {
         self.viewModel = NewPostBookViewModel(book: book)
-        self._selectedTab = selectedTab
     }
     
     var body: some View {
         NavigationLink(
-            destination: NewPostBookDetailView(viewModel: viewModel, stackActive: $stackActive, selectedTab: $selectedTab),
+            destination: NewPostBookDetailView(viewModel: viewModel, stackActive: $stackActive),
             isActive: $stackActive,
             label: {
                 HStack {
@@ -64,5 +62,5 @@ struct NewPostBookCoverView: View {
 }
 
 #Preview {
-    NewPostBookCoverView(book: Book.DUMMY_BOOK, selectedTab: .constant(.plusSquareOnSquare ))
+    NewPostBookCoverView(book: Book.DUMMY_BOOK)
 }

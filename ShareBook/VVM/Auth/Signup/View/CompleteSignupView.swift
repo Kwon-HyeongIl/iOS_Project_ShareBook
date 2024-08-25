@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct CompleteSignupView: View {
-    @Environment(SignupViewModel.self) var signupViewModel
+    @Environment(SignupViewModel.self) var viewModel
     
     var body: some View {
-        @Bindable var viewModel = signupViewModel
         
         GradientBackgroundView {
             ZStack {

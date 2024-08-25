@@ -141,7 +141,14 @@ struct ProfileView: View {
 
                 
                 Spacer()
+                
+                Button {
+                    viewModel.signout()
+                } label: {
+                    Text("로그아웃")
+                }
             }
+            
         }
     }
 }

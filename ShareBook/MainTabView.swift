@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var selectedTab: Tab = .house
+    @State private var selectedTabCapsule = SelectedTabCapsule()
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -17,12 +17,12 @@ struct MainTabView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                switch selectedTab {
+                switch selectedTabCapsule.selectedTab {
                 case .house:
                     HomeView()
                     
                 case .plusSquareOnSquare :
-                    NewPostView(selectedTab: $selectedTab)
+                    NewPostView()
                     
                 case .heart:
                     LikesView()
@@ -33,13 +33,18 @@ struct MainTabView: View {
                 
                 VStack {
                     Spacer()
-                    CustomTabView(selectedTab: $selectedTab)
+                    CustomTabView()
                 }
             }
         }
+        .environment(selectedTabCapsule)
         .navigationViewStyle(StackNavigationViewStyle())
         .tint(.black)
     }
+}
+@Observable
+class SelectedTabCapsule {
+    var selectedTab: MainTab = .house
 }
 
 #Preview {

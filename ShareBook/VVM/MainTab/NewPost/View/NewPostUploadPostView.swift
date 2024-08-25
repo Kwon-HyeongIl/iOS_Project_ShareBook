@@ -11,17 +11,17 @@ import Kingfisher
 struct NewPostUploadPostView: View {
     @State var viewModel: NewPostUploadPostViewModel
     
+    @Environment(SelectedTabCapsule.self) var selectedTabCapsule
+    
     @Binding var stackActive: Bool
-    @Binding var selectedTab: Tab
     
     @State var isImpressivePhraseShowing = true
     @State var isFeelingCaptionShowing = false
     @State var isGenreShowing = false
     
-    init(book: Book, stackActive : Binding<Bool>, selectedTab: Binding<Tab>) {
+    init(book: Book, stackActive : Binding<Bool>) {
         self.viewModel = NewPostUploadPostViewModel(book: book)
         self._stackActive = stackActive
-        self._selectedTab = selectedTab
     }
     
     var body: some View {
@@ -32,8 +32,8 @@ struct NewPostUploadPostView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    BookCoverView(book: viewModel.book)
-                        .padding(.bottom, 10)
+//                    BookCoverView(book: viewModel.book)
+//                        .padding(.bottom, 10)
                     
                     VStack {
                         if isImpressivePhraseShowing {
@@ -233,7 +233,7 @@ struct NewPostUploadPostView: View {
                                             await viewModel.uploadPost()
                                         }
                                         stackActive = false
-                                        selectedTab = .house
+                                        selectedTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
                                             .foregroundStyle(.white)
@@ -263,7 +263,7 @@ struct NewPostUploadPostView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         stackActive = false
-                        selectedTab = .house
+                        selectedTabCapsule.selectedTab = .house
                     } label: {
                         Image(systemName: "house")
                             .resizable()
@@ -279,5 +279,6 @@ struct NewPostUploadPostView: View {
 }
 
 #Preview {
-    NewPostUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true), selectedTab: .constant(.plusSquareOnSquare ))
+    NewPostUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true))
+        .environment(SelectedTabCapsule())
 }

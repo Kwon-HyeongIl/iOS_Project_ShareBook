@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct EnterEmailView: View {
-    @Environment(SignupViewModel.self) var signupViewModel
+    @Environment(SignupViewModel.self) var viewModel
     
     var body: some View {
-        @Bindable var viewModel = signupViewModel
+        @Bindable var viewModel = viewModel
         
         GradientBackgroundView {
             VStack {

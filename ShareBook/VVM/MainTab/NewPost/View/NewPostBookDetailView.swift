@@ -12,7 +12,6 @@ struct NewPostBookDetailView: View {
     @Bindable var viewModel: NewPostBookViewModel
     
     @Binding var stackActive: Bool
-    @Binding var selectedTab: Tab
     
     var body: some View {
         GradientBackgroundView {
@@ -29,7 +28,7 @@ struct NewPostBookDetailView: View {
                     .frame(maxWidth: .infinity)
                     
                     NavigationLink {
-                        NewPostUploadPostView(book: viewModel.book, stackActive: $stackActive, selectedTab: $selectedTab)
+                        NewPostUploadPostView(book: viewModel.book, stackActive: $stackActive)
                     } label: {
                         HStack {
                             Text("글 작성")
@@ -127,5 +126,5 @@ struct NewPostBookDetailView: View {
 }
 
 #Preview {
-    NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true), selectedTab: .constant(.plusSquareOnSquare ))
+    NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true))
 }
