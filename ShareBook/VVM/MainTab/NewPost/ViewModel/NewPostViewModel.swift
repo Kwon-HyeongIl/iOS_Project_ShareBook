@@ -12,10 +12,10 @@ class NewPostViewModel {
     var bookList = [Book]()
     
     func searchBookWithTitle(searchQuery: String) {
-            HttpManager.requestSearchBookList(searchQuery: searchQuery) { books in
-                DispatchQueue.main.async {
-                    self.bookList = books
-                }
+        BookManager.requestSearchBookList(searchQuery: searchQuery) { books in
+            DispatchQueue.main.async {
+                self.bookList = books
             }
         }
+    }
 }
