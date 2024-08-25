@@ -11,6 +11,8 @@ import Kingfisher
 struct PostCoverView: View {
     @State private var viewModel: PostCoverViewModel
     
+    @Environment(StackActiveCapsule.self) var stackActiveCapsule
+    
     @State var isCommentSheetShowing = false
     
     init(post: Post) {
@@ -18,42 +20,45 @@ struct PostCoverView: View {
     }
     
     var body: some View {
+        @Bindable var stackActiveCapsule = stackActiveCapsule
+        
         VStack(spacing: 0) {
-            NavigationLink {
-                PostDetailView(viewModel: viewModel)
-            } label: {
-                ZStack {
-                    KFImage(URL(string: viewModel.post.book.image))
-                        .resizable()
-                        .frame(width: 145, height: 195)
-                        .clipShape(RoundedRectangle(cornerRadius: 7))
-                        .blur(radius: 3.0)
-                    
-                    VStack(spacing: 13) {
-                        Image(systemName: "quote.opening")
+            NavigationLink(
+                destination: PostDetailView(viewModel: viewModel),
+                isActive: $stackActiveCapsule.stackActive,
+                label: {
+                    ZStack {
+                        KFImage(URL(string: viewModel.post.book.image))
                             .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.white)
-                            .frame(width: 13)
+                            .frame(width: 145, height: 195)
+                            .clipShape(RoundedRectangle(cornerRadius: 7))
+                            .blur(radius: 3.0)
                         
-                        Text("\(viewModel.post.impressivePhrase)")
-                            .fontWeight(.semibold)
-                            .font(.system(size: 14))
-                            .foregroundStyle(.white)
-                            .lineLimit(7)
-                            .truncationMode(.tail)
-                            .padding(.horizontal)
-                        
-                        Image(systemName: "quote.closing")
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundStyle(.white)
-                            .frame(width: 13)
+                        VStack(spacing: 13) {
+                            Image(systemName: "quote.opening")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundStyle(.white)
+                                .frame(width: 13)
+                            
+                            Text("\(viewModel.post.impressivePhrase)")
+                                .fontWeight(.semibold)
+                                .font(.system(size: 14))
+                                .foregroundStyle(.white)
+                                .lineLimit(7)
+                                .truncationMode(.tail)
+                                .padding(.horizontal)
+                            
+                            Image(systemName: "quote.closing")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundStyle(.white)
+                                .frame(width: 13)
+                        }
                     }
-                }
-                .padding(.top, 30)
-                .padding(.bottom, 8)
-            }
+                    .padding(.top, 30)
+                    .padding(.bottom, 8)
+                })
             
             HStack(spacing: 0) {
                 if let profileImageUrl = viewModel.post.user.profileImageUrl {

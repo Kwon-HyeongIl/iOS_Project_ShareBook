@@ -11,8 +11,6 @@ import Kingfisher
 struct NewPostBookDetailView: View {
     @Bindable var viewModel: NewPostBookViewModel
     
-    @Binding var stackActive: Bool
-    
     var body: some View {
         GradientBackgroundView {
             VStack {
@@ -28,7 +26,7 @@ struct NewPostBookDetailView: View {
                     .frame(maxWidth: .infinity)
                     
                     NavigationLink {
-                        NewPostUploadPostView(book: viewModel.book, stackActive: $stackActive)
+                        NewPostUploadPostView(book: viewModel.book)
                     } label: {
                         HStack {
                             Text("글 작성")
@@ -126,5 +124,5 @@ struct NewPostBookDetailView: View {
 }
 
 #Preview {
-    NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK), stackActive: .constant(true))
+    NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK))
 }

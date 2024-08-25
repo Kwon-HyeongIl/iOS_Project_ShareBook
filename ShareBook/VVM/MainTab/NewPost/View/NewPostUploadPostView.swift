@@ -12,16 +12,14 @@ struct NewPostUploadPostView: View {
     @State var viewModel: NewPostUploadPostViewModel
     
     @Environment(SelectedTabCapsule.self) var selectedTabCapsule
-    
-    @Binding var stackActive: Bool
+    @Environment(StackActiveCapsule.self) var stackActiveCapsule
     
     @State var isImpressivePhraseShowing = true
     @State var isFeelingCaptionShowing = false
     @State var isGenreShowing = false
     
-    init(book: Book, stackActive : Binding<Bool>) {
+    init(book: Book) {
         self.viewModel = NewPostUploadPostViewModel(book: book)
-        self._stackActive = stackActive
     }
     
     var body: some View {
@@ -232,7 +230,7 @@ struct NewPostUploadPostView: View {
                                         Task {
                                             await viewModel.uploadPost()
                                         }
-                                        stackActive = false
+                                        stackActiveCapsule.stackActive = false
                                         selectedTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
@@ -262,7 +260,7 @@ struct NewPostUploadPostView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        stackActive = false
+                        stackActiveCapsule.stackActive = false
                         selectedTabCapsule.selectedTab = .house
                     } label: {
                         Image(systemName: "house")
@@ -279,6 +277,7 @@ struct NewPostUploadPostView: View {
 }
 
 #Preview {
-    NewPostUploadPostView(book: Book.DUMMY_BOOK, stackActive: .constant(true))
+    NewPostUploadPostView(book: Book.DUMMY_BOOK)
         .environment(SelectedTabCapsule())
+        .environment(StackActiveCapsule())
 }

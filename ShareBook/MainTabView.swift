@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedTabCapsule = SelectedTabCapsule()
+    @State private var stackActiveCapsule = StackActiveCapsule()
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -38,13 +39,20 @@ struct MainTabView: View {
             }
         }
         .environment(selectedTabCapsule)
+        .environment(stackActiveCapsule)
         .navigationViewStyle(StackNavigationViewStyle())
         .tint(.black)
     }
 }
+
 @Observable
 class SelectedTabCapsule {
     var selectedTab: MainTab = .house
+}
+
+@Observable
+class StackActiveCapsule {
+    var stackActive = false
 }
 
 #Preview {

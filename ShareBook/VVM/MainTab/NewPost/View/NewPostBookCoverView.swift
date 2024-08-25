@@ -11,16 +11,18 @@ import Kingfisher
 struct NewPostBookCoverView: View {
     @State var viewModel: NewPostBookViewModel
     
-    @State var stackActive = false
+    @Environment(StackActiveCapsule.self) var stackActiveCapsule
     
     init(book: Book) {
         self.viewModel = NewPostBookViewModel(book: book)
     }
     
     var body: some View {
+        @Bindable var stackActiveCapsule = stackActiveCapsule
+        
         NavigationLink(
-            destination: NewPostBookDetailView(viewModel: viewModel, stackActive: $stackActive),
-            isActive: $stackActive,
+            destination: NewPostBookDetailView(viewModel: viewModel),
+            isActive: $stackActiveCapsule.stackActive,
             label: {
                 HStack {
                     KFImage(URL(string: viewModel.book.image))
@@ -63,4 +65,5 @@ struct NewPostBookCoverView: View {
 
 #Preview {
     NewPostBookCoverView(book: Book.DUMMY_BOOK)
+        .environment(StackActiveCapsule())
 }
