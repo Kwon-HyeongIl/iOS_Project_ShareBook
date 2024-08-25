@@ -30,8 +30,9 @@ struct NewPostUploadPostView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-//                    BookCoverView(book: viewModel.book)
-//                        .padding(.bottom, 10)
+                    BookCoverView(book: viewModel.book)
+                        .disabled(true)
+                        .padding(.bottom, 10)
                     
                     VStack {
                         if isImpressivePhraseShowing {
