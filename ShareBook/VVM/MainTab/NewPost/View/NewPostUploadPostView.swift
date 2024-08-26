@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostUploadPostView: View {
-    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     
     @State var viewModel: NewPostUploadPostViewModel
     
@@ -233,7 +233,7 @@ struct NewPostUploadPostView: View {
                                             await viewModel.uploadPost()
                                         }
                                         
-                                        controlTower.popToRoot()
+                                        navControlTower.popToRoot()
                                         selectedMainTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
@@ -263,7 +263,7 @@ struct NewPostUploadPostView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        controlTower.popToRoot()
+                        navControlTower.popToRoot()
                         selectedMainTabCapsule.selectedTab = .house
                     } label: {
                         Image(systemName: "house")

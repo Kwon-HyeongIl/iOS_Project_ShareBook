@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct BookmarkBookView: View {
-    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     @State private var viewModel = BookmarkBookViewModel()
     
     var body: some View {
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.books.indices, id: \.self) { index in
-                    controlTower.navigate(to: .BookCoverView(viewModel.books[index]))
+                    navControlTower.navigate(to: .BookCoverView(viewModel.books[index]))
                         .padding(.top, index == 0 ? 10 : 0)
                         .padding(.bottom, index == viewModel.books.count-1 ? 20 : 0)
                 }

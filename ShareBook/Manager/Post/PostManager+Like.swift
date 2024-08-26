@@ -81,9 +81,7 @@ extension PostManager {
             var posts: [Post] = []
             
             for postId in postIds {
-                let document = try await Firestore.firestore()
-                    .collection("Posts").document(postId)
-                    .getDocument()
+                let document = try await postRef.document(postId).getDocument()
                 
                 posts.append(try document.data(as: Post.self))
             }

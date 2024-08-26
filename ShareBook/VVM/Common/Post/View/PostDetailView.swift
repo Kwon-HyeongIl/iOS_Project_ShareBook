@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostDetailView: View {
-    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     @Bindable var viewModel: PostViewModel
     
     @State var isFeelingCaptionExpanding = false
@@ -64,7 +64,7 @@ struct PostDetailView: View {
                         }
                     }
                     
-                    controlTower.navigate(to: .BookCoverView(viewModel.post.book))
+                    navControlTower.navigate(to: .BookCoverView(viewModel.post.book))
                         .padding(.vertical, 10)
                     
                     VStack {
@@ -222,7 +222,7 @@ struct PostDetailView: View {
                 .presentationDetents([.fraction(0.2), .large])
         }
         .onChange(of: isDeletePost) {
-            controlTower.navPop()
+            navControlTower.pop()
         }
         .modifier(BackButtonModifier())
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 @Observable
 class NavigationControlTower {
-    var paths = NavigationPath()
+    var path = NavigationPath()
     
     @ViewBuilder
     func navigate(to view: Views) -> some View {
@@ -51,15 +51,15 @@ class NavigationControlTower {
         }
     }
     
-    func navPush(_ view: Views) {
-        paths.append(view)
+    func push(_ view: Views) {
+        path.append(view)
     }
     
-    func navPop() {
-        paths.removeLast()
+    func pop() {
+        path.removeLast()
     }
     
     func popToRoot() {
-        paths.removeLast(paths.count)
+        path.removeLast(path.count)
     }
 }

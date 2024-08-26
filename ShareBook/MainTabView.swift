@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var controlTower = NavigationControlTower()
+    @State private var navControlTower = NavigationControlTower()
     @State private var selectedMainTabCapsule = SelectedMainTabCapsule()
     
     init() {
@@ -16,21 +16,21 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        NavigationStack(path: $controlTower.paths) {
+        NavigationStack(path: $navControlTower.path) {
             ZStack {
                 switch selectedMainTabCapsule.selectedTab {
                     
                 case .house:
-                    controlTower.navigate(to: .HomeView)
+                    navControlTower.navigate(to: .HomeView)
                     
                 case .plusSquareOnSquare:
-                    controlTower.navigate(to: .NewPostView)
+                    navControlTower.navigate(to: .NewPostView)
                     
                 case .heart:
-                    controlTower.navigate(to: .LikeView)
+                    navControlTower.navigate(to: .LikeView)
                     
                 case .person:
-                    controlTower.navigate(to: .ProfileView)
+                    navControlTower.navigate(to: .ProfileView)
                 }
                 
                 VStack {
@@ -39,10 +39,10 @@ struct MainTabView: View {
                 }
             }
             .navigationDestination(for: Views.self) { view in
-                controlTower.navigate(to: view)
+                navControlTower.navigate(to: view)
             }
         }
-        .environment(controlTower)
+        .environment(navControlTower)
         .environment(selectedMainTabCapsule)
         .tint(.black)
     }

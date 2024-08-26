@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostCoverView: View {
-    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     @State private var viewModel: PostViewModel
     
     @State var isCommentSheetShowing = false
@@ -21,7 +21,7 @@ struct PostCoverView: View {
     var body: some View {
         VStack(spacing: 0) {
             Button {
-                controlTower.navPush(.PostDetailView(viewModel))
+                navControlTower.push(.PostDetailView(viewModel))
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LikeView: View {
-    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     @State private var selectedTab: LikeTab = .likePosts
     
     var body: some View {
@@ -31,10 +31,10 @@ struct LikeView: View {
                     ScrollView {
                         switch selectedTab {
                         case .likePosts:
-                            controlTower.navigate(to: .LikePostView(proxy.size.width))
+                            navControlTower.navigate(to: .LikePostView(proxy.size.width))
                             
                         case .bookmarkBooks:
-                            controlTower.navigate(to: .BookmarkBookView)
+                            navControlTower.navigate(to: .BookmarkBookView)
                         }
                     }
                 }
