@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomTabView: View {
+struct MainCustomTabView: View {
     @Environment(SelectedTabCapsule.self) var selectedTabCapsule
     
     private var fillImage: String {
@@ -63,6 +63,6 @@ enum MainTab: String, CaseIterable {
 }
 
 #Preview {
-    CustomTabView()
+    MainCustomTabView()
         .environment(SelectedTabCapsule())
 }

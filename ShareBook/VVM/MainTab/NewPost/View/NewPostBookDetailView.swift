@@ -9,35 +9,39 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostBookDetailView: View {
+    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    
     @Bindable var viewModel: NewPostBookViewModel
     
     var body: some View {
         GradientBackgroundView {
             VStack {
-                ZStack {
-                    HStack {
-                        KFImage(URL(string: viewModel.book.image))
-                            .resizable()
-                            .frame(width: 170, height: 230, alignment: .center)
-                            .clipShape(RoundedRectangle(cornerRadius: 7))
-                            .shadow(color: .gray.opacity(0.8), radius: 10, x: 5, y: 5)
-                            .padding(.bottom, 10)
-                    }
-                    .frame(maxWidth: .infinity)
-                    
-                    NavigationLink {
-                        NewPostUploadPostView(book: viewModel.book)
-                    } label: {
+                VStack {
+                    ZStack {
                         HStack {
-                            Text("글 작성")
-                                .font(.system(size: 18))
-                            Image(systemName: "chevron.right")
+                            KFImage(URL(string: viewModel.book.image))
                                 .resizable()
-                                .frame(width: 13, height: 13)
+                                .frame(width: 170, height: 230, alignment: .center)
+                                .clipShape(RoundedRectangle(cornerRadius: 7))
+                                .shadow(color: .gray.opacity(0.8), radius: 10, x: 5, y: 5)
+                                .padding(.bottom, 10)
                         }
-                        .foregroundStyle(Color.sBColor)
-                        .padding(.leading, 280)
-                        .padding(.top, 195)
+                        .frame(maxWidth: .infinity)
+                        
+                        Button {
+                            coordinator.navPush(.NewPostUploadPostView(viewModel.book))
+                        } label: {
+                            HStack {
+                                Text("글 작성")
+                                    .font(.system(size: 18))
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .frame(width: 13, height: 13)
+                            }
+                            .foregroundStyle(Color.sBColor)
+                            .padding(.leading, 280)
+                            .padding(.top, 195)
+                        }
                     }
                 }
                 
@@ -86,37 +90,35 @@ struct NewPostBookDetailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .padding(.horizontal)
                 .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                
             }
             .padding(.bottom)
-            
-        }
-        .modifier(BackButtonModifier())
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "link")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .foregroundStyle(Color.sBColor)
-                }
-            }
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    Task {
-                        viewModel.isBookmark ? await viewModel.unbookmark() : await viewModel.bookmark()
+            .modifier(BackButtonModifier())
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        coordinator.popToRoot()
+                    } label: {
+                        Image(systemName: "link")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .foregroundStyle(Color.sBColor)
                     }
-                } label: {
-                    Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .foregroundStyle(Color.sBColor)
-                        .padding(.trailing, 5)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        Task {
+                            viewModel.isBookmark ? await viewModel.unbookmark() : await viewModel.bookmark()
+                        }
+                    } label: {
+                        Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .foregroundStyle(Color.sBColor)
+                            .padding(.trailing, 5)
+                    }
                 }
             }
         }
@@ -125,4 +127,5 @@ struct NewPostBookDetailView: View {
 
 #Preview {
     NewPostBookDetailView(viewModel: NewPostBookViewModel(book: Book.DUMMY_BOOK))
+        .environment(NavigationCoordinator())
 }

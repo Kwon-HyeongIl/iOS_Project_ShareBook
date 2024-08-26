@@ -8,7 +8,16 @@
 import Foundation
 
 @Observable
-class NewPostBookViewModel {
+class NewPostBookViewModel: Hashable, Equatable {
+    static func == (lhs: NewPostBookViewModel, rhs: NewPostBookViewModel) -> Bool {
+        return lhs.book == rhs.book && lhs.isBookmark == rhs.isBookmark
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(book)
+        hasher.combine(isBookmark)
+    }
+    
     var book: Book
     var isBookmark = false
     

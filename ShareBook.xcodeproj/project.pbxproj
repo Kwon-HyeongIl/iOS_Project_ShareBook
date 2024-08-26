@@ -17,6 +17,7 @@
 		CA2FDAC92C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FDAC82C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift */; };
 		CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */; };
 		CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */; };
+		CA3221E02C7C2992003658B3 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3221DF2C7C2992003658B3 /* NavigationCoordinator.swift */; };
 		CA3CA8FE2C7A0FBB007F2EDC /* PostCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3CA8FD2C7A0FBB007F2EDC /* PostCoverView.swift */; };
 		CA3CA9002C7A0FEB007F2EDC /* PostCoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3CA8FF2C7A0FEB007F2EDC /* PostCoverViewModel.swift */; };
 		CA3CA9042C7A104F007F2EDC /* PostViewModel+Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3CA9032C7A104F007F2EDC /* PostViewModel+Like.swift */; };
@@ -47,7 +48,7 @@
 		CA70E8022C785ED600E3B91B /* BookmarkBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E8012C785ED600E3B91B /* BookmarkBooksView.swift */; };
 		CA70E8052C785EF100E3B91B /* BookmarkBooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E8042C785EF100E3B91B /* BookmarkBooksViewModel.swift */; };
 		CA7A1F352C66108000202921 /* NewPostBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7A1F342C66108000202921 /* NewPostBookViewModel.swift */; };
-		CA812E7C2C5F7A5A00B9BC8A /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA812E7B2C5F7A5A00B9BC8A /* CustomTabView.swift */; };
+		CA812E7C2C5F7A5A00B9BC8A /* MainCustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA812E7B2C5F7A5A00B9BC8A /* MainCustomTabView.swift */; };
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA91CDE92C56559200793F34 /* girl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDE82C56559200793F34 /* girl3D.splineswift */; };
@@ -115,6 +116,7 @@
 		CA2FDAC82C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentListViewModel+Reply.swift"; sourceTree = "<group>"; };
 		CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsView.swift; sourceTree = "<group>"; };
 		CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsViewModel.swift; sourceTree = "<group>"; };
+		CA3221DF2C7C2992003658B3 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		CA3CA8FD2C7A0FBB007F2EDC /* PostCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoverView.swift; sourceTree = "<group>"; };
 		CA3CA8FF2C7A0FEB007F2EDC /* PostCoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoverViewModel.swift; sourceTree = "<group>"; };
 		CA3CA9032C7A104F007F2EDC /* PostViewModel+Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewModel+Like.swift"; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 		CA70E8012C785ED600E3B91B /* BookmarkBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkBooksView.swift; sourceTree = "<group>"; };
 		CA70E8042C785EF100E3B91B /* BookmarkBooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkBooksViewModel.swift; sourceTree = "<group>"; };
 		CA7A1F342C66108000202921 /* NewPostBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostBookViewModel.swift; sourceTree = "<group>"; };
-		CA812E7B2C5F7A5A00B9BC8A /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		CA812E7B2C5F7A5A00B9BC8A /* MainCustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCustomTabView.swift; sourceTree = "<group>"; };
 		CA83A4902C4CB74B004F06E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
@@ -280,6 +282,23 @@
 				CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */,
 			);
 			path = MoreOptions;
+			sourceTree = "<group>";
+		};
+		CA3221DE2C7C297B003658B3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CA3221DF2C7C2992003658B3 /* NavigationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CA3221E12C7C29A1003658B3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CA812E7B2C5F7A5A00B9BC8A /* MainCustomTabView.swift */,
+				CA3E7B302C78CBD300F610A4 /* LikesHeadTabView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		CA3CA8FC2C7A0FAF007F2EDC /* Post */ = {
@@ -422,7 +441,7 @@
 				CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */,
 				CA6AAC2D2C4B8CA10045449E /* ContentView.swift */,
 				CABE31C62C4CADA60010AC20 /* MainTabView.swift */,
-				CA812E7B2C5F7A5A00B9BC8A /* CustomTabView.swift */,
+				CA3221DE2C7C297B003658B3 /* Coordinator */,
 				CA83A48F2C4CB6FE004F06E7 /* Manager */,
 				CA6AAC3A2C4B8E600045449E /* VVM */,
 				CA6AAC392C4B8E580045449E /* Model */,
@@ -489,7 +508,6 @@
 			isa = PBXGroup;
 			children = (
 				CA70E7F52C785E6400E3B91B /* LikesView.swift */,
-				CA3E7B302C78CBD300F610A4 /* LikesHeadTabView.swift */,
 				CA70E7FD2C785EAD00E3B91B /* LikePosts */,
 				CA70E8032C785EDE00E3B91B /* BookmarkBooks */,
 			);
@@ -721,6 +739,7 @@
 				CAC330482C4F38CC003C8A71 /* background */,
 				CA2146D82C6B175E00BE8C3F /* Color */,
 				CA4FC6A72C4E992A00525570 /* Modifier */,
+				CA3221E12C7C29A1003658B3 /* TabBar */,
 				CAC3304B2C4F3902003C8A71 /* Spline3D */,
 				CA62D0772C6DC59300A652EA /* Date+ */,
 			);
@@ -863,6 +882,7 @@
 				CA2146DA2C6B177900BE8C3F /* ShareBookBasicColor.swift in Sources */,
 				CA70E7FC2C785EA100E3B91B /* LikePostsView.swift in Sources */,
 				CA3CA9042C7A104F007F2EDC /* PostViewModel+Like.swift in Sources */,
+				CA3221E02C7C2992003658B3 /* NavigationCoordinator.swift in Sources */,
 				CA0846D72C608BBE00D86A91 /* Post.swift in Sources */,
 				CA62D0762C6DC58F00A652EA /* Date+RelativeTimeString.swift in Sources */,
 				CA62D0722C6DB7DA00A652EA /* CommentView.swift in Sources */,
@@ -891,7 +911,7 @@
 				CA10EEC52C60CC6400901979 /* NewPostUploadPostViewModel.swift in Sources */,
 				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */,
-				CA812E7C2C5F7A5A00B9BC8A /* CustomTabView.swift in Sources */,
+				CA812E7C2C5F7A5A00B9BC8A /* MainCustomTabView.swift in Sources */,
 				CAAE480C2C60C3990048FE40 /* NewPostBookDetailView.swift in Sources */,
 				CA6609BC2C4D4BE30091091F /* User.swift in Sources */,
 				CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */,

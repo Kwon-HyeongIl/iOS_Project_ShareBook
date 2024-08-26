@@ -9,10 +9,11 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostUploadPostView: View {
+    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    
     @State var viewModel: NewPostUploadPostViewModel
     
     @Environment(SelectedTabCapsule.self) var selectedTabCapsule
-    @Environment(StackActiveCapsule.self) var stackActiveCapsule
     
     @State var isImpressivePhraseShowing = true
     @State var isFeelingCaptionShowing = false
@@ -231,7 +232,6 @@ struct NewPostUploadPostView: View {
                                         Task {
                                             await viewModel.uploadPost()
                                         }
-                                        stackActiveCapsule.stackActive = false
                                         selectedTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
@@ -261,8 +261,7 @@ struct NewPostUploadPostView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        stackActiveCapsule.stackActive = false
-                        selectedTabCapsule.selectedTab = .house
+//                        selectedTabCapsule.selectedTab = .house
                     } label: {
                         Image(systemName: "house")
                             .resizable()
@@ -279,6 +278,6 @@ struct NewPostUploadPostView: View {
 
 #Preview {
     NewPostUploadPostView(book: Book.DUMMY_BOOK)
+        .environment(NavigationCoordinator())
         .environment(SelectedTabCapsule())
-        .environment(StackActiveCapsule())
 }

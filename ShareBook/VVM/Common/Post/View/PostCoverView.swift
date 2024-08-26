@@ -11,8 +11,6 @@ import Kingfisher
 struct PostCoverView: View {
     @State private var viewModel: PostCoverViewModel
     
-    @Environment(StackActiveCapsule.self) var stackActiveCapsule
-    
     @State var isCommentSheetShowing = false
     
     init(post: Post) {
@@ -20,12 +18,9 @@ struct PostCoverView: View {
     }
     
     var body: some View {
-        @Bindable var stackActiveCapsule = stackActiveCapsule
-        
         VStack(spacing: 0) {
             NavigationLink(
                 destination: PostDetailView(viewModel: viewModel),
-                isActive: $stackActiveCapsule.stackActive,
                 label: {
                     ZStack {
                         KFImage(URL(string: viewModel.post.book.image))

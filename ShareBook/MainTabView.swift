@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State private var coordinator = NavigationCoordinator()
+    
     @State private var selectedTabCapsule = SelectedTabCapsule()
-    @State private var stackActiveCapsule = StackActiveCapsule()
     
     init() {
         UITabBar.appearance().isHidden = true
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $coordinator.paths) {
             ZStack {
                 switch selectedTabCapsule.selectedTab {
+                    
                 case .house:
                     HomeView()
                     
                 case .plusSquareOnSquare :
-                    NewPostView()
+                    coordinator.navigate(to: .NewPostView)
+                        .navigationDestination(for: Views.self) { view in
+                            coordinator.navigate(to: view)
+                        }
                     
                 case .heart:
                     LikesView()
@@ -34,13 +39,12 @@ struct MainTabView: View {
                 
                 VStack {
                     Spacer()
-                    CustomTabView()
+                    MainCustomTabView()
                 }
             }
         }
+        .environment(coordinator)
         .environment(selectedTabCapsule)
-        .environment(stackActiveCapsule)
-        .navigationViewStyle(StackNavigationViewStyle())
         .tint(.black)
     }
 }
@@ -48,11 +52,6 @@ struct MainTabView: View {
 @Observable
 class SelectedTabCapsule {
     var selectedTab: MainTab = .house
-}
-
-@Observable
-class StackActiveCapsule {
-    var stackActive = false
 }
 
 #Preview {

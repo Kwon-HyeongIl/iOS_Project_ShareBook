@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct NewPostView: View {
+    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    
     @State var viewModel = NewPostViewModel()
+    
     @State var searchQuery = ""
     @State var isShowing = true
     
@@ -38,7 +41,7 @@ struct NewPostView: View {
             
             ScrollView {
                 ForEach(viewModel.bookList, id: \.self) { book in
-                    NewPostBookCoverView(book: book)
+                    coordinator.navigate(to: .NewPostBookCoverView(book))
                 }
             }
         }
@@ -52,4 +55,5 @@ struct NewPostView: View {
 
 #Preview {
     NewPostView()
+        .environment(NavigationCoordinator())
 }
