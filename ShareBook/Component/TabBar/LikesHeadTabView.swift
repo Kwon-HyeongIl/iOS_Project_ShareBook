@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct LikesHeadTabView: View {
-    @Binding var selectedTab: LikesTab
+    @Binding var selectedTab: LikeTab
     
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(LikesTab.allCases, id: \.self) { tab in
+            ForEach(LikeTab.allCases, id: \.self) { tab in
                 VStack(spacing: 0) {
                     Text("\(tab.rawValue)")
                         .font(.system(size: 15))
@@ -39,10 +39,7 @@ struct LikesHeadTabView: View {
     }
 }
 
-enum LikesTab: String, CaseIterable {
-    case likePosts = "좋아요 누른 글"
-    case bookmarkBooks = "북마크한 책"
-}
+
 
 #Preview {
     LikesHeadTabView(selectedTab: .constant(.likePosts))

@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookDetailView: View {
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
     @Bindable var viewModel: BookViewModel
     
     var body: some View {
@@ -24,6 +25,21 @@ struct BookDetailView: View {
                             .padding(.bottom, 10)
                     }
                     .frame(maxWidth: .infinity)
+                    
+                    Button {
+                        controlTower.navPush(.NewPostUploadPostView(viewModel.book))
+                    } label: {
+                        HStack {
+                            Text("글 작성")
+                                .font(.system(size: 18))
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .frame(width: 13, height: 13)
+                        }
+                        .foregroundStyle(Color.sBColor)
+                        .padding(.leading, 280)
+                        .padding(.top, 195)
+                    }
                 }
                 
                 VStack {
@@ -110,4 +126,5 @@ struct BookDetailView: View {
 
 #Preview {
     BookDetailView(viewModel: BookViewModel(book: Book.DUMMY_BOOK))
+        .environment(NavigationControlTower())
 }

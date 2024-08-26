@@ -8,33 +8,29 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var coordinator = NavigationCoordinator()
-    
-    @State private var selectedTabCapsule = SelectedTabCapsule()
+    @State private var controlTower = NavigationControlTower()
+    @State private var selectedMainTabCapsule = SelectedMainTabCapsule()
     
     init() {
         UITabBar.appearance().isHidden = true
     }
     
     var body: some View {
-        NavigationStack(path: $coordinator.paths) {
+        NavigationStack(path: $controlTower.paths) {
             ZStack {
-                switch selectedTabCapsule.selectedTab {
+                switch selectedMainTabCapsule.selectedTab {
                     
                 case .house:
-                    HomeView()
+                    controlTower.navigate(to: .HomeView)
                     
-                case .plusSquareOnSquare :
-                    coordinator.navigate(to: .NewPostView)
-                        .navigationDestination(for: Views.self) { view in
-                            coordinator.navigate(to: view)
-                        }
+                case .plusSquareOnSquare:
+                    controlTower.navigate(to: .NewPostView)
                     
                 case .heart:
-                    LikesView()
+                    controlTower.navigate(to: .LikeView)
                     
                 case .person:
-                    ProfileView()
+                    controlTower.navigate(to: .ProfileView)
                 }
                 
                 VStack {
@@ -42,16 +38,14 @@ struct MainTabView: View {
                     MainCustomTabView()
                 }
             }
+            .navigationDestination(for: Views.self) { view in
+                controlTower.navigate(to: view)
+            }
         }
-        .environment(coordinator)
-        .environment(selectedTabCapsule)
+        .environment(controlTower)
+        .environment(selectedMainTabCapsule)
         .tint(.black)
     }
-}
-
-@Observable
-class SelectedTabCapsule {
-    var selectedTab: MainTab = .house
 }
 
 #Preview {

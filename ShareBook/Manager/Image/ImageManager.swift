@@ -43,8 +43,3 @@ struct ImageSelection {
     let image: Image
     let uiImage: UIImage
 }
-
-enum ImagePath {
-    case post
-    case porfile
-}

@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
     @State var viewModel = ProfileViewModel()
     
     var body: some View {
@@ -66,7 +67,7 @@ struct ProfileView: View {
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
                                     .opacity(0.7)
-
+                                
                             }
                             
                             Spacer()
@@ -119,7 +120,7 @@ struct ProfileView: View {
                             }
                         }
                         .padding(.bottom, 10)
-
+                        
                         
                         ZStack {
                             Rectangle()
@@ -129,16 +130,12 @@ struct ProfileView: View {
                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                             
                             HStack {
-                   
+                                
                             }
                         }
                         .padding()
                     }
                 }
-                
-
-                
-
                 
                 Spacer()
                 
@@ -148,11 +145,11 @@ struct ProfileView: View {
                     Text("로그아웃")
                 }
             }
-            
         }
     }
 }
 
 #Preview {
     ProfileView()
+        .environment(NavigationControlTower())
 }

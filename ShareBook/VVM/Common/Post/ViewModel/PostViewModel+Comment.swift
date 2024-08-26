@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension PostCoverViewModel {
+extension PostViewModel {
     func loadAllPostCommentAndCommentReplyCount() async {
         self.commentCount = await CommentManager.loadAllPostCommentAndCommentReplyCount(postId: post.id)
     }

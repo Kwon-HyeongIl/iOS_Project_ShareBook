@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookCoverView: View {
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
     @State var viewModel: BookViewModel
     
     init(book: Book) {
@@ -16,8 +17,8 @@ struct BookCoverView: View {
     }
     
     var body: some View {
-        NavigationLink {
-            BookDetailView(viewModel: viewModel)
+        Button {
+            controlTower.navPush(.BookDetailView(viewModel))
         } label: {
             HStack {
                 KFImage(URL(string: viewModel.book.image))
@@ -58,7 +59,7 @@ struct BookCoverView: View {
     }
 }
 
-
 #Preview {
     BookCoverView(book: Book.DUMMY_BOOK)
+        .environment(NavigationControlTower())
 }

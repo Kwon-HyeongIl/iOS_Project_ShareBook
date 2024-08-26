@@ -9,51 +9,52 @@ import SwiftUI
 import Kingfisher
 
 struct PostCoverView: View {
-    @State private var viewModel: PostCoverViewModel
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @State private var viewModel: PostViewModel
     
     @State var isCommentSheetShowing = false
     
     init(post: Post) {
-        self.viewModel = PostCoverViewModel(post: post)
+        self.viewModel = PostViewModel(post: post)
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            NavigationLink(
-                destination: PostDetailView(viewModel: viewModel),
-                label: {
-                    ZStack {
-                        KFImage(URL(string: viewModel.post.book.image))
+            Button {
+                controlTower.navPush(.PostDetailView(viewModel))
+            } label: {
+                ZStack {
+                    KFImage(URL(string: viewModel.post.book.image))
+                        .resizable()
+                        .frame(width: 145, height: 195)
+                        .clipShape(RoundedRectangle(cornerRadius: 7))
+                        .blur(radius: 3.0)
+                    
+                    VStack(spacing: 13) {
+                        Image(systemName: "quote.opening")
                             .resizable()
-                            .frame(width: 145, height: 195)
-                            .clipShape(RoundedRectangle(cornerRadius: 7))
-                            .blur(radius: 3.0)
+                            .scaledToFit()
+                            .foregroundStyle(.white)
+                            .frame(width: 13)
                         
-                        VStack(spacing: 13) {
-                            Image(systemName: "quote.opening")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundStyle(.white)
-                                .frame(width: 13)
-                            
-                            Text("\(viewModel.post.impressivePhrase)")
-                                .fontWeight(.semibold)
-                                .font(.system(size: 14))
-                                .foregroundStyle(.white)
-                                .lineLimit(7)
-                                .truncationMode(.tail)
-                                .padding(.horizontal)
-                            
-                            Image(systemName: "quote.closing")
-                                .resizable()
-                                .scaledToFit()
-                                .foregroundStyle(.white)
-                                .frame(width: 13)
-                        }
+                        Text("\(viewModel.post.impressivePhrase)")
+                            .fontWeight(.semibold)
+                            .font(.system(size: 14))
+                            .foregroundStyle(.white)
+                            .lineLimit(7)
+                            .truncationMode(.tail)
+                            .padding(.horizontal)
+                        
+                        Image(systemName: "quote.closing")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(.white)
+                            .frame(width: 13)
                     }
-                    .padding(.top, 30)
-                    .padding(.bottom, 8)
-                })
+                }
+                .padding(.top, 30)
+                .padding(.bottom, 8)
+            }
             
             HStack(spacing: 0) {
                 if let profileImageUrl = viewModel.post.user.profileImageUrl {
@@ -66,7 +67,7 @@ struct PostCoverView: View {
                                 .stroke(Color.sBColor, lineWidth: 2)
                         }
                         .padding(.leading, 18)
-                        
+                    
                 } else {
                     Image(systemName: "person.circle.fill")
                         .resizable()
@@ -95,7 +96,7 @@ struct PostCoverView: View {
                         .scaledToFill()
                         .frame(width: 12)
                         .foregroundStyle(Color.sBColor)
-                        
+                    
                 }
                 .padding(.trailing, 3)
                 
@@ -140,4 +141,6 @@ struct PostCoverView: View {
 
 #Preview {
     PostCoverView(post: Post.DUMMY_POST)
+        .environment(NavigationControlTower())
 }
+

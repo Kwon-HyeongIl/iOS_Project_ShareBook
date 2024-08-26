@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct LikePostsView: View {
-    @State private var viewModel = LikePostsViewModel()
+struct LikePostView: View {
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @State private var viewModel = LikePostViewModel()
     
     let proxyWidth: CGFloat
     
@@ -22,7 +23,7 @@ struct LikePostsView: View {
             VStack {
                 LazyVGrid(columns: columns, spacing: viewModel.calNumBase26And393(geometryWidth: proxyWidth)) {
                     ForEach(viewModel.posts) { post in
-                        PostCoverView(post: post)
+                        controlTower.navigate(to: .PostCoverView(post))
                             .scaleEffect(proxyWidth / 380)
                     }
                 }
@@ -42,5 +43,6 @@ struct LikePostsView: View {
 }
 
 #Preview {
-    LikePostsView(proxyWidth: 100)
+    LikePostView(proxyWidth: 100)
+        .environment(NavigationControlTower())
 }

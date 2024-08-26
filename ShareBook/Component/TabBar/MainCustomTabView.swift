@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MainCustomTabView: View {
-    @Environment(SelectedTabCapsule.self) var selectedTabCapsule
+    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
     
     private var fillImage: String {
-        selectedTabCapsule.selectedTab.rawValue + ".fill"
+        selectedMainTabCapsule.selectedTab.rawValue + ".fill"
     }
     
     var body: some View {
-        @Bindable var selectedTabCapsule = selectedTabCapsule
+        @Bindable var selectedMainTabCapsule = selectedMainTabCapsule
         
         VStack {
             HStack {
@@ -23,23 +23,22 @@ struct MainCustomTabView: View {
                     Spacer()
                     
                     VStack {
-                        Image(systemName: selectedTabCapsule.selectedTab == tab ? fillImage : tab.rawValue)
-                            .scaleEffect(selectedTabCapsule.selectedTab == tab ? 1.25 : 1.0)
-                            .foregroundStyle(selectedTabCapsule.selectedTab == tab ? Color(red: 112/255, green: 173/255, blue: 179/255) : .black)
+                        Image(systemName: selectedMainTabCapsule.selectedTab == tab ? fillImage : tab.rawValue)
+                            .scaleEffect(selectedMainTabCapsule.selectedTab == tab ? 1.25 : 1.0)
+                            .foregroundStyle(selectedMainTabCapsule.selectedTab == tab ? Color(red: 112/255, green: 173/255, blue: 179/255) : .black)
                             .font(.system(size: 18))
-//                            .shadow(color: Color(red: 112/255, green: 173/255, blue: 179/255).opacity(1.0), radius: selectedTab == tab ? 20 : 0, x: 0, y: 0)
                             .padding(.bottom, 1)
                             .padding(.top, 10)
                         
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 20, height: 5)
                             .foregroundStyle(Color(red: 112/255, green: 173/255, blue: 179/255))
-                            .opacity(selectedTabCapsule.selectedTab == tab ? 1 : 0)
+                            .opacity(selectedMainTabCapsule.selectedTab == tab ? 1 : 0)
                             
                     }
                     .onTapGesture {
                         withAnimation(.smooth(duration: 0.4)) {
-                            selectedTabCapsule.selectedTab = tab
+                            selectedMainTabCapsule.selectedTab = tab
                         }
                     }
                     
@@ -55,14 +54,7 @@ struct MainCustomTabView: View {
     }
 }
 
-enum MainTab: String, CaseIterable {
-    case house = "house"
-    case plusSquareOnSquare = "plus.square.on.square"
-    case heart = "heart"
-    case person = "person"
-}
-
 #Preview {
     MainCustomTabView()
-        .environment(SelectedTabCapsule())
+        .environment(SelectedMainTabCapsule())
 }

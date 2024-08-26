@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct HomeView: View {
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
     @State private var viewModel = HomeViewModel()
     
     @State private var selectedGenre = Genre.all
@@ -35,7 +36,7 @@ struct HomeView: View {
                             ScrollView(.horizontal) {
                                 LazyHStack(spacing: viewModel.calNumBase70And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.hotPosts.indices, id: \.self) { index in
-                                        PostCoverView(post: viewModel.hotPosts[index])
+                                        controlTower.navigate(to: .PostCoverView(viewModel.hotPosts[index]))
                                             .scaleEffect(1.3)
                                             .padding(.leading, index == 0 ? 40 : 0)
                                             .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 40 : 0)
@@ -68,7 +69,7 @@ struct HomeView: View {
                             VStack {
                                 LazyVGrid(columns: columns, spacing: viewModel.calNumBase26And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.posts) { post in
-                                        PostCoverView(post: post)
+                                        controlTower.navigate(to: .PostCoverView(post))
                                             .scaleEffect(proxy.size.width / 380)
                                     }
                                 }
@@ -133,4 +134,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environment(NavigationControlTower())
 }

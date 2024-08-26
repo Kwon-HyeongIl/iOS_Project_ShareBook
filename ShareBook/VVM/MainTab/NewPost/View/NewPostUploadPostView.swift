@@ -9,11 +9,11 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostUploadPostView: View {
-    @Environment(NavigationCoordinator.self) var coordinator: NavigationCoordinator
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
     
     @State var viewModel: NewPostUploadPostViewModel
     
-    @Environment(SelectedTabCapsule.self) var selectedTabCapsule
+    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
     
     @State var isImpressivePhraseShowing = true
     @State var isFeelingCaptionShowing = false
@@ -232,7 +232,9 @@ struct NewPostUploadPostView: View {
                                         Task {
                                             await viewModel.uploadPost()
                                         }
-                                        selectedTabCapsule.selectedTab = .house
+                                        
+                                        controlTower.popToRoot()
+                                        selectedMainTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
                                             .foregroundStyle(.white)
@@ -261,7 +263,8 @@ struct NewPostUploadPostView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-//                        selectedTabCapsule.selectedTab = .house
+                        controlTower.popToRoot()
+                        selectedMainTabCapsule.selectedTab = .house
                     } label: {
                         Image(systemName: "house")
                             .resizable()
@@ -278,6 +281,6 @@ struct NewPostUploadPostView: View {
 
 #Preview {
     NewPostUploadPostView(book: Book.DUMMY_BOOK)
-        .environment(NavigationCoordinator())
-        .environment(SelectedTabCapsule())
+        .environment(NavigationControlTower())
+        .environment(SelectedMainTabCapsule())
 }

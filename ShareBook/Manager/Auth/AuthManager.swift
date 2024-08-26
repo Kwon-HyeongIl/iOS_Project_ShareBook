@@ -84,7 +84,7 @@ class AuthManager {
     
     func loadCurrentUserData() async {
         do {
-            guard let userId = Auth.auth().currentUser?.uid else { throw MyError.internalAuthError }
+            guard let userId = Auth.auth().currentUser?.uid else { return }
             self.currentUser = try await Firestore.firestore()
                 .collection("Users").document(userId).getDocument(as: User.self)
         } catch {

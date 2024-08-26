@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct LikesView: View {
-    @State private var selectedTab: LikesTab = .likePosts
+struct LikeView: View {
+    @Environment(NavigationControlTower.self) var controlTower: NavigationControlTower
+    @State private var selectedTab: LikeTab = .likePosts
     
     var body: some View {
         GeometryReader { proxy in
@@ -30,10 +31,10 @@ struct LikesView: View {
                     ScrollView {
                         switch selectedTab {
                         case .likePosts:
-                            LikePostsView(proxyWidth: proxy.size.width)
+                            controlTower.navigate(to: .LikePostView(proxy.size.width))
                             
                         case .bookmarkBooks:
-                            BookmarkBooksView()
+                            controlTower.navigate(to: .BookmarkBookView)
                         }
                     }
                 }
@@ -43,5 +44,6 @@ struct LikesView: View {
 }
 
 #Preview {
-    LikesView()
+    LikeView()
+        .environment(NavigationControlTower())
 }

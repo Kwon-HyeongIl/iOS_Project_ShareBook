@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class BookmarkBooksViewModel {
+class BookmarkBookViewModel {
     var books: [Book] = []
     
     init() {

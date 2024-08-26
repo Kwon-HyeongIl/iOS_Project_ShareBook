@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class BookViewModel {
+class BookViewModel: Hashable, Equatable {
     var book: Book
     var isBookmark = false
     
@@ -43,5 +43,14 @@ class BookViewModel {
     
     private func isBookmark() async {
         self.isBookmark = await BookManager.isBookmark(isbn: self.book.isbn)
+    }
+    
+    static func == (lhs: BookViewModel, rhs: BookViewModel) -> Bool {
+        return lhs.book == rhs.book && lhs.isBookmark == rhs.isBookmark
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(book)
+        hasher.combine(isBookmark)
     }
 }

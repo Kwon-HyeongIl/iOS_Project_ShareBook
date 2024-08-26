@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension PostCoverViewModel {
+extension PostViewModel {
     func isLike() async {
         self.isLike = await PostManager.isLike(post: post)
     }
