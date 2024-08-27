@@ -34,7 +34,7 @@ struct HomeView: View {
                     ScrollView {
                         ZStack {
                             ScrollView(.horizontal) {
-                                LazyHStack(spacing: viewModel.calNumBase70And393(proxyWidth: proxy.size.width)) {
+                                LazyHStack(spacing: viewModel.calSizemBase70And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.hotPosts.indices, id: \.self) { index in
                                         navControlTower.navigate(to: .PostCoverView(viewModel.hotPosts[index]))
                                             .scaleEffect(1.3)
@@ -50,7 +50,7 @@ struct HomeView: View {
                             .scrollIndicators(.hidden)
                             
                             HStack {
-                                Text("금주의 인기 책 구절")
+                                Text("금주의 인기 구절")
                                     .fontWeight(.semibold)
                                     .font(.title2)
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -67,7 +67,7 @@ struct HomeView: View {
                         
                         ZStack {
                             VStack {
-                                LazyVGrid(columns: columns, spacing: viewModel.calNumBase26And393(proxyWidth: proxy.size.width)) {
+                                LazyVGrid(columns: columns, spacing: viewModel.calSizeBase26And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.posts) { post in
                                         navControlTower.navigate(to: .PostCoverView(post))
                                             .scaleEffect(proxy.size.width / 380)
@@ -79,7 +79,7 @@ struct HomeView: View {
                                 Spacer()
                             }
                             
-                            Text("모든 책 구절")
+                            Text("모든 구절")
                                 .fontWeight(.semibold)
                                 .font(.title2)
                                 .frame(maxWidth: .infinity, alignment: .leading)

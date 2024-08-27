@@ -25,6 +25,7 @@ enum Views: Hashable {
     
     // Common.Post
     case PostCoverView(Post)
+    case PostProfileCoverView(Post)
     case PostDetailView(PostViewModel)
     
     // Common.Book

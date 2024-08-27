@@ -34,6 +34,7 @@
 		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
 		CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */; };
 		CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */; };
+		CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */; };
 		CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */; };
 		CA584B882C5AA08E001D9194 /* fullGirl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA584B872C5AA08E001D9194 /* fullGirl3D.splineswift */; };
 		CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D06E2C6DB72500A652EA /* CommentManager.swift */; };
@@ -135,6 +136,7 @@
 		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonModifier.swift; sourceTree = "<group>"; };
+		CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCoverView.swift; sourceTree = "<group>"; };
 		CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentManager+Reply.swift"; sourceTree = "<group>"; };
 		CA584B872C5AA08E001D9194 /* fullGirl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = fullGirl3D.splineswift; sourceTree = "<group>"; };
 		CA62D06E2C6DB72500A652EA /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				CA3CA8FD2C7A0FBB007F2EDC /* PostCoverView.swift */,
+				CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */,
 				CA3CA9072C7A110E007F2EDC /* PostDetailView.swift */,
 				CA1126B62C6D27B1009277F3 /* Comment */,
 				CA3139AC2C77766F001AF2AE /* MoreOptions */,
@@ -893,6 +896,7 @@
 				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
 				CA3CA9082C7A110E007F2EDC /* PostDetailView.swift in Sources */,
 				CAA0C6072C54B82C00E7433D /* NewPostViewModel.swift in Sources */,
+				CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */,
 				CA2146DA2C6B177900BE8C3F /* ShareBookBasicColor.swift in Sources */,
 				CA70E7FC2C785EA100E3B91B /* LikePostView.swift in Sources */,
 				CA3CA9042C7A104F007F2EDC /* PostViewModel+Like.swift in Sources */,

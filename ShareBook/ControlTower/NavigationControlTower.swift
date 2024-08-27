@@ -40,6 +40,8 @@ class NavigationControlTower {
         // Common.Post
         case .PostCoverView(let post):
             PostCoverView(post: post)
+        case .PostProfileCoverView(let post):
+            PostProfileCoverView(post: post)
         case .PostDetailView(let viewModel):
             PostDetailView(viewModel: viewModel)
             
