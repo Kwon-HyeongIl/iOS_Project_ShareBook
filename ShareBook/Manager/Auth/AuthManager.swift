@@ -13,9 +13,6 @@ import FirebaseFirestore
 class AuthManager {
     static let shared = AuthManager()
     
-    var isAlert = false
-    var errorMessage = ""
-    
     var currentUser: User?
     
     init() {
@@ -40,10 +37,7 @@ class AuthManager {
             }
             
         } catch {
-            print("회원가입 에러, \(error.localizedDescription)")
-            errorMessage = "인증 관련 오류"
-            isAlert = true
-            return
+            print(error.localizedDescription)
         }
     }
     
@@ -61,12 +55,10 @@ class AuthManager {
         do {
             let encodedUser = try Firestore.Encoder().encode(currentUser)
             try await Firestore.firestore()
-                .collection("Users").document(userId).setData(encodedUser)
+                .collection("User").document(userId).setData(encodedUser)
             
         } catch {
-            errorMessage = "인증 관련 오류"
-            isAlert = true
-            return
+            print(error.localizedDescription)
         }
     }
     
@@ -76,9 +68,7 @@ class AuthManager {
             await loadCurrentUserData()
             
         } catch {
-            errorMessage = "인증 관련 오류"
-            isAlert = true
-            return
+            print(error.localizedDescription)
         }
     }
     
@@ -86,11 +76,10 @@ class AuthManager {
         do {
             guard let userId = Auth.auth().currentUser?.uid else { return }
             self.currentUser = try await Firestore.firestore()
-                .collection("Users").document(userId).getDocument(as: User.self)
+                .collection("User").document(userId).getDocument(as: User.self)
+            
         } catch {
-            errorMessage = "인증 관련 오류"
-            isAlert = true
-            return
+            print(error.localizedDescription)
         }
     }
     
@@ -100,6 +89,7 @@ class AuthManager {
         do {
             try Auth.auth().signOut()
             currentUser = nil
+            
         } catch {
             print(error.localizedDescription)
         }

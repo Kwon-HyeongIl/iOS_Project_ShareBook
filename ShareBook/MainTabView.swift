@@ -16,6 +16,8 @@ struct MainTabView: View {
     }
     
     var body: some View {
+        let currentUser = AuthManager.shared.currentUser
+        
         NavigationStack(path: $navControlTower.path) {
             ZStack {
                 switch selectedMainTabCapsule.selectedTab {
@@ -30,7 +32,7 @@ struct MainTabView: View {
                     navControlTower.navigate(to: .LikeView)
                     
                 case .person:
-                    navControlTower.navigate(to: .ProfileView)
+                    navControlTower.navigate(to: .ProfileView(currentUser))
                 }
                 
                 VStack {

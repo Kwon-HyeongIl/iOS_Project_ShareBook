@@ -10,7 +10,11 @@ import Kingfisher
 
 struct ProfileView: View {
     @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
-    @State var viewModel = ProfileViewModel()
+    @State var viewModel: ProfileViewModel
+    
+    init(user: User?) {
+        self.viewModel = ProfileViewModel(user: user)
+    }
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
@@ -23,14 +27,16 @@ struct ProfileView: View {
             GradientBackgroundView {
                 ScrollView {
                     VStack(spacing: 5) {
-                        HStack {
-                            Text("내 프로필")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
-                                .padding(.leading)
-                            
-                            Spacer()
+                        if viewModel.isMyProfile == true {
+                            HStack {
+                                Text("내 프로필")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
+                                    .padding(.leading)
+                                
+                                Spacer()
+                            }
                         }
                         
                         ZStack {
@@ -99,7 +105,7 @@ struct ProfileView: View {
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.white)
                                         
-                                        Text("10")
+                                        Text("\(viewModel.posts.count)")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.white)
@@ -111,7 +117,7 @@ struct ProfileView: View {
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.white)
                                         
-                                        Text("10")
+                                        Text("\(viewModel.followerCount)")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.white)
@@ -123,7 +129,7 @@ struct ProfileView: View {
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.white)
                                         
-                                        Text("10")
+                                        Text("\(viewModel.followingCount)")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.white)
@@ -161,6 +167,6 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(user: User.DUMMY_USER)
         .environment(NavigationControlTower())
 }

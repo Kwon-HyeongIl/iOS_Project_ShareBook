@@ -17,17 +17,17 @@ extension PostManager {
         guard let encodedUserLikePost = try? Firestore.Encoder().encode(userLikePost) else { return }
         
         async let _ = Firestore.firestore()
-            .collection("Users").document(userId)
+            .collection("User").document(userId)
             .collection("User_Like").document(post.id)
             .setData(encodedUserLikePost)
         
         async let _ = Firestore.firestore()
-            .collection("Posts").document(post.id)
+            .collection("Post").document(post.id)
             .collection("Post_Liked").document(userId)
             .setData([:])
         
         async let _ = Firestore.firestore()
-            .collection("Posts").document(post.id)
+            .collection("Post").document(post.id)
             .updateData(["likeCount": post.likeCount + 1])
     }
     
@@ -35,17 +35,17 @@ extension PostManager {
         guard let userId = AuthManager.shared.currentUser?.id else { return }
         
         async let _ = Firestore.firestore()
-            .collection("Users").document(userId)
+            .collection("User").document(userId)
             .collection("User_Like").document(post.id)
             .delete()
         
         async let _ = Firestore.firestore()
-            .collection("Posts").document(post.id)
+            .collection("Post").document(post.id)
             .collection("Post_Liked").document(userId)
             .delete()
         
         async let _ = Firestore.firestore()
-            .collection("Posts").document(post.id)
+            .collection("Post").document(post.id)
             .updateData(["likeCount": post.likeCount - 1])
     }
     
@@ -54,7 +54,7 @@ extension PostManager {
         
         do {
             return try await Firestore.firestore()
-                .collection("Users").document(userId)
+                .collection("User").document(userId)
                 .collection("User_Like").document(post.id)
                 .getDocument().exists
             
@@ -69,7 +69,7 @@ extension PostManager {
         
         do {
             let documents = try await Firestore.firestore()
-                .collection("Users").document(userId)
+                .collection("User").document(userId)
                 .collection("User_Like").order(by: "date", descending: true)
                 .getDocuments().documents
             
@@ -77,7 +77,7 @@ extension PostManager {
                 try document.data(as: UserLikePost.self).postId
             })
             
-            let postRef = Firestore.firestore().collection("Posts")
+            let postRef = Firestore.firestore().collection("Post")
             var posts: [Post] = []
             
             for postId in postIds {

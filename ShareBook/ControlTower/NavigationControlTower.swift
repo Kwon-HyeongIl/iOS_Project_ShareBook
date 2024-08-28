@@ -34,8 +34,8 @@ class NavigationControlTower {
             BookmarkBookView()
             
         // Profile
-        case .ProfileView:
-            ProfileView()
+        case .ProfileView(let user):
+            ProfileView(user: user)
             
         // Common.Post
         case .PostCoverView(let post):

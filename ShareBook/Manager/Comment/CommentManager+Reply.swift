@@ -14,13 +14,13 @@ extension CommentManager {
         
         do {
             try await Firestore.firestore()
-                .collection("Posts").document(commentReply.postId)
-                .collection("Post_Comments").document(upperCommentId)
-                .collection("Comment_Replies").addDocument(data: encodedCommentReply)
+                .collection("Post").document(commentReply.postId)
+                .collection("Post_Comment").document(upperCommentId)
+                .collection("Comment_Reply").addDocument(data: encodedCommentReply)
             
             try await Firestore.firestore()
-                .collection("Posts").document(commentReply.postId)
-                .collection("Post_Comments").document(upperCommentId)
+                .collection("Post").document(commentReply.postId)
+                .collection("Post_Comment").document(upperCommentId)
                 .updateData(["commentReplyCount": FieldValue.increment(Int64(1))])
             
         } catch {
@@ -31,9 +31,9 @@ extension CommentManager {
     static func loadAllCommentCommentReplies(postId: String, upperCommentId: String) async -> [Comment] {
         do {
             let documents = try await Firestore.firestore()
-                .collection("Posts").document(postId)
-                .collection("Post_Comments").document(upperCommentId)
-                .collection("Comment_Replies").order(by: "date")
+                .collection("Post").document(postId)
+                .collection("Post_Comment").document(upperCommentId)
+                .collection("Comment_Reply").order(by: "date")
                 .getDocuments().documents
             
             return try documents.compactMap { document in

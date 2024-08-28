@@ -18,7 +18,7 @@ class PostManager {
         
         do {
             let encodedPost = try Firestore.Encoder().encode(post)
-            try await Firestore.firestore().collection("Posts").document(postId).setData(encodedPost)
+            try await Firestore.firestore().collection("Post").document(postId).setData(encodedPost)
             
         } catch {
             print(error.localizedDescription)
@@ -27,7 +27,7 @@ class PostManager {
     
     static func loadAllPosts() async -> [Post] {
         do {
-            let documents = try await Firestore.firestore().collection("Posts")
+            let documents = try await Firestore.firestore().collection("Post")
                 .order(by: "date", descending: true).getDocuments().documents
             
             let posts = try documents.compactMap({ document in
@@ -46,7 +46,7 @@ class PostManager {
         let oneWeekAgo = Date().addingTimeInterval(-7 * 24 * 60 * 60)
         
         do {
-            let documents = try await Firestore.firestore().collection("Posts")
+            let documents = try await Firestore.firestore().collection("Post")
                 .whereField("date", isGreaterThanOrEqualTo: oneWeekAgo)
                 .order(by: "likeCount", descending: true)
                 .limit(to: 8)
@@ -62,11 +62,9 @@ class PostManager {
         }
     }
     
-    static func loadAllMyPosts() async -> [Post] {
-        guard let userId = AuthManager.shared.currentUser?.id else { return [] }
-        
+    static func loadAllUserPosts(userId: String) async -> [Post] {
         do {
-            let documents = try await Firestore.firestore().collection("Posts")
+            let documents = try await Firestore.firestore().collection("Post")
                 .whereField("userId", isEqualTo: userId).order(by: "date", descending: true)
                 .getDocuments().documents
             
@@ -82,7 +80,7 @@ class PostManager {
     
     static func loadSpecificGenrePosts(genre: Genre) async -> [Post] {
         do {
-            let documents = try await Firestore.firestore().collection("Posts")
+            let documents = try await Firestore.firestore().collection("Post")
                 .whereField("genre", isEqualTo: genre.rawValue) // FireStore에 RawValue 값이 저장
                 .order(by: "date", descending: true)
                 .getDocuments().documents
@@ -100,7 +98,7 @@ class PostManager {
     static func deletePost(postId: String) async {
         do {
             try await Firestore.firestore()
-                .collection("Posts").document(postId)
+                .collection("Post").document(postId)
                 .delete()
             
         } catch {

@@ -14,12 +14,12 @@ class CommentManager {
         
         do {
             try await Firestore.firestore()
-                .collection("Posts").document(comment.postId)
-                .collection("Post_Comments").document(comment.id)
+                .collection("Post").document(comment.postId)
+                .collection("Post_Comment").document(comment.id)
                 .setData(encodedComment)
             
             try await Firestore.firestore()
-                .collection("Posts").document(comment.postId)
+                .collection("Post").document(comment.postId)
                 .updateData(["commentCount": FieldValue.increment(Int64(1))])
             
         } catch {
@@ -30,8 +30,8 @@ class CommentManager {
     static func loadUserAllComment(postId: String) async -> [Comment] {
         do {
             let documents = try await Firestore.firestore()
-                .collection("Posts").document(postId)
-                .collection("Post_Comments").order(by: "date")
+                .collection("Post").document(postId)
+                .collection("Post_Comment").order(by: "date")
                 .getDocuments().documents
             
             let comments = try documents.compactMap { document in
@@ -49,8 +49,8 @@ class CommentManager {
     static func loadAllPostCommentAndCommentReplyCount(postId: String) async -> Int {
         do {
             let commentDocuments = try await Firestore.firestore()
-                .collection("Posts").document(postId)
-                .collection("Post_Comments").getDocuments().documents
+                .collection("Post").document(postId)
+                .collection("Post_Comment").getDocuments().documents
             
             let comments = try commentDocuments.compactMap { document in
                 try document.data(as: Comment.self)
@@ -60,9 +60,9 @@ class CommentManager {
             
             for comment in comments {
                 totalCommentCount += try await Firestore.firestore()
-                    .collection("Posts").document(postId)
-                    .collection("Post_Comments").document(comment.id)
-                    .collection("Comment_Replies").getDocuments().documents.count
+                    .collection("Post").document(postId)
+                    .collection("Post_Comment").document(comment.id)
+                    .collection("Comment_Reply").getDocuments().documents.count
             }
             
             return totalCommentCount

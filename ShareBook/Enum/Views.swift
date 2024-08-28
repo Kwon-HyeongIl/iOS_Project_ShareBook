@@ -21,7 +21,7 @@ enum Views: Hashable {
     case BookmarkBookView
     
     // Profile
-    case ProfileView
+    case ProfileView(User?)
     
     // Common.Post
     case PostCoverView(Post)

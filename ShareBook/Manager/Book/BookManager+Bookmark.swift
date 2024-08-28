@@ -22,8 +22,8 @@ extension BookManager {
             let encodedData = try Firestore.Encoder().encode(bookmarkBook)
             
             try await Firestore.firestore()
-                .collection("Users").document(userId)
-                .collection("Users_Bookmark").document(isbn).setData(encodedData)
+                .collection("User").document(userId)
+                .collection("User_Bookmark").document(isbn).setData(encodedData)
             
         } catch {
             print(error.localizedDescription)
@@ -35,8 +35,8 @@ extension BookManager {
         
         do {
             try await Firestore.firestore()
-                .collection("Users").document(userId)
-                .collection("Users_Bookmark").document(book.isbn).delete()
+                .collection("User").document(userId)
+                .collection("User_Bookmark").document(book.isbn).delete()
             
         } catch {
             print(error.localizedDescription)
@@ -48,8 +48,8 @@ extension BookManager {
         
         do {
             return try await !Firestore.firestore()
-                .collection("Users").document(userId)
-                .collection("Users_Bookmark").whereField("isbn", isEqualTo: isbn).getDocuments().isEmpty
+                .collection("User").document(userId)
+                .collection("User_Bookmark").whereField("isbn", isEqualTo: isbn).getDocuments().isEmpty
             
         } catch {
             print(error.localizedDescription)
@@ -62,8 +62,8 @@ extension BookManager {
         
         do {
             let documents = try await Firestore.firestore()
-                .collection("Users").document(userId)
-                .collection("Users_Bookmark").order(by: "bookmarkDate", descending: true)
+                .collection("User").document(userId)
+                .collection("User_Bookmark").order(by: "bookmarkDate", descending: true)
                 .getDocuments().documents
             
             let books = try documents.compactMap({ document in

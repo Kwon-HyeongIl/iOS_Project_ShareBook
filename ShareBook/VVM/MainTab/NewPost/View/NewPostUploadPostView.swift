@@ -10,7 +10,6 @@ import Kingfisher
 
 struct NewPostUploadPostView: View {
     @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
-    
     @State var viewModel: NewPostUploadPostViewModel
     
     @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
