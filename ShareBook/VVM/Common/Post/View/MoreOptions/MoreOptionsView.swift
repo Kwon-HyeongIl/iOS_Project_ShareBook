@@ -10,7 +10,7 @@ import SwiftUI
 struct MoreOptionsView: View {
     @State var viewModel: MoreOptionsViewModel
     
-    @State var deleteAlertShowing = false
+    @State var isDeleteAlertShowing = false
     @Binding var isDeletePost: Bool
     
     @Environment(\.dismiss) var dismiss
@@ -33,7 +33,7 @@ struct MoreOptionsView: View {
                 
                 if viewModel.isMyPost {
                     Button {
-                        deleteAlertShowing = true
+                        isDeleteAlertShowing = true
                     } label: {
                         HStack(spacing: 10) {
                             Image(systemName: "trash")
@@ -46,7 +46,7 @@ struct MoreOptionsView: View {
                         .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                         .padding(.top)
                     }
-                    .alert("삭제 하시겠습니까?", isPresented: $deleteAlertShowing) {
+                    .alert("삭제 하시겠습니까?", isPresented: $isDeleteAlertShowing) {
                         Button(role: .cancel) {
                             
                         } label: {

@@ -15,6 +15,7 @@ struct NewPostUploadPostView: View {
     @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
     
     @State var isImpressivePhraseShowing = true
+    @State var isImpressiveAlertShowing = false
     @State var isFeelingCaptionShowing = false
     @State var isGenreShowing = false
     
@@ -132,6 +133,8 @@ struct NewPostUploadPostView: View {
                                     if !viewModel.impressivePhrase.isEmpty {
                                         isImpressivePhraseShowing = false
                                         isFeelingCaptionShowing = true
+                                    } else {
+                                        isImpressiveAlertShowing = true
                                     }
                                 }
                             } label: {
@@ -154,6 +157,11 @@ struct NewPostUploadPostView: View {
                                         .padding(.bottom, 20)
                                         .padding(.top)
                                 }
+                            }
+                            .alert("비었습니다", isPresented: $isImpressiveAlertShowing) {
+                                
+                            } message: {
+                                Text("인상 깊은 구절은 필수로 작성하셔야 됩니다.")
                             }
                             
                         } else if isFeelingCaptionShowing {

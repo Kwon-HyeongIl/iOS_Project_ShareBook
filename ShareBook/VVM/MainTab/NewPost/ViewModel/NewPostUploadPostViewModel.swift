@@ -13,7 +13,7 @@ class NewPostUploadPostViewModel {
     
     var impressivePhrase = ""
     var feelingCaption = ""
-    var genre: Genre = .detective
+    var genre: Genre = .mystery
     
     init(book: Book) {
         self.book = book
