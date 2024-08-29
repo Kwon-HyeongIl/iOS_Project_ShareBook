@@ -40,22 +40,20 @@ struct NewPostUploadPostView: View {
                                 .fontWeight(.semibold)
                                 .padding(.top)
                             
-                            ZStack {
-                                TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
-                                    .padding(.horizontal)
-                                    .frame(height: 160)
-                                    .background(.regularMaterial)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .padding(.horizontal, 30)
-                                
-                                if viewModel.impressivePhrase.isEmpty {
-                                    Text("큰 따옴표(\")는 자동으로 붙습니다")
-                                        .modifier(ItalicFontModifier())
-                                        .font(.caption)
-                                        .multilineTextAlignment(.center)
-                                        .opacity(0.2)
+                            TextField("", text: $viewModel.impressivePhrase)
+                                .padding(.horizontal)
+                                .frame(height: 160)
+                                .background(.regularMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .padding(.horizontal, 30)
+                                .overlay {
+                                    if viewModel.impressivePhrase.isEmpty {
+                                        Text("큰 따옴표(\")는 자동으로 붙습니다")
+                                            .modifier(ItalicFontModifier())
+                                            .font(.caption)
+                                            .opacity(0.2)
+                                    }
                                 }
-                            }
                             
                         } else if !isImpressivePhraseShowing {
                             Text("인상깊은 구절")
@@ -79,24 +77,22 @@ struct NewPostUploadPostView: View {
                                 .fontWeight(.semibold)
                                 .padding(.top)
                             
-                            ZStack {
-                                TextField("", text: $viewModel.feelingCaption, axis: .vertical)
-                                    .padding(.horizontal)
-                                    .frame(height: 160)
-                                    .background(.regularMaterial)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .padding(.horizontal, 30)
-                                    .padding(.bottom, 20)
-                                
-                                if viewModel.feelingCaption.isEmpty {
-                                    Text("생략 가능")
-                                        .modifier(ItalicFontModifier())
-                                        .font(.caption)
-                                        .multilineTextAlignment(.center)
-                                        .opacity(0.2)
-                                        .padding(.bottom)
+                            TextField("", text: $viewModel.feelingCaption)
+                                .padding(.horizontal)
+                                .frame(height: 160)
+                                .background(.regularMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .padding(.horizontal, 30)
+                                .padding(.bottom, 20)
+                                .overlay {
+                                    if viewModel.feelingCaption.isEmpty {
+                                        Text("생략 가능")
+                                            .modifier(ItalicFontModifier())
+                                            .font(.caption)
+                                            .opacity(0.2)
+                                            .padding(.bottom)
+                                    }
                                 }
-                            }
                             
                         } else if !isImpressivePhraseShowing && isGenreShowing {
                             Text("느낀점")
