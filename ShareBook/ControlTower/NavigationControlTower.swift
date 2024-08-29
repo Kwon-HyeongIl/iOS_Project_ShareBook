@@ -15,23 +15,9 @@ class NavigationControlTower {
     func navigate(to view: Views) -> some View {
         switch view {
             
-        // Home
-        case .HomeView:
-            HomeView()
-            
         // NewPost
-        case .NewPostView:
-            NewPostView()
         case .NewPostUploadPostView(let book):
             NewPostUploadPostView(book: book)
-            
-        // Like
-        case .LikeView:
-            LikeView()
-        case .LikePostView(let proxyWidth):
-            LikePostView(proxyWidth: proxyWidth)
-        case .BookmarkBookView:
-            BookmarkBookView()
             
         // Profile
         case .ProfileView(let user):
@@ -41,17 +27,13 @@ class NavigationControlTower {
         case .ProfileOptionView(let user):
             ProfileOptionView(user: user)
             
-        // Common.Post
-        case .PostCoverView(let post):
-            PostCoverView(post: post)
+        // Post
         case .PostProfileCoverView(let post):
             PostProfileCoverView(post: post)
         case .PostDetailView(let viewModel):
             PostDetailView(viewModel: viewModel)
             
-        // Common.Book
-        case .BookCoverView(let book):
-            BookCoverView(book: book)
+        // Book
         case .BookDetailView(let viewModel):
             BookDetailView(viewModel: viewModel)
         }

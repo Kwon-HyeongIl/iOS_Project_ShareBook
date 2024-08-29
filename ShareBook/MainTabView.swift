@@ -23,16 +23,16 @@ struct MainTabView: View {
                 switch selectedMainTabCapsule.selectedTab {
                     
                 case .house:
-                    navControlTower.navigate(to: .HomeView)
+                    HomeView()
                     
                 case .plusSquareOnSquare:
-                    navControlTower.navigate(to: .NewPostView)
+                    NewPostView()
                     
                 case .heart:
-                    navControlTower.navigate(to: .LikeView)
+                    LikeView()
                     
                 case .person:
-                    navControlTower.navigate(to: .ProfileView(currentUser))
+                    ProfileView(user: currentUser)
                 }
                 
                 VStack {

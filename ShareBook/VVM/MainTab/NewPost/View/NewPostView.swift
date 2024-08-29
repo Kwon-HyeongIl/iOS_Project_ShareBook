@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct NewPostView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
-    
     @State var viewModel = NewPostViewModel()
     
     @State var searchQuery = ""
@@ -41,7 +39,7 @@ struct NewPostView: View {
             
             ScrollView {
                 ForEach(viewModel.bookList, id: \.self) { book in
-                    navControlTower.navigate(to: .BookCoverView(book))
+                    BookCoverView(book: book)
                 }
             }
         }
@@ -55,5 +53,4 @@ struct NewPostView: View {
 
 #Preview {
     NewPostView()
-        .environment(NavigationControlTower())
 }

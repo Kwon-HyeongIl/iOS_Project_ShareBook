@@ -70,7 +70,7 @@ struct PostDetailView: View {
                         }
                     }
                     
-                    navControlTower.navigate(to: .BookCoverView(viewModel.post.book))
+                    BookCoverView(book: viewModel.post.book)
                         .padding(.vertical, 10)
                     
                     VStack {

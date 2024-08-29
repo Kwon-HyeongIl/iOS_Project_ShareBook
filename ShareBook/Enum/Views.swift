@@ -8,29 +8,19 @@
 import Foundation
 
 enum Views: Hashable {
-    // Home
-    case HomeView
     
     // NewPost
-    case NewPostView
     case NewPostUploadPostView(Book)
-    
-    // Like
-    case LikeView
-    case LikePostView(CGFloat)
-    case BookmarkBookView
     
     // Profile
     case ProfileView(User?)
     case ProfileEditView(User?)
     case ProfileOptionView(User?)
     
-    // Common.Post
-    case PostCoverView(Post)
+    // Post
     case PostProfileCoverView(Post)
     case PostDetailView(PostViewModel)
     
-    // Common.Book
-    case BookCoverView(Book)
+    // Book
     case BookDetailView(BookViewModel)
 }
