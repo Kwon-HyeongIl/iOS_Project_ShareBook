@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct CommentView: View {
+    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     @State private var viewModel: CommentViewModel
     
     @Binding var selectedComment: String
@@ -28,26 +29,30 @@ struct CommentView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            if let profileImageUrl = viewModel.comment.commentUser?.profileImageUrl {
-                    KFImage(URL(string: profileImageUrl))
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32)
-                        .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                        .padding(.leading)
-                        .padding(.top)
-                    
-                } else {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32)
-                        .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                        .padding(.leading)
-                        .padding(.top)
-                }
+            Button {
+                navControlTower.push(.ProfileView(viewModel.comment.commentUser))
+            } label: {
+                if let profileImageUrl = viewModel.comment.commentUser?.profileImageUrl {
+                        KFImage(URL(string: profileImageUrl))
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 32)
+                            .clipShape(Circle())
+                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                            .padding(.leading)
+                            .padding(.top)
+                        
+                    } else {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 32)
+                            .clipShape(Circle())
+                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                            .padding(.leading)
+                            .padding(.top)
+                    }
+            }
             
             VStack(alignment: .leading) {
                 HStack {
@@ -153,4 +158,5 @@ struct CommentView: View {
 
 #Preview {
     CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false))
+        .environment(NavigationControlTower())
 }

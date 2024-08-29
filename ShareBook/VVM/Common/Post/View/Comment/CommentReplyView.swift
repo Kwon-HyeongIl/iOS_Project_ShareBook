@@ -9,26 +9,31 @@ import SwiftUI
 import Kingfisher
 
 struct CommentReplyView: View {
+    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     let commentReply: Comment
     
     var body: some View {
         HStack(alignment: .top) {
-            if let profileImageUrl = commentReply.commentUser?.profileImageUrl {
-                    KFImage(URL(string: profileImageUrl))
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25)
-                        .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                    
-                } else {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25)
-                        .clipShape(Circle())
-                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                }
+            Button {
+                navControlTower.push(.ProfileView(commentReply.commentUser))
+            } label: {
+                if let profileImageUrl = commentReply.commentUser?.profileImageUrl {
+                        KFImage(URL(string: profileImageUrl))
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25)
+                            .clipShape(Circle())
+                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                        
+                    } else {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25)
+                            .clipShape(Circle())
+                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                    }
+            }
             
             VStack(alignment: .leading) {
                 HStack {
@@ -58,4 +63,5 @@ struct CommentReplyView: View {
 
 #Preview {
     CommentReplyView(commentReply: Comment.DUMMY_COMMENT)
+        .environment(NavigationControlTower())
 }
