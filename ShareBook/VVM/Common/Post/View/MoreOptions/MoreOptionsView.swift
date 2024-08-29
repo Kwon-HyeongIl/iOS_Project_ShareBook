@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MoreOptionsView: View {
+//    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State var viewModel: MoreOptionsViewModel
     
     @State var isDeleteAlertShowing = false

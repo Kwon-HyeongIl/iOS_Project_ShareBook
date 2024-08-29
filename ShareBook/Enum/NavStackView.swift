@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Views: Hashable {
+enum NavStackView: Hashable {
     
     // NewPost
     case NewPostUploadPostView(Book)

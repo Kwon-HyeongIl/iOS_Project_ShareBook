@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct CommentView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State private var viewModel: CommentViewModel
     
     @Binding var selectedComment: String
@@ -30,7 +30,7 @@ struct CommentView: View {
     var body: some View {
         HStack(alignment: .top) {
             Button {
-                navControlTower.push(.ProfileView(viewModel.comment.commentUser))
+                navStackControlTower.push(.ProfileView(viewModel.comment.commentUser))
             } label: {
                 if let profileImageUrl = viewModel.comment.commentUser?.profileImageUrl {
                         KFImage(URL(string: profileImageUrl))
@@ -158,5 +158,5 @@ struct CommentView: View {
 
 #Preview {
     CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false))
-        .environment(NavigationControlTower())
+        .environment(NavStackControlTower())
 }

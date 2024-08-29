@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookCoverView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State var viewModel: BookViewModel
     
     init(book: Book) {
@@ -18,7 +18,7 @@ struct BookCoverView: View {
     
     var body: some View {
         Button {
-            navControlTower.push(.BookDetailView(viewModel))
+            navStackControlTower.push(.BookDetailView(viewModel))
         } label: {
             BookCoverContentView(book: viewModel.book)
         }
@@ -27,5 +27,5 @@ struct BookCoverView: View {
 
 #Preview {
     BookCoverView(book: Book.DUMMY_BOOK)
-        .environment(NavigationControlTower())
+        .environment(NavStackControlTower())
 }

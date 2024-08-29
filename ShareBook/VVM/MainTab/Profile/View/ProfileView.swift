@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State var viewModel: ProfileViewModel
     
     @State var isUnFollowAlertShowing = false
@@ -90,7 +90,7 @@ struct ProfileView: View {
                                     Spacer()
                                     
                                     Button {
-                                        navControlTower.push(.ProfileOptionView(viewModel.user))
+                                        navStackControlTower.push(.ProfileOptionView(viewModel.user))
                                     } label: {
                                         Image(systemName: "gearshape")
                                             .resizable()
@@ -155,7 +155,7 @@ struct ProfileView: View {
                                 
                                 if viewModel.isMyProfile == true {
                                     Button {
-                                        navControlTower.push(.ProfileEditView(viewModel.user))
+                                        navStackControlTower.push(.ProfileEditView(viewModel.user))
                                     } label: {
                                         VStack {
                                             Text("프로필 편집")
@@ -255,7 +255,7 @@ struct ProfileView: View {
                         
                         LazyVGrid(columns: columns, spacing: viewModel.calSizeBase4And393(proxyWidth: proxy.size.width)) {
                             ForEach(viewModel.posts) { post in
-                                navControlTower.navigate(to: .PostProfileCoverView(post))
+                                navStackControlTower.navigate(to: .PostProfileCoverView(post))
                                     .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
                             }
                         }
@@ -269,5 +269,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView(user: User.DUMMY_USER)
-        .environment(NavigationControlTower())
+        .environment(NavStackControlTower())
 }

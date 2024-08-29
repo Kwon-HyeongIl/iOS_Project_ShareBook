@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var navControlTower = NavigationControlTower()
+    @State private var navStackControlTower = NavStackControlTower()
     @State private var selectedMainTabCapsule = SelectedMainTabCapsule()
     
     init() {
@@ -18,7 +18,7 @@ struct MainTabView: View {
     var body: some View {
         let currentUser = AuthManager.shared.currentUser
         
-        NavigationStack(path: $navControlTower.path) {
+        NavigationStack(path: $navStackControlTower.path) {
             ZStack {
                 switch selectedMainTabCapsule.selectedTab {
                     
@@ -40,11 +40,11 @@ struct MainTabView: View {
                     MainCustomTabView()
                 }
             }
-            .navigationDestination(for: Views.self) { view in
-                navControlTower.navigate(to: view)
+            .navigationDestination(for: NavStackView.self) { view in
+                navStackControlTower.navigate(to: view)
             }
         }
-        .environment(navControlTower)
+        .environment(navStackControlTower)
         .environment(selectedMainTabCapsule)
         .tint(.black)
     }

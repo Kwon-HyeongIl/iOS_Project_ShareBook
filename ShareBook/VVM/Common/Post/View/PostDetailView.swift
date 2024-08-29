@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostDetailView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @Bindable var viewModel: PostViewModel
     
     @State var isFeelingCaptionExpanding = false
@@ -25,7 +25,7 @@ struct PostDetailView: View {
                 VStack {
                     HStack {
                         Button {
-                            navControlTower.push(.ProfileView(viewModel.post.user))
+                            navStackControlTower.push(.ProfileView(viewModel.post.user))
                         } label: {
                             HStack {
                                 if let profileImageUrl = viewModel.post.user.profileImageUrl {
@@ -228,7 +228,7 @@ struct PostDetailView: View {
                 .presentationDetents([.fraction(0.2), .large])
         }
         .onChange(of: isDeletePost) {
-            navControlTower.pop()
+            navStackControlTower.pop()
         }
         .modifier(BackButtonModifier())
     }
@@ -236,5 +236,5 @@ struct PostDetailView: View {
 
 #Preview {
     PostDetailView(viewModel: PostViewModel(post: Post.DUMMY_POST))
-        .environment(NavigationControlTower())
+        .environment(NavStackControlTower())
 }

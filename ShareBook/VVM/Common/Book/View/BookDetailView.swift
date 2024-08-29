@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookDetailView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @Bindable var viewModel: BookViewModel
     
     var body: some View {
@@ -27,7 +27,7 @@ struct BookDetailView: View {
                     .frame(maxWidth: .infinity)
                     
                     Button {
-                        navControlTower.push(.NewPostUploadPostView(viewModel.book))
+                        navStackControlTower.push(.NewPostUploadPostView(viewModel.book))
                     } label: {
                         HStack {
                             Text("글 작성")
@@ -126,5 +126,5 @@ struct BookDetailView: View {
 
 #Preview {
     BookDetailView(viewModel: BookViewModel(book: Book.DUMMY_BOOK))
-        .environment(NavigationControlTower())
+        .environment(NavStackControlTower())
 }

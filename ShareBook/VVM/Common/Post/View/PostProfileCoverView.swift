@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostProfileCoverView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State private var viewModel: PostViewModel
     
     init(post: Post) {
@@ -18,7 +18,7 @@ struct PostProfileCoverView: View {
     
     var body: some View {
         Button {
-            navControlTower.push(.PostDetailView(viewModel))
+            navStackControlTower.push(.PostDetailView(viewModel))
         } label: {
             ZStack {
                 KFImage(URL(string: viewModel.post.book.image))
@@ -56,5 +56,5 @@ struct PostProfileCoverView: View {
 
 #Preview {
     PostProfileCoverView(post: Post.DUMMY_POST)
-        .environment(NavigationControlTower())
+        .environment(NavStackControlTower())
 }

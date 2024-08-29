@@ -9,13 +9,13 @@ import SwiftUI
 import Kingfisher
 
 struct CommentReplyView: View {
-    @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     let commentReply: Comment
     
     var body: some View {
         HStack(alignment: .top) {
             Button {
-                navControlTower.push(.ProfileView(commentReply.commentUser))
+                navStackControlTower.push(.ProfileView(commentReply.commentUser))
             } label: {
                 if let profileImageUrl = commentReply.commentUser?.profileImageUrl {
                         KFImage(URL(string: profileImageUrl))
@@ -63,5 +63,5 @@ struct CommentReplyView: View {
 
 #Preview {
     CommentReplyView(commentReply: Comment.DUMMY_COMMENT)
-        .environment(NavigationControlTower())
+        .environment(NavStackControlTower())
 }

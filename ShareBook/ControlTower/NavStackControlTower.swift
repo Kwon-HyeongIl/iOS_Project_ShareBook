@@ -8,11 +8,11 @@
 import SwiftUI
 
 @Observable
-class NavigationControlTower {
+class NavStackControlTower {
     var path = NavigationPath()
     
     @ViewBuilder
-    func navigate(to view: Views) -> some View {
+    func navigate(to view: NavStackView) -> some View {
         switch view {
             
         // NewPost
@@ -39,7 +39,7 @@ class NavigationControlTower {
         }
     }
     
-    func push(_ view: Views) {
+    func push(_ view: NavStackView) {
         path.append(view)
     }
     
