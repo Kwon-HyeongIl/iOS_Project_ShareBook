@@ -30,8 +30,7 @@ struct NewPostUploadPostView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    BookCoverView(book: viewModel.book)
-                        .disabled(true)
+                    BookCoverContentView(book: viewModel.book)
                         .padding(.bottom, 10)
                     
                     VStack {
@@ -40,7 +39,7 @@ struct NewPostUploadPostView: View {
                                 .fontWeight(.semibold)
                                 .padding(.top)
                             
-                            TextField("", text: $viewModel.impressivePhrase)
+                            TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
                                 .padding(.horizontal)
                                 .frame(height: 160)
                                 .background(.regularMaterial)
@@ -77,7 +76,7 @@ struct NewPostUploadPostView: View {
                                 .fontWeight(.semibold)
                                 .padding(.top)
                             
-                            TextField("", text: $viewModel.feelingCaption)
+                            TextField("", text: $viewModel.feelingCaption, axis: .vertical)
                                 .padding(.horizontal)
                                 .frame(height: 160)
                                 .background(.regularMaterial)
