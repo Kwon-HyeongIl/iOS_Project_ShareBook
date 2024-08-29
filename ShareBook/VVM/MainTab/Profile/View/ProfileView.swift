@@ -12,6 +12,8 @@ struct ProfileView: View {
     @Environment(NavigationControlTower.self) var navControlTower: NavigationControlTower
     @State var viewModel: ProfileViewModel
     
+    @State var isUnFollowAlertShowing = false
+    
     init(user: User?) {
         self.viewModel = ProfileViewModel(user: user)
     }
@@ -43,10 +45,11 @@ struct ProfileView: View {
                             Rectangle()
                                 .foregroundStyle(Color.sBColor)
                                 .opacity(0.6)
-                                .frame(height: 300)
+                                .frame(height: 330)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                             
-                            VStack {
+                            VStack(spacing: 0) {
                                 HStack {
                                     if let profileImage = viewModel.profileImage {
                                         profileImage
@@ -73,29 +76,35 @@ struct ProfileView: View {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("\(viewModel.user?.username ?? "유저네임")")
                                             .font(.system(size: 18))
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
                                             .fontWeight(.semibold)
-                                            .opacity(0.7)
                                         
                                         Text("인문학")
                                             .font(.system(size: 14))
                                             .fontWeight(.semibold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
                                             .opacity(0.7)
                                         
                                     }
                                     
                                     Spacer()
                                     
-                                    Image(systemName: "gearshape")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 25)
-                                        .foregroundStyle(.white)
-                                        .padding(.trailing, 20)
-                                        .padding(.bottom, 20)
+                                    Button {
+                                        navControlTower.push(.ProfileOptionView(viewModel.user))
+                                    } label: {
+                                        Image(systemName: "gearshape")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 25)
+                                            .foregroundStyle(.black)
+                                            .opacity(0.7)
+                                            .padding(.trailing, 20)
+                                            .padding(.bottom, 20)
+                                    }
+                                    
                                     
                                 }
+                                .padding(.top, 10)
                                 .padding(.bottom)
                                 
                                 HStack(spacing: 60) {
@@ -103,40 +112,131 @@ struct ProfileView: View {
                                         Text("기록한 구절")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
+                                            .opacity(0.7)
                                         
                                         Text("\(viewModel.posts.count)")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
+                                            .opacity(0.7)
                                     }
                                     
                                     VStack(spacing: 3) {
                                         Text("팔로워")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
+                                            .opacity(0.7)
                                         
                                         Text("\(viewModel.followerCount)")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
+                                            .opacity(0.7)
                                     }
                                     
                                     VStack(spacing: 3) {
                                         Text("팔로잉")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
+                                            .opacity(0.7)
                                         
                                         Text("\(viewModel.followingCount)")
                                             .font(.system(size: 15))
                                             .fontWeight(.semibold)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
+                                            .opacity(0.7)
                                     }
                                 }
+                                .padding(.top, 5)
                                 .padding(.bottom, 10)
                                 
+                                if viewModel.isMyProfile == true {
+                                    Button {
+                                        navControlTower.push(.ProfileEditView(viewModel.user))
+                                    } label: {
+                                        VStack {
+                                            Text("프로필 편집")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(Color.sBColor)
+                                        }
+                                        .frame(height: 35)
+                                        .frame(maxWidth: .infinity)
+                                        .background(.thinMaterial)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.sBColor, lineWidth: 1.0)
+                                        }
+                                        .padding(.horizontal, 50)
+                                        .padding(.bottom, 10)
+                                    }
+                                    
+                                } else {
+                                    if viewModel.isFollow == true {
+                                        Button {
+                                            isUnFollowAlertShowing = true
+                                        } label: {
+                                            VStack {
+                                                Text("팔로우 취소")
+                                                    .font(.system(size: 15))
+                                                    .fontWeight(.semibold)
+                                                    .foregroundStyle(Color.sBColor)
+                                            }
+                                            .frame(height: 35)
+                                            .frame(maxWidth: .infinity)
+                                            .background(.thinMaterial)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .overlay {
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color.sBColor, lineWidth: 1.0)
+                                            }
+                                            .padding(.horizontal, 50)
+                                            .padding(.bottom, 10)
+                                        }
+                                        .alert("정말 팔로우를 취소하시겠습니까?", isPresented: $isUnFollowAlertShowing) {
+                                            Button(role: .cancel) {
+                                                
+                                            } label: {
+                                                Text("취소")
+                                            }
+                                            
+                                            Button(role: .destructive) {
+                                                Task {
+                                                    await viewModel.unFollow()
+                                                }
+                                            } label: {
+                                                Text("계속")
+                                            }
+                                            
+                                        } message: {
+                                            
+                                        }
+                                        
+                                    } else {
+                                        Button {
+                                            Task {
+                                                await viewModel.follow()
+                                            }
+                                        } label: {
+                                            VStack {
+                                                Text("팔로우")
+                                                    .font(.system(size: 15))
+                                                    .fontWeight(.medium)
+                                                    .foregroundStyle(.white)
+                                            }
+                                            .frame(height: 35)
+                                            .frame(maxWidth: .infinity)
+                                            .background(Color.sBColor)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .padding(.horizontal, 50)
+                                            .padding(.bottom, 10)
+                                        }
+                                    }
+                                }
                                 
                                 ZStack {
                                     Rectangle()
@@ -162,6 +262,7 @@ struct ProfileView: View {
                     }
                 }
             }
+            .modifier(BackButtonModifier())
         }
     }
 }

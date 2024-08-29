@@ -24,26 +24,32 @@ struct PostDetailView: View {
             ScrollView {
                 VStack {
                     HStack {
-                        if let profileImageUrl = viewModel.post.user.profileImageUrl {
-                            KFImage(URL(string: profileImageUrl))
-                                .resizable()
-                                .frame(width: 35, height: 35)
-                                .clipShape(Circle())
-                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                                .padding(.leading, 20)
+                        Button {
+                            navControlTower.push(.ProfileView(viewModel.post.user))
+                        } label: {
+                            HStack {
+                                if let profileImageUrl = viewModel.post.user.profileImageUrl {
+                                    KFImage(URL(string: profileImageUrl))
+                                        .resizable()
+                                        .frame(width: 35, height: 35)
+                                        .clipShape(Circle())
+                                        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                        .padding(.leading, 20)
+                                    
+                                } else {
+                                    Image(systemName: "person.circle.fill")
+                                        .resizable()
+                                        .frame(width: 35, height: 35)
+                                        .clipShape(Circle())
+                                        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                        .padding(.leading, 20)
+                                }
                                 
-                        } else {
-                            Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .frame(width: 35, height: 35)
-                                .clipShape(Circle())
-                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                                .padding(.leading, 20)
+                                
+                                Text("\(viewModel.post.user.username)")
+                                    .fontWeight(.semibold)
+                            }
                         }
-                            
-                        
-                        Text("\(viewModel.post.user.username)")
-                            .fontWeight(.semibold)
                         
                         Text("\(viewModel.post.date.relativeTimeString())")
                             .font(.system(size: 13))

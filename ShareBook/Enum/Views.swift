@@ -22,6 +22,8 @@ enum Views: Hashable {
     
     // Profile
     case ProfileView(User?)
+    case ProfileEditView(User?)
+    case ProfileOptionView(User?)
     
     // Common.Post
     case PostCoverView(Post)

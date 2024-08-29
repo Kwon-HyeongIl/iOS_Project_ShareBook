@@ -10,7 +10,7 @@ import PhotosUI
 
 @Observable
 class ProfileViewModel {
-    var user: User?
+    let user: User?
     var posts: [Post] = []
     
     var followingCount = 0
@@ -51,6 +51,24 @@ class ProfileViewModel {
         self.posts = await PostManager.loadAllUserPosts(userId: userId)
     }
     
+    
+    
+    func follow() async {
+        await AuthManager.shared.follow(followUserId: user?.id ?? "")
+        
+        await loadFollowingCount(userId: user?.id ?? "")
+        await loadFollowerCount(userId: user?.id ?? "")
+        isFollow = true
+    }
+    
+    func unFollow() async {
+        await AuthManager.shared.unFollow(unFollowUserId: user?.id ?? "")
+        
+        await loadFollowingCount(userId: user?.id ?? "")
+        await loadFollowerCount(userId: user?.id ?? "")
+        isFollow = false
+    }
+    
     func loadFollowingCount(userId: String) async {
         self.followingCount = await AuthManager.shared.loadFollowingCount(userId: userId)
     }
@@ -71,9 +89,5 @@ class ProfileViewModel {
     
     func calSizeBase4And393(proxyWidth: CGFloat) -> CGFloat {
         return 5 + ((proxyWidth - 393))
-    }
-    
-    func signout() {
-        AuthManager.shared.signout()
     }
 }

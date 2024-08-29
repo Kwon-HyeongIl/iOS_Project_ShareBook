@@ -57,32 +57,38 @@ struct PostCoverView: View {
             }
             
             HStack(spacing: 0) {
-                if let profileImageUrl = viewModel.post.user.profileImageUrl {
-                    KFImage(URL(string: profileImageUrl))
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .clipShape(Circle())
-                        .overlay {
-                            Circle()
-                                .stroke(Color.sBColor, lineWidth: 2)
+                Button {
+                    navControlTower.push(.ProfileView(viewModel.post.user))
+                } label: {
+                    HStack(spacing: 0) {
+                        if let profileImageUrl = viewModel.post.user.profileImageUrl {
+                            KFImage(URL(string: profileImageUrl))
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .clipShape(Circle())
+                                .overlay {
+                                    Circle()
+                                        .stroke(Color.sBColor, lineWidth: 2)
+                                }
+                                .padding(.leading, 13)
+                            
+                        } else {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .clipShape(Circle())
+                                .padding(.leading, 13)
                         }
-                        .padding(.leading, 18)
-                    
-                } else {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .clipShape(Circle())
-                        .padding(.leading, 18)
+                        
+                        Text("\(viewModel.post.user.username)")
+                            .font(.system(size: 11))
+                            .frame(width: 30, alignment: .leading)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                            .opacity(0.8)
+                            .padding(.leading, 5)
+                    }
                 }
-                
-                Text("\(viewModel.post.user.username)")
-                    .font(.system(size: 11))
-                    .frame(width: 30, alignment: .leading)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .opacity(0.8)
-                    .padding(.leading, 5)
                 
                 Spacer()
                 
@@ -119,7 +125,7 @@ struct PostCoverView: View {
                 Text("\(viewModel.commentCount)")
                     .font(.system(size: 10))
                     .foregroundStyle(Color.sBColor)
-                    .padding(.trailing, 17)
+                    .padding(.trailing, 15)
             }
             .padding(.bottom, 20)
         }

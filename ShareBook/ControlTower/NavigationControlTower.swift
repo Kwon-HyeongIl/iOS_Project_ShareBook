@@ -36,6 +36,10 @@ class NavigationControlTower {
         // Profile
         case .ProfileView(let user):
             ProfileView(user: user)
+        case .ProfileEditView(let user):
+            ProfileEditView(user: user)
+        case .ProfileOptionView(let user):
+            ProfileOptionView(user: user)
             
         // Common.Post
         case .PostCoverView(let post):
