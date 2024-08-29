@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct MoreOptionsView: View {
-//    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State var viewModel: MoreOptionsViewModel
     
     @State var isDeleteAlertShowing = false
-    @Binding var isDeletePost: Bool
+    @Binding var isMoreOptionsSheetShowing: Bool
     
-    @Environment(\.dismiss) var dismiss
-    
-    init(post: Post, isDeletePost: Binding<Bool>) {
+    init(post: Post, isMoreOptionsSheetShowing: Binding<Bool>) {
         self.viewModel = MoreOptionsViewModel(post: post)
-        self._isDeletePost = isDeletePost
+        self._isMoreOptionsSheetShowing = isMoreOptionsSheetShowing
     }
     
     var body: some View {
@@ -57,8 +55,8 @@ struct MoreOptionsView: View {
                         Button(role: .destructive) {
                             Task {
                                 await viewModel.deletePost()
-                                dismiss()
-                                isDeletePost.toggle()
+                                isMoreOptionsSheetShowing = false
+                                navStackControlTower.pop()
                             }
                         } label: {
                             Text("삭제")
@@ -74,5 +72,6 @@ struct MoreOptionsView: View {
 }
 
 #Preview {
-    MoreOptionsView(post: Post.DUMMY_POST, isDeletePost: .constant(true))
+    MoreOptionsView(post: Post.DUMMY_POST, isMoreOptionsSheetShowing: .constant(true))
+        .environment(NavStackControlTower())
 }

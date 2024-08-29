@@ -17,8 +17,6 @@ struct PostDetailView: View {
     @State var isCommentSheetShowing = false
     @State var isMoreOptionsSheetShowing = false
     
-    @State var isDeletePost = false
-    
     var body: some View {
         GradientBackgroundView {
             ScrollView {
@@ -223,12 +221,9 @@ struct PostDetailView: View {
                 .presentationDetents([.fraction(0.7), .large])
         })
         .sheet(isPresented: $isMoreOptionsSheetShowing) {
-            MoreOptionsView(post: viewModel.post, isDeletePost: $isDeletePost)
+            MoreOptionsView(post: viewModel.post, isMoreOptionsSheetShowing: $isMoreOptionsSheetShowing)
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.2), .large])
-        }
-        .onChange(of: isDeletePost) {
-            navStackControlTower.pop()
         }
         .modifier(BackButtonModifier())
     }
