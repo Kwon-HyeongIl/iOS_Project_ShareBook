@@ -16,20 +16,23 @@ struct CommentView: View {
     @Binding var selectedCommentUsername: String
     
     @Binding var isLoadReplies: Bool
+    @Binding var isCommentSheetShowing: Bool
     
     @State private var isCommentReplyShowing = false
     
-    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>) {
+    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>, isCommentSheetShowing: Binding<Bool>) {
         self.viewModel = CommentViewModel(comment: comment)
         
         self._selectedComment = selectedCommentToReply
         self._selectedCommentUsername = selectedCommentUsername
         self._isLoadReplies = isLoadReplies
+        self._isCommentSheetShowing = isCommentSheetShowing
     }
     
     var body: some View {
         HStack(alignment: .top) {
             Button {
+                isCommentSheetShowing = false
                 navStackControlTower.push(.ProfileView(viewModel.comment.commentUser))
             } label: {
                 if let profileImageUrl = viewModel.comment.commentUser?.profileImageUrl {
@@ -77,7 +80,7 @@ struct CommentView: View {
                 if isCommentReplyShowing {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.commentReplies) { commentReply in
-                            CommentReplyView(commentReply: commentReply)
+                            CommentReplyView(commentReply: commentReply, isCommentSheetShowing: $isCommentSheetShowing)
                                 
                         }
                     }
@@ -157,6 +160,6 @@ struct CommentView: View {
 }
 
 #Preview {
-    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false))
+    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false), isCommentSheetShowing: .constant(false))
         .environment(NavStackControlTower())
 }

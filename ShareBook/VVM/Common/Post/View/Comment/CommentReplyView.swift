@@ -12,9 +12,12 @@ struct CommentReplyView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     let commentReply: Comment
     
+    @Binding var isCommentSheetShowing: Bool
+    
     var body: some View {
         HStack(alignment: .top) {
             Button {
+                isCommentSheetShowing = false
                 navStackControlTower.push(.ProfileView(commentReply.commentUser))
             } label: {
                 if let profileImageUrl = commentReply.commentUser?.profileImageUrl {
@@ -62,6 +65,6 @@ struct CommentReplyView: View {
 }
 
 #Preview {
-    CommentReplyView(commentReply: Comment.DUMMY_COMMENT)
+    CommentReplyView(commentReply: Comment.DUMMY_COMMENT, isCommentSheetShowing: .constant(false))
         .environment(NavStackControlTower())
 }
