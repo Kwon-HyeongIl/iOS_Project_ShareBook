@@ -158,7 +158,7 @@ struct NewPostUploadPostView: View {
                                         .padding(.top)
                                 }
                             }
-                            .alert("비었습니다", isPresented: $isImpressiveAlertShowing) {
+                            .alert("!!", isPresented: $isImpressiveAlertShowing) {
                                 
                             } message: {
                                 Text("인상 깊은 구절은 필수로 작성하셔야 됩니다.")

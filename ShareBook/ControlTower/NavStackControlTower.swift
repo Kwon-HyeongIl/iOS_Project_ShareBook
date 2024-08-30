@@ -27,6 +27,9 @@ class NavStackControlTower {
         case .ProfileOptionView(let user):
             ProfileOptionView(user: user)
             
+        case .FeedbackView:
+            FeedbackView()
+            
         // Post
         case .PostProfileCoverView(let post):
             PostProfileCoverView(post: post)
