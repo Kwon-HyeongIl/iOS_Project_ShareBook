@@ -25,6 +25,10 @@ class MoreOptionsViewModel {
         self.isMyPost = userId == postUserId ? true : false
     }
     
+    func reportPost() async {
+        await UserSupportService.reportPost(postId: post.id)
+    }
+    
     func deletePost() async {
         await PostManager.deletePost(postId: post.id)
     }

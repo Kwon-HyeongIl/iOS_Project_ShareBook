@@ -93,6 +93,7 @@
 		CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC116DF2C573FB40047E7D4 /* BookManager.swift */; };
 		CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */; };
 		CAC3304E2C4F4327003C8A71 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = CAC3304D2C4F4327003C8A71 /* SplineRuntime */; };
+		CAC3549B2C81FCCE00EEA8F9 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC3549A2C81FCCE00EEA8F9 /* Report.swift */; };
 		CACD58832C7307020070593A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58822C7307020070593A /* CommentViewModel.swift */; };
 		CACD58852C73096E0070593A /* CommentReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58842C73096E0070593A /* CommentReplyView.swift */; };
 		CAD01ED52C5F48F6001E479F /* BookManager+Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */; };
@@ -202,6 +203,7 @@
 		CABE31CA2C4CAE550010AC20 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CAC116DF2C573FB40047E7D4 /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGirl3DView.swift; sourceTree = "<group>"; };
+		CAC3549A2C81FCCE00EEA8F9 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CACD58822C7307020070593A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		CACD58842C73096E0070593A /* CommentReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyView.swift; sourceTree = "<group>"; };
 		CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookManager+Bookmark.swift"; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 				CA0846D62C608BBE00D86A91 /* Post.swift */,
 				CA62D0732C6DB8D300A652EA /* Comment.swift */,
 				CA7C5E452C81F156000F9F2B /* Feedback.swift */,
+				CAC3549A2C81FCCE00EEA8F9 /* Report.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 			files = (
 				CA2FDAC92C73AD5C00D8C4D6 /* CommentListViewModel+Reply.swift in Sources */,
 				CA3E7B312C78CBD300F610A4 /* LikesHeadTabView.swift in Sources */,
+				CAC3549B2C81FCCE00EEA8F9 /* Report.swift in Sources */,
 				CA7C5E462C81F156000F9F2B /* Feedback.swift in Sources */,
 				CA70E7F62C785E6400E3B91B /* LikeView.swift in Sources */,
 				CA70E8022C785ED600E3B91B /* BookmarkBookView.swift in Sources */,

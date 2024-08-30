@@ -159,7 +159,11 @@ struct NewPostUploadPostView: View {
                                 }
                             }
                             .alert("!!", isPresented: $isImpressiveAlertShowing) {
-                                
+                                Button {
+                                    
+                                } label: {
+                                    Text("확인")
+                                }
                             } message: {
                                 Text("인상 깊은 구절은 필수로 작성하셔야 됩니다.")
                             }
