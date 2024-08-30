@@ -18,16 +18,6 @@ struct FeedbackView: View {
     var body: some View {
         GradientBackgroundView {
             VStack {
-                HStack {
-                    Text("건의하기")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
-                        .padding(.leading)
-                    
-                    Spacer()
-                }
-                
                 VStack {
                     TextField("", text: $viewModel.content, axis: .vertical)
                         .padding(.horizontal)
@@ -116,6 +106,7 @@ struct FeedbackView: View {
                 
             }
         }
+        .navigationTitle("건의하기")
         .modifier(BackButtonModifier())
     }
 }

@@ -20,17 +20,6 @@ struct ProfileOptionView: View {
     var body: some View {
         GradientBackgroundView {
             VStack {
-                HStack {
-                    Text("내 프로필")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
-                        .padding(.leading)
-                    
-                    Spacer()
-                }
-                .padding(.bottom, 20)
-                
                 Button {
                     navStackControlTower.push(.FeedbackView)
                 } label: {
@@ -45,6 +34,7 @@ struct ProfileOptionView: View {
                     .foregroundStyle(.black)
                     .padding(.horizontal)
                     .font(.system(size: 18))
+                    .padding(.top)
                     .padding(.bottom, 10)
                 }
                 
@@ -86,6 +76,7 @@ struct ProfileOptionView: View {
                 Spacer()
             }
         }
+        .navigationTitle("설정")
         .modifier(BackButtonModifier())
     }
 }

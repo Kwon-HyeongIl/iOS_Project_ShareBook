@@ -27,7 +27,12 @@ struct PostCoverView: View {
                     KFImage(URL(string: viewModel.post.book.image))
                         .resizable()
                         .frame(width: 145, height: 195)
-                        .clipShape(RoundedRectangle(cornerRadius: 7))
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 5)
+                                .foregroundStyle(.black)
+                                .opacity(0.15)
+                        }
                         .blur(radius: 3.0)
                     
                     VStack(spacing: 13) {
@@ -52,7 +57,7 @@ struct PostCoverView: View {
                             .frame(width: 13)
                     }
                 }
-                .padding(.top, 30)
+                .padding(.top, 22)
                 .padding(.bottom, 8)
             }
             
