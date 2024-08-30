@@ -15,11 +15,9 @@ struct CommentListView: View {
     @State private var selectedCommentUsername = ""
     
     @State private var isLoadReplies = false
-    @Binding var isCommentSheetShowing: Bool
     
-    init(post: Post, isCommentSheetShowing: Binding<Bool>) {
+    init(post: Post) {
         self.viewModel = CommentListViewModel(post: post)
-        self._isCommentSheetShowing = isCommentSheetShowing
     }
     
     var body: some View {
@@ -36,7 +34,7 @@ struct CommentListView: View {
                 ScrollView {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.comments) { comment in
-                            CommentView(comment: comment, selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies, isCommentSheetShowing: $isCommentSheetShowing)
+                            CommentView(comment: comment, selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies)
                         }
                     }
                 }
@@ -143,5 +141,5 @@ struct CommentListView: View {
 }
 
 #Preview {
-    CommentListView(post: Post.DUMMY_POST, isCommentSheetShowing: .constant(false))
+    CommentListView(post: Post.DUMMY_POST)
 }

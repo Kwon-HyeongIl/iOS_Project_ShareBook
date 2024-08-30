@@ -13,9 +13,11 @@ struct ProfileView: View {
     @State private var viewModel: ProfileViewModel
     
     @State private var isUnFollowAlertShowing = false
-    
-    init(user: User?) {
+    var commentSheetCapsule: CommentSheetCapsule?
+
+    init(user: User?, commentSheetCapsule: CommentSheetCapsule?) {
         self.viewModel = ProfileViewModel(user: user)
+        self.commentSheetCapsule = commentSheetCapsule
     }
     
     let columns: [GridItem] = [
@@ -262,12 +264,26 @@ struct ProfileView: View {
                     }
                 }
             }
-            .modifier(BackButtonModifier())
+            .navigationBarBackButtonHidden()
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        navStackControlTower.pop()
+                        if let commentSheetCapsule {
+                            commentSheetCapsule.isCommentSheetShowing = true
+                        }
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .tint(.black)
+                    }
+                }
+            }
         }
     }
 }
 
 #Preview {
-    ProfileView(user: User.DUMMY_USER)
+    ProfileView(user: User.DUMMY_USER, commentSheetCapsule: nil)
         .environment(NavStackControlTower())
 }

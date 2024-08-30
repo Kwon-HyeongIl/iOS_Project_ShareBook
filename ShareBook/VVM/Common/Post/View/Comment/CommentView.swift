@@ -12,28 +12,28 @@ struct CommentView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State private var viewModel: CommentViewModel
     
+    @Environment(CommentSheetCapsule.self) var commentSheetCapsule: CommentSheetCapsule
+    
     @Binding var selectedComment: String
     @Binding var selectedCommentUsername: String
     
     @Binding var isLoadReplies: Bool
-    @Binding var isCommentSheetShowing: Bool
     
     @State private var isCommentReplyShowing = false
     
-    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>, isCommentSheetShowing: Binding<Bool>) {
+    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>) {
         self.viewModel = CommentViewModel(comment: comment)
         
         self._selectedComment = selectedCommentToReply
         self._selectedCommentUsername = selectedCommentUsername
         self._isLoadReplies = isLoadReplies
-        self._isCommentSheetShowing = isCommentSheetShowing
     }
     
     var body: some View {
         HStack(alignment: .top) {
             Button {
-                isCommentSheetShowing = false
-                navStackControlTower.push(.ProfileView(viewModel.comment.commentUser))
+                commentSheetCapsule.isCommentSheetShowing = false
+                navStackControlTower.push(.ProfileView(viewModel.comment.commentUser, commentSheetCapsule))
             } label: {
                 if let profileImageUrl = viewModel.comment.commentUser?.profileImageUrl {
                         KFImage(URL(string: profileImageUrl))
@@ -80,7 +80,7 @@ struct CommentView: View {
                 if isCommentReplyShowing {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.commentReplies) { commentReply in
-                            CommentReplyView(commentReply: commentReply, isCommentSheetShowing: $isCommentSheetShowing)
+                            CommentReplyView(commentReply: commentReply)
                                 
                         }
                     }
@@ -160,6 +160,6 @@ struct CommentView: View {
 }
 
 #Preview {
-    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false), isCommentSheetShowing: .constant(false))
+    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false))
         .environment(NavStackControlTower())
 }

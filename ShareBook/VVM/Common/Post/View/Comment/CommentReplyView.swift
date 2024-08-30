@@ -12,13 +12,13 @@ struct CommentReplyView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     let commentReply: Comment
     
-    @Binding var isCommentSheetShowing: Bool
+    @Environment(CommentSheetCapsule.self) var commentSheetCapsule: CommentSheetCapsule
     
     var body: some View {
         HStack(alignment: .top) {
             Button {
-                isCommentSheetShowing = false
-                navStackControlTower.push(.ProfileView(commentReply.commentUser))
+                commentSheetCapsule.isCommentSheetShowing = false
+                navStackControlTower.push(.ProfileView(commentReply.commentUser, commentSheetCapsule))
             } label: {
                 if let profileImageUrl = commentReply.commentUser?.profileImageUrl {
                         KFImage(URL(string: profileImageUrl))
@@ -65,6 +65,6 @@ struct CommentReplyView: View {
 }
 
 #Preview {
-    CommentReplyView(commentReply: Comment.DUMMY_COMMENT, isCommentSheetShowing: .constant(false))
+    CommentReplyView(commentReply: Comment.DUMMY_COMMENT)
         .environment(NavStackControlTower())
 }

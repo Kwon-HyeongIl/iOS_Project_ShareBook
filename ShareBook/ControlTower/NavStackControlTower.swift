@@ -20,8 +20,8 @@ class NavStackControlTower {
             NewPostUploadPostView(book: book)
             
         // Profile
-        case .ProfileView(let user):
-            ProfileView(user: user)
+        case .ProfileView(let user, let commentSheetCapsule):
+            ProfileView(user: user, commentSheetCapsule: commentSheetCapsule)
         case .ProfileEditView(let user):
             ProfileEditView(user: user)
         case .ProfileOptionView(let user):

@@ -32,7 +32,7 @@ struct MainTabView: View {
                     LikeView()
                     
                 case .person:
-                    ProfileView(user: currentUser)
+                    ProfileView(user: currentUser, commentSheetCapsule: nil)
                 }
                 
                 VStack {

@@ -58,7 +58,7 @@ struct PostCoverView: View {
             
             HStack(spacing: 0) {
                 Button {
-                    navStackControlTower.push(.ProfileView(viewModel.post.user))
+                    navStackControlTower.push(.ProfileView(viewModel.post.user, nil))
                 } label: {
                     HStack(spacing: 0) {
                         if let profileImageUrl = viewModel.post.user.profileImageUrl {
@@ -138,7 +138,7 @@ struct PostCoverView: View {
                 await viewModel.loadAllPostCommentAndCommentReplyCount()
             }
         }, content: {
-            CommentListView(post: viewModel.post, isCommentSheetShowing: $isCommentSheetShowing)
+            CommentListView(post: viewModel.post)
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.7), .large])
         })

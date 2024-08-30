@@ -11,10 +11,9 @@ import Kingfisher
 struct PostDetailView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @Bindable var viewModel: PostViewModel
+    @State private var commentSheetCapsule = CommentSheetCapsule()
     
     @State private var isFeelingCaptionExpanding = false
-    
-    @State private var isCommentSheetShowing = false
     @State private var isMoreOptionsSheetShowing = false
     
     var body: some View {
@@ -23,7 +22,7 @@ struct PostDetailView: View {
                 VStack {
                     HStack {
                         Button {
-                            navStackControlTower.push(.ProfileView(viewModel.post.user))
+                            navStackControlTower.push(.ProfileView(viewModel.post.user, nil))
                         } label: {
                             HStack {
                                 if let profileImageUrl = viewModel.post.user.profileImageUrl {
@@ -160,7 +159,7 @@ struct PostDetailView: View {
                         }
                         
                         Button {
-                            isCommentSheetShowing = true
+                            commentSheetCapsule.isCommentSheetShowing = true
                         } label: {
                             HStack(spacing: 5) {
                                 Image(systemName: "bubble.right")
@@ -211,14 +210,15 @@ struct PostDetailView: View {
             }
             
         }
-        .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
+        .sheet(isPresented: $commentSheetCapsule.isCommentSheetShowing, onDismiss: {
             Task {
                 await viewModel.loadAllPostCommentAndCommentReplyCount()
             }
         }, content: {
-            CommentListView(post: viewModel.post, isCommentSheetShowing: $isCommentSheetShowing)
+            CommentListView(post: viewModel.post)
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.7), .large])
+                .environment(commentSheetCapsule)
         })
         .sheet(isPresented: $isMoreOptionsSheetShowing) {
             MoreOptionsView(post: viewModel.post, isMoreOptionsSheetShowing: $isMoreOptionsSheetShowing)
@@ -226,6 +226,19 @@ struct PostDetailView: View {
                 .presentationDetents([.fraction(0.2), .large])
         }
         .modifier(BackButtonModifier())
+    }
+}
+
+@Observable
+class CommentSheetCapsule: Hashable, Equatable {
+    var isCommentSheetShowing = false
+    
+    static func == (lhs: CommentSheetCapsule, rhs: CommentSheetCapsule) -> Bool {
+        return lhs.isCommentSheetShowing == rhs.isCommentSheetShowing
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(isCommentSheetShowing)
     }
 }
 
