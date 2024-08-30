@@ -19,7 +19,7 @@ enum NavStackView: Hashable {
     
     // Post
     case PostProfileCoverView(Post)
-    case PostDetailView(PostViewModel)
+    case PostDetailView(PostViewModel, CommentSheetCapsule)
     
     // Book
     case BookDetailView(BookViewModel)

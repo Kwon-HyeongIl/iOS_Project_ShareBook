@@ -12,13 +12,15 @@ struct PostProfileCoverView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State private var viewModel: PostViewModel
     
+    @State private var commentSheetCapsule = CommentSheetCapsule()
+    
     init(post: Post) {
         self.viewModel = PostViewModel(post: post)
     }
     
     var body: some View {
         Button {
-            navStackControlTower.push(.PostDetailView(viewModel))
+            navStackControlTower.push(.PostDetailView(viewModel, commentSheetCapsule))
         } label: {
             ZStack {
                 KFImage(URL(string: viewModel.post.book.image))

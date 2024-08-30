@@ -30,8 +30,8 @@ class NavStackControlTower {
         // Post
         case .PostProfileCoverView(let post):
             PostProfileCoverView(post: post)
-        case .PostDetailView(let viewModel):
-            PostDetailView(viewModel: viewModel)
+        case .PostDetailView(let viewModel, let commentSheetCapsule):
+            PostDetailView(viewModel: viewModel, commentSheetCapsule: commentSheetCapsule)
             
         // Book
         case .BookDetailView(let viewModel):

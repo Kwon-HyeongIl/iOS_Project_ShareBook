@@ -12,7 +12,7 @@ struct PostCoverView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State private var viewModel: PostViewModel
     
-    @State private var isCommentSheetShowing = false
+    @State private var commentSheetCapsule = CommentSheetCapsule()
     
     init(post: Post) {
         self.viewModel = PostViewModel(post: post)
@@ -21,7 +21,7 @@ struct PostCoverView: View {
     var body: some View {
         VStack(spacing: 0) {
             Button {
-                navStackControlTower.push(.PostDetailView(viewModel))
+                navStackControlTower.push(.PostDetailView(viewModel, commentSheetCapsule))
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
@@ -112,7 +112,8 @@ struct PostCoverView: View {
                     .padding(.trailing, 7)
                 
                 Button {
-                    isCommentSheetShowing = true
+                    navStackControlTower.push(.PostDetailView(viewModel, commentSheetCapsule))
+                    commentSheetCapsule.isCommentSheetShowing = true
                 } label: {
                     Image(systemName: "bubble.right")
                         .resizable()
@@ -133,15 +134,6 @@ struct PostCoverView: View {
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-        .sheet(isPresented: $isCommentSheetShowing, onDismiss: {
-            Task {
-                await viewModel.loadAllPostCommentAndCommentReplyCount()
-            }
-        }, content: {
-            CommentListView(post: viewModel.post)
-                .presentationDragIndicator(.visible)
-                .presentationDetents([.fraction(0.7), .large])
-        })
     }
 }
 

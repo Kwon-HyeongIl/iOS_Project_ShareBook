@@ -11,7 +11,8 @@ import Kingfisher
 struct PostDetailView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @Bindable var viewModel: PostViewModel
-    @State private var commentSheetCapsule = CommentSheetCapsule()
+    
+    @Bindable var commentSheetCapsule: CommentSheetCapsule
     
     @State private var isFeelingCaptionExpanding = false
     @State private var isMoreOptionsSheetShowing = false
@@ -229,20 +230,9 @@ struct PostDetailView: View {
     }
 }
 
-@Observable
-class CommentSheetCapsule: Hashable, Equatable {
-    var isCommentSheetShowing = false
-    
-    static func == (lhs: CommentSheetCapsule, rhs: CommentSheetCapsule) -> Bool {
-        return lhs.isCommentSheetShowing == rhs.isCommentSheetShowing
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(isCommentSheetShowing)
-    }
-}
+
 
 #Preview {
-    PostDetailView(viewModel: PostViewModel(post: Post.DUMMY_POST))
+    PostDetailView(viewModel: PostViewModel(post: Post.DUMMY_POST), commentSheetCapsule: CommentSheetCapsule())
         .environment(NavStackControlTower())
 }
