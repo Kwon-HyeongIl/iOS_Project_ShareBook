@@ -12,10 +12,10 @@ struct PostDetailView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @Bindable var viewModel: PostViewModel
     
-    @State var isFeelingCaptionExpanding = false
+    @State private var isFeelingCaptionExpanding = false
     
-    @State var isCommentSheetShowing = false
-    @State var isMoreOptionsSheetShowing = false
+    @State private var isCommentSheetShowing = false
+    @State private var isMoreOptionsSheetShowing = false
     
     var body: some View {
         GradientBackgroundView {

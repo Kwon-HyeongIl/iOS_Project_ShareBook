@@ -10,9 +10,9 @@ import Kingfisher
 
 struct ProfileView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @State var viewModel: ProfileViewModel
+    @State private var viewModel: ProfileViewModel
     
-    @State var isUnFollowAlertShowing = false
+    @State private var isUnFollowAlertShowing = false
     
     init(user: User?) {
         self.viewModel = ProfileViewModel(user: user)

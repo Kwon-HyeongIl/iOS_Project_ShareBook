@@ -9,9 +9,9 @@ import SwiftUI
 
 struct MoreOptionsView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @State var viewModel: MoreOptionsViewModel
+    @State private var viewModel: MoreOptionsViewModel
     
-    @State var isDeleteAlertShowing = false
+    @State private var isDeleteAlertShowing = false
     @Binding var isMoreOptionsSheetShowing: Bool
     
     init(post: Post, isMoreOptionsSheetShowing: Binding<Bool>) {

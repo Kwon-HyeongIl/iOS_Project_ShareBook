@@ -10,7 +10,7 @@ import Kingfisher
 
 struct BookCoverView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @State var viewModel: BookViewModel
+    @State private var viewModel: BookViewModel
     
     init(book: Book) {
         self.viewModel = BookViewModel(book: book)

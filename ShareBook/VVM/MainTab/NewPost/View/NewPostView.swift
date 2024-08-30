@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct NewPostView: View {
-    @State var viewModel = NewPostViewModel()
+    @State private var viewModel = NewPostViewModel()
     
-    @State var searchQuery = ""
-    @State var isShowing = true
+    @State private var searchQuery = ""
+    @State private var isShowing = true
     
     var body: some View {
         GradientBackgroundView {

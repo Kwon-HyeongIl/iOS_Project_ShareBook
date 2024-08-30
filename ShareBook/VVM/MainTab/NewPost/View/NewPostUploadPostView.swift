@@ -10,14 +10,14 @@ import Kingfisher
 
 struct NewPostUploadPostView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @State var viewModel: NewPostUploadPostViewModel
+    @State private var viewModel: NewPostUploadPostViewModel
     
     @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
     
-    @State var isImpressivePhraseShowing = true
-    @State var isImpressiveAlertShowing = false
-    @State var isFeelingCaptionShowing = false
-    @State var isGenreShowing = false
+    @State private var isImpressivePhraseShowing = true
+    @State private var isImpressiveAlertShowing = false
+    @State private var isFeelingCaptionShowing = false
+    @State private var isGenreShowing = false
     
     init(book: Book) {
         self.viewModel = NewPostUploadPostViewModel(book: book)

@@ -12,7 +12,7 @@ struct PostCoverView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State private var viewModel: PostViewModel
     
-    @State var isCommentSheetShowing = false
+    @State private var isCommentSheetShowing = false
     
     init(post: Post) {
         self.viewModel = PostViewModel(post: post)
