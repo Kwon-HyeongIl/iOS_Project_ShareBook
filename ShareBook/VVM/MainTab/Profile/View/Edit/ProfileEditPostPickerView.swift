@@ -45,5 +45,4 @@ struct ProfileEditPostPickerView: View {
 #Preview {
     ProfileEditPostPickerView(viewModel: ProfileEditViewModel())
         .environment(NavStackControlTower())
-        .environment(ProfileViewModel(user: User.DUMMY_USER))
 }

@@ -31,7 +31,7 @@ struct ProfileView: View {
             GradientBackgroundView {
                 ScrollView {
                     VStack(spacing: 5) {
-                        if viewModel.isMyProfile == true {
+                        if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                             HStack {
                                 Text("내 프로필")
                                     .font(.title3)
@@ -85,7 +85,7 @@ struct ProfileView: View {
                                     
                                     Spacer()
                                     
-                                    if viewModel.isMyProfile == true {
+                                    if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                         Button {
                                             navStackControlTower.push(.ProfileOptionView)
                                         } label: {
@@ -148,7 +148,7 @@ struct ProfileView: View {
                                 .padding(.top, 5)
                                 .padding(.bottom, 10)
                                 
-                                if viewModel.isMyProfile == true {
+                                if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                     Button {
                                         navStackControlTower.push(.ProfileEditView)
                                     } label: {
@@ -312,11 +312,11 @@ struct ProfileView: View {
                 }
             }
             .task {
-//                if viewModel.isMyProfile == true {
-                    Task {
-                        await viewModel.basicLoad()
-                    }
-                
+//                if let isMyProfile = viewModel.isMyProfile, isMyProfile {
+//                    Task {
+//                        await viewModel.basicLoad()
+//                    }
+//                }
             }
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)

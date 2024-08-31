@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var viewModel = HomeViewModel()
     
     @State private var selectedGenre = Genre.all
+    @State private var isRedacted = true
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
@@ -43,6 +44,7 @@ struct HomeView: View {
                                                 view
                                                     .scaleEffect(phase.isIdentity ? 1 : 0.95)
                                             }
+                                            .redacted(reason: isRedacted ? .placeholder : [])
                                     }
                                 }
                             }
@@ -70,6 +72,7 @@ struct HomeView: View {
                                     ForEach(viewModel.posts) { post in
                                         PostCoverView(post: post)
                                             .scaleEffect(proxy.size.width / 380)
+                                            .redacted(reason: isRedacted ? .placeholder : [])
                                     }
                                 }
                                 .padding(.top, 90)
@@ -124,6 +127,13 @@ struct HomeView: View {
                     .task {
                         await viewModel.loadHotPosts()
                         await viewModel.loadAllPosts()
+                    }
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    withAnimation(.smooth(duration: 0.4)) {
+                        self.isRedacted = false
                     }
                 }
             }

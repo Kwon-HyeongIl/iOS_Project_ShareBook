@@ -5,7 +5,7 @@
 //  Created by 권형일 on 8/12/24.
 //
 
-import Foundation
+import SwiftUI
 
 @Observable
 class HomeViewModel {

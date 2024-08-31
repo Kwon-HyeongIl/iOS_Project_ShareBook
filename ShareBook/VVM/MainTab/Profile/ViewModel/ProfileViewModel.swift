@@ -28,34 +28,35 @@ class ProfileViewModel: Hashable, Equatable {
         self.user = user
         let currentUser = AuthManager.shared.currentUser
         
+        Task {
+            if user?.id ?? "" == currentUser?.id ?? "" {
+                self.isMyProfile = true
+            } else {
+                self.isMyProfile = false
+                await isFollow(userId: user?.id ?? "")
+            }
+            
+            await loadAllUserPosts(userId: user?.id ?? "")
+            await loadFollowingCount(userId: user?.id ?? "")
+            await loadFollowerCount(userId: user?.id ?? "")
+        }
+        
+        self.titleGenre = user?.titleGenre
+        self.titleBookImageUrl = user?.titleBookImageUrl ?? ""
+        self.titleBookImpressivePhrase = user?.titleBookImpressivePhrase
+        self.titlePostId = user?.titlePostId
+    }
+    
+    func basicLoad() async {
+        await AuthManager.shared.loadCurrentUserData()
+        let user = AuthManager.shared.currentUser
+        
         self.titleGenre = user?.titleGenre
         self.titleBookImageUrl = user?.titleBookImageUrl ?? ""
         self.titleBookImpressivePhrase = user?.titleBookImpressivePhrase
         self.titlePostId = user?.titlePostId
         
-        Task {
-            await loadAllUserPosts(userId: user?.id ?? "")
-            await loadFollowingCount(userId: user?.id ?? "")
-            await loadFollowerCount(userId: user?.id ?? "")
-            
-            if user?.id ?? "" != currentUser?.id ?? "" {
-                self.isMyProfile = false
-                await isFollow(userId: user?.id ?? "")
-            } else {
-                self.isMyProfile = true
-            }
-        }
-    }
-    
-    func basicLoad() async {
-        let user = AuthManager.shared.currentUser
-        
-//        self.titleGenre = user?.titleGenre
-//        self.titleBookImageUrl = user?.titleBookImageUrl ?? ""
-//        self.titleBookImpressivePhrase = user?.titleBookImpressivePhrase
-//        self.titlePostId = user?.titlePostId
-        
-        await loadAllUserPosts(userId: user?.id ?? "")
+//        await loadAllUserPosts(userId: user?.id ?? "")
     }
     
     func loadAllUserPosts(userId: String) async {
