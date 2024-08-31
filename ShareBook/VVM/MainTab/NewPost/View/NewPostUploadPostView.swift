@@ -83,7 +83,7 @@ struct NewPostUploadPostView: View {
                                 .background(.regularMaterial)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .padding(.horizontal, 30)
-                                .padding(.bottom, 20)
+                                .padding(.bottom)
                                 .overlay {
                                     if viewModel.feelingCaption.isEmpty {
                                         Text("생략 가능")
@@ -141,9 +141,12 @@ struct NewPostUploadPostView: View {
                                 if viewModel.impressivePhrase.isEmpty {
                                     Text("다음")
                                         .modifier(InViewButtonModifier(bgColor: .gray))
+                                        .padding(.top)
+                                    
                                 } else {
                                     Text("다음")
                                         .modifier(InViewButtonModifier(bgColor: .sBColor))
+                                        .padding(.top)
                                 }
                             }
                             .alert("!!", isPresented: $isImpressiveAlertShowing) {
@@ -172,7 +175,6 @@ struct NewPostUploadPostView: View {
                                             .foregroundStyle(Color.sBColor)
                                             .fontWeight(.bold)
                                             .padding(.bottom, 20)
-                                            .padding(.top)
                                             .padding(.leading, 50)
                                     }
                                     
@@ -208,7 +210,6 @@ struct NewPostUploadPostView: View {
                                             .foregroundStyle(Color.sBColor)
                                             .fontWeight(.bold)
                                             .padding(.bottom, 20)
-                                            .padding(.top)
                                             .padding(.leading, 50)
                                     }
                                     

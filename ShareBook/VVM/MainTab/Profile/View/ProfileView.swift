@@ -53,14 +53,7 @@ struct ProfileView: View {
                             
                             VStack(spacing: 0) {
                                 HStack {
-                                    if let profileImage = viewModel.profileImage {
-                                        profileImage
-                                            .resizable()
-                                            .frame(width: 60, height: 60)
-                                            .padding(.trailing, 10)
-                                            .padding(.leading)
-                                        
-                                    } else if let imageUrl = viewModel.user?.profileImageUrl {
+                                    if let imageUrl = viewModel.user?.profileImageUrl {
                                         KFImage(URL(string: imageUrl))
                                             .resizable()
                                             .frame(width: 60, height: 60)
@@ -92,20 +85,20 @@ struct ProfileView: View {
                                     
                                     Spacer()
                                     
-                                    Button {
-                                        navStackControlTower.push(.ProfileOptionView(viewModel))
-                                    } label: {
-                                        Image(systemName: "gearshape")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 25)
-                                            .foregroundStyle(.black)
-                                            .opacity(0.7)
-                                            .padding(.trailing, 20)
-                                            .padding(.bottom, 20)
+                                    if viewModel.isMyProfile == true {
+                                        Button {
+                                            navStackControlTower.push(.ProfileOptionView)
+                                        } label: {
+                                            Image(systemName: "gearshape")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25)
+                                                .foregroundStyle(.black)
+                                                .opacity(0.7)
+                                                .padding(.trailing, 20)
+                                                .padding(.bottom, 20)
+                                        }
                                     }
-                                    
-                                    
                                 }
                                 .padding(.bottom)
                                 
@@ -157,7 +150,7 @@ struct ProfileView: View {
                                 
                                 if viewModel.isMyProfile == true {
                                     Button {
-                                        navStackControlTower.push(.ProfileEditView(viewModel))
+                                        navStackControlTower.push(.ProfileEditView)
                                     } label: {
                                         VStack {
                                             Text("프로필 편집")
@@ -249,7 +242,60 @@ struct ProfileView: View {
                                         .padding(.horizontal, 20)
                                     
                                     HStack {
-                                        
+                                        if !viewModel.titleBookImageUrl.isEmpty {
+                                            HStack {
+                                                KFImage(URL(string: viewModel.titleBookImageUrl))
+                                                    .resizable()
+                                                    .frame(width: 60, height: 85)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 7))
+                                                    .padding(.leading, 30)
+                                                    .padding(.trailing, 5)
+                                                
+                                                Spacer()
+                                                
+                                                VStack {
+                                                    Image(systemName: "quote.opening")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .foregroundStyle(Color.sBColor)
+                                                        .frame(width: 15)
+                                                        .padding(.bottom, 70)
+                                                }
+                                                
+                                                Text("\(viewModel.titleBookImpressivePhrase ?? "")")
+                                                    .font(.system(size: 13))
+                                                    .multilineTextAlignment(.center)
+                                                    .lineLimit(4)
+                                                    .truncationMode(.tail)
+                                                    
+                                                VStack {
+                                                    Image(systemName: "quote.closing")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .foregroundStyle(Color.sBColor)
+                                                        .frame(width: 15)
+                                                        .padding(.top, 70)
+                                                        .padding(.trailing, 40)
+                                                }
+                                            }
+                                        } else {
+                                            ZStack {
+                                                Image(systemName: "book.closed")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 45)
+                                                    .foregroundStyle(.gray)
+                                                
+                                                Image(systemName: "plus")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 20)
+                                                    .fontWeight(.bold)
+                                                    .foregroundStyle(.gray)
+                                                    .padding(.leading, 6)
+                                                    .padding(.bottom, 11)
+                                            }
+                                        }
                                     }
                                 }
                                 .padding(.top, 10)
@@ -266,9 +312,11 @@ struct ProfileView: View {
                 }
             }
             .task {
-                Task {
-                    await viewModel.basicLoad()
-                }
+//                if viewModel.isMyProfile == true {
+                    Task {
+                        await viewModel.basicLoad()
+                    }
+                
             }
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)

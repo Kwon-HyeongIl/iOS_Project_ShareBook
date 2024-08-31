@@ -10,15 +10,8 @@ import PhotosUI
 
 @Observable
 class ProfileViewModel: Hashable, Equatable {
-    let user: User?
+    var user: User?
     var posts: [Post] = []
-    
-    var editUsername = ""
-    var editGenre = Genre.all
-    var editTitleBook: Book?
-    var editTitleBookImpressivePhrase = ""
-    var editTitlePostId = ""
-    var isImageChange = false
     
     var followingCount = 0
     var followerCount = 0
@@ -26,69 +19,47 @@ class ProfileViewModel: Hashable, Equatable {
     var isMyProfile: Bool?
     var isFollow: Bool?
     
-    var selectedItem: PhotosPickerItem?
-    var profileImage: Image?
-    var uiImage: UIImage?
+    var titleGenre: Genre?
+    var titleBookImageUrl = ""
+    var titleBookImpressivePhrase: String?
+    var titlePostId: String?
     
     init(user: User?) {
         self.user = user
+        let currentUser = AuthManager.shared.currentUser
+        
+        self.titleGenre = user?.titleGenre
+        self.titleBookImageUrl = user?.titleBookImageUrl ?? ""
+        self.titleBookImpressivePhrase = user?.titleBookImpressivePhrase
+        self.titlePostId = user?.titlePostId
         
         Task {
-            await basicLoad()
+            await loadAllUserPosts(userId: user?.id ?? "")
+            await loadFollowingCount(userId: user?.id ?? "")
+            await loadFollowerCount(userId: user?.id ?? "")
+            
+            if user?.id ?? "" != currentUser?.id ?? "" {
+                self.isMyProfile = false
+                await isFollow(userId: user?.id ?? "")
+            } else {
+                self.isMyProfile = true
+            }
         }
     }
     
-    func convertImage(item: PhotosPickerItem?) async {
-        guard let imageSelection = await ImageManager.convertImage(item: item) else { return }
-        self.profileImage = imageSelection.image
-        self.uiImage = imageSelection.uiImage
+    func basicLoad() async {
+        let user = AuthManager.shared.currentUser
+        
+//        self.titleGenre = user?.titleGenre
+//        self.titleBookImageUrl = user?.titleBookImageUrl ?? ""
+//        self.titleBookImpressivePhrase = user?.titleBookImpressivePhrase
+//        self.titlePostId = user?.titlePostId
+        
+        await loadAllUserPosts(userId: user?.id ?? "")
     }
     
     func loadAllUserPosts(userId: String) async {
         self.posts = await PostManager.loadAllUserPosts(userId: userId)
-    }
-    
-    func updateUser() async {
-        var editedData: [String : Any] = [:]
-        
-        if isImageChange {
-            if let uiImage {
-                guard let imageUrl = await ImageManager.uploadImage(uiImage: uiImage, path: .profile) else { return }
-                editedData["profileImageUrl"] = imageUrl
-            }
-        }
-        
-        editedData["username"] = editUsername
-        editedData["titleGenre"] = editGenre
-        editedData["titleBook"] = editTitleBook
-        editedData["titleBookImpressivePhrase"] = editTitleBookImpressivePhrase
-        editedData["titlePostId"] = editTitlePostId
-        
-        await ProfileManager.updateUser(editedData: editedData)
-    }
-    
-    func basicLoad() async {
-        let currentUser = AuthManager.shared.currentUser
-        
-        self.editUsername = user?.username ?? ""
-        self.editGenre = user?.titleGenre ?? .mystery
-        self.editTitleBook = user?.titleBook
-        self.editTitleBookImpressivePhrase = user?.titleBookImpressivePhrase ?? ""
-        self.editTitlePostId = user?.titlePostId ?? ""
-        self.selectedItem = nil
-        self.profileImage = nil
-        self.uiImage = nil
-        
-        await loadAllUserPosts(userId: user?.id ?? "")
-        await loadFollowingCount(userId: user?.id ?? "")
-        await loadFollowerCount(userId: user?.id ?? "")
-        
-        if user?.id ?? "" != currentUser?.id ?? "" {
-            self.isMyProfile = false
-            await isFollow(userId: user?.id ?? "")
-        } else {
-            self.isMyProfile = true
-        }
     }
     
     
@@ -122,6 +93,7 @@ class ProfileViewModel: Hashable, Equatable {
     
     
     
+    
     func calSizemBase1And393(proxyWidth: CGFloat) -> CGFloat {
         return 1 + ((proxyWidth - 393) * (0.002))
     }
@@ -130,22 +102,13 @@ class ProfileViewModel: Hashable, Equatable {
         return 5 + ((proxyWidth - 393))
     }
     
-    
-    
-    func signout() {
-        AuthManager.shared.signout()
-    }
-    
     static func == (lhs: ProfileViewModel, rhs: ProfileViewModel) -> Bool {
         return lhs.user == rhs.user &&
         lhs.posts == rhs.posts &&
         lhs.followingCount == rhs.followingCount &&
         lhs.followerCount == rhs.followerCount &&
         lhs.isMyProfile == rhs.isMyProfile &&
-        lhs.isFollow == rhs.isFollow &&
-        lhs.selectedItem == rhs.selectedItem &&
-        lhs.profileImage == rhs.profileImage &&
-        lhs.uiImage == rhs.uiImage
+        lhs.isFollow == rhs.isFollow
     }
     
     func hash(into hasher: inout Hasher) {
@@ -155,8 +118,5 @@ class ProfileViewModel: Hashable, Equatable {
         hasher.combine(followerCount)
         hasher.combine(isMyProfile)
         hasher.combine(isFollow)
-        hasher.combine(selectedItem)
-//        hasher.combine(profileImage)
-        hasher.combine(uiImage)
     }
 }

@@ -14,9 +14,9 @@ enum NavStackView: Hashable {
     
     // Profile
     case ProfileView(User?, CommentSheetCapsule?)
-    case ProfileEditView(ProfileViewModel)
-    case ProfileOptionView(ProfileViewModel)
-    case ProfileEditPostPickerView(ProfileViewModel)
+    case ProfileEditView
+    case ProfileOptionView
+    case ProfileEditPostPickerView(ProfileEditViewModel)
     
     case FeedbackView
     

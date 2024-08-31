@@ -11,7 +11,7 @@ import Kingfisher
 
 struct ProfileEditView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @Bindable var viewModel: ProfileViewModel
+    @State private var viewModel = ProfileEditViewModel()
     
     @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule: SelectedMainTabCapsule
     
@@ -22,11 +22,21 @@ struct ProfileEditView: View {
             VStack {
                 PhotosPicker(selection: $viewModel.selectedItem) {
                     VStack {
-                        if let imageUrl = viewModel.user?.profileImageUrl {
+                        if let imageUrl = viewModel.profileImageUrl {
                             KFImage(URL(string: imageUrl))
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 90)
+                                .frame(width: 90, height: 90)
+                                .clipShape(Circle())
+                                .padding(.trailing, 10)
+                                .padding(.leading)
+                            
+                        } else if let profileImage = viewModel.profileImage {
+                            profileImage
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 90, height: 90)
+                                .clipShape(Circle())
                                 .padding(.trailing, 10)
                                 .padding(.leading)
                             
@@ -34,7 +44,7 @@ struct ProfileEditView: View {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 90)
+                                .frame(width: 90, height: 90)
                                 .foregroundStyle(.black)
                                 .opacity(0.8)
                                 .padding(.trailing, 10)
@@ -48,18 +58,17 @@ struct ProfileEditView: View {
                 }
                 .onChange(of: viewModel.selectedItem) { oldValue, newValue in
                     Task {
-                        print("t")
                         await viewModel.convertImage(item: newValue)
-                        viewModel.isImageChange = true
                     }
+                    viewModel.isImageChanged = true
                 }
                 .padding(.top, 50)
-                .padding(.bottom, 40)
+                .padding(.bottom, 20)
                 
                 VStack {
                     Text("사용자 이름")
                     
-                    TextField("", text: $viewModel.editUsername)
+                    TextField("", text: $viewModel.username)
                         .foregroundStyle(.black)
                         .opacity(0.6)
                         .padding(.horizontal, 20)
@@ -74,7 +83,7 @@ struct ProfileEditView: View {
                     Text("즐겨보는 장르")
                         .padding(.top)
                     
-                    Picker("책 장르", selection: $viewModel.editGenre) {
+                    Picker("책 장르", selection: $viewModel.titleGenre) {
                         ForEach(Genre.allCases.dropFirst()) { genre in
                             Text(genre.rawValue).tag(genre)
                         }
@@ -104,13 +113,14 @@ struct ProfileEditView: View {
                                 .padding(.horizontal, 20)
                             
                             HStack {
-                                if let book = viewModel.editTitleBook {
+                                if let bookImageUrl = viewModel.titleBookImageUrl {
                                     HStack {
-                                        KFImage(URL(string: book.image))
+                                        KFImage(URL(string: bookImageUrl))
                                             .resizable()
                                             .frame(width: 60, height: 85)
                                             .clipShape(RoundedRectangle(cornerRadius: 7))
                                             .padding(.leading, 30)
+                                            .padding(.trailing, 5)
                                         
                                         Spacer()
                                         
@@ -125,7 +135,7 @@ struct ProfileEditView: View {
                                             Spacer()
                                         }
                                         
-                                        Text("\(viewModel.editTitleBookImpressivePhrase)")
+                                        Text("\(viewModel.titleBookImpressivePhrase ?? "")")
                                             .font(.system(size: 13))
                                             .multilineTextAlignment(.center)
                                             .lineLimit(4)
@@ -178,6 +188,7 @@ struct ProfileEditView: View {
                     }
                     .alert("!!", isPresented: $isTitleBookAlertShowing) {
                         Button {
+                            navStackControlTower.popToRoot()
                             selectedMainTabCapsule.selectedTab = .plusSquareOnSquare
                         } label: {
                             Text("확인")
@@ -190,7 +201,10 @@ struct ProfileEditView: View {
                 .modifier(TileModifier())
                 
                 Button {
-                    
+                    Task {
+                        try await viewModel.updateUser()
+                        navStackControlTower.pop()
+                    }
                 } label: {
                     Text("수정")
                         .modifier(InViewButtonModifier(bgColor: .sBColor))
@@ -205,7 +219,7 @@ struct ProfileEditView: View {
 }
 
 #Preview {
-    ProfileEditView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
+    ProfileEditView()
         .environment(NavStackControlTower())
         .environment(SelectedMainTabCapsule())
 }
