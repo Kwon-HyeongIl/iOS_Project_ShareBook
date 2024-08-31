@@ -23,27 +23,11 @@ struct Post: Codable, Identifiable, Hashable, Equatable {
     let user: User
     
     static func == (lhs: Post, rhs: Post) -> Bool {
-        return lhs.id == rhs.id &&
-        lhs.userId == rhs.userId &&
-        lhs.impressivePhrase == rhs.impressivePhrase &&
-        lhs.feelingCaption == rhs.feelingCaption &&
-        lhs.likeCount == rhs.likeCount &&
-        lhs.date == rhs.date &&
-        lhs.book == rhs.book &&
-        lhs.genre == rhs.genre &&
-        lhs.user == rhs.user
+        return lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
-        hasher.combine(userId)
-        hasher.combine(impressivePhrase)
-        hasher.combine(feelingCaption)
-        hasher.combine(likeCount)
-        hasher.combine(date)
-        hasher.combine(book)
-        hasher.combine(genre)
-        hasher.combine(user)
     }
 }
 

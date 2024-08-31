@@ -120,25 +120,17 @@ class ProfileViewModel: Hashable, Equatable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(user?.id)
-        hasher.combine(posts)
-        hasher.combine(followingCount)
-        hasher.combine(followerCount)
-        hasher.combine(isMyProfile)
-        hasher.combine(isFollow)
-        hasher.combine(userName)
-        hasher.combine(titleGenre)
-        hasher.combine(titlePost?.id)
+//        hasher.combine(posts)
+//        hasher.combine(followingCount)
+//        hasher.combine(followerCount)
+//        hasher.combine(isMyProfile)
+//        hasher.combine(isFollow)
+//        hasher.combine(userName)
+//        hasher.combine(titleGenre)
+//        hasher.combine(titlePost?.id)
     }
     
     static func == (lhs: ProfileViewModel, rhs: ProfileViewModel) -> Bool {
-        return lhs.user?.id == rhs.user?.id &&
-        lhs.posts == rhs.posts &&
-        lhs.followingCount == rhs.followingCount &&
-        lhs.followerCount == rhs.followerCount &&
-        lhs.isMyProfile == rhs.isMyProfile &&
-        lhs.isFollow == rhs.isFollow &&
-        lhs.userName == rhs.userName &&
-        lhs.titleGenre == rhs.titleGenre &&
-        lhs.titlePost?.id == rhs.titlePost?.id
+        return lhs.user?.id == rhs.user?.id
     }
 }

@@ -23,12 +23,10 @@ class PostViewModel: Hashable, Equatable {
     }
     
     static func == (lhs: PostViewModel, rhs: PostViewModel) -> Bool {
-        return lhs.post == rhs.post && lhs.isLike == rhs.isLike && lhs.commentCount == rhs.commentCount
+        return lhs.post.id == rhs.post.id
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(post)
-        hasher.combine(isLike)
-        hasher.combine(commentCount)
+        hasher.combine(post.id)
     }
 }

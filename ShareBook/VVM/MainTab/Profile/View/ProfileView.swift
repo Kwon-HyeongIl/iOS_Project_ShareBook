@@ -57,6 +57,7 @@ struct ProfileView: View {
                                         profileImage
                                             .resizable()
                                             .frame(width: 60, height: 60)
+                                            .clipShape(Circle())
                                             .padding(.trailing, 10)
                                             .padding(.leading)
                                         
@@ -64,6 +65,7 @@ struct ProfileView: View {
                                         KFImage(URL(string: imageUrl))
                                             .resizable()
                                             .frame(width: 60, height: 60)
+                                            .clipShape(Circle())
                                             .padding(.trailing, 10)
                                             .padding(.leading)
                                         

@@ -46,11 +46,10 @@ class BookViewModel: Hashable, Equatable {
     }
     
     static func == (lhs: BookViewModel, rhs: BookViewModel) -> Bool {
-        return lhs.book == rhs.book && lhs.isBookmark == rhs.isBookmark
+        return lhs.book.isbn == rhs.book.isbn
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(book)
-        hasher.combine(isBookmark)
+        hasher.combine(book.isbn)
     }
 }
