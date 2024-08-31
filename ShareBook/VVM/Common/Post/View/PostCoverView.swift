@@ -31,11 +31,6 @@ struct PostCoverView: View {
                         .resizable()
                         .frame(width: isHotPost ? 210 : 150, height: isHotPost ? 270 : 200)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 5)
-                                .foregroundStyle(.black)
-                                .opacity(0.15)
-                        }
                         .blur(radius: 3.0)
                     
                     VStack(spacing: 13) {

@@ -110,6 +110,10 @@ class ProfileViewModel: Hashable, Equatable {
         self.uiImage = imageSelection.uiImage
     }
     
+    func signout() {
+        AuthManager.shared.signout()
+    }
+    
     func calSizemBase1And393(proxyWidth: CGFloat) -> CGFloat {
         return 1 + ((proxyWidth - 393) * (0.002))
     }
@@ -120,14 +124,6 @@ class ProfileViewModel: Hashable, Equatable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(user?.id)
-//        hasher.combine(posts)
-//        hasher.combine(followingCount)
-//        hasher.combine(followerCount)
-//        hasher.combine(isMyProfile)
-//        hasher.combine(isFollow)
-//        hasher.combine(userName)
-//        hasher.combine(titleGenre)
-//        hasher.combine(titlePost?.id)
     }
     
     static func == (lhs: ProfileViewModel, rhs: ProfileViewModel) -> Bool {

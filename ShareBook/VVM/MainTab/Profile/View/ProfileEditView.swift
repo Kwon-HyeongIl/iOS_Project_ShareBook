@@ -213,8 +213,10 @@ struct ProfileEditView: View {
                         navStackControlTower.pop()
                     }
                 } label: {
-                    Image(systemName: "chevron.left")
-                        .tint(.black)
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        Text("수정")
+                    }
                 }
             }
         }

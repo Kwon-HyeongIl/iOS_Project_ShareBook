@@ -96,7 +96,7 @@ struct ProfileView: View {
                                     
                                     if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                         Button {
-                                            navStackControlTower.push(.ProfileOptionView)
+                                            navStackControlTower.push(.ProfileOptionView(viewModel))
                                         } label: {
                                             Image(systemName: "gearshape")
                                                 .resizable()

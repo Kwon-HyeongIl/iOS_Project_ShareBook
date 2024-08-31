@@ -24,8 +24,8 @@ class NavStackControlTower {
             ProfileView(user: user, commentSheetCapsule: commentSheetCapsule)
         case .ProfileEditView(let viewModel):
             ProfileEditView(viewModel: viewModel)
-        case .ProfileOptionView:
-            ProfileOptionView()
+        case .ProfileOptionView(let viewModel):
+            ProfileOptionView(viewModel: viewModel)
         case .ProfileEditPostPickerView(let viewModel):
             ProfileEditPostPickerView(viewModel: viewModel)
             

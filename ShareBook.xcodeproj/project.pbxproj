@@ -108,7 +108,6 @@
 		CAD0F3772C4E1B9C006ABFD1 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */; };
 		CAD8FE052C55EAD5000E3150 /* ScatteredBook3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD8FE042C55EAD5000E3150 /* ScatteredBook3DView.swift */; };
 		CAD8FEFE2C53D6900000446B /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD8FEFD2C53D6900000446B /* ImageManager.swift */; };
-		CADA1C5E2C82F42100E1437F /* ProfileOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADA1C5D2C82F42100E1437F /* ProfileOptionViewModel.swift */; };
 		CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */; };
 		CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */; };
 		CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */; };
@@ -222,7 +221,6 @@
 		CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		CAD8FE042C55EAD5000E3150 /* ScatteredBook3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatteredBook3DView.swift; sourceTree = "<group>"; };
 		CAD8FEFD2C53D6900000446B /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		CADA1C5D2C82F42100E1437F /* ProfileOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionViewModel.swift; sourceTree = "<group>"; };
 		CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordView.swift; sourceTree = "<group>"; };
 		CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameView.swift; sourceTree = "<group>"; };
 		CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupView.swift; sourceTree = "<group>"; };
@@ -560,7 +558,8 @@
 				CABE31C82C4CAE170010AC20 /* ProfileView.swift */,
 				CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */,
 				CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */,
-				CADA1C5B2C82F40600E1437F /* Option */,
+				CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */,
+				CA7C5E492C81F34F000F9F2B /* Feedback */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,7 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */,
-				CADA1C5C2C82F41300E1437F /* Option */,
+				CA7C5E4C2C81F35E000F9F2B /* Feedback */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -851,24 +850,6 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		CADA1C5B2C82F40600E1437F /* Option */ = {
-			isa = PBXGroup;
-			children = (
-				CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */,
-				CA7C5E492C81F34F000F9F2B /* Feedback */,
-			);
-			path = Option;
-			sourceTree = "<group>";
-		};
-		CADA1C5C2C82F41300E1437F /* Option */ = {
-			isa = PBXGroup;
-			children = (
-				CADA1C5D2C82F42100E1437F /* ProfileOptionViewModel.swift */,
-				CA7C5E4C2C81F35E000F9F2B /* Feedback */,
-			);
-			path = Option;
-			sourceTree = "<group>";
-		};
 		CADD907B2C6A55770023C512 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1049,7 +1030,6 @@
 				CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */,
 				CA84D1A12C80875A00F2A910 /* BookCoverContentView.swift in Sources */,
 				CA7C5E482C81F34C000F9F2B /* FeedbackView.swift in Sources */,
-				CADA1C5E2C82F42100E1437F /* ProfileOptionViewModel.swift in Sources */,
 				CA84D1A32C808E4E00F2A910 /* ProfileEditView.swift in Sources */,
 				CAC354A12C822AA400EEA8F9 /* ProfileEditPostPickerView.swift in Sources */,
 				CAD0F3732C4E11C6006ABFD1 /* EnterEmailView.swift in Sources */,

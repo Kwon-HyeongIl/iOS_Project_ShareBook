@@ -20,7 +20,6 @@ struct BackButtonModifier: ViewModifier {
                         dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
-                            .tint(.black)
                     }
                 }
             }

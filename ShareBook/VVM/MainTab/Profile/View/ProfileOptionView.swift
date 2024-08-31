@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileOptionView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @State private var viewModel = ProfileOptionViewModel()
+    @Bindable var viewModel: ProfileViewModel
     
     @State private var isLogoutAlertShowing = false
     
@@ -78,6 +78,6 @@ struct ProfileOptionView: View {
 }
 
 #Preview {
-    ProfileOptionView()
+    ProfileOptionView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
         .environment(NavStackControlTower())
 }
