@@ -121,8 +121,6 @@ struct ProfileEditView: View {
                                             .padding(.leading, 30)
                                             .padding(.trailing, 5)
                                         
-                                        Spacer()
-                                        
                                         VStack {
                                             Image(systemName: "quote.opening")
                                                 .resizable()
@@ -134,11 +132,15 @@ struct ProfileEditView: View {
                                             Spacer()
                                         }
                                         
+                                        Spacer()
+                                        
                                         Text("\(titlePost.impressivePhrase)")
                                             .font(.system(size: 13))
                                             .multilineTextAlignment(.center)
                                             .lineLimit(4)
                                             .truncationMode(.tail)
+                                        
+                                        Spacer()
                                             
                                         VStack {
                                             Spacer()
@@ -148,7 +150,7 @@ struct ProfileEditView: View {
                                                 .scaledToFit()
                                                 .frame(width: 10)
                                                 .foregroundStyle(Color.sBColor)
-                                                .fontWeight(.bold)
+                                                .fontWeight(.semibold)
                                                 .padding(.top, 25)
                                                 .padding(.trailing)
                                             
@@ -217,6 +219,7 @@ struct ProfileEditView: View {
                         Image(systemName: "chevron.left")
                         Text("수정")
                     }
+                    .fontWeight(.medium)
                 }
             }
         }

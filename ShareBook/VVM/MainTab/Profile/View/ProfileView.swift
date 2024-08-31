@@ -260,8 +260,6 @@ struct ProfileView: View {
                                                     .padding(.leading, 30)
                                                     .padding(.trailing, 5)
                                                 
-                                                Spacer()
-                                                
                                                 VStack {
                                                     Image(systemName: "quote.opening")
                                                         .resizable()
@@ -271,11 +269,15 @@ struct ProfileView: View {
                                                         .padding(.bottom, 70)
                                                 }
                                                 
+                                                Spacer()
+                                                
                                                 Text("\(titlePost.impressivePhrase)")
                                                     .font(.system(size: 13))
                                                     .multilineTextAlignment(.center)
                                                     .lineLimit(4)
                                                     .truncationMode(.tail)
+                                                
+                                                Spacer()
                                                     
                                                 VStack {
                                                     Image(systemName: "quote.closing")
@@ -332,8 +334,8 @@ struct ProfileView: View {
                             }
                         } label: {
                             Image(systemName: "chevron.left")
-                                .tint(.black)
                         }
+                        .fontWeight(.medium)
                     }
                 }
             }

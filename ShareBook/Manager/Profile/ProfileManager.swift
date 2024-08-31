@@ -17,6 +17,8 @@ class ProfileManager {
                 .collection("User").document(userId)
                 .updateData(editedData)
             
+            await AuthManager.shared.loadCurrentUserData()
+            
         } catch {
             print(error.localizedDescription)
         }

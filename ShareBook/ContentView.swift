@@ -25,7 +25,7 @@ struct ContentView: View {
                     .transition(.opacity)
             }
         }
-        .onAppear {
+        .task {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
                 withAnimation {
                     isContentReady = true

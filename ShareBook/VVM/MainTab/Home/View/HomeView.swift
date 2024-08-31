@@ -96,7 +96,11 @@ struct HomeView: View {
                                     ForEach(Genre.allCases.indices, id: \.self) { index in
                                         Button {
                                             Task {
-                                                await viewModel.loadSpecificGenrePosts(genre: Genre.allCases[index])
+                                                if index == 0 {
+                                                    await viewModel.loadAllPosts()
+                                                } else {
+                                                    await viewModel.loadSpecificGenrePosts(genre: Genre.allCases[index])
+                                                }
                                             }
                                             selectedGenre = Genre.allCases[index]
                                             
@@ -130,18 +134,27 @@ struct HomeView: View {
                     .refreshable {
                         await viewModel.loadHotPosts()
                         await viewModel.loadAllPosts()
+                        
+                        self.isHotRedacted = true
+                        self.isGenreRedacted = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation(.smooth(duration: 0.4)) {
+                                self.isHotRedacted = false
+                                self.isGenreRedacted = false
+                            }
+                        }
                     }
                     .task {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation(.smooth(duration: 0.4)) {
+                                self.isHotRedacted = false
+                                self.isGenreRedacted = false
+                            }
+                        }
+                        
                         await viewModel.loadHotPosts()
                         await viewModel.loadAllPosts()
-                    }
-                }
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    withAnimation(.smooth(duration: 0.4)) {
-                        self.isHotRedacted = false
-                        self.isGenreRedacted = false
                     }
                 }
             }

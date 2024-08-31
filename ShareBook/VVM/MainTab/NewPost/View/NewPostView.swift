@@ -20,19 +20,12 @@ struct NewPostView: View {
                     ScatteredBook3DView()
                     
                     VStack(spacing: 10) {
-                        Text("\"내가 세계를 알게 된 것은 책에 의해서였다\"")
+                        Text("오늘은 어떤 가치를 발견하셨나요?")
                             .modifier(ItalicFontModifier())
                             .multilineTextAlignment(.center)
-                        Text("- 사르트르")
-                            .modifier(ItalicFontModifier())
-                            .opacity(0.5)
                     }
-                    .padding()
-                    .padding(.vertical)
-                    .background(.ultraThinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                    .padding(.horizontal)
+                    .padding(.vertical, 30)
+                    .modifier(TileModifier())
                 }
                 .padding(.bottom, 100)
             }
