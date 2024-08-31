@@ -271,17 +271,19 @@ struct ProfileView: View {
                 }
             }
             .navigationBarBackButtonHidden()
-//            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        navStackControlTower.pop()
-                        if let commentSheetCapsule {
-                            commentSheetCapsule.isCommentSheetShowing = true
+                if !navStackControlTower.path.isEmpty {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            navStackControlTower.pop()
+                            if let commentSheetCapsule {
+                                commentSheetCapsule.isCommentSheetShowing = true
+                            }
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .tint(.black)
                         }
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .tint(.black)
                     }
                 }
             }
