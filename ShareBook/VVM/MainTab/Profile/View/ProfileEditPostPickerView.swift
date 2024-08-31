@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileEditPostPickerView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @Bindable var viewModel: ProfileEditViewModel
+    @Bindable var viewModel: ProfileViewModel
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
@@ -26,10 +26,7 @@ struct ProfileEditPostPickerView: View {
                             PostProfileCoverContentView(post: post)
                                 .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
                                 .onTapGesture {
-                                    viewModel.titleBookImageUrl = post.book.image
-                                    viewModel.titleBookImpressivePhrase = post.impressivePhrase
-                                    viewModel.titlePostId = post.id
-                                    
+                                    viewModel.titlePost = post
                                     navStackControlTower.pop()
                                 }
                         }
@@ -43,6 +40,6 @@ struct ProfileEditPostPickerView: View {
 }
 
 #Preview {
-    ProfileEditPostPickerView(viewModel: ProfileEditViewModel())
+    ProfileEditPostPickerView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
         .environment(NavStackControlTower())
 }

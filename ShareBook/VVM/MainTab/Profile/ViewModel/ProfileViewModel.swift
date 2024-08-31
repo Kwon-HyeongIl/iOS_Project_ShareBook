@@ -19,10 +19,13 @@ class ProfileViewModel: Hashable, Equatable {
     var isMyProfile: Bool?
     var isFollow: Bool?
     
-    var titleGenre: Genre?
-    var titleBookImageUrl = ""
-    var titleBookImpressivePhrase: String?
-    var titlePostId: String?
+    var userName = ""
+    var titleGenre: Genre = .all
+    var titlePost: Post?
+    
+    var profileImage: Image?
+    var selectedItem: PhotosPickerItem?
+    var uiImage: UIImage?
     
     init(user: User?) {
         self.user = user
@@ -39,24 +42,18 @@ class ProfileViewModel: Hashable, Equatable {
             await loadAllUserPosts(userId: user?.id ?? "")
             await loadFollowingCount(userId: user?.id ?? "")
             await loadFollowerCount(userId: user?.id ?? "")
+            
+            self.userName = user?.username ?? ""
+            
+            if let titleGenre = user?.titleGenre {
+                self.titleGenre = titleGenre
+            }
+
+            if let postId = user?.titlePostId {
+                let post = await PostManager.loadSpecificPost(postId: postId)
+                self.titlePost = post
+            }
         }
-        
-        self.titleGenre = user?.titleGenre
-        self.titleBookImageUrl = user?.titleBookImageUrl ?? ""
-        self.titleBookImpressivePhrase = user?.titleBookImpressivePhrase
-        self.titlePostId = user?.titlePostId
-    }
-    
-    func basicLoad() async {
-        await AuthManager.shared.loadCurrentUserData()
-        let user = AuthManager.shared.currentUser
-        
-        self.titleGenre = user?.titleGenre
-        self.titleBookImageUrl = user?.titleBookImageUrl ?? ""
-        self.titleBookImpressivePhrase = user?.titleBookImpressivePhrase
-        self.titlePostId = user?.titlePostId
-        
-//        await loadAllUserPosts(userId: user?.id ?? "")
     }
     
     func loadAllUserPosts(userId: String) async {
@@ -92,8 +89,26 @@ class ProfileViewModel: Hashable, Equatable {
         self.isFollow = await AuthManager.shared.isFollow(userId: userId)
     }
     
+    func updateUser() async throws {
+        var editedData: [String : Any] = [:]
+        
+        if let uiImage = self.uiImage {
+            guard let imageUrl = await ImageManager.uploadImage(uiImage: uiImage, path: .profile) else { return }
+            editedData["profileImageUrl"] = imageUrl
+        }
+        
+        editedData["username"] = user?.username ?? ""
+        editedData["titleGenre"] = titleGenre.rawValue
+        editedData["titlePostId"] = titlePost?.id ?? ""
+        
+        await ProfileManager.updateUser(editedData: editedData)
+    }
     
-    
+    func convertImage(item: PhotosPickerItem?) async {
+        guard let imageSelection = await ImageManager.convertImage(item: item) else { return }
+        self.profileImage = imageSelection.image
+        self.uiImage = imageSelection.uiImage
+    }
     
     func calSizemBase1And393(proxyWidth: CGFloat) -> CGFloat {
         return 1 + ((proxyWidth - 393) * (0.002))
@@ -103,21 +118,27 @@ class ProfileViewModel: Hashable, Equatable {
         return 5 + ((proxyWidth - 393))
     }
     
-    static func == (lhs: ProfileViewModel, rhs: ProfileViewModel) -> Bool {
-        return lhs.user == rhs.user &&
-        lhs.posts == rhs.posts &&
-        lhs.followingCount == rhs.followingCount &&
-        lhs.followerCount == rhs.followerCount &&
-        lhs.isMyProfile == rhs.isMyProfile &&
-        lhs.isFollow == rhs.isFollow
-    }
-    
     func hash(into hasher: inout Hasher) {
-        hasher.combine(user)
+        hasher.combine(user?.id)
         hasher.combine(posts)
         hasher.combine(followingCount)
         hasher.combine(followerCount)
         hasher.combine(isMyProfile)
         hasher.combine(isFollow)
+        hasher.combine(userName)
+        hasher.combine(titleGenre)
+        hasher.combine(titlePost?.id)
+    }
+    
+    static func == (lhs: ProfileViewModel, rhs: ProfileViewModel) -> Bool {
+        return lhs.user?.id == rhs.user?.id &&
+        lhs.posts == rhs.posts &&
+        lhs.followingCount == rhs.followingCount &&
+        lhs.followerCount == rhs.followerCount &&
+        lhs.isMyProfile == rhs.isMyProfile &&
+        lhs.isFollow == rhs.isFollow &&
+        lhs.userName == rhs.userName &&
+        lhs.titleGenre == rhs.titleGenre &&
+        lhs.titlePost?.id == rhs.titlePost?.id
     }
 }

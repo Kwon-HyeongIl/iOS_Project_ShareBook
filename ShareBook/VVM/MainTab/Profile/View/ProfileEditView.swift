@@ -11,7 +11,7 @@ import Kingfisher
 
 struct ProfileEditView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @State private var viewModel = ProfileEditViewModel()
+    @Bindable var viewModel: ProfileViewModel
     
     @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule: SelectedMainTabCapsule
     
@@ -22,8 +22,8 @@ struct ProfileEditView: View {
             VStack {
                 PhotosPicker(selection: $viewModel.selectedItem) {
                     VStack {
-                        if let imageUrl = viewModel.profileImageUrl {
-                            KFImage(URL(string: imageUrl))
+                        if let profileImage = viewModel.profileImage {
+                            profileImage
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 90, height: 90)
@@ -31,8 +31,8 @@ struct ProfileEditView: View {
                                 .padding(.trailing, 10)
                                 .padding(.leading)
                             
-                        } else if let profileImage = viewModel.profileImage {
-                            profileImage
+                        } else if let imageUrl = viewModel.user?.profileImageUrl {
+                            KFImage(URL(string: imageUrl))
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 90, height: 90)
@@ -60,7 +60,6 @@ struct ProfileEditView: View {
                     Task {
                         await viewModel.convertImage(item: newValue)
                     }
-                    viewModel.isImageChanged = true
                 }
                 .padding(.top, 50)
                 .padding(.bottom, 20)
@@ -68,7 +67,7 @@ struct ProfileEditView: View {
                 VStack {
                     Text("사용자 이름")
                     
-                    TextField("", text: $viewModel.username)
+                    TextField("", text: $viewModel.userName)
                         .foregroundStyle(.black)
                         .opacity(0.6)
                         .padding(.horizontal, 20)
@@ -84,7 +83,7 @@ struct ProfileEditView: View {
                         .padding(.top)
                     
                     Picker("책 장르", selection: $viewModel.titleGenre) {
-                        ForEach(Genre.allCases.dropFirst()) { genre in
+                        ForEach(Genre.allCases) { genre in
                             Text(genre.rawValue).tag(genre)
                         }
                     }
@@ -113,9 +112,9 @@ struct ProfileEditView: View {
                                 .padding(.horizontal, 20)
                             
                             HStack {
-                                if let bookImageUrl = viewModel.titleBookImageUrl {
+                                if let titlePost = viewModel.titlePost {
                                     HStack {
-                                        KFImage(URL(string: bookImageUrl))
+                                        KFImage(URL(string: titlePost.book.image))
                                             .resizable()
                                             .frame(width: 60, height: 85)
                                             .clipShape(RoundedRectangle(cornerRadius: 7))
@@ -135,7 +134,7 @@ struct ProfileEditView: View {
                                             Spacer()
                                         }
                                         
-                                        Text("\(viewModel.titleBookImpressivePhrase ?? "")")
+                                        Text("\(titlePost.impressivePhrase)")
                                             .font(.system(size: 13))
                                             .multilineTextAlignment(.center)
                                             .lineLimit(4)
@@ -200,26 +199,30 @@ struct ProfileEditView: View {
                 .padding(.vertical)
                 .modifier(TileModifier())
                 
+                Spacer()
+            }
+        }
+        .navigationTitle("프로필 편집")
+        .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
                 Button {
                     Task {
                         try await viewModel.updateUser()
                         navStackControlTower.pop()
                     }
                 } label: {
-                    Text("수정")
-                        .modifier(InViewButtonModifier(bgColor: .sBColor))
+                    Image(systemName: "chevron.left")
+                        .tint(.black)
                 }
-                
-                Spacer()
             }
         }
-        .navigationTitle("프로필 편집")
-        .modifier(BackButtonModifier())
     }
 }
 
 #Preview {
-    ProfileEditView()
+    ProfileEditView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
         .environment(NavStackControlTower())
         .environment(SelectedMainTabCapsule())
 }

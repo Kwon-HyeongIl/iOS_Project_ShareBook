@@ -53,7 +53,14 @@ struct ProfileView: View {
                             
                             VStack(spacing: 0) {
                                 HStack {
-                                    if let imageUrl = viewModel.user?.profileImageUrl {
+                                    if let profileImage = viewModel.profileImage {
+                                        profileImage
+                                            .resizable()
+                                            .frame(width: 60, height: 60)
+                                            .padding(.trailing, 10)
+                                            .padding(.leading)
+                                        
+                                    } else if let imageUrl = viewModel.user?.profileImageUrl {
                                         KFImage(URL(string: imageUrl))
                                             .resizable()
                                             .frame(width: 60, height: 60)
@@ -70,12 +77,12 @@ struct ProfileView: View {
                                     }
                                     
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text("\(viewModel.user?.username ?? "유저네임")")
+                                        Text("\(viewModel.userName)")
                                             .font(.system(size: 18))
                                             .foregroundStyle(.black)
                                             .fontWeight(.semibold)
                                         
-                                        Text("인문학")
+                                        Text("\(viewModel.titleGenre.rawValue)")
                                             .font(.system(size: 14))
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.black)
@@ -150,7 +157,7 @@ struct ProfileView: View {
                                 
                                 if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                     Button {
-                                        navStackControlTower.push(.ProfileEditView)
+                                        navStackControlTower.push(.ProfileEditView(viewModel))
                                     } label: {
                                         VStack {
                                             Text("프로필 편집")
@@ -242,9 +249,9 @@ struct ProfileView: View {
                                         .padding(.horizontal, 20)
                                     
                                     HStack {
-                                        if !viewModel.titleBookImageUrl.isEmpty {
+                                        if let titlePost = viewModel.titlePost {
                                             HStack {
-                                                KFImage(URL(string: viewModel.titleBookImageUrl))
+                                                KFImage(URL(string: titlePost.book.image))
                                                     .resizable()
                                                     .frame(width: 60, height: 85)
                                                     .clipShape(RoundedRectangle(cornerRadius: 7))
@@ -262,7 +269,7 @@ struct ProfileView: View {
                                                         .padding(.bottom, 70)
                                                 }
                                                 
-                                                Text("\(viewModel.titleBookImpressivePhrase ?? "")")
+                                                Text("\(titlePost.impressivePhrase)")
                                                     .font(.system(size: 13))
                                                     .multilineTextAlignment(.center)
                                                     .lineLimit(4)
@@ -310,13 +317,6 @@ struct ProfileView: View {
                         }
                     }
                 }
-            }
-            .task {
-//                if let isMyProfile = viewModel.isMyProfile, isMyProfile {
-//                    Task {
-//                        await viewModel.basicLoad()
-//                    }
-//                }
             }
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)

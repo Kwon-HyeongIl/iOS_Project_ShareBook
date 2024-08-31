@@ -95,6 +95,20 @@ class PostManager {
         }
     }
     
+    static func loadSpecificPost(postId: String) async -> Post? {
+        do {
+            let document = try await Firestore.firestore()
+                .collection("Post").document(postId)
+                .getDocument()
+            
+            return try document.data(as: Post.self)
+            
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     static func deletePost(postId: String) async {
         do {
             try await Firestore.firestore()
