@@ -63,4 +63,5 @@ struct EnterPasswordView: View {
 
 #Preview {
     EnterPasswordView()
+        .environment(SignupViewModel())
 }

@@ -16,23 +16,39 @@ struct NewPostView: View {
     var body: some View {
         GradientBackgroundView {
             if isShowing {
-                VStack {
-                    ScatteredBook3DView()
+                ZStack {
+                    Image("ShareBook_TextLogo")
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Rectangle())
+                        .opacity(0.3)
+                        .frame(width: 300)
+                        .shadow(color: .sBColor.opacity(1), radius: 10, x: 5, y: 5)
                     
-                    VStack(spacing: 10) {
-                        Text("오늘은 어떤 가치를 발견하셨나요?")
-                            .modifier(ItalicFontModifier())
-                            .multilineTextAlignment(.center)
+                    ZStack {
+                        Girl3DView()
+                        
+                        Image(systemName: "bubble.middle.bottom.fill")
+                            .resizable()
+                            .frame(width: 260, height: 100)
+                            .foregroundStyle(.white.opacity(0.4))
+                            .overlay {
+                                Text("오늘은 어떤 가치를 발견 하셨나요?")
+                                    .font(.system(size: 15))
+                                    .modifier(ItalicFontModifier())
+                                    .padding(.bottom)
+                            }
+                            .padding(.bottom, 350)
+                            
                     }
-                    .padding(.vertical, 30)
-                    .modifier(TileModifier())
                 }
-                .padding(.bottom, 100)
             }
             
-            ScrollView {
-                ForEach(viewModel.bookList, id: \.self) { book in
-                    BookCoverView(book: book)
+            VStack {
+                ScrollView {
+                    ForEach(viewModel.bookList, id: \.self) { book in
+                        BookCoverView(book: book)
+                    }
                 }
             }
         }

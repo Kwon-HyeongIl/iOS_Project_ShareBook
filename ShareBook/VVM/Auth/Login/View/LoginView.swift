@@ -97,7 +97,6 @@ struct LoginView: View {
                         .padding(.bottom)
                         .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                         
-                        
                         Spacer()
                     }
                 }

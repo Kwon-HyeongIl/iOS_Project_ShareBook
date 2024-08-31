@@ -58,4 +58,5 @@ struct CompleteSignupView: View {
 
 #Preview {
     CompleteSignupView()
+        .environment(SignupViewModel())
 }

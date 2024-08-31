@@ -63,4 +63,5 @@ struct EnterEmailView: View {
 
 #Preview {
     EnterEmailView()
+        .environment(SignupViewModel())
 }

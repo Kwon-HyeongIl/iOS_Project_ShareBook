@@ -13,7 +13,6 @@ struct FullGirl3DView: View {
         let url = Bundle.main.url(forResource: "fullGirl3D", withExtension: "splineswift")!
         
         SplineView(sceneFileURL: url)
-            .frame(width: 445)
     }
 }
 
