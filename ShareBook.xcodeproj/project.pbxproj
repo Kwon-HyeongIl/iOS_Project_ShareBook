@@ -65,6 +65,7 @@
 		CA84D1A12C80875A00F2A910 /* BookCoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A02C80875A00F2A910 /* BookCoverContentView.swift */; };
 		CA84D1A32C808E4E00F2A910 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */; };
 		CA84D1A72C80A21100F2A910 /* ProfileOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */; };
+		CA8662E02C8347C000B56983 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA8662DF2C8347C000B56983 /* Shimmer */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA91CDE92C56559200793F34 /* girl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDE82C56559200793F34 /* girl3D.splineswift */; };
 		CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */; };
@@ -242,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8662E02C8347C000B56983 /* Shimmer in Frameworks */,
 				CAE601602C50F5D50013413C /* KakaoSDKCommon in Frameworks */,
 				CAE6015E2C50F5D50013413C /* KakaoSDKAuth in Frameworks */,
 				CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */,
@@ -930,6 +932,7 @@
 				CAE601612C50F5D50013413C /* KakaoSDKUser */,
 				CAFE2C262C54F655000A3047 /* Alamofire */,
 				CAEDAB552C5A015A0077883E /* CryptoSwift */,
+				CA8662DF2C8347C000B56983 /* Shimmer */,
 			);
 			productName = ShareBook;
 			productReference = CA6AAC282C4B8CA10045449E /* ShareBook.app */;
@@ -966,6 +969,7 @@
 				CAE6015C2C50F5D50013413C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				CAFE2C252C54F655000A3047 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CAEDAB542C5A015A0077883E /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				CA8662DE2C8347C000B56983 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = CA6AAC292C4B8CA10045449E /* Products */;
 			projectDirPath = "";
@@ -1311,6 +1315,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CA8662DE2C8347C000B56983 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
 		CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1362,6 +1374,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA8662DF2C8347C000B56983 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA8662DE2C8347C000B56983 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
 		CABE31BB2C4CAB090010AC20 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

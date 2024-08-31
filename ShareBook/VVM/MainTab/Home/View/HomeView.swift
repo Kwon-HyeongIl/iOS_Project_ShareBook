@@ -7,12 +7,14 @@
 
 import SwiftUI
 import Kingfisher
+import Shimmer
 
 struct HomeView: View {
     @State private var viewModel = HomeViewModel()
     
     @State private var selectedGenre = Genre.all
-    @State private var isRedacted = true
+    @State private var isHotRedacted = true
+    @State private var isGenreRedacted = true
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
@@ -34,17 +36,17 @@ struct HomeView: View {
                     ScrollView {
                         ZStack {
                             ScrollView(.horizontal) {
-                                LazyHStack(spacing: viewModel.calSizemBase70And393(proxyWidth: proxy.size.width)) {
+                                LazyHStack(spacing: 20) {
                                     ForEach(viewModel.hotPosts.indices, id: \.self) { index in
-                                        PostCoverView(post: viewModel.hotPosts[index])
-                                            .scaleEffect(1.3)
-                                            .padding(.leading, index == 0 ? 40 : 0)
-                                            .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 40 : 0)
+                                        PostCoverView(post: viewModel.hotPosts[index], isHotPost: true)
+                                            .padding(.leading, index == 0 ? 15 : 0)
+                                            .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 15 : 0)
                                             .scrollTransition(.interactive, axis: .horizontal) { view, phase in
                                                 view
                                                     .scaleEffect(phase.isIdentity ? 1 : 0.95)
                                             }
-                                            .redacted(reason: isRedacted ? .placeholder : [])
+                                            .redacted(reason: isHotRedacted ? .placeholder : [])
+                                            .shimmering(active: isHotRedacted ? true : false, bandSize: 0.4)
                                     }
                                 }
                             }
@@ -71,8 +73,8 @@ struct HomeView: View {
                                 LazyVGrid(columns: columns, spacing: viewModel.calSizeBase26And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.posts) { post in
                                         PostCoverView(post: post)
-                                            .scaleEffect(proxy.size.width / 380)
-                                            .redacted(reason: isRedacted ? .placeholder : [])
+                                            .redacted(reason: isGenreRedacted ? .placeholder : [])
+                                            .shimmering(active: isGenreRedacted ? true : false, bandSize: 0.4)
                                     }
                                 }
                                 .padding(.top, 90)
@@ -97,6 +99,11 @@ struct HomeView: View {
                                                 await viewModel.loadSpecificGenrePosts(genre: Genre.allCases[index])
                                             }
                                             selectedGenre = Genre.allCases[index]
+                                            
+                                            isGenreRedacted = true
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                                isGenreRedacted = false
+                                            }
                                         } label: {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius: 10)
@@ -133,7 +140,8 @@ struct HomeView: View {
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     withAnimation(.smooth(duration: 0.4)) {
-                        self.isRedacted = false
+                        self.isHotRedacted = false
+                        self.isGenreRedacted = false
                     }
                 }
             }
@@ -143,4 +151,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environment(NavStackControlTower())
 }

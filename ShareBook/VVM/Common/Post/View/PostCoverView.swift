@@ -14,8 +14,11 @@ struct PostCoverView: View {
     
     @State private var commentSheetCapsule = CommentSheetCapsule()
     
-    init(post: Post) {
+    var isHotPost: Bool
+    
+    init(post: Post, isHotPost: Bool = false) {
         self.viewModel = PostViewModel(post: post)
+        self.isHotPost = isHotPost
     }
     
     var body: some View {
@@ -26,7 +29,7 @@ struct PostCoverView: View {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
                         .resizable()
-                        .frame(width: 145, height: 195)
+                        .frame(width: isHotPost ? 210 : 150, height: isHotPost ? 270 : 200)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         .overlay {
                             RoundedRectangle(cornerRadius: 5)
@@ -40,11 +43,11 @@ struct PostCoverView: View {
                             .resizable()
                             .scaledToFit()
                             .foregroundStyle(.white)
-                            .frame(width: 13)
+                            .frame(width: isHotPost ? 15 : 13)
                         
                         Text("\(viewModel.post.impressivePhrase)")
                             .fontWeight(.semibold)
-                            .font(.system(size: 14))
+                            .font(.system(size: isHotPost ? 16 : 14))
                             .foregroundStyle(.white)
                             .lineLimit(7)
                             .truncationMode(.tail)
@@ -54,11 +57,11 @@ struct PostCoverView: View {
                             .resizable()
                             .scaledToFit()
                             .foregroundStyle(.white)
-                            .frame(width: 13)
+                            .frame(width: isHotPost ? 15 : 13)
                     }
                 }
-                .padding(.top, 22)
-                .padding(.bottom, 8)
+                .padding(.top, 23)
+                .padding(.bottom, 7)
             }
             
             HStack(spacing: 0) {
@@ -69,7 +72,7 @@ struct PostCoverView: View {
                         if let profileImageUrl = viewModel.post.user.profileImageUrl {
                             KFImage(URL(string: profileImageUrl))
                                 .resizable()
-                                .frame(width: 15, height: 15)
+                                .frame(width: isHotPost ? 19 : 15, height: isHotPost ? 19 : 15)
                                 .clipShape(Circle())
                                 .overlay {
                                     Circle()
@@ -80,13 +83,13 @@ struct PostCoverView: View {
                         } else {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
-                                .frame(width: 15, height: 15)
+                                .frame(width: isHotPost ? 19 : 15, height: isHotPost ? 19 : 15)
                                 .clipShape(Circle())
                                 .padding(.leading, 13)
                         }
                         
                         Text("\(viewModel.post.user.username)")
-                            .font(.system(size: 11))
+                            .font(.system(size: isHotPost ? 14 :  11))
                             .frame(width: 30, alignment: .leading)
                             .lineLimit(1)
                             .truncationMode(.tail)
@@ -105,14 +108,14 @@ struct PostCoverView: View {
                     Image(systemName: viewModel.isLike ? "heart.fill" : "heart")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 12)
+                        .frame(width: isHotPost ? 15 : 12)
                         .foregroundStyle(Color.sBColor)
                     
                 }
                 .padding(.trailing, 3)
                 
                 Text("\(viewModel.post.likeCount)")
-                    .font(.system(size: 10))
+                    .font(.system(size: isHotPost ? 13: 10))
                     .foregroundStyle(Color.sBColor)
                     .padding(.trailing, 7)
                 
@@ -123,19 +126,19 @@ struct PostCoverView: View {
                     Image(systemName: "bubble.right")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 12)
+                        .frame(width: isHotPost ? 15 : 12)
                         .foregroundStyle(Color.sBColor)
                 }
                 .padding(.trailing, 3)
                 
                 Text("\(viewModel.commentCount)")
-                    .font(.system(size: 10))
+                    .font(.system(size: isHotPost ? 13 : 10))
                     .foregroundStyle(Color.sBColor)
                     .padding(.trailing, 15)
             }
             .padding(.bottom, 20)
         }
-        .frame(width: 165, height: 235)
+        .frame(width: isHotPost ? 230 : 170, height: isHotPost ? 315 : 237)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
