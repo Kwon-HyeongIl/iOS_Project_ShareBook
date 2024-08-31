@@ -33,7 +33,7 @@
 		CA3CA9082C7A110E007F2EDC /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3CA9072C7A110E007F2EDC /* PostDetailView.swift */; };
 		CA3E7B312C78CBD300F610A4 /* LikesHeadTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3E7B302C78CBD300F610A4 /* LikesHeadTabView.swift */; };
 		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
-		CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */; };
+		CA4FC6A92C4E993B00525570 /* AuthViewButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */; };
 		CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */; };
 		CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */; };
 		CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */; };
@@ -64,9 +64,7 @@
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
 		CA84D1A12C80875A00F2A910 /* BookCoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A02C80875A00F2A910 /* BookCoverContentView.swift */; };
 		CA84D1A32C808E4E00F2A910 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */; };
-		CA84D1A52C808E6D00F2A910 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A42C808E6D00F2A910 /* ProfileEditViewModel.swift */; };
 		CA84D1A72C80A21100F2A910 /* ProfileOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */; };
-		CA84D1A92C80A22200F2A910 /* ProfileOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A82C80A22200F2A910 /* ProfileOptionViewModel.swift */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA91CDE92C56559200793F34 /* girl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA91CDE82C56559200793F34 /* girl3D.splineswift */; };
 		CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */; };
@@ -94,6 +92,11 @@
 		CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */; };
 		CAC3304E2C4F4327003C8A71 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = CAC3304D2C4F4327003C8A71 /* SplineRuntime */; };
 		CAC3549B2C81FCCE00EEA8F9 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC3549A2C81FCCE00EEA8F9 /* Report.swift */; };
+		CAC3549D2C8214DA00EEA8F9 /* InViewButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC3549C2C8214DA00EEA8F9 /* InViewButtonModifier.swift */; };
+		CAC3549F2C821E9E00EEA8F9 /* TileModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC3549E2C821E9E00EEA8F9 /* TileModifier.swift */; };
+		CAC354A12C822AA400EEA8F9 /* ProfileEditPostPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */; };
+		CAC354A32C8234F400EEA8F9 /* PostProfileCoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC354A22C8234F400EEA8F9 /* PostProfileCoverContentView.swift */; };
+		CAC354A82C823AEE00EEA8F9 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC354A72C823AEE00EEA8F9 /* ProfileManager.swift */; };
 		CACD58832C7307020070593A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58822C7307020070593A /* CommentViewModel.swift */; };
 		CACD58852C73096E0070593A /* CommentReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58842C73096E0070593A /* CommentReplyView.swift */; };
 		CAD01ED52C5F48F6001E479F /* BookManager+Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */; };
@@ -147,7 +150,7 @@
 		CA3CA9072C7A110E007F2EDC /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		CA3E7B302C78CBD300F610A4 /* LikesHeadTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesHeadTabView.swift; sourceTree = "<group>"; };
 		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
-		CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewButtonModifier.swift; sourceTree = "<group>"; };
 		CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonModifier.swift; sourceTree = "<group>"; };
 		CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCoverView.swift; sourceTree = "<group>"; };
 		CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentManager+Reply.swift"; sourceTree = "<group>"; };
@@ -179,9 +182,7 @@
 		CA83A4902C4CB74B004F06E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CA84D1A02C80875A00F2A910 /* BookCoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverContentView.swift; sourceTree = "<group>"; };
 		CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
-		CA84D1A42C808E6D00F2A910 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionView.swift; sourceTree = "<group>"; };
-		CA84D1A82C80A22200F2A910 /* ProfileOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionViewModel.swift; sourceTree = "<group>"; };
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA91CDE82C56559200793F34 /* girl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = girl3D.splineswift; sourceTree = "<group>"; };
@@ -204,6 +205,11 @@
 		CAC116DF2C573FB40047E7D4 /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		CAC330492C4F38FB003C8A71 /* FullGirl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGirl3DView.swift; sourceTree = "<group>"; };
 		CAC3549A2C81FCCE00EEA8F9 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		CAC3549C2C8214DA00EEA8F9 /* InViewButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InViewButtonModifier.swift; sourceTree = "<group>"; };
+		CAC3549E2C821E9E00EEA8F9 /* TileModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileModifier.swift; sourceTree = "<group>"; };
+		CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditPostPickerView.swift; sourceTree = "<group>"; };
+		CAC354A22C8234F400EEA8F9 /* PostProfileCoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCoverContentView.swift; sourceTree = "<group>"; };
+		CAC354A72C823AEE00EEA8F9 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		CACD58822C7307020070593A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		CACD58842C73096E0070593A /* CommentReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyView.swift; sourceTree = "<group>"; };
 		CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookManager+Bookmark.swift"; sourceTree = "<group>"; };
@@ -297,14 +303,6 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
-		CA20A80F2C7CB578008F3E8B /* Capsule */ = {
-			isa = PBXGroup;
-			children = (
-				CA20A8102C7CB5A7008F3E8B /* SelectedMainTabCapsule.swift */,
-			);
-			path = Capsule;
-			sourceTree = "<group>";
-		};
 		CA20A8122C7CC804008F3E8B /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +353,6 @@
 			children = (
 				CA812E7B2C5F7A5A00B9BC8A /* MainCustomTabView.swift */,
 				CA3E7B302C78CBD300F610A4 /* LikesHeadTabView.swift */,
-				CA20A80F2C7CB578008F3E8B /* Capsule */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -374,6 +371,7 @@
 			children = (
 				CA3CA8FD2C7A0FBB007F2EDC /* PostCoverView.swift */,
 				CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */,
+				CAC354A22C8234F400EEA8F9 /* PostProfileCoverContentView.swift */,
 				CA3CA9072C7A110E007F2EDC /* PostDetailView.swift */,
 				CA1126B62C6D27B1009277F3 /* Comment */,
 				CA3139AC2C77766F001AF2AE /* MoreOptions */,
@@ -434,8 +432,10 @@
 			children = (
 				CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */,
 				CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */,
-				CA4FC6A82C4E993B00525570 /* ButtonModifier.swift */,
+				CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */,
+				CAC3549C2C8214DA00EEA8F9 /* InViewButtonModifier.swift */,
 				CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */,
+				CAC3549E2C821E9E00EEA8F9 /* TileModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -555,6 +555,7 @@
 			children = (
 				CABE31C82C4CAE170010AC20 /* ProfileView.swift */,
 				CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */,
+				CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */,
 				CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */,
 				CA7C5E492C81F34F000F9F2B /* Feedback */,
 			);
@@ -565,8 +566,6 @@
 			isa = PBXGroup;
 			children = (
 				CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */,
-				CA84D1A42C808E6D00F2A910 /* ProfileEditViewModel.swift */,
-				CA84D1A82C80A22200F2A910 /* ProfileOptionViewModel.swift */,
 				CA7C5E4C2C81F35E000F9F2B /* Feedback */,
 			);
 			path = ViewModel;
@@ -662,10 +661,11 @@
 				CAD01ED82C5F4A29001E479F /* Auth */,
 				CAD01ED92C5F4A3A001E479F /* Image */,
 				CAD01EDB2C5F4A47001E479F /* Book */,
-				CAD01EDC2C5F4A5E001E479F /* Jwt */,
+				CAC354A62C823ACC00EEA8F9 /* Profile */,
 				CAB2E9952C69FB55006E1063 /* Post */,
 				CA62D0702C6DB72A00A652EA /* Comment */,
 				CA7C5E422C81F076000F9F2B /* UserSupportService */,
+				CAD01EDC2C5F4A5E001E479F /* Jwt */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -709,6 +709,7 @@
 		CAA235822C81D58A009875A4 /* Capsule */ = {
 			isa = PBXGroup;
 			children = (
+				CA20A8102C7CB5A7008F3E8B /* SelectedMainTabCapsule.swift */,
 				CAA235802C81D525009875A4 /* CommentSheetCapsule.swift */,
 			);
 			path = Capsule;
@@ -758,6 +759,14 @@
 				CA2567042C56A060009F13A2 /* Test3DView.swift */,
 			);
 			path = Spline3D;
+			sourceTree = "<group>";
+		};
+		CAC354A62C823ACC00EEA8F9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CAC354A72C823AEE00EEA8F9 /* ProfileManager.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		CAD01ED82C5F4A29001E479F /* Auth */ = {
@@ -958,7 +967,6 @@
 				CA70E7F62C785E6400E3B91B /* LikeView.swift in Sources */,
 				CA70E8022C785ED600E3B91B /* BookmarkBookView.swift in Sources */,
 				CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */,
-				CA84D1A52C808E6D00F2A910 /* ProfileEditViewModel.swift in Sources */,
 				CA66D5872C6E2D35000DCAC2 /* PostManager+Like.swift in Sources */,
 				CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */,
 				CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */,
@@ -977,7 +985,6 @@
 				CA62D0762C6DC58F00A652EA /* Date+RelativeTimeString.swift in Sources */,
 				CA62D0722C6DB7DA00A652EA /* CommentView.swift in Sources */,
 				CAA4BE702C7A572900611C2D /* UserLikePost.swift in Sources */,
-				CA84D1A92C80A22200F2A910 /* ProfileOptionViewModel.swift in Sources */,
 				CAD8FE052C55EAD5000E3150 /* ScatteredBook3DView.swift in Sources */,
 				CAD01ED52C5F48F6001E479F /* BookManager+Bookmark.swift in Sources */,
 				CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */,
@@ -1005,24 +1012,28 @@
 				CA6609BC2C4D4BE30091091F /* User.swift in Sources */,
 				CA20A81C2C7CC9ED008F3E8B /* ImagePath.swift in Sources */,
 				CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */,
+				CAC3549F2C821E9E00EEA8F9 /* TileModifier.swift in Sources */,
 				CA20A8162C7CC84A008F3E8B /* LikeTab.swift in Sources */,
 				CAA0C5F52C549FE300E7433D /* NewPostView.swift in Sources */,
 				CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */,
 				CABE31CB2C4CAE550010AC20 /* HomeView.swift in Sources */,
 				CA20A8142C7CC824008F3E8B /* HttpMethod.swift in Sources */,
+				CAC354A32C8234F400EEA8F9 /* PostProfileCoverContentView.swift in Sources */,
 				CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */,
 				CAD0F3772C4E1B9C006ABFD1 /* GradientBackgroundView.swift in Sources */,
 				CAD01ED72C5F4960001E479F /* AuthManager+SocialLogin.swift in Sources */,
-				CA4FC6A92C4E993B00525570 /* ButtonModifier.swift in Sources */,
+				CA4FC6A92C4E993B00525570 /* AuthViewButtonModifier.swift in Sources */,
 				CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */,
 				CA84D1A12C80875A00F2A910 /* BookCoverContentView.swift in Sources */,
 				CA7C5E482C81F34C000F9F2B /* FeedbackView.swift in Sources */,
 				CA84D1A32C808E4E00F2A910 /* ProfileEditView.swift in Sources */,
+				CAC354A12C822AA400EEA8F9 /* ProfileEditPostPickerView.swift in Sources */,
 				CAD0F3732C4E11C6006ABFD1 /* EnterEmailView.swift in Sources */,
 				CACD58832C7307020070593A /* CommentViewModel.swift in Sources */,
 				CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */,
 				CA70E7FF2C785EC300E3B91B /* LikePostViewModel.swift in Sources */,
 				CADD907A2C6A55740023C512 /* HomeViewModel.swift in Sources */,
+				CAC3549D2C8214DA00EEA8F9 /* InViewButtonModifier.swift in Sources */,
 				CA6609C22C4D4C8E0091091F /* AuthManager.swift in Sources */,
 				CA3CA9002C7A0FEB007F2EDC /* PostViewModel.swift in Sources */,
 				CA84D1A72C80A21100F2A910 /* ProfileOptionView.swift in Sources */,
@@ -1040,6 +1051,7 @@
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
+				CAC354A82C823AEE00EEA8F9 /* ProfileManager.swift in Sources */,
 				CA20A8112C7CB5A7008F3E8B /* SelectedMainTabCapsule.swift in Sources */,
 				CA1126B82C6D27CF009277F3 /* CommentListViewModel.swift in Sources */,
 				CA3CA8FE2C7A0FBB007F2EDC /* PostCoverView.swift in Sources */,

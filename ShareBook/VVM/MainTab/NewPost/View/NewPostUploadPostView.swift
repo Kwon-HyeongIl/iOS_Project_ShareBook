@@ -140,22 +140,10 @@ struct NewPostUploadPostView: View {
                             } label: {
                                 if viewModel.impressivePhrase.isEmpty {
                                     Text("다음")
-                                        .foregroundStyle(.white)
-                                        .frame(width: 110, height: 34)
-                                        .background(.gray)
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                                        .padding(.bottom, 20)
-                                        .padding(.top)
+                                        .modifier(InViewButtonModifier(bgColor: .gray))
                                 } else {
                                     Text("다음")
-                                        .foregroundStyle(.white)
-                                        .frame(width: 110, height: 34)
-                                        .background(Color.sBColor)
-                                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                                        .padding(.bottom, 20)
-                                        .padding(.top)
+                                        .modifier(InViewButtonModifier(bgColor: .sBColor))
                                 }
                             }
                             .alert("!!", isPresented: $isImpressiveAlertShowing) {
@@ -199,13 +187,7 @@ struct NewPostUploadPostView: View {
                                         }
                                     } label: {
                                         Text("다음")
-                                            .foregroundStyle(.white)
-                                            .frame(width: 110, height: 34)
-                                            .background(Color.sBColor)
-                                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                                            .padding(.bottom, 20)
-                                            .padding(.top)
+                                            .modifier(InViewButtonModifier(bgColor: .sBColor))
                                     }
                                 }
                             }
@@ -243,26 +225,13 @@ struct NewPostUploadPostView: View {
                                         selectedMainTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
-                                            .foregroundStyle(.white)
-                                            .frame(width: 110, height: 34)
-                                            .background(Color.sBColor)
-                                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                                            .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                                            .padding(.bottom, 20)
-                                            .padding(.top)
+                                            .modifier(InViewButtonModifier(bgColor: .sBColor))
                                     }
                                 }
                             }
                         }
-                        
-                        
                     }
-                    .frame(maxWidth: .infinity)
-                    .background(.ultraThinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                    .modifier(TileModifier())
                 }
             }
             .modifier(BackButtonModifier())

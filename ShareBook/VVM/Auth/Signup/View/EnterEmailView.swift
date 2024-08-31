@@ -33,7 +33,7 @@ struct EnterEmailView: View {
                         EnterPasswordView()
                     } label: {
                         Text("다음")
-                            .modifier(ButtonModifier())
+                            .modifier(AuthViewButtonModifier())
                     }
                     .padding(.horizontal)
                     

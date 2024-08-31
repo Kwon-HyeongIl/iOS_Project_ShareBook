@@ -25,7 +25,6 @@ struct FeedbackView: View {
                         .background(.regularMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.horizontal, 30)
-                        .padding(.bottom, 20)
                         .padding(.top, 25)
                         .overlay {
                             if viewModel.content.isEmpty {
@@ -46,20 +45,10 @@ struct FeedbackView: View {
                     } label: {
                         if viewModel.content.isEmpty {
                             Text("제출")
-                                .foregroundStyle(.white)
-                                .frame(width: 110, height: 34)
-                                .background(.gray)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                                .padding(.bottom, 20)
+                                .modifier(InViewButtonModifier(bgColor: .gray))
                         } else {
                             Text("제출")
-                                .foregroundStyle(.white)
-                                .frame(width: 110, height: 34)
-                                .background(Color.sBColor)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                                .padding(.bottom, 20)
+                                .modifier(InViewButtonModifier(bgColor: .sBColor))
                         }
                     }
                     .alert("!!", isPresented: $isContentAlertShowing) {

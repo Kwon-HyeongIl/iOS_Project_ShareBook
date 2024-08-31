@@ -22,41 +22,7 @@ struct PostProfileCoverView: View {
         Button {
             navStackControlTower.push(.PostDetailView(viewModel, commentSheetCapsule))
         } label: {
-            ZStack {
-                KFImage(URL(string: viewModel.post.book.image))
-                    .resizable()
-                    .frame(width: 125, height: 175)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundStyle(.black)
-                            .opacity(0.15)
-                    }
-                    .blur(radius: 3.0)
-                
-                VStack(spacing: 13) {
-                    Image(systemName: "quote.opening")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundStyle(.white)
-                        .frame(width: 13)
-                    
-                    Text("\(viewModel.post.impressivePhrase)")
-                        .fontWeight(.semibold)
-                        .font(.system(size: 11))
-                        .foregroundStyle(.white)
-                        .lineLimit(7)
-                        .truncationMode(.tail)
-                        .padding(.horizontal, 5)
-                    
-                    Image(systemName: "quote.closing")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundStyle(.white)
-                        .frame(width: 13)
-                }
-                .frame(width: 125, height: 175)
-            }
+            PostProfileCoverContentView(post: viewModel.post)
         }
     }
 }

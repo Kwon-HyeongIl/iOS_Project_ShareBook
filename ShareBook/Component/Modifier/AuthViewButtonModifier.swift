@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonModifier: ViewModifier {
+struct AuthViewButtonModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundStyle(.white)

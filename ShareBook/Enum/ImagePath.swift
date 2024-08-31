@@ -8,6 +8,5 @@
 import Foundation
 
 enum ImagePath {
-    case post
-    case porfile
+    case profile
 }

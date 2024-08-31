@@ -77,7 +77,7 @@ struct PostDetailView: View {
                             .scaledToFit()
                             .frame(width: 25)
                             .foregroundStyle(Color.sBColor)
-                            .padding(.top, 50)
+                            .padding(.top, 40)
                             .padding(.bottom, 30)
                         
                         Text("\(viewModel.post.impressivePhrase)")
@@ -90,7 +90,7 @@ struct PostDetailView: View {
                             .frame(width: 25)
                             .foregroundStyle(Color.sBColor)
                             .padding(.top, 30)
-                            .padding(.bottom, 50)
+                            .padding(.bottom, 40)
                         
                         Divider()
                         
@@ -124,12 +124,7 @@ struct PostDetailView: View {
                         }
                         .padding(.bottom, 5)
                     }
-                    .frame(maxWidth: .infinity)
-                    .background(.ultraThinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .padding(.horizontal)
-                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                    .padding(.bottom, 10)
+                    .modifier(TileModifier())
                     
                     HStack(spacing: 5) {
                         Button {
@@ -200,12 +195,8 @@ struct PostDetailView: View {
                             .padding(.trailing)
                             
                     }
-                    .padding(.vertical, 15)
-                    .frame(maxWidth: .infinity)
-                    .background(.ultraThinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .padding(.horizontal)
-                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                    .padding(.vertical)
+                    .modifier(TileModifier())
                 }
                 
             }

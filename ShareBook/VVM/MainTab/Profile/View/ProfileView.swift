@@ -71,6 +71,7 @@ struct ProfileView: View {
                                         Image(systemName: "person.circle.fill")
                                             .resizable()
                                             .frame(width: 60, height: 60)
+                                            .opacity(0.8)
                                             .padding(.trailing, 10)
                                             .padding(.leading)
                                     }
@@ -92,7 +93,7 @@ struct ProfileView: View {
                                     Spacer()
                                     
                                     Button {
-                                        navStackControlTower.push(.ProfileOptionView(viewModel.user))
+                                        navStackControlTower.push(.ProfileOptionView(viewModel))
                                     } label: {
                                         Image(systemName: "gearshape")
                                             .resizable()
@@ -106,7 +107,6 @@ struct ProfileView: View {
                                     
                                     
                                 }
-                                .padding(.top, 10)
                                 .padding(.bottom)
                                 
                                 HStack(spacing: 60) {
@@ -157,7 +157,7 @@ struct ProfileView: View {
                                 
                                 if viewModel.isMyProfile == true {
                                     Button {
-                                        navStackControlTower.push(.ProfileEditView(viewModel.user))
+                                        navStackControlTower.push(.ProfileEditView(viewModel))
                                     } label: {
                                         VStack {
                                             Text("프로필 편집")
@@ -242,30 +242,36 @@ struct ProfileView: View {
                                 
                                 ZStack {
                                     Rectangle()
-                                        .foregroundStyle(.thickMaterial)
+                                        .foregroundStyle(.regularMaterial)
                                         .frame(height: 100)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                        .padding(.horizontal, 20)
                                     
                                     HStack {
                                         
                                     }
                                 }
-                                .padding()
+                                .padding(.top, 10)
                             }
                         }
                         
                         LazyVGrid(columns: columns, spacing: viewModel.calSizeBase4And393(proxyWidth: proxy.size.width)) {
                             ForEach(viewModel.posts) { post in
-                                navStackControlTower.navigate(to: .PostProfileCoverView(post))
+                                PostProfileCoverView(post: post)
                                     .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
                             }
                         }
                     }
                 }
             }
+            .task {
+                Task {
+                    await viewModel.basicLoad()
+                }
+            }
             .navigationBarBackButtonHidden()
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {

@@ -20,9 +20,12 @@ struct User: Codable, Identifiable, Hashable, Equatable {
     
     var profileImageUrl: String?
     
+    var titleGenre: Genre?
     var titleBook: Book?
+    var titleBookImpressivePhrase: String?
+    var titlePostId: String?
 }
 
 extension User {
-    static var DUMMY_USER: User = User(id: UUID().uuidString, username: "행이", authEmail: "test@naver.com", titleBook: Book.DUMMY_BOOK)
+    static var DUMMY_USER: User = User(id: UUID().uuidString, username: "행이", authEmail: "test@naver.com", titleBook: Book.DUMMY_BOOK, titleBookImpressivePhrase: "가나다라마바사 아자차카타파하 에이비씨디이에프지 에이치아이제이케이 testestestsetsetsetsetsetsetsetsetsetsetsetsetsetsetsetset")
 }

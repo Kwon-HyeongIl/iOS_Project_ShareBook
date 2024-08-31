@@ -67,11 +67,11 @@ class PostManager {
             let documents = try await Firestore.firestore().collection("Post")
                 .whereField("userId", isEqualTo: userId).order(by: "date", descending: true)
                 .getDocuments().documents
-            
+
             return try documents.compactMap({ document in
                 try document.data(as: Post.self)
             })
-            
+
         } catch {
             print(error.localizedDescription)
             return []

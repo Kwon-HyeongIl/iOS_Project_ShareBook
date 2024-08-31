@@ -9,13 +9,9 @@ import SwiftUI
 
 struct ProfileOptionView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @State private var viewModel: ProfileOptionViewModel
+    @Bindable var viewModel: ProfileViewModel
     
     @State private var isLogoutAlertShowing = false
-    
-    init(user: User?) {
-        self.viewModel = ProfileOptionViewModel(user: user)
-    }
     
     var body: some View {
         GradientBackgroundView {
@@ -82,6 +78,6 @@ struct ProfileOptionView: View {
 }
 
 #Preview {
-    ProfileOptionView(user: User.DUMMY_USER)
+    ProfileOptionView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
         .environment(NavStackControlTower())
 }
