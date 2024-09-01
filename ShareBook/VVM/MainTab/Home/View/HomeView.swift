@@ -106,7 +106,9 @@ struct HomeView: View {
                                             
                                             isGenreRedacted = true
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                isGenreRedacted = false
+                                                withAnimation(.smooth(duration: 0.4)) {
+                                                    isGenreRedacted = false
+                                                }
                                             }
                                         } label: {
                                             ZStack {
