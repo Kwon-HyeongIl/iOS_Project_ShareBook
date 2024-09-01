@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shimmer
 
 struct SplashView: View {
     var body: some View {
@@ -14,6 +15,7 @@ struct SplashView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
+                .shimmering()
         }
     }
 }

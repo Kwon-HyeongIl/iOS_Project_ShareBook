@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shimmer
 
 struct NewPostView: View {
     @State private var viewModel = NewPostViewModel()
@@ -21,9 +22,10 @@ struct NewPostView: View {
                         .resizable()
                         .scaledToFit()
                         .clipShape(Rectangle())
-                        .opacity(0.3)
+                        .opacity(0.5)
                         .frame(width: 300)
                         .shadow(color: .sBColor.opacity(1), radius: 10, x: 5, y: 5)
+                        .shimmering()
                     
                     ZStack {
                         Girl3DView()
