@@ -28,6 +28,7 @@ class ProfileViewModel: Hashable, Equatable {
     var uiImage: UIImage?
     
     init(user: User?) {
+        guard let _ = user else { return }
         self.user = user
         let currentUser = AuthManager.shared.currentUser
         
