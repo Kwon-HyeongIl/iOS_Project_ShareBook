@@ -13,23 +13,21 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            if AuthManager.shared.currentUser != nil {
-                MainTabView()
+            if let currentUser = AuthManager.shared.currentUser {
+                MainTabView(currentUser: currentUser)
+
             } else {
                 LoginView()
                     .environment(signupViewModel)
             }
             
-            if !isContentReady {
-                SplashView()
-                    .transition(.opacity)
-            }
+            SplashView()
+                .opacity(isContentReady ? 0 : 1)
+                .animation(.easeOut(duration: 0.4), value: isContentReady)
         }
         .task {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
-                withAnimation {
-                    isContentReady = true
-                }
+                isContentReady = true
             }
         }
     }

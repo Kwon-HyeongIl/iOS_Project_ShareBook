@@ -11,13 +11,14 @@ struct MainTabView: View {
     @State private var navStackControlTower = NavStackControlTower()
     @State private var selectedMainTabCapsule = SelectedMainTabCapsule()
     
-    init() {
+    let currentUser: User?
+    
+    init(currentUser: User?) {
         UITabBar.appearance().isHidden = true
+        self.currentUser = currentUser
     }
     
     var body: some View {
-        let currentUser = AuthManager.shared.currentUser
-        
         NavigationStack(path: $navStackControlTower.path) {
             ZStack {
                 switch selectedMainTabCapsule.selectedTab {
@@ -51,5 +52,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView(currentUser: User.DUMMY_USER)
 }
