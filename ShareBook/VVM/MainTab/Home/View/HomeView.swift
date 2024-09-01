@@ -106,7 +106,7 @@ struct HomeView: View {
                                             
                                             isGenreRedacted = true
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                withAnimation(.smooth(duration: 0.4)) {
+                                                withAnimation(.easeOut(duration: 0.4)) {
                                                     isGenreRedacted = false
                                                 }
                                             }
@@ -141,7 +141,7 @@ struct HomeView: View {
                         self.isGenreRedacted = true
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            withAnimation(.smooth(duration: 0.4)) {
+                            withAnimation(.easeOut(duration: 0.4)) {
                                 self.isHotRedacted = false
                                 self.isGenreRedacted = false
                             }
@@ -149,7 +149,7 @@ struct HomeView: View {
                     }
                     .task {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            withAnimation(.smooth(duration: 0.4)) {
+                            withAnimation(.easeOut(duration: 0.4)) {
                                 self.isHotRedacted = false
                                 self.isGenreRedacted = false
                             }

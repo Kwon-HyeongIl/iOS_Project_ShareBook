@@ -22,10 +22,10 @@ struct NewPostView: View {
                         .resizable()
                         .scaledToFit()
                         .clipShape(Rectangle())
-                        .opacity(0.5)
+                        .opacity(0.6)
                         .frame(width: 300)
                         .shadow(color: .sBColor.opacity(1), radius: 10, x: 5, y: 5)
-                        .shimmering()
+                        .shimmering(animation: .easeInOut(duration: 4).repeatCount(.max, autoreverses: false).delay(0))
                     
                     ZStack {
                         Girl3DView()

@@ -61,7 +61,7 @@ struct ProfileOptionView: View {
                     }
                     
                     Button(role: .destructive) {
-                        withAnimation(.smooth(duration: 0.4)) {
+                        withAnimation(.easeOut(duration: 0.4)) {
                             viewModel.signOut()
                         }
                     } label: {

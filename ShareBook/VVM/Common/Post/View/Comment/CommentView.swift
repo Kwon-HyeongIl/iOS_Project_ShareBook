@@ -162,4 +162,5 @@ struct CommentView: View {
 #Preview {
     CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false))
         .environment(NavStackControlTower())
+        .environment(CommentSheetCapsule())
 }
