@@ -129,7 +129,7 @@ struct PostDetailView: View {
                     HStack(spacing: 5) {
                         Button {
                             Task {
-                                await viewModel.isLike ? viewModel.unlike() : viewModel.like()
+                                await viewModel.isLike ? viewModel.unLike() : viewModel.like()
                             }
                         } label: {
                             HStack(spacing: 5) {

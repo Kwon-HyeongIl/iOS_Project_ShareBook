@@ -105,7 +105,7 @@ struct BookDetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     Task {
-                        viewModel.isBookmark ? await viewModel.unbookmark() : await viewModel.bookmark()
+                        viewModel.isBookmark ? await viewModel.unBookmark() : await viewModel.bookmark()
                     }
                 } label: {
                     Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")

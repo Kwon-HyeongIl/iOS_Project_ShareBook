@@ -36,8 +36,8 @@ class BookViewModel: Hashable, Equatable {
         self.isBookmark = true
     }
     
-    func unbookmark() async {
-        await BookManager.unbookmark(book: self.book)
+    func unBookmark() async {
+        await BookManager.unBookmark(book: self.book)
         self.isBookmark = false
     }
     

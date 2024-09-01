@@ -31,7 +31,7 @@ extension PostManager {
             .updateData(["likeCount": post.likeCount + 1])
     }
     
-    static func unlike(post: Post) async {
+    static func unLike(post: Post) async {
         guard let userId = AuthManager.shared.currentUser?.id else { return }
         
         async let _ = Firestore.firestore()

@@ -62,7 +62,7 @@ struct ProfileOptionView: View {
                     
                     Button(role: .destructive) {
                         withAnimation(.smooth(duration: 0.4)) {
-                            viewModel.signout()
+                            viewModel.signOut()
                         }
                     } label: {
                         Text("계속")

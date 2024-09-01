@@ -85,7 +85,7 @@ class AuthManager {
     
     
     
-    func signout() {
+    func signOut() {
         do {
             try Auth.auth().signOut()
             currentUser = nil

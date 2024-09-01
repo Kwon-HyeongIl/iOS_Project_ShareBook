@@ -98,7 +98,7 @@ struct PostCoverView: View {
                 
                 Button {
                     Task {
-                        await viewModel.isLike ? viewModel.unlike() : viewModel.like()
+                        await viewModel.isLike ? viewModel.unLike() : viewModel.like()
                     }
                 } label: {
                     Image(systemName: viewModel.isLike ? "heart.fill" : "heart")

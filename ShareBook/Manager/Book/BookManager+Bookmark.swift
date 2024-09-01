@@ -30,7 +30,7 @@ extension BookManager {
         }
     }
     
-    static func unbookmark(book: Book) async {
+    static func unBookmark(book: Book) async {
         guard let userId = AuthManager.shared.currentUser?.id else { return }
         
         do {

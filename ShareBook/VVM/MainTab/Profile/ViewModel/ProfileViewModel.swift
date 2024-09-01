@@ -111,8 +111,8 @@ class ProfileViewModel: Hashable, Equatable {
         self.uiImage = imageSelection.uiImage
     }
     
-    func signout() {
-        AuthManager.shared.signout()
+    func signOut() {
+        AuthManager.shared.signOut()
     }
     
     func calSizemBase1And393(proxyWidth: CGFloat) -> CGFloat {
