@@ -110,10 +110,23 @@ class PostManager {
     }
     
     static func deletePost(postId: String) async {
+        guard let userId = AuthManager.shared.currentUser?.id else { return }
+        
         do {
             try await Firestore.firestore()
                 .collection("Post").document(postId)
                 .delete()
+            
+            let documentRef = Firestore.firestore()
+                .collection("User").document(userId)
+                
+            let user = try await documentRef.getDocument().data(as: User.self)
+            
+            // 타이틀 북에 등록한 글을 삭제했을 경우
+            if user.titlePostId ?? "" == postId {
+                try await documentRef.updateData(["titlePostId": FieldValue.delete()])
+                AuthManager.shared.currentUser?.titlePostId = nil
+            }
             
         } catch {
             print(error.localizedDescription)
