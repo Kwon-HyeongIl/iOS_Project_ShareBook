@@ -110,6 +110,7 @@ class ProfileViewModel: Hashable, Equatable {
         self.isFollow = await AuthManager.shared.isFollow(userId: userId)
     }
     
+    // 프로필 편집 완료시 실행
     func updateUser() async throws {
         var editedData: [String : Any] = [:]
         
@@ -120,7 +121,12 @@ class ProfileViewModel: Hashable, Equatable {
         
         editedData["username"] = user?.username ?? ""
         editedData["titleGenre"] = titleGenre.rawValue
-        editedData["titlePostId"] = titlePost?.id ?? ""
+        
+        if let titlePost {
+            editedData["titlePostId"] = titlePost.id
+        } else { // 타이틀 글을 취소한 경우
+            AuthManager.shared.currentUser?.titlePostId = nil
+        }
         
         await ProfileManager.updateUser(editedData: editedData)
     }

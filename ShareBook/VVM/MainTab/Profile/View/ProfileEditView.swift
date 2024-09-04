@@ -93,8 +93,32 @@ struct ProfileEditView: View {
                 .modifier(TileModifier())
                 
                 VStack {
-                    Text("나의 인생 책 구절")
-                        .padding(.top, 5)
+                    HStack {
+                        ZStack {
+                            Text("나의 인생 책 구절")
+                            
+                            if let _ = viewModel.titlePost {
+                                Button {
+                                    withAnimation(.easeInOut(duration: 0.4)) {
+                                        viewModel.titlePost = nil
+                                    }
+                                } label: {
+                                    Text("삭제")
+                                        .font(.system(size: 13))
+                                        .foregroundStyle(Color.sBColor)
+                                        .frame(width: 40, height: 20)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.sBColor, lineWidth: 1.0)
+                                        }
+                                        .fontWeight(.semibold)
+                                        .padding(.leading, 270)
+                                }
+                            }
+                        }
+                    }
+                    .padding(.top, 5)
+                    .padding(.bottom, 10)
                     
                     Button {
                         if !viewModel.posts.isEmpty {
