@@ -12,6 +12,11 @@ class HomeViewModel {
     var hotPosts: [Post] = []
     var posts: [Post] = []
     
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
+    ]
+    
     init() {
         Task {
             await loadHotPosts()

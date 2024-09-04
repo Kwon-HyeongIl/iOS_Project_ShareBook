@@ -16,11 +16,6 @@ struct HomeView: View {
     @State private var isHotRedacted = true
     @State private var isGenreRedacted = true
     
-    let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 0),
-        GridItem(.flexible(), spacing: 0)
-    ]
-    
     var body: some View {
         GeometryReader { proxy in
             GradientBackgroundView {
@@ -70,7 +65,7 @@ struct HomeView: View {
                         
                         ZStack {
                             VStack {
-                                LazyVGrid(columns: columns, spacing: viewModel.calSizeBase26And393(proxyWidth: proxy.size.width)) {
+                                LazyVGrid(columns: viewModel.columns, spacing: viewModel.calSizeBase26And393(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.posts) { post in
                                         PostCoverView(post: post)
                                             .redacted(reason: isGenreRedacted ? .placeholder : [])

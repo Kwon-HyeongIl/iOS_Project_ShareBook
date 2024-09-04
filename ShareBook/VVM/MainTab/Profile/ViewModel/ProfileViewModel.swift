@@ -27,6 +27,12 @@ class ProfileViewModel: Hashable, Equatable {
     var selectedItem: PhotosPickerItem?
     var uiImage: UIImage?
     
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
+    ]
+    
     init(user: User?) {
         guard let _ = user else { return }
         self.user = user

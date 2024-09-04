@@ -20,11 +20,7 @@ struct ProfileView: View {
         self.commentSheetCapsule = commentSheetCapsule
     }
     
-    let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 0),
-        GridItem(.flexible(), spacing: 0),
-        GridItem(.flexible(), spacing: 0)
-    ]
+    
     
     var body: some View {
         GeometryReader { proxy in
@@ -313,7 +309,7 @@ struct ProfileView: View {
                             }
                         }
                         
-                        LazyVGrid(columns: columns, spacing: viewModel.calSizeBase4And393(proxyWidth: proxy.size.width)) {
+                        LazyVGrid(columns: viewModel.columns, spacing: viewModel.calSizeBase4And393(proxyWidth: proxy.size.width)) {
                             ForEach(viewModel.posts) { post in
                                 PostProfileCoverView(post: post)
                                     .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
