@@ -322,6 +322,11 @@ struct ProfileView: View {
                     }
                 }
             }
+            .task {
+                Task {
+                    await viewModel.basicLoading()
+                }
+            }
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

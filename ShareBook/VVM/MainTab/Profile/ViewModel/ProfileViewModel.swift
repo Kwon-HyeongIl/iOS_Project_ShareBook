@@ -57,6 +57,20 @@ class ProfileViewModel: Hashable, Equatable {
         }
     }
     
+    func basicLoading() async {
+        await loadAllUserPosts(userId: user?.id ?? "")
+        
+        // 타이틀 글이 변경되었을 경우
+        if let postId = AuthManager.shared.currentUser?.titlePostId {
+            let post = await PostManager.loadSpecificPost(postId: postId)
+            self.titlePost = post
+            
+        // 타이틀 글이 삭제 되었을 경우
+        } else {
+            self.titlePost = nil
+        }
+    }
+    
     func loadAllUserPosts(userId: String) async {
         self.posts = await PostManager.loadAllUserPosts(userId: userId)
     }
