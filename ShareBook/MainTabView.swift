@@ -13,9 +13,9 @@ struct MainTabView: View {
     
     let currentUser: User?
     
-    init(currentUser: User?) {
+    init() {
         UITabBar.appearance().isHidden = true
-        self.currentUser = currentUser
+        self.currentUser = AuthManager.shared.currentUser
     }
     
     var body: some View {
@@ -52,5 +52,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(currentUser: User.DUMMY_USER)
+    MainTabView()
 }

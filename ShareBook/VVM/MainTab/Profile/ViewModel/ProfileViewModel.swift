@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import FirebaseFirestore
 
 @Observable
 class ProfileViewModel: Hashable, Equatable {
@@ -124,8 +125,9 @@ class ProfileViewModel: Hashable, Equatable {
         
         if let titlePost {
             editedData["titlePostId"] = titlePost.id
-        } else { // 타이틀 글을 취소한 경우
-            AuthManager.shared.currentUser?.titlePostId = nil
+        } else {
+            // 타이틀 글을 취소한 경우
+            editedData["titlePostId"] = FieldValue.delete()
         }
         
         await ProfileManager.updateUser(editedData: editedData)

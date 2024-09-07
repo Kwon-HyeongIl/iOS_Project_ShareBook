@@ -13,8 +13,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            if let currentUser = AuthManager.shared.currentUser {
-                MainTabView(currentUser: currentUser)
+            if AuthManager.shared.currentUser != nil {
+                MainTabView()
 
             } else {
                 LoginView()
