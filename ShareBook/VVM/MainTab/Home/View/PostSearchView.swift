@@ -13,7 +13,7 @@ struct PostSearchView: View {
     @State private var viewModel = PostSearchViewModel()
     
     @State private var searchText = ""
-    @State private var isGenreRedacted = true
+    @State private var isPostCoverRedacted = true
     
     var body: some View {
         GeometryReader { proxy in
@@ -23,13 +23,13 @@ struct PostSearchView: View {
                         LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
                             ForEach(viewModel.posts) { post in
                                 PostCoverView(post: post)
-                                    .redacted(reason: isGenreRedacted ? .placeholder : [])
-                                    .shimmering(active: isGenreRedacted ? true : false, bandSize: 0.4)
+                                    .redacted(reason: isPostCoverRedacted ? .placeholder : [])
+                                    .shimmering(active: isPostCoverRedacted ? true : false, bandSize: 0.4)
                             }
                         }
-                        .padding(.top)
-                        .padding(.horizontal, 5)
                     }
+                    .padding(.top, 10)
+                    .padding(.horizontal, 5)
                 }
             }
             .navigationBarBackButtonHidden()
@@ -60,15 +60,14 @@ struct PostSearchView: View {
                                     Task {
                                         await viewModel.searchPostByBookName(searchText: searchText)
                                         
-                                        isGenreRedacted = true
+                                        isPostCoverRedacted = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                             withAnimation(.easeOut(duration: 0.4)) {
-                                                isGenreRedacted = false
+                                                isPostCoverRedacted = false
                                             }
                                         }
                                     }
                                 }
-                            
                         }
                         .frame(height: 38)
                         .background(.regularMaterial)
@@ -79,6 +78,8 @@ struct PostSearchView: View {
                         }
                     }
                     .frame(width: max(0, proxy.size.width - 35))
+                    .padding(.bottom, 10)
+                    .padding(.top, 5)
                 }
             }
         }
