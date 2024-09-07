@@ -64,6 +64,7 @@ struct ProfileOptionView: View {
                         withAnimation(.easeOut(duration: 0.4)) {
                             viewModel.signOut()
                         }
+                        navStackControlTower.popToRoot()
                     } label: {
                         Text("계속")
                     }

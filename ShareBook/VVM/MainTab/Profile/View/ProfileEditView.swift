@@ -11,9 +11,8 @@ import Kingfisher
 
 struct ProfileEditView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
     @Bindable var viewModel: ProfileViewModel
-    
-    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule: SelectedMainTabCapsule
     
     @State private var isTitleBookAlertShowing = false
     
@@ -214,7 +213,7 @@ struct ProfileEditView: View {
                     .alert("!!", isPresented: $isTitleBookAlertShowing) {
                         Button {
                             navStackControlTower.popToRoot()
-                            selectedMainTabCapsule.selectedTab = .plusSquareOnSquare
+                            mainTabIndexCapsule.index = 1
                         } label: {
                             Text("확인")
                         }

@@ -10,9 +10,8 @@ import Kingfisher
 
 struct PostDetailView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
     @Bindable var viewModel: PostViewModel
-    
-    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
     
     @Bindable var commentSheetCapsule: CommentSheetCapsule
     
@@ -224,7 +223,7 @@ struct PostDetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     navStackControlTower.popToRoot()
-                    selectedMainTabCapsule.selectedTab = .house
+                    mainTabIndexCapsule.index = 0
                 } label: {
                     Image(systemName: "house")
                         .resizable()

@@ -8,49 +8,46 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var navStackControlTower = NavStackControlTower()
-    @State private var selectedMainTabCapsule = SelectedMainTabCapsule()
+    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
     
     let currentUser: User?
     
     init() {
-        UITabBar.appearance().isHidden = true
         self.currentUser = AuthManager.shared.currentUser
     }
     
     var body: some View {
-        NavigationStack(path: $navStackControlTower.path) {
-            ZStack {
-                switch selectedMainTabCapsule.selectedTab {
-                    
-                case .house:
-                    HomeView()
-                    
-                case .plusSquareOnSquare:
-                    NewPostView()
-                    
-                case .heart:
-                    LikeView()
-                    
-                case .person:
-                    ProfileView(user: currentUser, commentSheetCapsule: nil)
+        @Bindable var mainTabIndexCapsule = mainTabIndexCapsule
+        
+        TabView(selection: $mainTabIndexCapsule.index) {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house")
                 }
-                
-                VStack {
-                    Spacer()
-                    MainCustomTabView()
+                .tag(0)
+            
+            NewPostView()
+                .tabItem {
+                    Image(systemName: "plus.square.on.square")
                 }
-            }
-            .navigationDestination(for: NavStackView.self) { view in
-                navStackControlTower.navigate(to: view)
-            }
+                .tag(1)
+            
+            LikeView()
+                .tabItem {
+                    Image(systemName: "heart")
+                }
+                .tag(2)
+            
+            ProfileView(user: currentUser, commentSheetCapsule: nil)
+                .tabItem {
+                    Image(systemName: "person")
+                }
+                .tag(3)
         }
-        .environment(navStackControlTower)
-        .environment(selectedMainTabCapsule)
-        .tint(.black)
     }
 }
 
 #Preview {
     MainTabView()
+        .environment(MainTabIndexCapsule())
 }

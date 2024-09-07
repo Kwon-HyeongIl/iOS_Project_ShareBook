@@ -10,9 +10,9 @@ import Kingfisher
 
 struct NewPostUploadPostView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
     @State private var viewModel: NewPostUploadPostViewModel
     
-    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
     
     @State private var isImpressivePhraseShowing = true
     @State private var isImpressiveAlertShowing = false
@@ -223,7 +223,7 @@ struct NewPostUploadPostView: View {
                                         }
                                         
                                         navStackControlTower.popToRoot()
-                                        selectedMainTabCapsule.selectedTab = .house
+                                        mainTabIndexCapsule.index = 0
                                     } label: {
                                         Text("작성")
                                             .modifier(InViewButtonModifier(bgColor: .sBColor))
@@ -240,7 +240,7 @@ struct NewPostUploadPostView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         navStackControlTower.popToRoot()
-                        selectedMainTabCapsule.selectedTab = .house
+                        mainTabIndexCapsule.index = 0
                     } label: {
                         Image(systemName: "house")
                             .resizable()

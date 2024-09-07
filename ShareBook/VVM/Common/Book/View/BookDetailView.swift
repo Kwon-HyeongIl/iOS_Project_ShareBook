@@ -10,9 +10,8 @@ import Kingfisher
 
 struct BookDetailView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
     @Bindable var viewModel: BookViewModel
-    
-    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
     
     var body: some View {
         GradientBackgroundView {
@@ -109,7 +108,7 @@ struct BookDetailView: View {
                     
                     Button {
                         navStackControlTower.popToRoot()
-                        selectedMainTabCapsule.selectedTab = .house
+                        mainTabIndexCapsule.index = 0
                     } label: {
                         Image(systemName: "house")
                             .resizable()

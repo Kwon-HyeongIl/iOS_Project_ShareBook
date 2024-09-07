@@ -20,6 +20,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct ShareBookApp: App {
+    @State private var navStackControlTower = NavStackControlTower()
+    @State private var mainTabIndexCapsule = MainTabIndexCapsule()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
@@ -31,13 +33,22 @@ struct ShareBookApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().onOpenURL { url in
-                
-                // Kakao 로그인 URL 처리
-                if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                    _ = AuthController.handleOpenUrl(url: url)
+            NavigationStack(path: $navStackControlTower.path) {
+                ContentView()
+                    .navigationDestination(for: NavStackView.self) { view in
+                        navStackControlTower.navigate(to: view)
+                    }
+                    .onOpenURL { url in
+                    
+                    // Kakao 로그인 URL 처리
+                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
                 }
             }
+            .tint(.black)
         }
+        .environment(navStackControlTower)
+        .environment(mainTabIndexCapsule)
     }
 }
