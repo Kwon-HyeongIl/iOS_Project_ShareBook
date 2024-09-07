@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostCoverView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel: PostViewModel
     
     @State private var commentSheetCapsule = CommentSheetCapsule()
@@ -24,7 +24,7 @@ struct PostCoverView: View {
     var body: some View {
         VStack(spacing: 0) {
             Button {
-                navStackControlTower.push(.PostDetailView(viewModel, commentSheetCapsule))
+                navRouter.move(.PostDetailView(viewModel, commentSheetCapsule))
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
@@ -66,7 +66,7 @@ struct PostCoverView: View {
             
             HStack(spacing: 0) {
                 Button {
-                    navStackControlTower.push(.ProfileView(viewModel.post.user, nil))
+                    navRouter.move(.ProfileView(viewModel.post.user, nil))
                 } label: {
                     HStack(spacing: 0) {
                         if let profileImageUrl = viewModel.post.user.profileImageUrl {
@@ -116,7 +116,7 @@ struct PostCoverView: View {
                     .padding(.trailing, 7)
                 
                 Button {
-                    navStackControlTower.push(.PostDetailView(viewModel, commentSheetCapsule))
+                    navRouter.move(.PostDetailView(viewModel, commentSheetCapsule))
                     commentSheetCapsule.isCommentSheetShowing = true
                 } label: {
                     Image(systemName: "bubble.right")
@@ -143,6 +143,6 @@ struct PostCoverView: View {
 
 #Preview {
     PostCoverView(post: Post.DUMMY_POST)
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
 }
 

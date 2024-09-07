@@ -8,6 +8,6 @@
 import Foundation
 
 @Observable
-class MainTabIndexCapsule {
+class MainTabCapsule {
     var index = 0
 }

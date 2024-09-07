@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProfileOptionView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
+    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: ProfileViewModel
     
     @State private var isLogoutAlertShowing = false
@@ -18,7 +18,7 @@ struct ProfileOptionView: View {
         GradientBackgroundView {
             VStack {
                 Button {
-                    navStackControlTower.push(.FeedbackView)
+                    navRouter.move(.FeedbackView)
                 } label: {
                     HStack {
                         Image(systemName: "exclamationmark.bubble")
@@ -65,8 +65,8 @@ struct ProfileOptionView: View {
                         withAnimation(.easeOut(duration: 0.4)) {
                             viewModel.signOut()
                         }
-                        navStackControlTower.popToRoot()
-                        mainTabIndexCapsule.index = 0
+                        navRouter.popToRoot()
+                        mainTabCapsule.index = 0
                     } label: {
                         Text("계속")
                     }
@@ -82,5 +82,6 @@ struct ProfileOptionView: View {
 
 #Preview {
     ProfileOptionView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
+        .environment(MainTabCapsule())
 }

@@ -9,8 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct NewPostUploadPostView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
+    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(MainTabCapsule.self) var mainTabCapsule
     @State private var viewModel: NewPostUploadPostViewModel
     
     
@@ -222,8 +222,8 @@ struct NewPostUploadPostView: View {
                                             await viewModel.uploadPost()
                                         }
                                         
-                                        navStackControlTower.popToRoot()
-                                        mainTabIndexCapsule.index = 0
+                                        navRouter.popToRoot()
+                                        mainTabCapsule.index = 0
                                     } label: {
                                         Text("작성")
                                             .modifier(InViewButtonModifier(bgColor: .sBColor))
@@ -239,8 +239,8 @@ struct NewPostUploadPostView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        navStackControlTower.popToRoot()
-                        mainTabIndexCapsule.index = 0
+                        navRouter.popToRoot()
+                        mainTabCapsule.index = 0
                     } label: {
                         Image(systemName: "house")
                             .resizable()
@@ -257,6 +257,6 @@ struct NewPostUploadPostView: View {
 
 #Preview {
     NewPostUploadPostView(book: Book.DUMMY_BOOK)
-        .environment(NavStackControlTower())
-        .environment(SelectedMainTabCapsule())
+        .environment(NavRouter())
+        .environment(MainTabCapsule())
 }

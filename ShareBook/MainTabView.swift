@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
+    @Environment(MainTabCapsule.self) var mainTabCapsule
     
     let currentUser: User?
     
@@ -17,9 +17,9 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        @Bindable var mainTabIndexCapsule = mainTabIndexCapsule
+        @Bindable var mainTabCapsule = mainTabCapsule
         
-        TabView(selection: $mainTabIndexCapsule.index) {
+        TabView(selection: $mainTabCapsule.index) {
             HomeView()
                 .tabItem {
                     Image(systemName: "house")
@@ -49,5 +49,5 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
-        .environment(MainTabIndexCapsule())
+        .environment(MainTabCapsule())
 }

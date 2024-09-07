@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeedbackView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel = FeedbackViewModel()
     
     @State private var isContentAlertShowing = false
@@ -76,7 +76,7 @@ struct FeedbackView: View {
                     }
                     .alert("성공적으로 제출하였습니다!", isPresented: $isSubmitFinishAlertShowing) {
                         Button {
-                            navStackControlTower.pop()
+                            navRouter.back()
                         } label: {
                             Text("확인")
                         }
@@ -102,5 +102,5 @@ struct FeedbackView: View {
 
 #Preview {
     FeedbackView()
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
 }

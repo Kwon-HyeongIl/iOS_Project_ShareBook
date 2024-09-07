@@ -20,8 +20,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct ShareBookApp: App {
-    @State private var navStackControlTower = NavStackControlTower()
-    @State private var mainTabIndexCapsule = MainTabIndexCapsule()
+    @State private var navStackControlTower = NavRouter()
+    @State private var mainTabCapsule = MainTabCapsule()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
@@ -49,6 +49,6 @@ struct ShareBookApp: App {
             .tint(.black)
         }
         .environment(navStackControlTower)
-        .environment(mainTabIndexCapsule)
+        .environment(mainTabCapsule)
     }
 }

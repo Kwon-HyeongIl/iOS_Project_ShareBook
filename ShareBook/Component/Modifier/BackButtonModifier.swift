@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BackButtonModifier: ViewModifier {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navStackControlTower: NavRouter
 //    @Environment(\.dismiss) var dismiss
     
     func body(content: Content) -> some View {
@@ -18,7 +18,7 @@ struct BackButtonModifier: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        navStackControlTower.pop()
+                        navStackControlTower.back()
                     } label: {
                         Image(systemName: "chevron.left")
                             .fontWeight(.medium)

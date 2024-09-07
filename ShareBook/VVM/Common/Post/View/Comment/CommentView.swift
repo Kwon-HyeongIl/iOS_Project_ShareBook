@@ -9,10 +9,10 @@ import SwiftUI
 import Kingfisher
 
 struct CommentView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(CommentSheetCapsule.self) var commentSheetCapsule: CommentSheetCapsule
     @State private var viewModel: CommentViewModel
     
-    @Environment(CommentSheetCapsule.self) var commentSheetCapsule: CommentSheetCapsule
     
     @Binding var selectedComment: String
     @Binding var selectedCommentUsername: String
@@ -33,7 +33,7 @@ struct CommentView: View {
         HStack(alignment: .top) {
             Button {
                 commentSheetCapsule.isCommentSheetShowing = false
-                navStackControlTower.push(.ProfileView(viewModel.comment.commentUser, commentSheetCapsule))
+                navRouter.move(.ProfileView(viewModel.comment.commentUser, commentSheetCapsule))
             } label: {
                 if let profileImageUrl = viewModel.comment.commentUser?.profileImageUrl {
                         KFImage(URL(string: profileImageUrl))
@@ -161,6 +161,6 @@ struct CommentView: View {
 
 #Preview {
     CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false))
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
         .environment(CommentSheetCapsule())
 }

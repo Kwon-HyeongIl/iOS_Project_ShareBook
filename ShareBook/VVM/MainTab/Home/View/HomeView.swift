@@ -10,7 +10,7 @@ import Kingfisher
 import Shimmer
 
 struct HomeView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel = HomeViewModel()
     
     @State private var selectedGenre = Genre.all
@@ -33,7 +33,7 @@ struct HomeView: View {
                                 Spacer()
                                 
                                 Button {
-                                    navStackControlTower.push(.PostSearchView)
+                                    navRouter.move(.PostSearchView)
                                 } label: {
                                     Image(systemName: "magnifyingglass")
                                         .resizable()
@@ -188,5 +188,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
 }

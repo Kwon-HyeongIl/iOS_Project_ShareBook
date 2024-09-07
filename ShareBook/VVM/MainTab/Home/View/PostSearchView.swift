@@ -9,7 +9,7 @@ import SwiftUI
 import Shimmer
 
 struct PostSearchView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel = PostSearchViewModel()
     
     @State private var searchText = ""
@@ -38,7 +38,7 @@ struct PostSearchView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     HStack {
                         Button {
-                            navStackControlTower.pop()
+                            navRouter.back()
                         } label: {
                             Image(systemName: "chevron.left")
                                 .fontWeight(.medium)
@@ -88,5 +88,5 @@ struct PostSearchView: View {
 
 #Preview {
     PostSearchView()
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
 }

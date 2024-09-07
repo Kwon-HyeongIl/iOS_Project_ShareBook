@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel: ProfileViewModel
     
     @State private var isUnFollowAlertShowing = false
@@ -90,7 +90,7 @@ struct ProfileView: View {
                                     
                                     if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                         Button {
-                                            navStackControlTower.push(.ProfileOptionView(viewModel))
+                                            navRouter.move(.ProfileOptionView(viewModel))
                                         } label: {
                                             Image(systemName: "gearshape")
                                                 .resizable()
@@ -153,7 +153,7 @@ struct ProfileView: View {
                                 
                                 if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                     Button {
-                                        navStackControlTower.push(.ProfileEditView(viewModel))
+                                        navRouter.move(.ProfileEditView(viewModel))
                                     } label: {
                                         VStack {
                                             Text("프로필 편집")
@@ -326,7 +326,7 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        navStackControlTower.pop()
+                        navRouter.back()
                         if let commentSheetCapsule {
                             commentSheetCapsule.isCommentSheetShowing = true
                         }
@@ -342,5 +342,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView(user: User.DUMMY_USER, commentSheetCapsule: nil)
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
 }

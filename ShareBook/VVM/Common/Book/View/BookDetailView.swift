@@ -9,8 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct BookDetailView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
+    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: BookViewModel
     
     var body: some View {
@@ -28,7 +28,7 @@ struct BookDetailView: View {
                     .frame(maxWidth: .infinity)
                     
                     Button {
-                        navStackControlTower.push(.NewPostUploadPostView(viewModel.book))
+                        navRouter.move(.NewPostUploadPostView(viewModel.book))
                     } label: {
                         HStack {
                             Text("글 작성")
@@ -107,8 +107,8 @@ struct BookDetailView: View {
                     }
                     
                     Button {
-                        navStackControlTower.popToRoot()
-                        mainTabIndexCapsule.index = 0
+                        navRouter.popToRoot()
+                        mainTabCapsule.index = 0
                     } label: {
                         Image(systemName: "house")
                             .resizable()
@@ -134,5 +134,6 @@ struct BookDetailView: View {
 
 #Preview {
     BookDetailView(viewModel: BookViewModel(book: Book.DUMMY_BOOK))
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
+        .environment(MainTabCapsule())
 }

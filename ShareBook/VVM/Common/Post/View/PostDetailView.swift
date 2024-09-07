@@ -9,8 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct PostDetailView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
+    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: PostViewModel
     
     @Bindable var commentSheetCapsule: CommentSheetCapsule
@@ -24,7 +24,7 @@ struct PostDetailView: View {
                 VStack {
                     HStack {
                         Button {
-                            navStackControlTower.push(.ProfileView(viewModel.post.user, nil))
+                            navRouter.move(.ProfileView(viewModel.post.user, nil))
                         } label: {
                             HStack {
                                 if let profileImageUrl = viewModel.post.user.profileImageUrl {
@@ -222,8 +222,8 @@ struct PostDetailView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    navStackControlTower.popToRoot()
-                    mainTabIndexCapsule.index = 0
+                    navRouter.popToRoot()
+                    mainTabCapsule.index = 0
                 } label: {
                     Image(systemName: "house")
                         .resizable()
@@ -241,5 +241,6 @@ struct PostDetailView: View {
 
 #Preview {
     PostDetailView(viewModel: PostViewModel(post: Post.DUMMY_POST), commentSheetCapsule: CommentSheetCapsule())
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
+        .environment(MainTabCapsule())
 }

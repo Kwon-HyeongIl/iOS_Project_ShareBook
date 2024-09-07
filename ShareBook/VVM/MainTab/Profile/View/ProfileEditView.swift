@@ -10,8 +10,8 @@ import PhotosUI
 import Kingfisher
 
 struct ProfileEditView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
-    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
+    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: ProfileViewModel
     
     @State private var isTitleBookAlertShowing = false
@@ -121,7 +121,7 @@ struct ProfileEditView: View {
                     
                     Button {
                         if !viewModel.posts.isEmpty {
-                            navStackControlTower.push(.ProfileEditPostPickerView(viewModel))
+                            navRouter.move(.ProfileEditPostPickerView(viewModel))
                         } else {
                             isTitleBookAlertShowing = true
                         }
@@ -212,8 +212,8 @@ struct ProfileEditView: View {
                     }
                     .alert("!!", isPresented: $isTitleBookAlertShowing) {
                         Button {
-                            navStackControlTower.popToRoot()
-                            mainTabIndexCapsule.index = 1
+                            navRouter.popToRoot()
+                            mainTabCapsule.index = 1
                         } label: {
                             Text("확인")
                         }
@@ -235,7 +235,7 @@ struct ProfileEditView: View {
                 Button {
                     Task {
                         try await viewModel.updateUser()
-                        navStackControlTower.pop()
+                        navRouter.back()
                     }
                 } label: {
                     HStack {
@@ -251,6 +251,6 @@ struct ProfileEditView: View {
 
 #Preview {
     ProfileEditView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
-        .environment(NavStackControlTower())
-        .environment(SelectedMainTabCapsule())
+        .environment(NavRouter())
+        .environment(MainTabCapsule())
 }

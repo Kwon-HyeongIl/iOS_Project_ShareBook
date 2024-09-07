@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoreOptionsView: View {
-    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel: MoreOptionsViewModel
     
     @State private var isDeleteAlertShowing = false
@@ -58,7 +58,7 @@ struct MoreOptionsView: View {
                             Task {
                                 await viewModel.deletePost()
                                 isMoreOptionsSheetShowing = false
-                                navStackControlTower.pop()
+                                navRouter.back()
                             }
                         } label: {
                             Text("삭제")
@@ -117,5 +117,5 @@ struct MoreOptionsView: View {
 
 #Preview {
     MoreOptionsView(post: Post.DUMMY_POST, isMoreOptionsSheetShowing: .constant(true))
-        .environment(NavStackControlTower())
+        .environment(NavRouter())
 }

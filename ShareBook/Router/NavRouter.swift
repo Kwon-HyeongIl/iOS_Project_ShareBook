@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class NavStackControlTower {
+class NavRouter {
     var path = NavigationPath()
     
     @ViewBuilder
@@ -48,11 +48,11 @@ class NavStackControlTower {
         }
     }
     
-    func push(_ view: NavStackView) {
+    func move(_ view: NavStackView) {
         path.append(view)
     }
     
-    func pop() {
+    func back() {
         path.removeLast()
     }
     
