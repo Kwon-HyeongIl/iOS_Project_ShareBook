@@ -41,7 +41,7 @@ struct ProfileView: View {
                             Rectangle()
                                 .foregroundStyle(Color.sBColor)
                                 .opacity(0.6)
-                                .frame(height: 330)
+                                .frame(height: 340)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                             
@@ -82,7 +82,8 @@ struct ProfileView: View {
                                             .font(.system(size: 14))
                                             .fontWeight(.semibold)
                                             .foregroundStyle(.black)
-                                            .opacity(0.7)
+                                            .opacity(0.6)
+                                            .padding(.leading, 3)
                                         
                                     }
                                     
@@ -103,83 +104,61 @@ struct ProfileView: View {
                                         }
                                     }
                                 }
-                                .padding(.bottom)
+                                .padding(.bottom, 14)
                                 
-                                HStack(spacing: 60) {
-                                    VStack(spacing: 3) {
-                                        Text("기록한 구절")
-                                            .font(.system(size: 15))
-                                            .fontWeight(.semibold)
-                                            .foregroundStyle(.black)
-                                            .opacity(0.7)
-                                        
-                                        Text("\(viewModel.posts.count)")
-                                            .font(.system(size: 15))
-                                            .fontWeight(.semibold)
-                                            .foregroundStyle(.black)
-                                            .opacity(0.7)
-                                    }
-                                    
-                                    VStack(spacing: 3) {
-                                        Text("팔로워")
-                                            .font(.system(size: 15))
-                                            .fontWeight(.semibold)
-                                            .foregroundStyle(.black)
-                                            .opacity(0.7)
-                                        
-                                        Text("\(viewModel.followerCount)")
-                                            .font(.system(size: 15))
-                                            .fontWeight(.semibold)
-                                            .foregroundStyle(.black)
-                                            .opacity(0.7)
-                                    }
-                                    
-                                    VStack(spacing: 3) {
-                                        Text("팔로잉")
-                                            .font(.system(size: 15))
-                                            .fontWeight(.semibold)
-                                            .foregroundStyle(.black)
-                                            .opacity(0.7)
-                                        
-                                        Text("\(viewModel.followingCount)")
-                                            .font(.system(size: 15))
-                                            .fontWeight(.semibold)
-                                            .foregroundStyle(.black)
-                                            .opacity(0.7)
-                                    }
-                                }
-                                .padding(.top, 5)
-                                .padding(.bottom, 10)
-                                
-                                if let isMyProfile = viewModel.isMyProfile, isMyProfile {
-                                    Button {
-                                        navRouter.move(.ProfileEditView(viewModel))
-                                    } label: {
-                                        VStack {
-                                            Text("프로필 편집")
+                                VStack {
+                                    HStack(spacing: 60) {
+                                        VStack(spacing: 3) {
+                                            Text("기록한 구절")
                                                 .font(.system(size: 15))
                                                 .fontWeight(.semibold)
-                                                .foregroundStyle(Color.sBColor)
+                                                .foregroundStyle(.black)
+                                                .opacity(0.7)
+                                            
+                                            Text("\(viewModel.posts.count)")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
+                                                .opacity(0.7)
                                         }
-                                        .frame(height: 35)
-                                        .frame(maxWidth: .infinity)
-                                        .background(.thinMaterial)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                        .overlay {
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color.sBColor, lineWidth: 1.0)
+                                        
+                                        VStack(spacing: 3) {
+                                            Text("팔로워")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
+                                                .opacity(0.7)
+                                            
+                                            Text("\(viewModel.followerCount)")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
+                                                .opacity(0.7)
                                         }
-                                        .padding(.horizontal, 50)
-                                        .padding(.bottom, 10)
+                                        
+                                        VStack(spacing: 3) {
+                                            Text("팔로잉")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
+                                                .opacity(0.7)
+                                            
+                                            Text("\(viewModel.followingCount)")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.semibold)
+                                                .foregroundStyle(.black)
+                                                .opacity(0.7)
+                                        }
                                     }
+                                    .padding(.top, 5)
+                                    .padding(.bottom, 10)
                                     
-                                } else {
-                                    if viewModel.isFollow == true {
+                                    if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                         Button {
-                                            isUnFollowAlertShowing = true
+                                            navRouter.move(.ProfileEditView(viewModel))
                                         } label: {
                                             VStack {
-                                                Text("팔로우 취소")
+                                                Text("프로필 편집")
                                                     .font(.system(size: 15))
                                                     .fontWeight(.semibold)
                                                     .foregroundStyle(Color.sBColor)
@@ -192,49 +171,79 @@ struct ProfileView: View {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(Color.sBColor, lineWidth: 1.0)
                                             }
-                                            .padding(.horizontal, 50)
-                                            .padding(.bottom, 10)
-                                        }
-                                        .alert("정말 팔로우를 취소하시겠습니까?", isPresented: $isUnFollowAlertShowing) {
-                                            Button(role: .cancel) {
-                                                
-                                            } label: {
-                                                Text("취소")
-                                            }
-                                            
-                                            Button(role: .destructive) {
-                                                Task {
-                                                    await viewModel.unFollow()
-                                                }
-                                            } label: {
-                                                Text("계속")
-                                            }
-                                            
-                                        } message: {
-                                            
+                                            .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                            .padding(.horizontal, 40)
                                         }
                                         
                                     } else {
-                                        Button {
-                                            Task {
-                                                await viewModel.follow()
+                                        if viewModel.isFollow == true {
+                                            Button {
+                                                isUnFollowAlertShowing = true
+                                            } label: {
+                                                VStack {
+                                                    Text("팔로우 취소")
+                                                        .font(.system(size: 15))
+                                                        .fontWeight(.semibold)
+                                                        .foregroundStyle(Color.sBColor)
+                                                }
+                                                .frame(height: 35)
+                                                .frame(maxWidth: .infinity)
+                                                .background(.thinMaterial)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                .overlay {
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                        .stroke(Color.sBColor, lineWidth: 1.0)
+                                                }
+                                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                                .padding(.horizontal, 40)
                                             }
-                                        } label: {
-                                            VStack {
-                                                Text("팔로우")
-                                                    .font(.system(size: 15))
-                                                    .fontWeight(.medium)
-                                                    .foregroundStyle(.white)
+                                            .alert("정말 팔로우를 취소하시겠습니까?", isPresented: $isUnFollowAlertShowing) {
+                                                Button(role: .cancel) {
+                                                    
+                                                } label: {
+                                                    Text("취소")
+                                                }
+                                                
+                                                Button(role: .destructive) {
+                                                    Task {
+                                                        await viewModel.unFollow()
+                                                    }
+                                                } label: {
+                                                    Text("계속")
+                                                }
+                                                
+                                            } message: {
+                                                
                                             }
-                                            .frame(height: 35)
-                                            .frame(maxWidth: .infinity)
-                                            .background(Color.sBColor)
-                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                            .padding(.horizontal, 50)
-                                            .padding(.bottom, 10)
+                                            
+                                        } else {
+                                            Button {
+                                                Task {
+                                                    await viewModel.follow()
+                                                }
+                                            } label: {
+                                                VStack {
+                                                    Text("팔로우")
+                                                        .font(.system(size: 15))
+                                                        .fontWeight(.medium)
+                                                        .foregroundStyle(.white)
+                                                }
+                                                .frame(height: 35)
+                                                .frame(maxWidth: .infinity)
+                                                .background(Color.sBColor)
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                                .padding(.horizontal, 40)
+                                            }
                                         }
                                     }
                                 }
+                                .frame(height: 120)
+                                .background(.ultraThinMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                .padding(.horizontal)
+                                .padding(.bottom, 5)
                                 
                                 ZStack {
                                     Rectangle()
@@ -242,47 +251,52 @@ struct ProfileView: View {
                                         .frame(height: 100)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                         .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                                        .padding(.horizontal, 20)
+                                        .padding(.horizontal)
                                     
                                     HStack {
                                         if let titlePost = viewModel.titlePost {
-                                            HStack {
-                                                KFImage(URL(string: titlePost.book.image))
-                                                    .resizable()
-                                                    .frame(width: 60, height: 85)
-                                                    .clipShape(RoundedRectangle(cornerRadius: 7))
-                                                    .padding(.leading, 30)
-                                                    .padding(.trailing, 5)
-                                                
-                                                VStack {
-                                                    Image(systemName: "quote.opening")
+                                            Button {
+                                                //
+                                            } label: {
+                                                HStack {
+                                                    KFImage(URL(string: titlePost.book.image))
                                                         .resizable()
-                                                        .scaledToFit()
-                                                        .foregroundStyle(Color.sBColor)
-                                                        .frame(width: 15)
-                                                        .padding(.bottom, 70)
-                                                }
-                                                
-                                                Spacer()
-                                                
-                                                Text("\(titlePost.impressivePhrase)")
-                                                    .font(.system(size: 13))
-                                                    .multilineTextAlignment(.center)
-                                                    .lineLimit(4)
-                                                    .truncationMode(.tail)
-                                                
-                                                Spacer()
+                                                        .frame(width: 60, height: 85)
+                                                        .clipShape(RoundedRectangle(cornerRadius: 7))
+                                                        .padding(.leading, 30)
+                                                        .padding(.trailing, 5)
                                                     
-                                                VStack {
-                                                    Image(systemName: "quote.closing")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .foregroundStyle(Color.sBColor)
-                                                        .frame(width: 15)
-                                                        .padding(.top, 70)
-                                                        .padding(.trailing, 40)
+                                                    VStack {
+                                                        Image(systemName: "quote.opening")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .foregroundStyle(Color.sBColor)
+                                                            .frame(width: 15)
+                                                            .padding(.bottom, 70)
+                                                    }
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Text("\(titlePost.impressivePhrase)")
+                                                        .font(.system(size: 13))
+                                                        .multilineTextAlignment(.center)
+                                                        .lineLimit(4)
+                                                        .truncationMode(.tail)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    VStack {
+                                                        Image(systemName: "quote.closing")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .foregroundStyle(Color.sBColor)
+                                                            .frame(width: 15)
+                                                            .padding(.top, 70)
+                                                            .padding(.trailing, 40)
+                                                    }
                                                 }
                                             }
+                                            
                                         } else {
                                             ZStack {
                                                 Image(systemName: "book.closed")

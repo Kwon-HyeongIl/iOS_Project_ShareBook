@@ -132,7 +132,7 @@ struct ProfileEditView: View {
                                 .frame(height: 100)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
-                                .padding(.horizontal, 20)
+                                .padding(.horizontal)
                             
                             HStack {
                                 if let titlePost = viewModel.titlePost {
