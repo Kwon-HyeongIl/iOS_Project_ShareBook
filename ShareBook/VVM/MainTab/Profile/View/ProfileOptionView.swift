@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileOptionView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
+    @Environment(MainTabIndexCapsule.self) var mainTabIndexCapsule
     @Bindable var viewModel: ProfileViewModel
     
     @State private var isLogoutAlertShowing = false
@@ -65,6 +66,7 @@ struct ProfileOptionView: View {
                             viewModel.signOut()
                         }
                         navStackControlTower.popToRoot()
+                        mainTabIndexCapsule.index = 0
                     } label: {
                         Text("계속")
                     }
