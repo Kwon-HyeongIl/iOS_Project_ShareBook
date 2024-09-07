@@ -19,51 +19,8 @@ struct NewPostView: View {
     var body: some View {
         GeometryReader { proxy in
             GradientBackgroundView {
-                if isShowing {
-                    ZStack {
-                        Image("ShareBook_TextLogo")
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(Rectangle())
-                            .opacity(0.6)
-                            .frame(width: 300)
-                            .shadow(color: .sBColor.opacity(1), radius: 10, x: 5, y: 5)
-                            .shimmering(animation: .easeInOut(duration: 3).repeatCount(.max, autoreverses: false).delay(0))
-                        
-                        ZStack {
-                            Girl3DView()
-                            
-                            Image(systemName: "bubble.middle.bottom.fill")
-                                .resizable()
-                                .frame(width: 260, height: 100)
-                                .foregroundStyle(.white.opacity(0.4))
-                                .overlay {
-                                    Text("오늘은 어떤 가치를 발견 하셨나요?")
-                                        .font(.system(size: 15))
-                                        .modifier(ItalicFontModifier())
-                                        .padding(.bottom)
-                                }
-                                .padding(.bottom, 350)
-                            
-                        }
-                    }
-                }
-
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.bookList, id: \.self) { book in
-                            BookCoverView(book: book)
-                                .redacted(reason: isBookCoverRedacted ? .placeholder : [])
-                                .shimmering(active: isBookCoverRedacted ? true : false, bandSize: 0.4)
-                        }
-                    }
-                    .padding(.top, 5)
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
+                VStack {
+                    HStack(alignment: .center) {
                         Image(systemName: "magnifyingglass")
                             .resizable()
                             .scaledToFit()
@@ -96,9 +53,50 @@ struct NewPostView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.sBColor, lineWidth: 1)
                     }
-                    .frame(width: max(0, proxy.size.width - 50))
+                    .frame(width: max(0, proxy.size.width - 40))
                     .padding(.bottom, 10)
                     .padding(.top, 5)
+                    
+                    if isShowing {
+                        ZStack {
+                            Image("ShareBook_TextLogo")
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(Rectangle())
+                                .opacity(0.6)
+                                .frame(width: 300)
+                                .shadow(color: .sBColor.opacity(1), radius: 10, x: 5, y: 5)
+                                .shimmering(animation: .easeInOut(duration: 3).repeatCount(.max, autoreverses: false).delay(0))
+                            
+                            ZStack {
+                                Girl3DView()
+                                
+                                Image(systemName: "bubble.middle.bottom.fill")
+                                    .resizable()
+                                    .frame(width: 260, height: 100)
+                                    .foregroundStyle(.white.opacity(0.4))
+                                    .overlay {
+                                        Text("오늘은 어떤 가치를 발견 하셨나요?")
+                                            .font(.system(size: 15))
+                                            .modifier(ItalicFontModifier())
+                                            .padding(.bottom)
+                                    }
+                                    .padding(.bottom, 350)
+                                
+                            }
+                        }
+                    }
+                    
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(viewModel.bookList, id: \.self) { book in
+                                BookCoverView(book: book)
+                                    .redacted(reason: isBookCoverRedacted ? .placeholder : [])
+                                    .shimmering(active: isBookCoverRedacted ? true : false, bandSize: 0.4)
+                            }
+                        }
+                        .padding(.top, 5)
+                    }
                 }
             }
         }

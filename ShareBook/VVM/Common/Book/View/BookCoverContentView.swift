@@ -45,7 +45,6 @@ struct BookCoverContentView: View {
         .frame(height: 160)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .padding(.horizontal)
         .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
     }
 }
