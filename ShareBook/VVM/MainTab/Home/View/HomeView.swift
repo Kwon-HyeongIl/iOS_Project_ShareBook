@@ -29,7 +29,7 @@ struct HomeView: View {
                                 .clipShape(Rectangle())
                                 .frame(width: 100)
                             
-                            HStack(spacing: 15) {
+                            HStack(spacing: 20) {
                                 Spacer()
                                 
                                 Button {
@@ -38,14 +38,16 @@ struct HomeView: View {
                                     Image(systemName: "magnifyingglass")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 21)
+                                        .frame(width: 18)
+                                        .foregroundStyle(Color.sBColor)
                                 }
                                 
                                 Image(systemName: "bell")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 21)
+                                    .frame(width: 18)
                                     .padding(.trailing)
+                                    .foregroundStyle(Color.sBColor)
                             }
                             .padding(.bottom, 3)
                         }

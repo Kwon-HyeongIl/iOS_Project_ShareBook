@@ -20,8 +20,6 @@ struct ProfileView: View {
         self.commentSheetCapsule = commentSheetCapsule
     }
     
-    
-    
     var body: some View {
         GeometryReader { proxy in
             GradientBackgroundView {
@@ -97,7 +95,7 @@ struct ProfileView: View {
                                             Image(systemName: "gearshape")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 25)
+                                                .frame(width: 23)
                                                 .foregroundStyle(.black)
                                                 .opacity(0.7)
                                                 .padding(.trailing, 20)

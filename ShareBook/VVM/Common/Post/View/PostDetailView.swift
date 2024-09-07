@@ -12,6 +12,8 @@ struct PostDetailView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @Bindable var viewModel: PostViewModel
     
+    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
+    
     @Bindable var commentSheetCapsule: CommentSheetCapsule
     
     @State private var isFeelingCaptionExpanding = false
@@ -218,6 +220,21 @@ struct PostDetailView: View {
                 .presentationDetents([.fraction(0.2), .large])
         }
         .modifier(BackButtonModifier())
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    navStackControlTower.popToRoot()
+                    selectedMainTabCapsule.selectedTab = .house
+                } label: {
+                    Image(systemName: "house")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 23)
+                        .foregroundStyle(Color.sBColor)
+                        .padding(.trailing, 5)
+                }
+            }
+        }
     }
 }
 

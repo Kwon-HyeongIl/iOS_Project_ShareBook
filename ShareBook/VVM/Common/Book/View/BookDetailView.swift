@@ -12,6 +12,8 @@ struct BookDetailView: View {
     @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @Bindable var viewModel: BookViewModel
     
+    @Environment(SelectedMainTabCapsule.self) var selectedMainTabCapsule
+    
     var body: some View {
         GradientBackgroundView {
             VStack {
@@ -91,29 +93,40 @@ struct BookDetailView: View {
         .modifier(BackButtonModifier())
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "link")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .foregroundStyle(Color.sBColor)
-                }
-            }
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    Task {
-                        viewModel.isBookmark ? await viewModel.unBookmark() : await viewModel.bookmark()
+                HStack(spacing: 10) {
+                    Button {
+                        Task {
+                            viewModel.isBookmark ? await viewModel.unBookmark() : await viewModel.bookmark()
+                        }
+                    } label: {
+                        Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 14)
+                            .foregroundStyle(Color.sBColor)
+                            .padding(.trailing, 4)
                     }
-                } label: {
-                    Image(systemName: viewModel.isBookmark ? "bookmark.fill" : "bookmark")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .foregroundStyle(Color.sBColor)
-                        .padding(.trailing, 5)
+                    
+                    Button {
+                        navStackControlTower.popToRoot()
+                        selectedMainTabCapsule.selectedTab = .house
+                    } label: {
+                        Image(systemName: "house")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 23)
+                            .foregroundStyle(Color.sBColor)
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "link")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 23)
+                            .foregroundStyle(Color.sBColor)
+                    }
                 }
             }
         }
