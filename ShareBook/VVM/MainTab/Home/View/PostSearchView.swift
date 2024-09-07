@@ -27,10 +27,8 @@ struct PostSearchView: View {
                                     .shimmering(active: isGenreRedacted ? true : false, bandSize: 0.4)
                             }
                         }
-                        .padding(.top, 90)
+                        .padding(.top)
                         .padding(.horizontal, 5)
-                        
-                        Spacer()
                     }
                 }
             }
