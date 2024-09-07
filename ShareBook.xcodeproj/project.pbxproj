@@ -25,6 +25,9 @@
 		CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */; };
 		CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */; };
 		CA3221E02C7C2992003658B3 /* NavStackControlTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3221DF2C7C2992003658B3 /* NavStackControlTower.swift */; };
+		CA3A8D892C8C58C60032ECB6 /* PostSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A8D882C8C58C60032ECB6 /* PostSearchView.swift */; };
+		CA3A8D8B2C8C58CF0032ECB6 /* PostSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A8D8A2C8C58CF0032ECB6 /* PostSearchViewModel.swift */; };
+		CA3A8D8D2C8C660E0032ECB6 /* PostManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A8D8C2C8C660E0032ECB6 /* PostManager+Search.swift */; };
 		CA3C5D342C7E102A00C52D0B /* AuthManager+Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C5D332C7E102A00C52D0B /* AuthManager+Follow.swift */; };
 		CA3CA8FE2C7A0FBB007F2EDC /* PostCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3CA8FD2C7A0FBB007F2EDC /* PostCoverView.swift */; };
 		CA3CA9002C7A0FEB007F2EDC /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3CA8FF2C7A0FEB007F2EDC /* PostViewModel.swift */; };
@@ -141,6 +144,9 @@
 		CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsView.swift; sourceTree = "<group>"; };
 		CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsViewModel.swift; sourceTree = "<group>"; };
 		CA3221DF2C7C2992003658B3 /* NavStackControlTower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavStackControlTower.swift; sourceTree = "<group>"; };
+		CA3A8D882C8C58C60032ECB6 /* PostSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchView.swift; sourceTree = "<group>"; };
+		CA3A8D8A2C8C58CF0032ECB6 /* PostSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchViewModel.swift; sourceTree = "<group>"; };
+		CA3A8D8C2C8C660E0032ECB6 /* PostManager+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostManager+Search.swift"; sourceTree = "<group>"; };
 		CA3C5D332C7E102A00C52D0B /* AuthManager+Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Follow.swift"; sourceTree = "<group>"; };
 		CA3CA8FD2C7A0FBB007F2EDC /* PostCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoverView.swift; sourceTree = "<group>"; };
 		CA3CA8FF2C7A0FEB007F2EDC /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -716,6 +722,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB2E9932C69FB52006E1063 /* PostManager.swift */,
+				CA3A8D8C2C8C660E0032ECB6 /* PostManager+Search.swift */,
 				CA66D5862C6E2D35000DCAC2 /* PostManager+Like.swift */,
 			);
 			path = Post;
@@ -848,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				CABE31CA2C4CAE550010AC20 /* HomeView.swift */,
+				CA3A8D882C8C58C60032ECB6 /* PostSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -856,6 +864,7 @@
 			isa = PBXGroup;
 			children = (
 				CADD90792C6A55740023C512 /* HomeViewModel.swift */,
+				CA3A8D8A2C8C58CF0032ECB6 /* PostSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -964,6 +973,7 @@
 				CA70E7F62C785E6400E3B91B /* LikeView.swift in Sources */,
 				CA70E8022C785ED600E3B91B /* BookmarkBookView.swift in Sources */,
 				CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */,
+				CA3A8D8D2C8C660E0032ECB6 /* PostManager+Search.swift in Sources */,
 				CA66D5872C6E2D35000DCAC2 /* PostManager+Like.swift in Sources */,
 				CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */,
 				CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */,
@@ -995,6 +1005,7 @@
 				CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */,
 				CAD8FEFE2C53D6900000446B /* ImageManager.swift in Sources */,
 				CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */,
+				CA3A8D892C8C58C60032ECB6 /* PostSearchView.swift in Sources */,
 				CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */,
 				CA2567052C56A060009F13A2 /* Test3DView.swift in Sources */,
 				CACD58852C73096E0070593A /* CommentReplyView.swift in Sources */,
@@ -1046,6 +1057,7 @@
 				CA9A3FA72C78B74500804B8E /* BookViewModel.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
+				CA3A8D8B2C8C58CF0032ECB6 /* PostSearchViewModel.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
 				CAC354A82C823AEE00EEA8F9 /* ProfileManager.swift in Sources */,
 				CA20A8112C7CB5A7008F3E8B /* SelectedMainTabCapsule.swift in Sources */,

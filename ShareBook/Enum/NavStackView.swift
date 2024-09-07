@@ -9,6 +9,9 @@ import Foundation
 
 enum NavStackView: Hashable {
     
+    // Home
+    case PostSearchView
+    
     // NewPost
     case NewPostUploadPostView(Book)
     

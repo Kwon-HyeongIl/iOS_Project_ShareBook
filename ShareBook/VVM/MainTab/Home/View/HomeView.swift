@@ -10,6 +10,7 @@ import Kingfisher
 import Shimmer
 
 struct HomeView: View {
+    @Environment(NavStackControlTower.self) var navStackControlTower: NavStackControlTower
     @State private var viewModel = HomeViewModel()
     
     @State private var selectedGenre = Genre.all
@@ -20,11 +21,35 @@ struct HomeView: View {
         GeometryReader { proxy in
             GradientBackgroundView {
                 VStack(spacing: 0) {
-                    Image("ShareBook_TextLogo")
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(Rectangle())
-                        .frame(width: 100)
+                    HStack {
+                        ZStack {
+                            Image("ShareBook_TextLogo")
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(Rectangle())
+                                .frame(width: 100)
+                            
+                            HStack(spacing: 15) {
+                                Spacer()
+                                
+                                Button {
+                                    navStackControlTower.push(.PostSearchView)
+                                } label: {
+                                    Image(systemName: "magnifyingglass")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 21)
+                                }
+                                
+                                Image(systemName: "bell")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 21)
+                                    .padding(.trailing)
+                            }
+                            .padding(.bottom, 3)
+                        }
+                    }
                     
                     Divider()
                     
@@ -65,7 +90,7 @@ struct HomeView: View {
                         
                         ZStack {
                             VStack {
-                                LazyVGrid(columns: viewModel.columns, spacing: viewModel.calSizeBase26And393(proxyWidth: proxy.size.width)) {
+                                LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
                                     ForEach(viewModel.posts) { post in
                                         PostCoverView(post: post)
                                             .redacted(reason: isGenreRedacted ? .placeholder : [])

@@ -15,6 +15,10 @@ class NavStackControlTower {
     func navigate(to view: NavStackView) -> some View {
         switch view {
             
+        // Home
+        case .PostSearchView:
+            PostSearchView()
+            
         // NewPost
         case .NewPostUploadPostView(let book):
             NewPostUploadPostView(book: book)

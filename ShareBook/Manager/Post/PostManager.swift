@@ -14,7 +14,9 @@ class PostManager {
         guard let user = AuthManager.shared.currentUser else { return }
         let postId = UUID().uuidString
         
-        let post = Post(id: postId, userId: userId, impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, likeCount: 0, date: Date(), book: book, genre: genre, user: user)
+        let bookTitleKeywords = self.generateKeywords(text: book.title)
+        
+        let post = Post(id: postId, userId: userId, impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, likeCount: 0, date: Date(), book: book, bookTitleKeywords: bookTitleKeywords, genre: genre, user: user)
         
         do {
             let encodedPost = try Firestore.Encoder().encode(post)
@@ -23,6 +25,31 @@ class PostManager {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private static func generateKeywords(text: String) -> [String] {
+        var keywords: [String] = []
+        
+        let words = text.components(separatedBy: " ")
+        
+        for word in words {
+            var tempWord = ""
+            
+            for char in word {
+                tempWord.append(char)
+                keywords.append(tempWord)
+            }
+        }
+        
+        var tempWord = ""
+        
+        for word in words {
+            tempWord.append(word)
+            keywords.append(tempWord)
+            tempWord.append(" ")
+        }
+        
+        return keywords
     }
     
     static func loadAllPosts() async -> [Post] {

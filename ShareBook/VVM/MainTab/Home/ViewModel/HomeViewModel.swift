@@ -12,7 +12,7 @@ class HomeViewModel {
     var hotPosts: [Post] = []
     var posts: [Post] = []
     
-    let columns: [GridItem] = [
+    @ObservationIgnored let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0)
     ]
@@ -36,7 +36,7 @@ class HomeViewModel {
         self.posts = await PostManager.loadSpecificGenrePosts(genre: genre)
     }
     
-    func calSizeBase26And393(proxyWidth: CGFloat) -> CGFloat {
+    func resizePost(proxyWidth: CGFloat) -> CGFloat {
         return 17 + ((proxyWidth - 393) * (0.4))
     }
 }

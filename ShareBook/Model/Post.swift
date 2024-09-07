@@ -18,6 +18,7 @@ struct Post: Codable, Identifiable, Hashable, Equatable {
     let date: Date
     
     let book: Book
+    let bookTitleKeywords: [String]
     let genre: Genre
     
     let user: User
@@ -32,5 +33,5 @@ struct Post: Codable, Identifiable, Hashable, Equatable {
 }
 
 extension Post {
-    static var DUMMY_POST: Post = Post(id: UUID().uuidString, userId: UUID().uuidString, impressivePhrase: "네 장미꽃을 그렇게 소중하게 만든 것은 \n그 꽃을 위해 네가 소비한 시간이란다", feelingCaption: "느낌", likeCount: 30, date: Date(), book: Book.DUMMY_BOOK, genre: .studying, user: User.DUMMY_USER)
+    static var DUMMY_POST: Post = Post(id: UUID().uuidString, userId: UUID().uuidString, impressivePhrase: "네 장미꽃을 그렇게 소중하게 만든 것은 \n그 꽃을 위해 네가 소비한 시간이란다", feelingCaption: "느낌", likeCount: 30, date: Date(), book: Book.DUMMY_BOOK, bookTitleKeywords: [""], genre: .studying, user: User.DUMMY_USER)
 }
