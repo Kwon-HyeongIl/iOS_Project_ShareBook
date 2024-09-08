@@ -22,22 +22,27 @@ struct MainTabView: View {
         @Bindable var mainTabCapsule = mainTabCapsule
         
         VStack(spacing: 0) {
-            switch mainTabCapsule.selectedTab {
+            ZStack {
+                switch mainTabCapsule.selectedTab {
+                    
+                case .house:
+                    HomeView()
+                    
+                case .plusSquareOnSquare:
+                    NewPostView()
+                    
+                case .heart:
+                    LikeView()
+                    
+                case .person:
+                    ProfileView(user: currentUser, commentSheetCapsule: nil)
+                }
                 
-            case .house:
-                HomeView()
-                
-            case .plusSquareOnSquare:
-                NewPostView()
-                
-            case .heart:
-                LikeView()
-                
-            case .person:
-                ProfileView(user: currentUser, commentSheetCapsule: nil)
+                VStack {
+                    Spacer()
+                    MainCustomTabView()
+                }
             }
-            
-            MainCustomTabView()
         }
     }
 }
