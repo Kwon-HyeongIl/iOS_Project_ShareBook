@@ -32,7 +32,6 @@ struct PostSearchView: View {
                     .padding(.horizontal, 5)
                 }
             }
-            .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

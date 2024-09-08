@@ -21,40 +21,6 @@ struct HomeView: View {
         GeometryReader { proxy in
             GradientBackgroundView {
                 VStack(spacing: 0) {
-                    HStack {
-                        ZStack {
-                            Image("ShareBook_TextLogo")
-                                .resizable()
-                                .scaledToFit()
-                                .clipShape(Rectangle())
-                                .frame(width: 100)
-                            
-                            HStack(spacing: 20) {
-                                Spacer()
-                                
-                                Button {
-                                    navRouter.move(.PostSearchView)
-                                } label: {
-                                    Image(systemName: "magnifyingglass")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 18)
-                                        .foregroundStyle(Color.sBColor)
-                                }
-                                
-                                Image(systemName: "bell")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 18)
-                                    .padding(.trailing)
-                                    .foregroundStyle(Color.sBColor)
-                            }
-                            .padding(.bottom, 3)
-                        }
-                    }
-                    
-                    Divider()
-                    
                     ScrollView {
                         ZStack {
                             ScrollView(.horizontal) {
@@ -179,6 +145,42 @@ struct HomeView: View {
                         
                         await viewModel.loadHotPosts()
                         await viewModel.loadAllPosts()
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    VStack(spacing: 0) {
+                        HStack {
+                            Image("ShareBook_TextLogo")
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(Rectangle())
+                                .frame(width: 100)
+                                .padding(.leading)
+                            Spacer()
+                            
+                            Button {
+                                navRouter.move(.PostSearchView)
+                            } label: {
+                                Image(systemName: "magnifyingglass")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 18)
+                                    .foregroundStyle(Color.sBColor)
+                            }
+                            
+                            Image(systemName: "bell")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 18)
+                                .foregroundStyle(Color.sBColor)
+                                .padding(.trailing)
+                        }
+                        .frame(width: proxy.size.width)
+                        
+                        Divider()
+                            .frame(width: proxy.size.width)
                     }
                 }
             }
