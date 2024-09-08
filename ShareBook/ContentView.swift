@@ -21,9 +21,11 @@ struct ContentView: View {
                     .environment(signupViewModel)
             }
             
-            SplashView()
-                .opacity(isContentReady ? 0 : 1)
-                .animation(.easeOut(duration: 0.4), value: isContentReady)
+            if !isContentReady {
+                SplashView()
+                    .animation(.easeOut(duration: 0.4), value: isContentReady)
+                    .toolbar(.hidden, for: .navigationBar) // 모든 뷰 계층에 영향
+            }
         }
         .task {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
