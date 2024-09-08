@@ -13,11 +13,12 @@ struct ProfileView: View {
     @State private var viewModel: ProfileViewModel
     
     @State private var isUnFollowAlertShowing = false
-    var commentSheetCapsule: CommentSheetCapsule?
+    @State private var newCommentSheetCapsule = CommentSheetCapsule()
+    var passedCommentSheetCapsule: CommentSheetCapsule?
 
     init(user: User?, commentSheetCapsule: CommentSheetCapsule?) {
         self.viewModel = ProfileViewModel(user: user)
-        self.commentSheetCapsule = commentSheetCapsule
+        self.passedCommentSheetCapsule = commentSheetCapsule
     }
     
     var body: some View {
@@ -256,7 +257,8 @@ struct ProfileView: View {
                                     HStack {
                                         if let titlePost = viewModel.titlePost {
                                             Button {
-                                                //
+                                                let postViewModel = PostViewModel(post: titlePost)
+                                                navRouter.move(.PostDetailView(postViewModel, newCommentSheetCapsule))
                                             } label: {
                                                 HStack {
                                                     KFImage(URL(string: titlePost.book.image))
@@ -341,8 +343,8 @@ struct ProfileView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         navRouter.back()
-                        if let commentSheetCapsule {
-                            commentSheetCapsule.isCommentSheetShowing = true
+                        if let passedCommentSheetCapsule {
+                            passedCommentSheetCapsule.isShowing = true
                         }
                     } label: {
                         Image(systemName: "chevron.left")

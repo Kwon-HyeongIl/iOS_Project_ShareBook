@@ -118,7 +118,7 @@ struct PostCoverView: View {
                 Button {
                     navRouter.move(.PostDetailView(viewModel, commentSheetCapsule))
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        commentSheetCapsule.isCommentSheetShowing = true
+                        commentSheetCapsule.isShowing = true
                     }
                 } label: {
                     Image(systemName: "bubble.right")

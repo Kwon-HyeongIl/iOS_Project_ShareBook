@@ -9,13 +9,13 @@ import Foundation
 
 @Observable
 class CommentSheetCapsule: Hashable, Equatable {
-    var isCommentSheetShowing = false
+    var isShowing = false
     
     static func == (lhs: CommentSheetCapsule, rhs: CommentSheetCapsule) -> Bool {
-        return lhs.isCommentSheetShowing == rhs.isCommentSheetShowing
+        return lhs.isShowing == rhs.isShowing
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(isCommentSheetShowing)
+        hasher.combine(isShowing)
     }
 }

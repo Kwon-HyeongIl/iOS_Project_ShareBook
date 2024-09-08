@@ -32,7 +32,7 @@ struct CommentView: View {
     var body: some View {
         HStack(alignment: .top) {
             Button {
-                commentSheetCapsule.isCommentSheetShowing = false
+                commentSheetCapsule.isShowing = false
                 navRouter.move(.ProfileView(viewModel.comment.commentUser, commentSheetCapsule))
             } label: {
                 if let profileImageUrl = viewModel.comment.commentUser?.profileImageUrl {

@@ -156,7 +156,7 @@ struct PostDetailView: View {
                         }
                         
                         Button {
-                            commentSheetCapsule.isCommentSheetShowing = true
+                            commentSheetCapsule.isShowing = true
                         } label: {
                             HStack(spacing: 5) {
                                 Image(systemName: "bubble.right")
@@ -203,7 +203,7 @@ struct PostDetailView: View {
             }
             
         }
-        .sheet(isPresented: $commentSheetCapsule.isCommentSheetShowing, onDismiss: {
+        .sheet(isPresented: $commentSheetCapsule.isShowing, onDismiss: {
             Task {
                 await viewModel.loadAllPostCommentAndCommentReplyCount()
             }
