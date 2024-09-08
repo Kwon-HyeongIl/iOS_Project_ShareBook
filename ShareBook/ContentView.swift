@@ -15,6 +15,7 @@ struct ContentView: View {
         ZStack {
             if AuthManager.shared.currentUser != nil {
                 MainTabView()
+                    .toolbar(isContentReady ? .visible : .hidden, for: .navigationBar)
 
             } else {
                 LoginView()
@@ -24,7 +25,6 @@ struct ContentView: View {
             if !isContentReady {
                 SplashView()
                     .animation(.easeOut(duration: 0.4), value: isContentReady)
-                    .toolbar(.hidden, for: .navigationBar) // 모든 뷰 계층에 영향
             }
         }
         .task {

@@ -185,7 +185,6 @@ struct HomeView: View {
                 }
             }
             .toolbarBackground(Color.SBLightBlue, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }
