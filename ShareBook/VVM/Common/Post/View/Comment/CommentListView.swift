@@ -78,14 +78,14 @@ struct CommentListView: View {
                                     HStack(spacing: 0) {
                                         Text("취소")
                                             .font(.system(size: 11))
-                                            .foregroundStyle(Color.sBColor)
+                                            .foregroundStyle(Color.SBTitle)
                                             .padding(.trailing, 5)
                                         
                                         Image(systemName: "trash")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 10)
-                                            .foregroundStyle(Color.sBColor)
+                                            .foregroundStyle(Color.SBTitle)
                                     }
                                 }
                                 
@@ -127,7 +127,7 @@ struct CommentListView: View {
                         }
                     } label: {
                         Text("작성")
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                             .font(.system(size: 16))
                             .padding(.bottom, 8)
                     }

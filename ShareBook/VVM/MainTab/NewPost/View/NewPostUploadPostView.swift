@@ -145,7 +145,7 @@ struct NewPostUploadPostView: View {
                                     
                                 } else {
                                     Text("다음")
-                                        .modifier(InViewButtonModifier(bgColor: .sBColor))
+                                        .modifier(InViewButtonModifier(bgColor: .SBTitle))
                                         .padding(.top)
                                 }
                             }
@@ -172,7 +172,7 @@ struct NewPostUploadPostView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 10)
-                                            .foregroundStyle(Color.sBColor)
+                                            .foregroundStyle(Color.SBTitle)
                                             .fontWeight(.bold)
                                             .padding(.bottom, 20)
                                             .padding(.leading, 50)
@@ -189,7 +189,7 @@ struct NewPostUploadPostView: View {
                                         }
                                     } label: {
                                         Text("다음")
-                                            .modifier(InViewButtonModifier(bgColor: .sBColor))
+                                            .modifier(InViewButtonModifier(bgColor: .SBTitle))
                                     }
                                 }
                             }
@@ -207,7 +207,7 @@ struct NewPostUploadPostView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 10)
-                                            .foregroundStyle(Color.sBColor)
+                                            .foregroundStyle(Color.SBTitle)
                                             .fontWeight(.bold)
                                             .padding(.bottom, 20)
                                             .padding(.leading, 50)
@@ -226,7 +226,7 @@ struct NewPostUploadPostView: View {
                                         mainTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
-                                            .modifier(InViewButtonModifier(bgColor: .sBColor))
+                                            .modifier(InViewButtonModifier(bgColor: .SBTitle))
                                     }
                                 }
                             }
@@ -246,7 +246,7 @@ struct NewPostUploadPostView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                             .padding(.trailing, 5)
                     }
                 }

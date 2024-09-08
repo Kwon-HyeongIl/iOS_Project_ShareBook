@@ -8,5 +8,5 @@
 import SwiftUI
 
 extension Color {
-    static let sBColor = Color(red: 112/255, green: 173/255, blue: 179/255)
+    static let SBTitle = Color(red: 112/255, green: 173/255, blue: 179/255)
 }

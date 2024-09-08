@@ -40,7 +40,7 @@ struct ProfileView: View {
                         
                         ZStack {
                             Rectangle()
-                                .foregroundStyle(Color.sBColor)
+                                .foregroundStyle(Color.SBTitle)
                                 .opacity(0.6)
                                 .frame(height: 340)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -162,7 +162,7 @@ struct ProfileView: View {
                                                 Text("프로필 편집")
                                                     .font(.system(size: 15))
                                                     .fontWeight(.semibold)
-                                                    .foregroundStyle(Color.sBColor)
+                                                    .foregroundStyle(Color.SBTitle)
                                             }
                                             .frame(height: 35)
                                             .frame(maxWidth: .infinity)
@@ -170,7 +170,7 @@ struct ProfileView: View {
                                             .clipShape(RoundedRectangle(cornerRadius: 10))
                                             .overlay {
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color.sBColor, lineWidth: 1.0)
+                                                    .stroke(Color.SBTitle, lineWidth: 1.0)
                                             }
                                             .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                                             .padding(.horizontal, 40)
@@ -185,7 +185,7 @@ struct ProfileView: View {
                                                     Text("팔로우 취소")
                                                         .font(.system(size: 15))
                                                         .fontWeight(.semibold)
-                                                        .foregroundStyle(Color.sBColor)
+                                                        .foregroundStyle(Color.SBTitle)
                                                 }
                                                 .frame(height: 35)
                                                 .frame(maxWidth: .infinity)
@@ -193,7 +193,7 @@ struct ProfileView: View {
                                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 .overlay {
                                                     RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(Color.sBColor, lineWidth: 1.0)
+                                                        .stroke(Color.SBTitle, lineWidth: 1.0)
                                                 }
                                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                                                 .padding(.horizontal, 40)
@@ -231,7 +231,7 @@ struct ProfileView: View {
                                                 }
                                                 .frame(height: 35)
                                                 .frame(maxWidth: .infinity)
-                                                .background(Color.sBColor)
+                                                .background(Color.SBTitle)
                                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                                                 .padding(.horizontal, 40)
@@ -272,7 +272,7 @@ struct ProfileView: View {
                                                         Image(systemName: "quote.opening")
                                                             .resizable()
                                                             .scaledToFit()
-                                                            .foregroundStyle(Color.sBColor)
+                                                            .foregroundStyle(Color.SBTitle)
                                                             .frame(width: 15)
                                                             .padding(.bottom, 70)
                                                     }
@@ -291,7 +291,7 @@ struct ProfileView: View {
                                                         Image(systemName: "quote.closing")
                                                             .resizable()
                                                             .scaledToFit()
-                                                            .foregroundStyle(Color.sBColor)
+                                                            .foregroundStyle(Color.SBTitle)
                                                             .frame(width: 15)
                                                             .padding(.top, 70)
                                                             .padding(.trailing, 40)

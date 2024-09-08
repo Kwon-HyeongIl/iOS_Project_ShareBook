@@ -51,7 +51,7 @@ struct ProfileEditView: View {
                         }
                         
                         Text("프로필 이미지 설정")
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                             .padding(.top, 10)
                     }
                 }
@@ -104,11 +104,11 @@ struct ProfileEditView: View {
                                 } label: {
                                     Text("삭제")
                                         .font(.system(size: 13))
-                                        .foregroundStyle(Color.sBColor)
+                                        .foregroundStyle(Color.SBTitle)
                                         .frame(width: 40, height: 20)
                                         .overlay {
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color.sBColor, lineWidth: 1.0)
+                                                .stroke(Color.SBTitle, lineWidth: 1.0)
                                         }
                                         .fontWeight(.semibold)
                                         .padding(.leading, 270)
@@ -148,7 +148,7 @@ struct ProfileEditView: View {
                                             Image(systemName: "quote.opening")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .foregroundStyle(Color.sBColor)
+                                                .foregroundStyle(Color.SBTitle)
                                                 .frame(width: 15)
                                                 .padding(.top, 25)
                                             
@@ -172,7 +172,7 @@ struct ProfileEditView: View {
                                                 .resizable()
                                                 .scaledToFit()
                                                 .frame(width: 10)
-                                                .foregroundStyle(Color.sBColor)
+                                                .foregroundStyle(Color.SBTitle)
                                                 .fontWeight(.semibold)
                                                 .padding(.top, 25)
                                                 .padding(.trailing)
@@ -182,7 +182,7 @@ struct ProfileEditView: View {
                                             Image(systemName: "quote.closing")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .foregroundStyle(Color.sBColor)
+                                                .foregroundStyle(Color.SBTitle)
                                                 .frame(width: 15)
                                                 .padding(.bottom, 25)
                                                 .padding(.trailing, 40)

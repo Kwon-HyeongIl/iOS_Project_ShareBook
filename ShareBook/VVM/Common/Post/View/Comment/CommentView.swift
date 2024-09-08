@@ -96,7 +96,7 @@ struct CommentView: View {
                         } label: {
                             Text("답글 달기")
                                 .font(.system(size: 9))
-                                .foregroundStyle(Color.sBColor)
+                                .foregroundStyle(Color.SBTitle)
                                 .padding(.leading, 5)
                         }
                     }
@@ -116,7 +116,7 @@ struct CommentView: View {
                                     .scaledToFit()
                                     .frame(width: 10)
                             }
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                             .padding(.leading, 10)
                             
                         }
@@ -139,7 +139,7 @@ struct CommentView: View {
                                 .scaledToFit()
                                 .frame(width: 10)
                         }
-                        .foregroundStyle(Color.sBColor)
+                        .foregroundStyle(Color.SBTitle)
                         .padding(.leading, 20)
                     }
                     

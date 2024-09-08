@@ -48,7 +48,7 @@ struct PostSearchView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 16)
-                                .foregroundStyle(Color.sBColor)
+                                .foregroundStyle(Color.SBTitle)
                                 .opacity(0.8)
                                 .padding(.leading, 10)
                             
@@ -73,7 +73,7 @@ struct PostSearchView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.sBColor, lineWidth: 1)
+                                .stroke(Color.SBTitle, lineWidth: 1)
                         }
                     }
                     .frame(width: max(0, proxy.size.width - 35))

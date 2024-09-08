@@ -102,7 +102,7 @@ struct HomeView: View {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .frame(height: 27)
-                                                    .foregroundStyle(selectedGenre == Genre.allCases[index] ? Color.sBColor : .white)
+                                                    .foregroundStyle(selectedGenre == Genre.allCases[index] ? Color.SBTitle : .white)
                                                     .opacity(0.5)
                                                 
                                                 Text("\(Genre.allCases[index].rawValue)")
@@ -167,14 +167,14 @@ struct HomeView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 18)
-                                    .foregroundStyle(Color.sBColor)
+                                    .foregroundStyle(Color.SBTitle)
                             }
                             
                             Image(systemName: "bell")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 18)
-                                .foregroundStyle(Color.sBColor)
+                                .foregroundStyle(Color.SBTitle)
                                 .padding(.trailing)
                         }
                         .frame(width: proxy.size.width)
@@ -184,6 +184,8 @@ struct HomeView: View {
                     }
                 }
             }
+            .toolbarBackground(Color.SBLightBlue, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }

@@ -48,7 +48,7 @@ struct FeedbackView: View {
                                 .modifier(InViewButtonModifier(bgColor: .gray))
                         } else {
                             Text("제출")
-                                .modifier(InViewButtonModifier(bgColor: .sBColor))
+                                .modifier(InViewButtonModifier(bgColor: .SBTitle))
                         }
                     }
                     .alert("!!", isPresented: $isContentAlertShowing) {

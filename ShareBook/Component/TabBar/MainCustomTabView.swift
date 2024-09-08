@@ -24,14 +24,14 @@ struct MainCustomTabView: View {
                 VStack {
                     Image(systemName: mainTabCapsule.selectedTab == tab ? fillImage : tab.rawValue)
                         .scaleEffect(mainTabCapsule.selectedTab == tab ? 1.25 : 1.0)
-                        .foregroundStyle(mainTabCapsule.selectedTab == tab ? Color.sBColor : .black)
+                        .foregroundStyle(mainTabCapsule.selectedTab == tab ? Color.SBTitle : .black)
                         .font(.system(size: 19))
                         .padding(.bottom, 1)
                         .padding(.top, 10)
                     
                     Text(tab.title)
                         .font(.system(size: 9))
-                        .foregroundStyle(mainTabCapsule.selectedTab == tab ? Color.sBColor : .black)
+                        .foregroundStyle(mainTabCapsule.selectedTab == tab ? Color.SBTitle : .black)
                 }
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.2)) {

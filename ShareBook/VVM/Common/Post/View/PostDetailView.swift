@@ -77,7 +77,7 @@ struct PostDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25)
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                             .padding(.top, 40)
                             .padding(.bottom, 30)
                         
@@ -89,7 +89,7 @@ struct PostDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 25)
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                             .padding(.top, 30)
                             .padding(.bottom, 40)
                         
@@ -121,7 +121,7 @@ struct PostDetailView: View {
                                         .frame(width: 13)
                                 }
                             }
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                         }
                         .padding(.bottom, 5)
                     }
@@ -138,7 +138,7 @@ struct PostDetailView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 15)
-                                    .foregroundStyle(Color.sBColor)
+                                    .foregroundStyle(Color.SBTitle)
                                     .fontWeight(.semibold)
                                     .padding(.leading)
                                 
@@ -163,7 +163,7 @@ struct PostDetailView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 15)
-                                    .foregroundStyle(Color.sBColor)
+                                    .foregroundStyle(Color.SBTitle)
                                     .fontWeight(.semibold)
                                     .padding(.leading, 10)
                                 
@@ -187,7 +187,7 @@ struct PostDetailView: View {
                             .scaledToFit()
                             .frame(width: 15)
                             .fontWeight(.semibold)
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
 
                         Text("\(viewModel.post.genre.rawValue)")
                             .font(.system(size: 14))
@@ -229,7 +229,7 @@ struct PostDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 23)
-                        .foregroundStyle(Color.sBColor)
+                        .foregroundStyle(Color.SBTitle)
                         .padding(.trailing, 5)
                 }
             }

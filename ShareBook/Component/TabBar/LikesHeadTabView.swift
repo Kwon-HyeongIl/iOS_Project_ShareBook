@@ -17,14 +17,14 @@ struct LikesHeadTabView: View {
                     Text("\(tab.rawValue)")
                         .font(.system(size: 15))
                         .fontWeight(.semibold)
-                        .foregroundStyle(selectedTab == tab ? Color.sBColor : .primary)
+                        .foregroundStyle(selectedTab == tab ? Color.SBTitle : .primary)
                         .opacity(selectedTab == tab ? 1.0 : 0.7)
                         .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
                         .padding(.bottom, 10)
                     
                     RoundedRectangle(cornerRadius: 10)
                         .frame(height: 4)
-                        .foregroundStyle(Color.sBColor)
+                        .foregroundStyle(Color.SBTitle)
                         .opacity(selectedTab == tab ? 1.0 : 0)
                     
                     Divider()

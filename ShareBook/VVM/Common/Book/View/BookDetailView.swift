@@ -37,7 +37,7 @@ struct BookDetailView: View {
                                 .resizable()
                                 .frame(width: 13, height: 13)
                         }
-                        .foregroundStyle(Color.sBColor)
+                        .foregroundStyle(Color.SBTitle)
                         .padding(.leading, 280)
                         .padding(.top, 195)
                     }
@@ -102,7 +102,7 @@ struct BookDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 14)
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                             .padding(.trailing, 4)
                     }
                     
@@ -114,7 +114,7 @@ struct BookDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 23)
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                     }
                     
                     Button {
@@ -124,7 +124,7 @@ struct BookDetailView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 23)
-                            .foregroundStyle(Color.sBColor)
+                            .foregroundStyle(Color.SBTitle)
                     }
                 }
             }

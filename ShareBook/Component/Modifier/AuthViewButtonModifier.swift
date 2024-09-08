@@ -12,7 +12,7 @@ struct AuthViewButtonModifier: ViewModifier {
         content
             .foregroundStyle(.white)
             .frame(width: 353, height: 42)
-            .background(Color.sBColor)
+            .background(Color.SBTitle)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
     }

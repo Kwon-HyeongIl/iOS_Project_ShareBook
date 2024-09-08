@@ -105,14 +105,14 @@ struct PostCoverView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: isHotPost ? 15 : 12)
-                        .foregroundStyle(Color.sBColor)
+                        .foregroundStyle(Color.SBTitle)
                     
                 }
                 .padding(.trailing, 3)
                 
                 Text("\(viewModel.post.likeCount)")
                     .font(.system(size: isHotPost ? 13: 10))
-                    .foregroundStyle(Color.sBColor)
+                    .foregroundStyle(Color.SBTitle)
                     .padding(.trailing, 7)
                 
                 Button {
@@ -125,13 +125,13 @@ struct PostCoverView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: isHotPost ? 15 : 12)
-                        .foregroundStyle(Color.sBColor)
+                        .foregroundStyle(Color.SBTitle)
                 }
                 .padding(.trailing, 3)
                 
                 Text("\(viewModel.commentCount)")
                     .font(.system(size: isHotPost ? 13 : 10))
-                    .foregroundStyle(Color.sBColor)
+                    .foregroundStyle(Color.SBTitle)
                     .padding(.trailing, 15)
             }
             .padding(.bottom, 20)
