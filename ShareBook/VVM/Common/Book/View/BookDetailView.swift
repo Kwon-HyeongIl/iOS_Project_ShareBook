@@ -108,7 +108,7 @@ struct BookDetailView: View {
                     
                     Button {
                         navRouter.popToRoot()
-                        mainTabCapsule.index = 0
+                        mainTabCapsule.selectedTab = .house
                     } label: {
                         Image(systemName: "house")
                             .resizable()

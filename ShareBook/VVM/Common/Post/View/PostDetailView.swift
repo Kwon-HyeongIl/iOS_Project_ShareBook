@@ -223,7 +223,7 @@ struct PostDetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     navRouter.popToRoot()
-                    mainTabCapsule.index = 0
+                    mainTabCapsule.selectedTab = .house
                 } label: {
                     Image(systemName: "house")
                         .resizable()

@@ -340,16 +340,18 @@ struct ProfileView: View {
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        navRouter.back()
-                        if let passedCommentSheetCapsule {
-                            passedCommentSheetCapsule.isShowing = true
+                if !navRouter.path.isEmpty {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            navRouter.back()
+                            if let passedCommentSheetCapsule {
+                                passedCommentSheetCapsule.isShowing = true
+                            }
+                        } label: {
+                            Image(systemName: "chevron.left")
                         }
-                    } label: {
-                        Image(systemName: "chevron.left")
+                        .fontWeight(.medium)
                     }
-                    .fontWeight(.medium)
                 }
             }
         }

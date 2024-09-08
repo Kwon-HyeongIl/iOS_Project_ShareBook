@@ -66,7 +66,7 @@ struct ProfileOptionView: View {
                             viewModel.signOut()
                         }
                         navRouter.popToRoot()
-                        mainTabCapsule.index = 0
+                        mainTabCapsule.selectedTab = .house
                     } label: {
                         Text("계속")
                     }

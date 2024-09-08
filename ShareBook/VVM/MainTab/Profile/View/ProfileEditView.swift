@@ -213,7 +213,7 @@ struct ProfileEditView: View {
                     .alert("!!", isPresented: $isTitleBookAlertShowing) {
                         Button {
                             navRouter.popToRoot()
-                            mainTabCapsule.index = 1
+                            mainTabCapsule.selectedTab = .plusSquareOnSquare
                         } label: {
                             Text("확인")
                         }

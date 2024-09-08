@@ -223,7 +223,7 @@ struct NewPostUploadPostView: View {
                                         }
                                         
                                         navRouter.popToRoot()
-                                        mainTabCapsule.index = 0
+                                        mainTabCapsule.selectedTab = .house
                                     } label: {
                                         Text("작성")
                                             .modifier(InViewButtonModifier(bgColor: .sBColor))
@@ -240,7 +240,7 @@ struct NewPostUploadPostView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         navRouter.popToRoot()
-                        mainTabCapsule.index = 0
+                        mainTabCapsule.selectedTab = .house
                     } label: {
                         Image(systemName: "house")
                             .resizable()

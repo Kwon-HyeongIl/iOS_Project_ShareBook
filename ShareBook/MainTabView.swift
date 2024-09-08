@@ -13,39 +13,32 @@ struct MainTabView: View {
     let currentUser: User?
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor.white
         self.currentUser = AuthManager.shared.currentUser
+        
+        UITabBar.appearance().isHidden = true
     }
     
     var body: some View {
         @Bindable var mainTabCapsule = mainTabCapsule
         
-        TabView(selection: $mainTabCapsule.index) {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
-                .tag(0)
+        VStack(spacing: 0) {
+            switch mainTabCapsule.selectedTab {
+                
+            case .house:
+                HomeView()
+                
+            case .plusSquareOnSquare:
+                NewPostView()
+                
+            case .heart:
+                LikeView()
+                
+            case .person:
+                ProfileView(user: currentUser, commentSheetCapsule: nil)
+            }
             
-            NewPostView()
-                .tabItem {
-                    Image(systemName: "plus.square.on.square")
-                }
-                .tag(1)
-            
-            LikeView()
-                .tabItem {
-                    Image(systemName: "heart")
-                }
-                .tag(2)
-            
-            ProfileView(user: currentUser, commentSheetCapsule: nil)
-                .tabItem {
-                    Image(systemName: "person")
-                }
-                .tag(3)
+            MainCustomTabView()
         }
-        .tint(.sBColor)
     }
 }
 

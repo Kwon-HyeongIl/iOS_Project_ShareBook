@@ -9,5 +9,5 @@ import Foundation
 
 @Observable
 class MainTabCapsule {
-    var index = 0
+    var selectedTab: MainTab = .house
 }
