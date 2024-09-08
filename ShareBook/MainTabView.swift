@@ -13,6 +13,7 @@ struct MainTabView: View {
     let currentUser: User?
     
     init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
         self.currentUser = AuthManager.shared.currentUser
     }
     
@@ -44,10 +45,12 @@ struct MainTabView: View {
                 }
                 .tag(3)
         }
+        .tint(.sBColor)
     }
 }
 
 #Preview {
     MainTabView()
         .environment(MainTabCapsule())
+        .environment(NavRouter())
 }
