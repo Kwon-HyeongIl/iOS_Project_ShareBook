@@ -139,7 +139,6 @@ struct PostCoverView: View {
         .frame(width: isHotPost ? 230 : 170, height: isHotPost ? 315 : 237)
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
     }
 }
 

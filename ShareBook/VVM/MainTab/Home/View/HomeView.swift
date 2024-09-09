@@ -35,6 +35,7 @@ struct HomeView: View {
                                             }
                                             .redacted(reason: isHotRedacted ? .placeholder : [])
                                             .shimmering(active: isHotRedacted ? true : false, bandSize: 0.4)
+                                            .shadow(color: isHotRedacted ? .clear : .gray.opacity(0.35), radius: isHotRedacted ? 0 : 10, x: isHotRedacted ? 0 : 5, y: isHotRedacted ? 0 : 5)
                                     }
                                 }
                             }
@@ -63,6 +64,7 @@ struct HomeView: View {
                                         PostCoverView(post: post)
                                             .redacted(reason: isGenreRedacted ? .placeholder : [])
                                             .shimmering(active: isGenreRedacted ? true : false, bandSize: 0.4)
+                                            .shadow(color: isGenreRedacted ? .clear : .gray.opacity(0.35), radius: isGenreRedacted ? 0 : 10, x: isGenreRedacted ? 0 : 5, y: isGenreRedacted ? 0 : 5)
                                     }
                                 }
                                 .padding(.top, 90)
