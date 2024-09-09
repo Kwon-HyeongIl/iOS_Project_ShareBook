@@ -9,8 +9,8 @@ import SwiftUI
 import Kingfisher
 import Shimmer
 
-struct CommentListView: View {
-    @State private var viewModel: CommentListViewModel
+struct CommentSheetView: View {
+    @State private var viewModel: CommentSheetViewModel
     
     @State private var selectedCommentId = ""
     @State private var selectedCommentUsername = ""
@@ -19,7 +19,7 @@ struct CommentListView: View {
     @State private var isRedacted = false
     
     init(post: Post) {
-        self.viewModel = CommentListViewModel(post: post)
+        self.viewModel = CommentSheetViewModel(post: post)
     }
     
     var body: some View {
@@ -35,8 +35,9 @@ struct CommentListView: View {
                 
                 ScrollView {
                     LazyVStack(alignment: .leading) {
-                        ForEach(viewModel.comments) { comment in
-                            CommentView(comment: comment, selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies)
+                        ForEach(viewModel.comments.indices, id: \.self) { index in
+                            CommentView(comment: viewModel.comments[index], selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies)
+                                .padding(.top, index == 0 ? 10 : 0)
                                 .redacted(reason: isRedacted ? .placeholder : [])
                                 .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
                         }
@@ -145,5 +146,5 @@ struct CommentListView: View {
 }
 
 #Preview {
-    CommentListView(post: Post.DUMMY_POST)
+    CommentSheetView(post: Post.DUMMY_POST)
 }

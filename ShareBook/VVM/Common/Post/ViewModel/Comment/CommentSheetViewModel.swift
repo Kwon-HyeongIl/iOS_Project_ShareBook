@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class CommentListViewModel {
+class CommentSheetViewModel {
     var comments: [Comment] = []
     
     var commentText = ""

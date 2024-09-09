@@ -208,7 +208,7 @@ struct PostDetailView: View {
                 await viewModel.loadAllPostCommentAndCommentReplyCount()
             }
         }, content: {
-            CommentListView(post: viewModel.post)
+            CommentSheetView(post: viewModel.post)
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.7), .large])
                 .environment(commentSheetCapsule)
