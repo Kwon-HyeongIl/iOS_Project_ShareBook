@@ -117,7 +117,7 @@ struct CommentView: View {
                     
                     if !viewModel.commentReplies.isEmpty && !isCommentReplyShowing {
                         Button {
-                            withAnimation(.easeInOut(duration: 0.4)) {
+                            withAnimation(.smooth(duration: 0.4)) {
                                 isCommentReplyShowing = true
                             }
                         } label: {
@@ -140,7 +140,7 @@ struct CommentView: View {
                 
                 if isCommentReplyShowing {
                     Button {
-                        withAnimation(.easeInOut(duration: 0.4)) {
+                        withAnimation(.smooth(duration: 0.4)) {
                             isCommentReplyShowing = false
                         }
                     } label: {
@@ -164,7 +164,9 @@ struct CommentView: View {
             
             Spacer()
         }
-        .padding(.trailing)
+        .background(.thinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .padding(.horizontal, 10)
         .onChange(of: isLoadReplies) {
             Task {
                 await viewModel.loadAllCommentCommentReplies()

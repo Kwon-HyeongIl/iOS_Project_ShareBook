@@ -24,7 +24,7 @@ struct CommentListView: View {
     
     var body: some View {
         GradientBackgroundView {
-            VStack {
+            VStack(spacing: 0) {
                 Text("댓글")
                     .font(.title3)
                     .fontWeight(.semibold)
