@@ -19,7 +19,7 @@ struct CommentView: View {
     
     @Binding var isLoadReplies: Bool
     
-    @State private var isCommentReplyShowing = false
+    @State private var isCommentReplyShowing = true
     
     init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>) {
         self.viewModel = CommentViewModel(comment: comment)
@@ -78,10 +78,24 @@ struct CommentView: View {
                     .font(.system(size: 12))
                 
                 if isCommentReplyShowing {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.4)) {
+                            selectedComment = viewModel.comment.id
+                            selectedCommentUsername = viewModel.comment.commentUser?.username ?? ""
+                        }
+                    } label: {
+                        Text("답글 달기")
+                            .font(.system(size: 9))
+                            .foregroundStyle(Color.SBTitle)
+                            .padding(.leading, 5)
+                            .padding(.top, 1)
+                    }
+                }
+                
+                if isCommentReplyShowing {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.commentReplies) { commentReply in
                             CommentReplyView(commentReply: commentReply)
-                                
                         }
                     }
                 }

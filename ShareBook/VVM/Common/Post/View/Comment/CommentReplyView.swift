@@ -66,4 +66,5 @@ struct CommentReplyView: View {
 #Preview {
     CommentReplyView(commentReply: Comment.DUMMY_COMMENT)
         .environment(NavRouter())
+        .environment(CommentSheetCapsule())
 }
