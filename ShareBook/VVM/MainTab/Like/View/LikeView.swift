@@ -14,17 +14,6 @@ struct LikeView: View {
         GeometryReader { proxy in
             GradientBackgroundView {
                 VStack(spacing: 0) {
-                    HStack {
-                        Text("관심")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                            .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
-                            .padding(.leading)
-                        
-                        Spacer()
-                    }
-                    .padding(.bottom)
-                    
                     LikesHeadTabView(selectedTab: $selectedTab)
                     
                     ScrollView {
@@ -36,6 +25,14 @@ struct LikeView: View {
                             BookmarkBookView()
                         }
                     }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("관심")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
                 }
             }
         }

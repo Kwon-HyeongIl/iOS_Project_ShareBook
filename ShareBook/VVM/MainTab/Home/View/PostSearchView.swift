@@ -78,7 +78,7 @@ struct PostSearchView: View {
                                 .stroke(Color.SBTitle, lineWidth: 1)
                         }
                     }
-                    .frame(width: max(0, proxy.size.width - 35))
+                    .frame(width: max(0, proxy.size.width - 25))
                     .padding(.bottom, 10)
                     .padding(.top, 5)
                 }

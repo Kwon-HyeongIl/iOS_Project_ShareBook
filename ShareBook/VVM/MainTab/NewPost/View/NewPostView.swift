@@ -20,43 +20,6 @@ struct NewPostView: View {
         GeometryReader { proxy in
             GradientBackgroundView {
                 VStack {
-                    HStack(alignment: .center) {
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16)
-                            .foregroundStyle(Color.SBTitle)
-                            .opacity(0.8)
-                            .padding(.leading, 10)
-                        
-                        TextField("등록할 책을 검색하세요", text: $searchText)
-                            .font(.system(size: 15))
-                            .submitLabel(.search)
-                            .onSubmit {
-                                Task {
-                                    isShowing = false
-                                    viewModel.searchBookWithTitle(searchQuery: searchText)
-                                    
-                                    isBookCoverRedacted = true
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                        withAnimation(.easeOut(duration: 0.4)) {
-                                            isBookCoverRedacted = false
-                                        }
-                                    }
-                                }
-                            }
-                    }
-                    .frame(height: 38)
-                    .background(.regularMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.SBTitle, lineWidth: 1)
-                    }
-                    .frame(width: max(0, proxy.size.width - 40))
-                    .padding(.bottom, 10)
-                    .padding(.top, 5)
-                    
                     if isShowing {
                         ZStack {
                             Image("ShareBook_TextLogo")
@@ -97,6 +60,45 @@ struct NewPostView: View {
                         }
                         .padding(.top, 5)
                     }
+                }
+            }
+            .toolbar {
+                ToolbarItem {
+                    HStack(alignment: .center) {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 16)
+                            .foregroundStyle(Color.SBTitle)
+                            .opacity(0.8)
+                            .padding(.leading, 10)
+                        
+                        TextField("등록할 책을 검색하세요", text: $searchText)
+                            .font(.system(size: 15))
+                            .submitLabel(.search)
+                            .onSubmit {
+                                Task {
+                                    isShowing = false
+                                    viewModel.searchBookWithTitle(searchQuery: searchText)
+                                    
+                                    isBookCoverRedacted = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                        withAnimation(.easeOut(duration: 0.4)) {
+                                            isBookCoverRedacted = false
+                                        }
+                                    }
+                                }
+                            }
+                    }
+                    .frame(height: 38)
+                    .background(.regularMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.SBTitle, lineWidth: 1)
+                    }
+                    .frame(width: max(0, proxy.size.width - 40))
+                    .padding(.top, 5)
                 }
             }
         }

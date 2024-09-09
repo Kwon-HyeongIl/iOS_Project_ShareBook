@@ -18,7 +18,7 @@ struct LikesHeadTabView: View {
                         .font(.system(size: 15))
                         .fontWeight(.semibold)
                         .foregroundStyle(selectedTab == tab ? Color.SBTitle : .primary)
-                        .opacity(selectedTab == tab ? 1.0 : 0.7)
+                        .opacity(selectedTab == tab ? 1.0 : 0.6)
                         .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
                         .padding(.bottom, 10)
                     
@@ -38,8 +38,6 @@ struct LikesHeadTabView: View {
         }
     }
 }
-
-
 
 #Preview {
     LikesHeadTabView(selectedTab: .constant(.likePosts))

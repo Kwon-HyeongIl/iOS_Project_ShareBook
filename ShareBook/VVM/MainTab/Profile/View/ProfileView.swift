@@ -26,18 +26,6 @@ struct ProfileView: View {
             GradientBackgroundView {
                 ScrollView {
                     VStack(spacing: 5) {
-                        if let isMyProfile = viewModel.isMyProfile, isMyProfile {
-                            HStack {
-                                Text("내 프로필")
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
-                                    .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
-                                    .padding(.leading)
-                                
-                                Spacer()
-                            }
-                        }
-                        
                         ZStack {
                             Rectangle()
                                 .foregroundStyle(Color.SBTitle)
@@ -340,17 +328,26 @@ struct ProfileView: View {
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                if !navRouter.path.isEmpty {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button {
-                            navRouter.back()
-                            if let passedCommentSheetCapsule {
-                                passedCommentSheetCapsule.isShowing = true
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack {
+                        if !navRouter.path.isEmpty {
+                            Button {
+                                navRouter.back()
+                                if let passedCommentSheetCapsule {
+                                    passedCommentSheetCapsule.isShowing = true
+                                }
+                            } label: {
+                                Image(systemName: "chevron.left")
                             }
-                        } label: {
-                            Image(systemName: "chevron.left")
+                            .fontWeight(.medium)
                         }
-                        .fontWeight(.medium)
+                        
+                        if let isMyProfile = viewModel.isMyProfile, isMyProfile {
+                            Text("내 프로필")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
+                        }
                     }
                 }
             }
