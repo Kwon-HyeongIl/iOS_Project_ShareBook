@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import Shimmer
 
 struct CommentListView: View {
     @State private var viewModel: CommentListViewModel
@@ -15,6 +16,7 @@ struct CommentListView: View {
     @State private var selectedCommentUsername = ""
     
     @State private var isLoadReplies = false
+    @State private var isRedacted = false
     
     init(post: Post) {
         self.viewModel = CommentListViewModel(post: post)
@@ -35,6 +37,8 @@ struct CommentListView: View {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.comments) { comment in
                             CommentView(comment: comment, selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies)
+                                .redacted(reason: isRedacted ? .placeholder : [])
+                                .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
                         }
                     }
                 }
@@ -75,18 +79,10 @@ struct CommentListView: View {
                                         selectedCommentUsername = ""
                                     }
                                 } label: {
-                                    HStack(spacing: 0) {
-                                        Text("취소")
-                                            .font(.system(size: 11))
-                                            .foregroundStyle(Color.SBTitle)
-                                            .padding(.trailing, 5)
-                                        
-                                        Image(systemName: "trash")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 10)
-                                            .foregroundStyle(Color.SBTitle)
-                                    }
+                                    Text("취소")
+                                        .font(.system(size: 11))
+                                        .foregroundStyle(.red)
+                                        .opacity(0.6)
                                 }
                                 
                                 Spacer()
@@ -135,6 +131,14 @@ struct CommentListView: View {
                 .padding(.horizontal)
                 .padding(.bottom)
                 .padding(.top, selectedCommentId.isEmpty ? 9 : 8)
+            }
+        }
+        .task {
+            isRedacted = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                withAnimation(.easeOut(duration: 0.4)) {
+                    isRedacted = false
+                }
             }
         }
     }

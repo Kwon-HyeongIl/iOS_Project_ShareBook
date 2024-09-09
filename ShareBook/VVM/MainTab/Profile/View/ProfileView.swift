@@ -7,11 +7,13 @@
 
 import SwiftUI
 import Kingfisher
+import Shimmer
 
 struct ProfileView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel: ProfileViewModel
     
+    @State private var isRedacted = false
     @State private var isUnFollowAlertShowing = false
     @State private var newCommentSheetCapsule = CommentSheetCapsule()
     var passedCommentSheetCapsule: CommentSheetCapsule?
@@ -315,6 +317,8 @@ struct ProfileView: View {
                             ForEach(viewModel.posts) { post in
                                 PostProfileCoverView(post: post)
                                     .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
+                                    .redacted(reason: isRedacted ? .placeholder : [])
+                                    .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
                             }
                         }
                     }
@@ -323,6 +327,13 @@ struct ProfileView: View {
             .task {
                 Task {
                     await viewModel.basicLoading()
+                    
+                    isRedacted = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        withAnimation(.easeOut(duration: 0.4)) {
+                            isRedacted = false
+                        }
+                    }
                 }
             }
             .navigationBarBackButtonHidden()

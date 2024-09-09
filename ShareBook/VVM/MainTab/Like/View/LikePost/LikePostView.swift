@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Shimmer
 
 struct LikePostView: View {
     @State private var viewModel = LikePostViewModel()
+    
+    @State private var isRedacted = false
     
     let proxyWidth: CGFloat
     
@@ -20,10 +23,11 @@ struct LikePostView: View {
     var body: some View {
         ScrollView {
             VStack {
-                LazyVGrid(columns: columns, spacing: viewModel.calNumBase26And393(geometryWidth: proxyWidth)) {
+                LazyVGrid(columns: columns, spacing: viewModel.postSpacing(proxyWidth: proxyWidth)) {
                     ForEach(viewModel.posts) { post in
                         PostCoverView(post: post)
-                            .scaleEffect(proxyWidth / 380)
+                            .redacted(reason: isRedacted ? .placeholder : [])
+                            .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
                     }
                 }
                 .padding(.vertical)
@@ -35,6 +39,13 @@ struct LikePostView: View {
         .task {
             Task {
                 await viewModel.loadAllLikePosts()
+                
+                isRedacted = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    withAnimation(.easeOut(duration: 0.4)) {
+                        isRedacted = false
+                    }
+                }
             }
         }
         

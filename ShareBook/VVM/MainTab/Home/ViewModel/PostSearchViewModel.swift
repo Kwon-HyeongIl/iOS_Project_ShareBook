@@ -20,7 +20,7 @@ class PostSearchViewModel {
         self.posts = await PostManager.searchPostByBookName(searchText: searchText)
     }
     
-    func resizePost(proxyWidth: CGFloat) -> CGFloat {
+    func postSpacing(proxyWidth: CGFloat) -> CGFloat {
         return 17 + ((proxyWidth - 393) * (0.4))
     }
 }

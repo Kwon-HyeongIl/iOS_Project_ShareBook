@@ -13,7 +13,6 @@ struct NewPostUploadPostView: View {
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @State private var viewModel: NewPostUploadPostViewModel
     
-    
     @State private var isImpressivePhraseShowing = true
     @State private var isImpressiveAlertShowing = false
     @State private var isFeelingCaptionShowing = false

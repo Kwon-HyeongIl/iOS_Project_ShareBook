@@ -13,18 +13,18 @@ struct PostSearchView: View {
     @State private var viewModel = PostSearchViewModel()
     
     @State private var searchText = ""
-    @State private var isPostCoverRedacted = true
+    @State private var isRedacted = true
     
     var body: some View {
         GeometryReader { proxy in
             GradientBackgroundView {
                 ScrollView {
                     VStack {
-                        LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
+                        LazyVGrid(columns: viewModel.columns, spacing: viewModel.postSpacing(proxyWidth: proxy.size.width)) {
                             ForEach(viewModel.posts) { post in
                                 PostCoverView(post: post)
-                                    .redacted(reason: isPostCoverRedacted ? .placeholder : [])
-                                    .shimmering(active: isPostCoverRedacted ? true : false, bandSize: 0.4)
+                                    .redacted(reason: isRedacted ? .placeholder : [])
+                                    .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
                             }
                         }
                     }
@@ -61,10 +61,10 @@ struct PostSearchView: View {
                                     Task {
                                         await viewModel.searchPostByBookName(searchText: searchText)
                                         
-                                        isPostCoverRedacted = true
+                                        isRedacted = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                             withAnimation(.easeOut(duration: 0.4)) {
-                                                isPostCoverRedacted = false
+                                                isRedacted = false
                                             }
                                         }
                                     }

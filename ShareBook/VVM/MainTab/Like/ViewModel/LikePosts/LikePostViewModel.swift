@@ -21,7 +21,7 @@ class LikePostViewModel {
         self.posts = await PostManager.loadAllLikePosts()
     }
     
-    func calNumBase26And393(geometryWidth: CGFloat) -> CGFloat {
-        return 26 + ((geometryWidth - 393) * (0.6))
+    func postSpacing(proxyWidth: CGFloat) -> CGFloat {
+        return 20 + ((proxyWidth - 393) * (0.45))
     }
 }

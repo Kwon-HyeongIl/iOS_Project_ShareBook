@@ -37,4 +37,12 @@ class CommentListViewModel {
         
         await CommentManager.uploadComment(comment: comment)
     }
+    
+    func uploadCommentReply(upperCommentId: String) async {
+        guard let userId = AuthManager.shared.currentUser?.id else { return }
+        
+        let commentReply = Comment(id: UUID().uuidString, commentText: commentText, postId: post.id, postUserId: post.userId, commentUserId: userId, commentUser: currentUser, date: Date())
+        
+        await CommentManager.uploadCommentReply(commentReply: commentReply, upperCommentId: upperCommentId)
+    }
 }

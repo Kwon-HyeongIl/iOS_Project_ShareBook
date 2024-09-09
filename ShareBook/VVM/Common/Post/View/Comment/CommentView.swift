@@ -155,6 +155,7 @@ struct CommentView: View {
             Task {
                 await viewModel.loadAllCommentCommentReplies()
             }
+            viewModel.comment.commentReplyCount = (viewModel.comment.commentReplyCount ?? 0) + 1
         }
     }
 }
