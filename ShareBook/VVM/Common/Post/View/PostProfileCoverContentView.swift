@@ -16,7 +16,7 @@ struct PostProfileCoverContentView: View {
             KFImage(URL(string: post.book.image))
                 .resizable()
                 .frame(width: 125, height: 175)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay {
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundStyle(.black)
