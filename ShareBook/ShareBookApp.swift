@@ -60,6 +60,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOption,
                 completionHandler: {_, _ in })
+            
         } else {
             let settings: UIUserNotificationSettings =
             UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -81,23 +82,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 extension AppDelegate: MessagingDelegate{
-    
-    // fcm 등록 토큰을 받았을 때
+    // fcm 등록 토큰 수신
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        
-        print("토큰을 수신")
-    
+        print("token")
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
-        
         print(dataDict)
-        
     }
 }
 
 @available(iOS 10, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    // 푸시 메세지가 앱이 켜져있을 때 나올떄
+    // 푸시 메세지가 앱이 켜져있는 동안 수신
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
@@ -116,7 +111,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler([[.banner, .badge, .sound]])
     }
     
-    // 푸시메세지를 받았을 떄
+    // 푸시메세지 수신
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
