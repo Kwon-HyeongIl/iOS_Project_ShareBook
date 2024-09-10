@@ -122,6 +122,8 @@
 		CAE601682C5100FA0013413C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CAE601672C5100FA0013413C /* .gitignore */; };
 		CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */; };
 		CAEDAB562C5A015A0077883E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAEDAB552C5A015A0077883E /* CryptoSwift */; };
+		CAF312C82C9088D70089A186 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C72C9088D70089A186 /* FirebaseAnalytics */; };
+		CAF312CA2C9088D70089A186 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C92C9088D70089A186 /* FirebaseMessaging */; };
 		CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAFE2C262C54F655000A3047 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -243,8 +245,10 @@
 			files = (
 				CA8662E02C8347C000B56983 /* Shimmer in Frameworks */,
 				CAE601602C50F5D50013413C /* KakaoSDKCommon in Frameworks */,
+				CAF312CA2C9088D70089A186 /* FirebaseMessaging in Frameworks */,
 				CAE6015E2C50F5D50013413C /* KakaoSDKAuth in Frameworks */,
 				CABE31BC2C4CAB090010AC20 /* FirebaseAuth in Frameworks */,
+				CAF312C82C9088D70089A186 /* FirebaseAnalytics in Frameworks */,
 				CABE31C22C4CAB090010AC20 /* FirebaseStorage in Frameworks */,
 				CABE31BE2C4CAB090010AC20 /* FirebaseFirestore in Frameworks */,
 				CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */,
@@ -898,6 +902,8 @@
 				CAFE2C262C54F655000A3047 /* Alamofire */,
 				CAEDAB552C5A015A0077883E /* CryptoSwift */,
 				CA8662DF2C8347C000B56983 /* Shimmer */,
+				CAF312C72C9088D70089A186 /* FirebaseAnalytics */,
+				CAF312C92C9088D70089A186 /* FirebaseMessaging */,
 			);
 			productName = ShareBook;
 			productReference = CA6AAC282C4B8CA10045449E /* ShareBook.app */;
@@ -1392,6 +1398,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CAEDAB542C5A015A0077883E /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
+		};
+		CAF312C72C9088D70089A186 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		CAF312C92C9088D70089A186 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABE31BA2C4CAB090010AC20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		CAFE2C262C54F655000A3047 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
