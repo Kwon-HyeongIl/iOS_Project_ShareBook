@@ -20,6 +20,7 @@ struct ShareBookApp: App {
     let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
     
     init() {
+        
         // Kakao 로그인 관련 초기화
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
     }
@@ -82,6 +83,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 extension AppDelegate: MessagingDelegate{
+    
     // fcm 등록 토큰 수신
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("token")
@@ -92,6 +94,7 @@ extension AppDelegate: MessagingDelegate{
 
 @available(iOS 10, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    
     // 푸시 메세지가 앱이 켜져있는 동안 수신
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -100,14 +103,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         let userInfo = notification.request.content.userInfo
         
-        
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
-        
         print(userInfo)
-        
+
         completionHandler([[.banner, .badge, .sound]])
     }
     
