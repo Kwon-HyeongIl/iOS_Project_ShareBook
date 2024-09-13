@@ -42,14 +42,19 @@ class AuthManager {
     }
     
     func uploadUserData(userId: String, email: String, username: String, kakaoHashedUid: String = "", appleHashedUid: String = "") async {
-        if kakaoHashedUid.isEmpty && appleHashedUid.isEmpty { // 베이직 회원가입
-            self.currentUser = User(id: userId, username: username, authEmail: email)
+        let deviceToken = FCMManager.shared.deviceToken ?? ""
+        
+        if kakaoHashedUid.isEmpty && appleHashedUid.isEmpty {
+            // 베이직 회원가입
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email)
             
-        } else if kakaoHashedUid.isEmpty { // 애플 회원가입
-            self.currentUser = User(id: userId, username: username, authEmail: email, appleHashedUid: appleHashedUid)
+        } else if kakaoHashedUid.isEmpty { 
+            // 애플 회원가입
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, appleHashedUid: appleHashedUid)
             
-        } else { // 카카오 회원가입
-            self.currentUser = User(id: userId, username: username, authEmail: email, kakaoHashedUid: kakaoHashedUid)
+        } else { 
+            // 카카오 회원가입
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, kakaoHashedUid: kakaoHashedUid)
         }
         
         do {
@@ -65,6 +70,7 @@ class AuthManager {
     func login(email: String, password: String) async {
         do {
             _ = try await Auth.auth().signIn(withEmail: email, password: password)
+            await updateDeviceToken()
             await loadCurrentUserData()
             
         } catch {
@@ -83,6 +89,20 @@ class AuthManager {
         }
     }
     
+    func updateDeviceToken() async {
+        do {
+            guard let userId = Auth.auth().currentUser?.uid else { return }
+            var editedData: [String : Any] = [:]
+            editedData["deviceToken"] = FCMManager.shared.deviceToken ?? ""
+            
+            try await Firestore.firestore()
+                .collection("User").document(userId)
+                .updateData(editedData)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
     
     func signOut() {

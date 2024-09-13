@@ -10,6 +10,7 @@ import FirebaseAuth
 
 struct User: Codable, Identifiable, Hashable, Equatable {
     let id: String
+    var deviceToken: String
     let username: String
     
     var authEmail: String
@@ -25,5 +26,5 @@ struct User: Codable, Identifiable, Hashable, Equatable {
 }
 
 extension User {
-    static var DUMMY_USER: User = User(id: UUID().uuidString, username: "행이", authEmail: "test@naver.com")
+    static var DUMMY_USER: User = User(id: UUID().uuidString, deviceToken: "test", username: "행이", authEmail: "test@naver.com")
 }
