@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileOptionView: View {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: ProfileViewModel
@@ -67,6 +68,8 @@ struct ProfileOptionView: View {
                         }
                         navRouter.popToRoot()
                         mainTabCapsule.selectedTab = .house
+                        
+                        appDelegate.refreshDeviceToken()
                     } label: {
                         Text("계속")
                     }

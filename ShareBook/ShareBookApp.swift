@@ -80,11 +80,34 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
     }
+    
+    func refreshDeviceToken() {
+        Messaging.messaging().deleteToken { error in
+            if let error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            // 새 토큰 요청
+            Messaging.messaging().token { token, error in
+                if let error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                if let token {
+                    FCMManager.shared.deviceToken = token
+                }
+            }
+        }
+    }
 }
 
 extension AppDelegate: MessagingDelegate{
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        
+        print("token:", dataDict["token"] ?? "")
         
         FCMManager.shared.deviceToken = dataDict["token"] ?? ""
     }
