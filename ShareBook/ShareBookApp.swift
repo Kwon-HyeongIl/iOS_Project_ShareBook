@@ -82,7 +82,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: MessagingDelegate {
+extension AppDelegate: MessagingDelegate{
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         

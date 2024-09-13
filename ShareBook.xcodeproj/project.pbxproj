@@ -80,6 +80,7 @@
 		CAA0C6072C54B82C00E7433D /* NewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0C6062C54B82C00E7433D /* NewPostViewModel.swift */; };
 		CAA235812C81D525009875A4 /* CommentSheetCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA235802C81D525009875A4 /* CommentSheetCapsule.swift */; };
 		CAA4BE702C7A572900611C2D /* UserLikePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4BE6F2C7A572900611C2D /* UserLikePost.swift */; };
+		CAAC4C4B2C94996D001306AA /* FCMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAC4C492C94996D001306AA /* FCMManager.swift */; };
 		CAAFE01F2C4FC72600953557 /* Girl3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAFE01E2C4FC72600953557 /* Girl3DView.swift */; };
 		CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB2E9932C69FB52006E1063 /* PostManager.swift */; };
 		CAB7FE422C73B73500A2D967 /* CommentSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7FE412C73B73500A2D967 /* CommentSheetView.swift */; };
@@ -202,6 +203,7 @@
 		CAA0C6062C54B82C00E7433D /* NewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewModel.swift; sourceTree = "<group>"; };
 		CAA235802C81D525009875A4 /* CommentSheetCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSheetCapsule.swift; sourceTree = "<group>"; };
 		CAA4BE6F2C7A572900611C2D /* UserLikePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikePost.swift; sourceTree = "<group>"; };
+		CAAC4C492C94996D001306AA /* FCMManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
 		CAAFE01E2C4FC72600953557 /* Girl3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Girl3DView.swift; sourceTree = "<group>"; };
 		CAB2E9932C69FB52006E1063 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		CAB7FE412C73B73500A2D967 /* CommentSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSheetView.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 		CA83A48F2C4CB6FE004F06E7 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CAAC4C4A2C94996D001306AA /* FCM */,
 				CAD01ED82C5F4A29001E479F /* Auth */,
 				CAD01ED92C5F4A3A001E479F /* Image */,
 				CAD01EDB2C5F4A47001E479F /* Book */,
@@ -720,6 +723,14 @@
 				CA3A8D8E2C8C933C0032ECB6 /* MainTabCapsule.swift */,
 			);
 			path = Capsule;
+			sourceTree = "<group>";
+		};
+		CAAC4C4A2C94996D001306AA /* FCM */ = {
+			isa = PBXGroup;
+			children = (
+				CAAC4C492C94996D001306AA /* FCMManager.swift */,
+			);
+			path = FCM;
 			sourceTree = "<group>";
 		};
 		CAB2E9952C69FB55006E1063 /* Post */ = {
@@ -985,6 +996,7 @@
 				CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */,
 				CA2CA1B12C591682001D8B89 /* JwtManager.swift in Sources */,
 				CA20A81A2C7CC93A008F3E8B /* Genre.swift in Sources */,
+				CAAC4C4B2C94996D001306AA /* FCMManager.swift in Sources */,
 				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
 				CA3CA9082C7A110E007F2EDC /* PostDetailView.swift in Sources */,
 				CAA235812C81D525009875A4 /* CommentSheetCapsule.swift in Sources */,
