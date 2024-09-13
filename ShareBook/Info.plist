@@ -21,6 +21,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>FIREBASE_SHAREBOOK_PROJECT_ID</key>
+	<string>${FIREBASE_SHAREBOOK_PROJECT_ID}</string>
+	<key>GOOGLE_OAUTH_ACCESS_TOKEN_URL_BODY</key>
+	<string>${GOOGLE_OAUTH_ACCESS_TOKEN_URL_BODY}</string>
 	<key>HASH_KEY</key>
 	<string>${HASH_KEY}</string>
 	<key>KAKAO_NATIVE_APP_KEY</key>

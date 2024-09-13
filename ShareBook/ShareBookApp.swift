@@ -82,13 +82,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: MessagingDelegate{
-    
-    // fcm 등록 토큰 수신
+extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("token")
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
-        print(dataDict)
+        
+        FCMManager.shared.deviceToken = dataDict["token"] ?? ""
     }
 }
 
@@ -106,8 +104,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        print(userInfo)
 
         completionHandler([[.banner, .badge, .sound]])
     }
@@ -121,8 +117,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        print(userInfo)
         
         completionHandler()
     }
