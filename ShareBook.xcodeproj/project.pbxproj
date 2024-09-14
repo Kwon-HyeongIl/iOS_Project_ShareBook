@@ -72,6 +72,8 @@
 		CA8627A92C954E86005A6BC8 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627A82C954E86005A6BC8 /* NotificationType.swift */; };
 		CA8627AE2C955C59005A6BC8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */; };
 		CA8627B02C955FDF005A6BC8 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627AF2C955FDF005A6BC8 /* Notification.swift */; };
+		CA8627B22C95691E005A6BC8 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627B12C95691E005A6BC8 /* NotificationsView.swift */; };
+		CA8627B82C956978005A6BC8 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627B72C956978005A6BC8 /* NotificationsViewModel.swift */; };
 		CA8662E02C8347C000B56983 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA8662DF2C8347C000B56983 /* Shimmer */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */; };
@@ -198,6 +200,8 @@
 		CA8627A82C954E86005A6BC8 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		CA8627AF2C955FDF005A6BC8 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		CA8627B12C95691E005A6BC8 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		CA8627B72C956978005A6BC8 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
@@ -706,6 +710,38 @@
 			path = Notification;
 			sourceTree = "<group>";
 		};
+		CA8627B42C95693A005A6BC8 /* PostSearch */ = {
+			isa = PBXGroup;
+			children = (
+				CA3A8D882C8C58C60032ECB6 /* PostSearchView.swift */,
+			);
+			path = PostSearch;
+			sourceTree = "<group>";
+		};
+		CA8627B52C956946005A6BC8 /* PostSearch */ = {
+			isa = PBXGroup;
+			children = (
+				CA3A8D8A2C8C58CF0032ECB6 /* PostSearchViewModel.swift */,
+			);
+			path = PostSearch;
+			sourceTree = "<group>";
+		};
+		CA8627B62C956957005A6BC8 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CA8627B12C95691E005A6BC8 /* NotificationsView.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		CA8627B92C95697B005A6BC8 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CA8627B72C956978005A6BC8 /* NotificationsViewModel.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		CAA0C5F32C549FBD00E7433D /* NewPost */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,7 +923,8 @@
 			isa = PBXGroup;
 			children = (
 				CABE31CA2C4CAE550010AC20 /* HomeView.swift */,
-				CA3A8D882C8C58C60032ECB6 /* PostSearchView.swift */,
+				CA8627B42C95693A005A6BC8 /* PostSearch */,
+				CA8627B62C956957005A6BC8 /* Notification */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -896,7 +933,8 @@
 			isa = PBXGroup;
 			children = (
 				CADD90792C6A55740023C512 /* HomeViewModel.swift */,
-				CA3A8D8A2C8C58CF0032ECB6 /* PostSearchViewModel.swift */,
+				CA8627B52C956946005A6BC8 /* PostSearch */,
+				CA8627B92C95697B005A6BC8 /* Notification */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1013,6 +1051,7 @@
 				CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */,
 				CA2CA1B12C591682001D8B89 /* JwtManager.swift in Sources */,
 				CA20A81A2C7CC93A008F3E8B /* Genre.swift in Sources */,
+				CA8627B82C956978005A6BC8 /* NotificationsViewModel.swift in Sources */,
 				CAAC4C4B2C94996D001306AA /* FCMManager.swift in Sources */,
 				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
 				CA3CA9082C7A110E007F2EDC /* PostDetailView.swift in Sources */,
@@ -1029,6 +1068,7 @@
 				CA62D0722C6DB7DA00A652EA /* CommentView.swift in Sources */,
 				CAA4BE702C7A572900611C2D /* UserLikePost.swift in Sources */,
 				CAD01ED52C5F48F6001E479F /* BookManager+Bookmark.swift in Sources */,
+				CA8627B22C95691E005A6BC8 /* NotificationsView.swift in Sources */,
 				CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */,
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CA62D0742C6DB8D300A652EA /* Comment.swift in Sources */,
