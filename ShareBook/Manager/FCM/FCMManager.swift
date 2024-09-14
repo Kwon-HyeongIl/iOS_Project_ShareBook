@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 @Observable
 class FCMManager {
@@ -18,10 +19,10 @@ class FCMManager {
         await self.getGoogleOAuthAccessToken()
         
         async let _ = NotificationManager.saveNotification(userId: userId, nofitication: notification)
+            // Firebstore에 알림 저장
         
-        guard let projectId = Bundle.main.infoDictionary?["FIREBASE_SHAREBOOK_PROJECT_ID"] as? String else {
-            return
-        }
+        guard let projectId = Bundle.main.infoDictionary?["FIREBASE_SHAREBOOK_PROJECT_ID"] as? String else { return }
+        
         guard let url = URL(string: "https://fcm.googleapis.com/v1/projects/\(projectId)/messages:send") else {
             print("Invalid URL for FCM")
             return
@@ -33,7 +34,7 @@ class FCMManager {
                 "notification": [
                     "body": notification.body,
                     "title": notification.title
-                ],
+                ]
             ]
         ]
         
@@ -54,19 +55,20 @@ class FCMManager {
     }
     
     private func getGoogleOAuthAccessToken() async {
-        guard let accessTokenUrlBody = Bundle.main.infoDictionary?["GOOGLE_OAUTH_ACCESS_TOKEN_URL_BODY"] as? String else {
-            return
-        }
+        guard let accessTokenUrlBody = Bundle.main.infoDictionary?["GOOGLE_OAUTH_ACCESS_TOKEN_URL_BODY"] as? String else { return }
         guard let url = URL(string: "https://\(accessTokenUrlBody)") else {
             print("Invalid URL for token")
             return
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
         do {
-            let (data, _) = try await URLSession.shared.data(for: request) 
+            guard let firebaseAuthToken = try await Auth.auth().currentUser?.getIDToken() else { return }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.addValue("Bearer \(firebaseAuthToken)", forHTTPHeaderField: "Authorization")
+            
+            let (data, _) = try await URLSession.shared.data(for: request)
                 // Token을 받고 나서 계속 알림 요청을 보내기 위해 URLSession.shared.data 사용
             
             if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
