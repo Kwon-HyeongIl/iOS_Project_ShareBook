@@ -15,6 +15,16 @@ class NavRouter {
     func navigate(to view: NavStackView) -> some View {
         switch view {
             
+        // Signup
+        case .EnterEmailView:
+            EnterEmailView()
+        case .EnterPasswordView:
+            EnterPasswordView()
+        case .EnterUsernameView:
+            EnterUsernameView()
+        case .CompleteSignupView:
+            CompleteSignupView()
+            
         // Home
         case .PostSearchView:
             PostSearchView()

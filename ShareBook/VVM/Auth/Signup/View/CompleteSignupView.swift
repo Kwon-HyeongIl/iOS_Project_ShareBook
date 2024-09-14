@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CompleteSignupView: View {
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(SignupViewModel.self) var viewModel
     
     var body: some View {
@@ -42,6 +43,7 @@ struct CompleteSignupView: View {
                     Button {
                         Task {
                             await viewModel.createUser()
+                            navRouter.popToRoot()
                         }
                     } label: {
                         Text("완료")
@@ -59,4 +61,5 @@ struct CompleteSignupView: View {
 #Preview {
     CompleteSignupView()
         .environment(SignupViewModel())
+        .environment(NavRouter())
 }

@@ -9,6 +9,12 @@ import Foundation
 
 enum NavStackView: Hashable {
     
+    // Signup
+    case EnterEmailView
+    case EnterPasswordView
+    case EnterUsernameView
+    case CompleteSignupView
+    
     // Home
     case PostSearchView
     

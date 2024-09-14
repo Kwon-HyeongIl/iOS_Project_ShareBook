@@ -12,6 +12,10 @@ class CommentManager {
     static func uploadComment(comment: Comment) async {
         guard let encodedComment = try? Firestore.Encoder().encode(comment) else { return }
         
+        // 💌 FCM
+        let postUserDeviceToken = await AuthManager.shared.getSpecificUserDeviceToken(userId: comment.postUserId)
+        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, title: "새 댓글", body: comment.commentText)
+        
         do {
             try await Firestore.firestore()
                 .collection("Post").document(comment.postId)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EnterUsernameView: View {
+    @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(SignupViewModel.self) var viewModel
     
     var body: some View {
@@ -28,15 +29,12 @@ struct EnterUsernameView: View {
                     .modifier(TextFieldModifier())
                     .padding(.bottom, 5)
                 
-                HStack {
-                    NavigationLink {
-                        CompleteSignupView()
-                    } label: {
-                        Text("다음")
-                            .modifier(AuthViewButtonModifier())
-                    }
-                    .padding(.horizontal)
-                    
+                Button {
+                    navRouter.move(.CompleteSignupView)
+                } label: {
+                    Text("다음")
+                        .modifier(AuthViewButtonModifier())
+                        .padding(.horizontal)
                 }
                 Spacer()
                 
@@ -64,4 +62,5 @@ struct EnterUsernameView: View {
 #Preview {
     EnterUsernameView()
         .environment(SignupViewModel())
+        .environment(NavRouter())
 }

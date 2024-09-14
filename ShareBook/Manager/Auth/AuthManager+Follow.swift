@@ -10,6 +10,11 @@ import FirebaseFirestore
 
 extension AuthManager {
     func follow(followUserId: String) async {
+        
+        // 💌 FCM
+        let postUserDeviceToken = await AuthManager.shared.getSpecificUserDeviceToken(userId: followUserId)
+        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, title: "팔로우", body: "\(currentUser?.username ?? "")님이 당신을 팔로우하였습니다!")
+        
         guard let currentUserId = currentUser?.id else { return }
         
         do {

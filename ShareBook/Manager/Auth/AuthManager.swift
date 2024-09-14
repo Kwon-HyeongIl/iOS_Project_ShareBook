@@ -42,7 +42,7 @@ class AuthManager {
     }
     
     func uploadUserData(userId: String, email: String, username: String, kakaoHashedUid: String = "", appleHashedUid: String = "") async {
-        let deviceToken = FCMManager.shared.deviceToken ?? ""
+        let deviceToken = FCMManager.shared.myDeviceToken ?? ""
         
         if kakaoHashedUid.isEmpty && appleHashedUid.isEmpty {
             // 베이직 회원가입
@@ -93,7 +93,7 @@ class AuthManager {
         do {
             guard let userId = Auth.auth().currentUser?.uid else { return }
             var editedData: [String : Any] = [:]
-            editedData["deviceToken"] = FCMManager.shared.deviceToken ?? ""
+            editedData["deviceToken"] = FCMManager.shared.myDeviceToken ?? ""
             
             try await Firestore.firestore()
                 .collection("User").document(userId)
@@ -101,6 +101,22 @@ class AuthManager {
             
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    func getSpecificUserDeviceToken(userId: String) async -> String {
+        do {
+            let userDocument = try await Firestore.firestore()
+                .collection("User").document(userId)
+                .getDocument()
+            
+            let user = try userDocument.data(as: User.self)
+            
+            return user.deviceToken
+            
+        } catch {
+            print(error.localizedDescription)
+            return ""
         }
     }
     

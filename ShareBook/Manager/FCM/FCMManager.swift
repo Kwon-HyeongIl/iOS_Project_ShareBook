@@ -11,10 +11,10 @@ import SwiftUI
 class FCMManager {
     static let shared = FCMManager()
     
-    var deviceToken: String?
+    var myDeviceToken: String?
     var googleAccessToken: String?
     
-    func sendFCMNotification(title: String, body: String) async {
+    func sendFCMNotification(deviceToken: String, title: String, body: String) async {
         await self.getGoogleOAuthAccessToken()
         
         guard let projectId = Bundle.main.infoDictionary?["FIREBASE_SHAREBOOK_PROJECT_ID"] as? String else {
@@ -28,7 +28,7 @@ class FCMManager {
         
         let json: [String: Any] = [
             "message": [
-                "token": deviceToken ?? "",
+                "token": deviceToken,
                 "notification": [
                     "body": body,
                     "title": title

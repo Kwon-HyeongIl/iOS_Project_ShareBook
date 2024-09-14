@@ -15,6 +15,7 @@ import KakaoSDKAuth
 struct ShareBookApp: App {
     @State private var navStackControlTower = NavRouter()
     @State private var mainTabCapsule = MainTabCapsule()
+    @State private var signupViewModel = SignupViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
@@ -44,6 +45,7 @@ struct ShareBookApp: App {
         }
         .environment(navStackControlTower)
         .environment(mainTabCapsule)
+        .environment(signupViewModel)
     }
 }
 
@@ -96,7 +98,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 }
                 
                 if let token {
-                    FCMManager.shared.deviceToken = token
+                    FCMManager.shared.myDeviceToken = token
                 }
             }
         }
@@ -109,7 +111,7 @@ extension AppDelegate: MessagingDelegate{
         
         print("token:", dataDict["token"] ?? "")
         
-        FCMManager.shared.deviceToken = dataDict["token"] ?? ""
+        FCMManager.shared.myDeviceToken = dataDict["token"] ?? ""
     }
 }
 
