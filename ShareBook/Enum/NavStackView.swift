@@ -17,6 +17,7 @@ enum NavStackView: Hashable {
     
     // Home
     case PostSearchView
+    case NotificationsView
     
     // NewPost
     case NewPostUploadPostView(Book)

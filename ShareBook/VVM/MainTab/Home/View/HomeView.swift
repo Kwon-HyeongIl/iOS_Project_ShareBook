@@ -172,12 +172,16 @@ struct HomeView: View {
                                     .foregroundStyle(Color.SBTitle)
                             }
                             
-                            Image(systemName: "bell")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 18)
-                                .foregroundStyle(Color.SBTitle)
-                                .padding(.trailing)
+                            Button {
+                                navRouter.move(.NotificationsView)
+                            } label: {
+                                Image(systemName: "bell")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 18)
+                                    .foregroundStyle(Color.SBTitle)
+                                    .padding(.trailing)
+                            }
                         }
                         .frame(width: proxy.size.width)
                         

@@ -28,6 +28,8 @@ class NavRouter {
         // Home
         case .PostSearchView:
             PostSearchView()
+        case .NotificationsView:
+            NotificationsView()
             
         // NewPost
         case .NewPostUploadPostView(let book):

@@ -10,4 +10,14 @@ import Foundation
 @Observable
 class NotificationsViewModel {
     var notifications: [Notification] = []
+    
+    init() {
+        Task {
+            await self.loadAllMyNotifications()
+        }
+    }
+    
+    func loadAllMyNotifications() async {
+        self.notifications = await NotificationManager.loadAllMyNotifications()
+    }
 }
