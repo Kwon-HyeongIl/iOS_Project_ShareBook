@@ -14,7 +14,7 @@ class FCMManager {
     var myDeviceToken: String?
     var googleAccessToken: String?
     
-    func sendFCMNotification(deviceToken: String, title: String, body: String) async {
+    func sendFCMNotification(deviceToken: String, type: Notification, data: String, title: String, body: String) async {
         await self.getGoogleOAuthAccessToken()
         
         guard let projectId = Bundle.main.infoDictionary?["FIREBASE_SHAREBOOK_PROJECT_ID"] as? String else {
@@ -32,7 +32,7 @@ class FCMManager {
                 "notification": [
                     "body": body,
                     "title": title
-                ]
+                ],
             ]
         ]
         

@@ -69,6 +69,8 @@
 		CA84D1A12C80875A00F2A910 /* BookCoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A02C80875A00F2A910 /* BookCoverContentView.swift */; };
 		CA84D1A32C808E4E00F2A910 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */; };
 		CA84D1A72C80A21100F2A910 /* ProfileOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */; };
+		CA8627A92C954E86005A6BC8 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627A82C954E86005A6BC8 /* Notification.swift */; };
+		CA8627AE2C955C59005A6BC8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */; };
 		CA8662E02C8347C000B56983 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA8662DF2C8347C000B56983 /* Shimmer */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */; };
@@ -192,6 +194,8 @@
 		CA84D1A02C80875A00F2A910 /* BookCoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverContentView.swift; sourceTree = "<group>"; };
 		CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionView.swift; sourceTree = "<group>"; };
+		CA8627A82C954E86005A6BC8 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				CA20A8192C7CC93A008F3E8B /* Genre.swift */,
 				CA20A81B2C7CC9ED008F3E8B /* ImagePath.swift */,
 				CA20A81D2C7CCA0B008F3E8B /* NavStackView.swift */,
+				CA8627A82C954E86005A6BC8 /* Notification.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 			isa = PBXGroup;
 			children = (
 				CAAC4C4A2C94996D001306AA /* FCM */,
+				CA8627AC2C955C3F005A6BC8 /* Notification */,
 				CAD01ED82C5F4A29001E479F /* Auth */,
 				CAD01ED92C5F4A3A001E479F /* Image */,
 				CAD01EDB2C5F4A47001E479F /* Book */,
@@ -687,6 +693,14 @@
 				CA6609C02C4D4C650091091F /* ViewModel */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CA8627AC2C955C3F005A6BC8 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		CAA0C5F32C549FBD00E7433D /* NewPost */ = {
@@ -999,6 +1013,7 @@
 				CAAC4C4B2C94996D001306AA /* FCMManager.swift in Sources */,
 				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
 				CA3CA9082C7A110E007F2EDC /* PostDetailView.swift in Sources */,
+				CA8627A92C954E86005A6BC8 /* Notification.swift in Sources */,
 				CAA235812C81D525009875A4 /* CommentSheetCapsule.swift in Sources */,
 				CAA0C6072C54B82C00E7433D /* NewPostViewModel.swift in Sources */,
 				CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */,
@@ -1015,6 +1030,7 @@
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CA62D0742C6DB8D300A652EA /* Comment.swift in Sources */,
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
+				CA8627AE2C955C59005A6BC8 /* NotificationManager.swift in Sources */,
 				CA10EEC22C60CC4700901979 /* NewPostUploadPostView.swift in Sources */,
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
 				CA7DD0012C8E16BF00BE518C /* LightBlueColor.swift in Sources */,

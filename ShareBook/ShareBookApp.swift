@@ -115,6 +115,7 @@ extension AppDelegate: MessagingDelegate{
     }
 }
 
+// 메세지 수신
 @available(iOS 10, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
@@ -133,7 +134,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler([[.banner, .badge, .sound]])
     }
     
-    // 푸시메세지 수신
+    // 알림을 클릭했을 때 호출
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {

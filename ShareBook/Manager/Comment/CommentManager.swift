@@ -14,7 +14,7 @@ class CommentManager {
         
         // 💌 FCM
         let postUserDeviceToken = await AuthManager.shared.getSpecificUserDeviceToken(userId: comment.postUserId)
-        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, title: "새 댓글", body: comment.commentText)
+        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, type: .comment, data: comment.postId, title: "새 댓글", body: comment.commentText)
         
         do {
             try await Firestore.firestore()

@@ -10,10 +10,14 @@ import FirebaseFirestore
 
 extension PostManager {
     static func like(post: Post) async {
+        var bookTitleMax8 = String(post.book.title.prefix(8))
+        if bookTitleMax8.count == 8 {
+            bookTitleMax8.append("...")
+        }
         
         // 💌 FCM
         let postUserDeviceToken = await AuthManager.shared.getSpecificUserDeviceToken(userId: post.userId)
-        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, title: "좋아요", body: "\(AuthManager.shared.currentUser?.username ?? "")님이 당신의 글에 좋아요를 눌렀습니다!")
+        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, type: .like, data: post.id, title: "좋아요", body: "\(AuthManager.shared.currentUser?.username ?? "")님이 \"\(bookTitleMax8)\" 글에 좋아요를 눌렀습니다!")
         
         guard let userId = AuthManager.shared.currentUser?.id else { return }
         
