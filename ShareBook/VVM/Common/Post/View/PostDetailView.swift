@@ -237,8 +237,6 @@ struct PostDetailView: View {
     }
 }
 
-
-
 #Preview {
     PostDetailView(viewModel: PostViewModel(post: Post.DUMMY_POST), commentSheetCapsule: CommentSheetCapsule())
         .environment(NavRouter())

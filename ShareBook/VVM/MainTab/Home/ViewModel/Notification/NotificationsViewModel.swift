@@ -20,4 +20,8 @@ class NotificationsViewModel {
     func loadAllMyNotifications() async {
         self.notifications = await NotificationManager.loadAllMyNotifications()
     }
+    
+    func loadSpecificPost(postId: String) async -> Post? {
+        await PostManager.loadSpecificPost(postId: postId)
+    }
 }

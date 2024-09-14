@@ -120,6 +120,20 @@ class AuthManager {
         }
     }
     
+    func loadSpecificUser(userId: String) async -> User? {
+        do {
+            let userDocument = try await Firestore.firestore()
+                .collection("User").document(userId)
+                .getDocument()
+            
+            return try userDocument.data(as: User.self)
+            
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     
     func signOut() {
         do {

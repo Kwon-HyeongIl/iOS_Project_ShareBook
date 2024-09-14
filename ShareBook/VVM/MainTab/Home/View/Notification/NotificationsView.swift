@@ -59,6 +59,29 @@ struct NotificationsView: View {
                         }
                         .frame(height: 70)
                         .padding(.horizontal)
+                        .onTapGesture {
+                            if notification.type == NotificationType.comment || notification.type == NotificationType.like {
+                                Task {
+                                    guard let post = await viewModel.loadSpecificPost(postId: notification.data) else { return }
+                                    
+                                    @State var postViewModel = PostViewModel(post: post)
+                                    @State var commentSheetCapsule = CommentSheetCapsule()
+                                    
+                                    if notification.type == NotificationType.comment {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                            commentSheetCapsule.isShowing = true
+                                        }
+                                    }
+                                    navRouter.move(.PostDetailView(postViewModel, commentSheetCapsule))
+                                }
+                                
+                            } else if notification.type == NotificationType.follow {
+                                Task {
+                                    let user = await AuthManager.shared.loadSpecificUser(userId: notification.data)
+                                    navRouter.move(.ProfileView(user, nil))
+                                }
+                            }
+                        }
                     }
                 }
             }
