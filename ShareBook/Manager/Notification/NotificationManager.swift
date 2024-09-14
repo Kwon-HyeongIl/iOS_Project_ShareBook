@@ -18,6 +18,8 @@ class NotificationManager {
                 .collection("Notification").document(nofitication.id)
                 .setData(encodedNotification)
             
+            await notificationBadgeOn(userId: userId)
+            
         } catch {
             print(error.localizedDescription)
         }
@@ -41,4 +43,8 @@ class NotificationManager {
             return []
         }
     }
+    
+    
+    
+
 }

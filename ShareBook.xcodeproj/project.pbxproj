@@ -74,7 +74,7 @@
 		CA8627B02C955FDF005A6BC8 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627AF2C955FDF005A6BC8 /* Notification.swift */; };
 		CA8627B22C95691E005A6BC8 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627B12C95691E005A6BC8 /* NotificationsView.swift */; };
 		CA8627B82C956978005A6BC8 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627B72C956978005A6BC8 /* NotificationsViewModel.swift */; };
-		CA8627BD2C95C43B005A6BC8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627BC2C95C43B005A6BC8 /* TestView.swift */; };
+		CA8627C12C95D1FA005A6BC8 /* NotificationManager+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627C02C95D1FA005A6BC8 /* NotificationManager+Badge.swift */; };
 		CA8662E02C8347C000B56983 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA8662DF2C8347C000B56983 /* Shimmer */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */; };
@@ -203,7 +203,7 @@
 		CA8627AF2C955FDF005A6BC8 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		CA8627B12C95691E005A6BC8 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		CA8627B72C956978005A6BC8 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
-		CA8627BC2C95C43B005A6BC8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		CA8627C02C95D1FA005A6BC8 /* NotificationManager+Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationManager+Badge.swift"; sourceTree = "<group>"; };
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
@@ -708,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */,
+				CA8627C02C95D1FA005A6BC8 /* NotificationManager+Badge.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -732,7 +733,6 @@
 			isa = PBXGroup;
 			children = (
 				CA8627B12C95691E005A6BC8 /* NotificationsView.swift */,
-				CA8627BC2C95C43B005A6BC8 /* TestView.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -1062,7 +1062,6 @@
 				CAA235812C81D525009875A4 /* CommentSheetCapsule.swift in Sources */,
 				CAA0C6072C54B82C00E7433D /* NewPostViewModel.swift in Sources */,
 				CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */,
-				CA8627BD2C95C43B005A6BC8 /* TestView.swift in Sources */,
 				CA2146DA2C6B177900BE8C3F /* TitleColor.swift in Sources */,
 				CA70E7FC2C785EA100E3B91B /* LikePostView.swift in Sources */,
 				CA3CA9042C7A104F007F2EDC /* PostViewModel+Like.swift in Sources */,
@@ -1140,6 +1139,7 @@
 				CA9A3FA72C78B74500804B8E /* BookViewModel.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
+				CA8627C12C95D1FA005A6BC8 /* NotificationManager+Badge.swift in Sources */,
 				CA3A8D8B2C8C58CF0032ECB6 /* PostSearchViewModel.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
 				CAC354A82C823AEE00EEA8F9 /* ProfileManager.swift in Sources */,

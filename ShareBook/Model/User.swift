@@ -18,8 +18,8 @@ struct User: Codable, Identifiable, Hashable, Equatable {
     var appleHashedUid: String?
 
     var contactEmail: String?
-    
     var profileImageUrl: String?
+    var isNotificationBadge: Bool?
     
     var titleGenre: Genre?
     var titlePostId: String?

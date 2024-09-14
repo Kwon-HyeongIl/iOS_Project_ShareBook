@@ -12,12 +12,16 @@ class HomeViewModel {
     var hotPosts: [Post] = []
     var posts: [Post] = []
     
+    var isNotificationBadge = false
+    
     @ObservationIgnored let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0)
     ]
     
     init() {
+        self.isNotificationBadge = AuthManager.shared.currentUser?.isNotificationBadge ?? false
+        
         Task {
             await loadHotPosts()
             await loadAllPosts()
@@ -34,6 +38,10 @@ class HomeViewModel {
     
     func loadSpecificGenrePosts(genre: Genre) async {
         self.posts = await PostManager.loadSpecificGenrePosts(genre: genre)
+    }
+    
+    func notificationBadgeOff() async {
+        await NotificationManager.notificationBadgeOff()
     }
     
     func resizePost(proxyWidth: CGFloat) -> CGFloat {

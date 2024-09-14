@@ -168,19 +168,36 @@ struct HomeView: View {
                                 Image(systemName: "magnifyingglass")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 18)
+                                    .frame(width: 21)
                                     .foregroundStyle(Color.SBTitle)
+                                    .padding(.trailing, 7)
                             }
                             
                             Button {
                                 navRouter.move(.NotificationsView)
+                                
+                                Task {
+                                    await viewModel.notificationBadgeOff()
+                                }
+                                viewModel.isNotificationBadge = false
                             } label: {
-                                Image(systemName: "bell")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 18)
-                                    .foregroundStyle(Color.SBTitle)
-                                    .padding(.trailing)
+                                ZStack {
+                                    Image(systemName: "bell")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 21)
+                                        .foregroundStyle(Color.SBTitle)
+                                        .padding(.trailing)
+                                    
+                                    if viewModel.isNotificationBadge {
+                                        Circle()
+                                            .scaledToFit()
+                                            .frame(width: 7)
+                                            .foregroundStyle(.red)
+                                            .padding(.leading, 10)
+                                            .padding(.bottom, 24)
+                                    }
+                                }
                             }
                         }
                         .frame(width: proxy.size.width)
