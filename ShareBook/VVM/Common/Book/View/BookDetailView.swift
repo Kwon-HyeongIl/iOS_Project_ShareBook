@@ -89,7 +89,7 @@ struct BookDetailView: View {
             .padding(.bottom)
             
         }
-        .modifier(BackButtonModifier())
+        .modifier(BackModifier())
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 HStack(spacing: 10) {

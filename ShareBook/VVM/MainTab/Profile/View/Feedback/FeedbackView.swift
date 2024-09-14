@@ -95,8 +95,7 @@ struct FeedbackView: View {
                 
             }
         }
-        .navigationTitle("건의하기")
-        .modifier(BackButtonModifier())
+        .modifier(BackTitleModifier(navigationTitle: "건의하기"))
     }
 }
 

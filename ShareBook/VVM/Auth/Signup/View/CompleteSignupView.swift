@@ -54,7 +54,7 @@ struct CompleteSignupView: View {
                 }
             }
         }
-        .modifier(BackButtonModifier())
+        .modifier(BackModifier())
     }
 }
 

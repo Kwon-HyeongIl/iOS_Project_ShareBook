@@ -55,7 +55,7 @@ struct EnterPasswordView: View {
                 Spacer()
             }
         }
-        .modifier(BackButtonModifier())
+        .modifier(BackModifier())
     }
 }
 

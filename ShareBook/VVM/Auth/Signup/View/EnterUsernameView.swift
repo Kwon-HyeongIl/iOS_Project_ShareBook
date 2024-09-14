@@ -55,7 +55,7 @@ struct EnterUsernameView: View {
                 Spacer()
             }
         }
-        .modifier(BackButtonModifier())
+        .modifier(BackModifier())
     }
 }
 

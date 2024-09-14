@@ -56,7 +56,7 @@ struct EnterEmailView: View {
                 Spacer()
             }
         }
-        .modifier(BackButtonModifier())
+        .modifier(BackModifier())
     }
 }
 

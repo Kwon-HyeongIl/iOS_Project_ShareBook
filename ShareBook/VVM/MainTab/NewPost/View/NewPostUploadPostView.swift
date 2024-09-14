@@ -234,7 +234,7 @@ struct NewPostUploadPostView: View {
                     .modifier(TileModifier())
                 }
             }
-            .modifier(BackButtonModifier())
+            .modifier(BackModifier())
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {

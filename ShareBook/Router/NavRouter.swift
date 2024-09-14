@@ -47,6 +47,8 @@ class NavRouter {
             
         case .FeedbackView:
             FeedbackView()
+        case .NotificationSettingView:
+            NotificationSettingView()
             
         // Post
         case .PostProfileCoverView(let post):

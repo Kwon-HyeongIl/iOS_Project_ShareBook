@@ -11,6 +11,9 @@
 		CA10EEC22C60CC4700901979 /* NewPostUploadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10EEC12C60CC4700901979 /* NewPostUploadPostView.swift */; };
 		CA10EEC52C60CC6400901979 /* NewPostUploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10EEC42C60CC6400901979 /* NewPostUploadPostViewModel.swift */; };
 		CA1126B82C6D27CF009277F3 /* CommentSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1126B72C6D27CF009277F3 /* CommentSheetViewModel.swift */; };
+		CA1FFD072C95F0760083450F /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FFD062C95F0760083450F /* NotificationSettingView.swift */; };
+		CA1FFD0A2C95F0910083450F /* NotificationSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FFD092C95F0910083450F /* NotificationSettingViewModel.swift */; };
+		CA1FFD0D2C95FBE60083450F /* BackTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1FFD0C2C95FBE60083450F /* BackTitleModifier.swift */; };
 		CA20A8142C7CC824008F3E8B /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A8132C7CC824008F3E8B /* HttpMethod.swift */; };
 		CA20A8162C7CC84A008F3E8B /* LikeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A8152C7CC84A008F3E8B /* LikeTab.swift */; };
 		CA20A8182C7CC8F9008F3E8B /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A8172C7CC8F9008F3E8B /* MainTab.swift */; };
@@ -39,7 +42,7 @@
 		CA450DB42C8398A900BCCC0E /* fullGirl3D.splineswift in Resources */ = {isa = PBXBuildFile; fileRef = CA450DB32C8398A900BCCC0E /* fullGirl3D.splineswift */; };
 		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
 		CA4FC6A92C4E993B00525570 /* AuthViewButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */; };
-		CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */; };
+		CA4FC6AD2C4EC3BC00525570 /* BackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackModifier.swift */; };
 		CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */; };
 		CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */; };
 		CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62D06E2C6DB72500A652EA /* CommentManager.swift */; };
@@ -139,6 +142,9 @@
 		CA10EEC12C60CC4700901979 /* NewPostUploadPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostUploadPostView.swift; sourceTree = "<group>"; };
 		CA10EEC42C60CC6400901979 /* NewPostUploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostUploadPostViewModel.swift; sourceTree = "<group>"; };
 		CA1126B72C6D27CF009277F3 /* CommentSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSheetViewModel.swift; sourceTree = "<group>"; };
+		CA1FFD062C95F0760083450F /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
+		CA1FFD092C95F0910083450F /* NotificationSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewModel.swift; sourceTree = "<group>"; };
+		CA1FFD0C2C95FBE60083450F /* BackTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackTitleModifier.swift; sourceTree = "<group>"; };
 		CA20A8132C7CC824008F3E8B /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		CA20A8152C7CC84A008F3E8B /* LikeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTab.swift; sourceTree = "<group>"; };
 		CA20A8172C7CC8F9008F3E8B /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
@@ -167,7 +173,7 @@
 		CA450DB32C8398A900BCCC0E /* fullGirl3D.splineswift */ = {isa = PBXFileReference; lastKnownFileType = file; path = fullGirl3D.splineswift; sourceTree = "<group>"; };
 		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewButtonModifier.swift; sourceTree = "<group>"; };
-		CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonModifier.swift; sourceTree = "<group>"; };
+		CA4FC6AC2C4EC3BC00525570 /* BackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackModifier.swift; sourceTree = "<group>"; };
 		CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCoverView.swift; sourceTree = "<group>"; };
 		CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentManager+Reply.swift"; sourceTree = "<group>"; };
 		CA62D06E2C6DB72500A652EA /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
@@ -316,6 +322,31 @@
 			path = Comment;
 			sourceTree = "<group>";
 		};
+		CA1FFD082C95F07D0083450F /* NotificationSetting */ = {
+			isa = PBXGroup;
+			children = (
+				CA1FFD062C95F0760083450F /* NotificationSettingView.swift */,
+			);
+			path = NotificationSetting;
+			sourceTree = "<group>";
+		};
+		CA1FFD0B2C95F0940083450F /* NotificationSetting */ = {
+			isa = PBXGroup;
+			children = (
+				CA1FFD092C95F0910083450F /* NotificationSettingViewModel.swift */,
+			);
+			path = NotificationSetting;
+			sourceTree = "<group>";
+		};
+		CA1FFD0E2C95FCF80083450F /* NavBack */ = {
+			isa = PBXGroup;
+			children = (
+				CA4FC6AC2C4EC3BC00525570 /* BackModifier.swift */,
+				CA1FFD0C2C95FBE60083450F /* BackTitleModifier.swift */,
+			);
+			path = NavBack;
+			sourceTree = "<group>";
+		};
 		CA20A80E2C7CB524008F3E8B /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +488,7 @@
 				CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */,
 				CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */,
 				CAC3549C2C8214DA00EEA8F9 /* InViewButtonModifier.swift */,
-				CA4FC6AC2C4EC3BC00525570 /* BackButtonModifier.swift */,
+				CA1FFD0E2C95FCF80083450F /* NavBack */,
 				CAC3549E2C821E9E00EEA8F9 /* TileModifier.swift */,
 			);
 			path = Modifier;
@@ -581,6 +612,7 @@
 				CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */,
 				CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */,
 				CA7C5E492C81F34F000F9F2B /* Feedback */,
+				CA1FFD082C95F07D0083450F /* NotificationSetting */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -590,6 +622,7 @@
 			children = (
 				CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */,
 				CA7C5E4C2C81F35E000F9F2B /* Feedback */,
+				CA1FFD0B2C95F0940083450F /* NotificationSetting */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1045,6 +1078,7 @@
 				CA3E7B312C78CBD300F610A4 /* LikesHeadTabView.swift in Sources */,
 				CAC3549B2C81FCCE00EEA8F9 /* Report.swift in Sources */,
 				CA7C5E462C81F156000F9F2B /* Feedback.swift in Sources */,
+				CA1FFD0D2C95FBE60083450F /* BackTitleModifier.swift in Sources */,
 				CA70E7F62C785E6400E3B91B /* LikeView.swift in Sources */,
 				CA70E8022C785ED600E3B91B /* BookmarkBookView.swift in Sources */,
 				CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */,
@@ -1107,7 +1141,7 @@
 				CABE31CB2C4CAE550010AC20 /* HomeView.swift in Sources */,
 				CA20A8142C7CC824008F3E8B /* HttpMethod.swift in Sources */,
 				CAC354A32C8234F400EEA8F9 /* PostProfileCoverContentView.swift in Sources */,
-				CA4FC6AD2C4EC3BC00525570 /* BackButtonModifier.swift in Sources */,
+				CA4FC6AD2C4EC3BC00525570 /* BackModifier.swift in Sources */,
 				CAD0F3772C4E1B9C006ABFD1 /* GradientBackgroundView.swift in Sources */,
 				CAD01ED72C5F4960001E479F /* AuthManager+SocialLogin.swift in Sources */,
 				CA4FC6A92C4E993B00525570 /* AuthViewButtonModifier.swift in Sources */,
@@ -1133,6 +1167,7 @@
 				CA3C5D342C7E102A00C52D0B /* AuthManager+Follow.swift in Sources */,
 				CAB7FE422C73B73500A2D967 /* CommentSheetView.swift in Sources */,
 				CA20A81E2C7CCA0B008F3E8B /* NavStackView.swift in Sources */,
+				CA1FFD072C95F0760083450F /* NotificationSettingView.swift in Sources */,
 				CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */,
 				CA3CA9062C7A1059007F2EDC /* PostViewModel+Comment.swift in Sources */,
 				CA9A3FA92C78B77300804B8E /* BookDetailView.swift in Sources */,
@@ -1140,6 +1175,7 @@
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
 				CA8627C12C95D1FA005A6BC8 /* NotificationManager+Badge.swift in Sources */,
+				CA1FFD0A2C95F0910083450F /* NotificationSettingViewModel.swift in Sources */,
 				CA3A8D8B2C8C58CF0032ECB6 /* PostSearchViewModel.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
 				CAC354A82C823AEE00EEA8F9 /* ProfileManager.swift in Sources */,

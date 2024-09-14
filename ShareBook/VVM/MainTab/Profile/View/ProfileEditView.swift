@@ -227,7 +227,7 @@ struct ProfileEditView: View {
                 Spacer()
             }
         }
-        .navigationTitle("프로필 편집")
+        .toolbarBackground(Color.SBLightBlue, for: .navigationBar)
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -244,6 +244,12 @@ struct ProfileEditView: View {
                     }
                     .fontWeight(.medium)
                 }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                Text("프로필 편집")
+                    .font(.system(size: 18))
+                    .fontWeight(.semibold)
             }
         }
     }

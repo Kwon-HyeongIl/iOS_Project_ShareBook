@@ -21,8 +21,12 @@ struct ProfileOptionView: View {
                 Button {
                     navRouter.move(.FeedbackView)
                 } label: {
-                    HStack {
+                    HStack(spacing: 14) {
                         Image(systemName: "exclamationmark.bubble")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 17)
+                        
                         Text("건의하기")
                         
                         Spacer()
@@ -31,8 +35,33 @@ struct ProfileOptionView: View {
                     }
                     .foregroundStyle(.black)
                     .padding(.horizontal)
-                    .font(.system(size: 18))
+                    .font(.system(size: 17))
                     .padding(.top)
+                    .padding(.bottom, 10)
+                }
+                
+                Divider()
+                    .padding(.horizontal)
+                
+                Button {
+                    navRouter.move(.NotificationSettingView)
+                } label: {
+                    HStack(spacing: 14) {
+                        Image(systemName: "bell")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 16)
+                        
+                        Text("알림 설정")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                    }
+                    .foregroundStyle(.black)
+                    .padding(.horizontal)
+                    .font(.system(size: 17))
+                    .padding(.top, 10)
                     .padding(.bottom, 10)
                 }
                 
@@ -42,8 +71,12 @@ struct ProfileOptionView: View {
                 Button {
                     isLogoutAlertShowing = true
                 } label: {
-                    HStack {
+                    HStack(spacing: 14) {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 18)
+                        
                         Text("로그아웃")
                         
                         Spacer()
@@ -52,7 +85,7 @@ struct ProfileOptionView: View {
                     }
                     .foregroundStyle(.red)
                     .padding(.horizontal)
-                    .font(.system(size: 18))
+                    .font(.system(size: 17))
                     .padding(.top, 10)
                 }
                 .alert("정말 로그아웃 하시겠습니까?", isPresented: $isLogoutAlertShowing) {
@@ -78,8 +111,7 @@ struct ProfileOptionView: View {
                 Spacer()
             }
         }
-        .navigationTitle("설정")
-        .modifier(BackButtonModifier())
+        .modifier(BackTitleModifier(navigationTitle: "설정"))
     }
 }
 

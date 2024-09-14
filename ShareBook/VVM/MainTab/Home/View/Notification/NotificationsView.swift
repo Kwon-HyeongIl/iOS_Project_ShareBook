@@ -52,7 +52,7 @@ struct NotificationsView: View {
                                 Text(notification.date.relativeTimeString())
                                     .font(.system(size: 10))
                                     .foregroundStyle(.gray)
-                                    .padding(.leading, 5)
+                                    .padding(.leading, 3)
                             }
                             .padding(.leading, 5)
                             Spacer()
@@ -86,25 +86,7 @@ struct NotificationsView: View {
                 }
             }
         }
-        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
-        .navigationBarBackButtonHidden()
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                HStack {
-                    Button {
-                        navRouter.back()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .fontWeight(.medium)
-                    }
-                    
-                    Text("알림")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                }
-            }
-        }
+        .modifier(BackTitleModifier(navigationTitle: "알림"))
     }
 }
 

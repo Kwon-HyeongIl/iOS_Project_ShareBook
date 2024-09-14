@@ -33,8 +33,7 @@ struct ProfileEditPostPickerView: View {
                     }
                 }
             }
-            .navigationTitle("나의 인생 책 구절 선택")
-            .modifier(BackButtonModifier())
+            .modifier(BackTitleModifier(navigationTitle: "글 선택"))
         }
     }
 }

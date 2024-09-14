@@ -1,17 +1,19 @@
 //
-//  CustomBackButtonModifier.swift
+//  BackTitleModifier.swift
 //  ShareBook
 //
-//  Created by 권형일 on 7/23/24.
+//  Created by 권형일 on 9/15/24.
 //
 
 import SwiftUI
 
-struct BackButtonModifier: ViewModifier {
+struct BackTitleModifier: ViewModifier {
     @Environment(NavRouter.self) var navRouter: NavRouter
+    var navigationTitle: String
     
     func body(content: Content) -> some View {
         content
+            .toolbarBackground(Color.SBLightBlue, for: .navigationBar)
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -22,6 +24,12 @@ struct BackButtonModifier: ViewModifier {
                         Image(systemName: "chevron.left")
                             .fontWeight(.medium)
                     }
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    Text(navigationTitle)
+                        .font(.system(size: 18))
+                        .fontWeight(.semibold)
                 }
             }
     }

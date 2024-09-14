@@ -218,7 +218,7 @@ struct PostDetailView: View {
                 .presentationDragIndicator(.visible)
                 .presentationDetents([.fraction(0.2), .large])
         }
-        .modifier(BackButtonModifier())
+        .modifier(BackModifier())
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {

@@ -34,7 +34,7 @@ struct MainCustomTabView: View {
                         .foregroundStyle(mainTabCapsule.selectedTab == tab ? Color.SBTitle : .black)
                 }
                 .onTapGesture {
-                    withAnimation(.easeInOut(duration: 0.2)) {
+                    withAnimation(.easeInOut(duration: 0.1)) {
                         mainTabCapsule.selectedTab = tab
                     }
                 }
