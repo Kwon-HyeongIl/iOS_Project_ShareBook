@@ -14,7 +14,8 @@ extension AuthManager {
         
         // 💌 FCM
         let postUserDeviceToken = await AuthManager.shared.getSpecificUserDeviceToken(userId: followUserId)
-        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, type: .follow, data: currentUserId, title: "팔로우", body: "\(currentUser?.username ?? "")님이 당신을 팔로우하였습니다!")
+        let notification = Notification(id: UUID().uuidString, type: .follow, data: currentUserId, title: "팔로우", body: "\(currentUser?.username ?? "")님이 당신을 팔로우하였습니다!", date: Date())
+        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, userId: followUserId, notification: notification)
         
         do {
             async let _ = try await Firestore.firestore()

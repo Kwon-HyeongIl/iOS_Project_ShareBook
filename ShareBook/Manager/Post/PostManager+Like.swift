@@ -17,7 +17,8 @@ extension PostManager {
         
         // 💌 FCM
         let postUserDeviceToken = await AuthManager.shared.getSpecificUserDeviceToken(userId: post.userId)
-        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, type: .like, data: post.id, title: "좋아요", body: "\(AuthManager.shared.currentUser?.username ?? "")님이 \"\(bookTitleMax8)\" 글에 좋아요를 눌렀습니다!")
+        let notification = Notification(id: UUID().uuidString, type: .like, data: post.id, title: "좋아요", body: "\(AuthManager.shared.currentUser?.username ?? "")님이 \"\(bookTitleMax8)\" 글에 좋아요를 눌렀습니다!", date: Date())
+        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, userId: post.userId, notification: notification)
         
         guard let userId = AuthManager.shared.currentUser?.id else { return }
         

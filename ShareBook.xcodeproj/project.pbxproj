@@ -69,8 +69,9 @@
 		CA84D1A12C80875A00F2A910 /* BookCoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A02C80875A00F2A910 /* BookCoverContentView.swift */; };
 		CA84D1A32C808E4E00F2A910 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */; };
 		CA84D1A72C80A21100F2A910 /* ProfileOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */; };
-		CA8627A92C954E86005A6BC8 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627A82C954E86005A6BC8 /* Notification.swift */; };
+		CA8627A92C954E86005A6BC8 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627A82C954E86005A6BC8 /* NotificationType.swift */; };
 		CA8627AE2C955C59005A6BC8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */; };
+		CA8627B02C955FDF005A6BC8 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8627AF2C955FDF005A6BC8 /* Notification.swift */; };
 		CA8662E02C8347C000B56983 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = CA8662DF2C8347C000B56983 /* Shimmer */; };
 		CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */; };
 		CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */; };
@@ -194,8 +195,9 @@
 		CA84D1A02C80875A00F2A910 /* BookCoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverContentView.swift; sourceTree = "<group>"; };
 		CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionView.swift; sourceTree = "<group>"; };
-		CA8627A82C954E86005A6BC8 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		CA8627A82C954E86005A6BC8 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		CA8627AD2C955C59005A6BC8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		CA8627AF2C955FDF005A6BC8 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		CA8EDE8F2C534D7600641983 /* ShareBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareBook.entitlements; sourceTree = "<group>"; };
 		CA8EDE902C5356A500641983 /* LoginViewModel+Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Apple.swift"; sourceTree = "<group>"; };
 		CA9A3FA32C78B6CB00804B8E /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
@@ -325,7 +327,7 @@
 				CA20A8192C7CC93A008F3E8B /* Genre.swift */,
 				CA20A81B2C7CC9ED008F3E8B /* ImagePath.swift */,
 				CA20A81D2C7CCA0B008F3E8B /* NavStackView.swift */,
-				CA8627A82C954E86005A6BC8 /* Notification.swift */,
+				CA8627A82C954E86005A6BC8 /* NotificationType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -550,6 +552,7 @@
 				CA62D0732C6DB8D300A652EA /* Comment.swift */,
 				CA7C5E452C81F156000F9F2B /* Feedback.swift */,
 				CAC3549A2C81FCCE00EEA8F9 /* Report.swift */,
+				CA8627AF2C955FDF005A6BC8 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1013,7 +1016,7 @@
 				CAAC4C4B2C94996D001306AA /* FCMManager.swift in Sources */,
 				CABE31C92C4CAE170010AC20 /* ProfileView.swift in Sources */,
 				CA3CA9082C7A110E007F2EDC /* PostDetailView.swift in Sources */,
-				CA8627A92C954E86005A6BC8 /* Notification.swift in Sources */,
+				CA8627A92C954E86005A6BC8 /* NotificationType.swift in Sources */,
 				CAA235812C81D525009875A4 /* CommentSheetCapsule.swift in Sources */,
 				CAA0C6072C54B82C00E7433D /* NewPostViewModel.swift in Sources */,
 				CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */,
@@ -1047,6 +1050,7 @@
 				CA70E8052C785EF100E3B91B /* BookmarkBookViewModel.swift in Sources */,
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
 				CA10EEC52C60CC6400901979 /* NewPostUploadPostViewModel.swift in Sources */,
+				CA8627B02C955FDF005A6BC8 /* Notification.swift in Sources */,
 				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */,
 				CA7C5E442C81F0B6000F9F2B /* UserSupportService.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Notification: String {
+enum NotificationType: String, Codable {
     case comment = "comment"
     case like = "like"
     case follow = "follow"

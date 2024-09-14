@@ -14,13 +14,14 @@ class FCMManager {
     var myDeviceToken: String?
     var googleAccessToken: String?
     
-    func sendFCMNotification(deviceToken: String, type: Notification, data: String, title: String, body: String) async {
+    func sendFCMNotification(deviceToken: String, userId: String, notification: Notification) async {
         await self.getGoogleOAuthAccessToken()
+        
+        async let _ = NotificationManager.saveNotification(userId: userId, nofitication: notification)
         
         guard let projectId = Bundle.main.infoDictionary?["FIREBASE_SHAREBOOK_PROJECT_ID"] as? String else {
             return
         }
-        
         guard let url = URL(string: "https://fcm.googleapis.com/v1/projects/\(projectId)/messages:send") else {
             print("Invalid URL for FCM")
             return
@@ -30,8 +31,8 @@ class FCMManager {
             "message": [
                 "token": deviceToken,
                 "notification": [
-                    "body": body,
-                    "title": title
+                    "body": notification.body,
+                    "title": notification.title
                 ],
             ]
         ]
@@ -56,7 +57,6 @@ class FCMManager {
         guard let accessTokenUrlBody = Bundle.main.infoDictionary?["GOOGLE_OAUTH_ACCESS_TOKEN_URL_BODY"] as? String else {
             return
         }
-        
         guard let url = URL(string: "https://\(accessTokenUrlBody)") else {
             print("Invalid URL for token")
             return
