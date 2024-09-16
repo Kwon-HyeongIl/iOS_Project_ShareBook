@@ -18,7 +18,7 @@ struct BookCoverView: View {
     
     var body: some View {
         Button {
-            navRouter.move(.BookDetailView(viewModel))
+            navRouter.navigate(.BookDetailView(viewModel))
         } label: {
             BookCoverContentView(book: viewModel.book)
         }

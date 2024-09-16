@@ -28,7 +28,7 @@ struct BookDetailView: View {
                     .frame(maxWidth: .infinity)
                     
                     Button {
-                        navRouter.move(.NewPostUploadPostView(viewModel.book))
+                        navRouter.navigate(.NewPostUploadPostView(viewModel.book))
                     } label: {
                         HStack {
                             Text("글 작성")

@@ -30,7 +30,7 @@ struct EnterEmailView: View {
                     .padding(.bottom, 5)
                 
                 Button {
-                    navRouter.move(.EnterPasswordView)
+                    navRouter.navigate(.EnterPasswordView)
                 } label: {
                     Text("다음")
                         .modifier(AuthViewButtonModifier())

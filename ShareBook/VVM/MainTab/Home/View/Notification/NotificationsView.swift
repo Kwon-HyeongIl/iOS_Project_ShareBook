@@ -73,13 +73,13 @@ struct NotificationsView: View {
                                             commentSheetCapsule.isShowing = true
                                         }
                                     }
-                                    navRouter.move(.PostDetailView(postViewModel, commentSheetCapsule))
+                                    navRouter.navigate(.PostDetailView(postViewModel, commentSheetCapsule))
                                 }
                                 
                             } else if notification.type == NotificationType.follow {
                                 Task {
                                     let user = await AuthManager.shared.loadSpecificUser(userId: notification.data)
-                                    navRouter.move(.ProfileView(user, nil))
+                                    navRouter.navigate(.ProfileView(user, nil))
                                 }
                             }
                         }

@@ -24,7 +24,7 @@ struct PostCoverView: View {
     var body: some View {
         VStack(spacing: 0) {
             Button {
-                navRouter.move(.PostDetailView(viewModel, commentSheetCapsule))
+                navRouter.navigate(.PostDetailView(viewModel, commentSheetCapsule))
             } label: {
                 ZStack {
                     KFImage(URL(string: viewModel.post.book.image))
@@ -66,7 +66,7 @@ struct PostCoverView: View {
             
             HStack(spacing: 0) {
                 Button {
-                    navRouter.move(.ProfileView(viewModel.post.user, nil))
+                    navRouter.navigate(.ProfileView(viewModel.post.user, nil))
                 } label: {
                     HStack(spacing: 0) {
                         if let profileImageUrl = viewModel.post.user.profileImageUrl {
@@ -116,7 +116,7 @@ struct PostCoverView: View {
                     .padding(.trailing, 7)
                 
                 Button {
-                    navRouter.move(.PostDetailView(viewModel, commentSheetCapsule))
+                    navRouter.navigate(.PostDetailView(viewModel, commentSheetCapsule))
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         commentSheetCapsule.isShowing = true
                     }

@@ -20,7 +20,7 @@ struct PostProfileCoverView: View {
     
     var body: some View {
         Button {
-            navRouter.move(.PostDetailView(viewModel, commentSheetCapsule))
+            navRouter.navigate(.PostDetailView(viewModel, commentSheetCapsule))
         } label: {
             PostProfileCoverContentView(post: viewModel.post)
         }

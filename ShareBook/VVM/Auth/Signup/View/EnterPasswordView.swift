@@ -30,7 +30,7 @@ struct EnterPasswordView: View {
                     .padding(.bottom, 5)
                 
                 Button {
-                    navRouter.move(.EnterUsernameView)
+                    navRouter.navigate(.EnterUsernameView)
                 } label: {
                     Text("다음")
                         .modifier(AuthViewButtonModifier())

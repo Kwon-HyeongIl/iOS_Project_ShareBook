@@ -31,7 +31,7 @@ struct ShareBookApp: App {
             NavigationStack(path: $navStackControlTower.path) {
                 ContentView()
                     .navigationDestination(for: NavStackView.self) { view in
-                        navStackControlTower.navigate(to: view)
+                        navStackControlTower.destinationNavigate(to: view)
                     }
                     .onOpenURL { url in
                         

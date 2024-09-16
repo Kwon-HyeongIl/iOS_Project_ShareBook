@@ -19,7 +19,7 @@ struct ProfileOptionView: View {
         GradientBackgroundView {
             VStack {
                 Button {
-                    navRouter.move(.FeedbackView)
+                    navRouter.navigate(.FeedbackView)
                 } label: {
                     HStack(spacing: 14) {
                         Image(systemName: "exclamationmark.bubble")
@@ -44,7 +44,7 @@ struct ProfileOptionView: View {
                     .padding(.horizontal)
                 
                 Button {
-                    navRouter.move(.NotificationSettingView)
+                    navRouter.navigate(.NotificationSettingView)
                 } label: {
                     HStack(spacing: 14) {
                         Image(systemName: "bell")

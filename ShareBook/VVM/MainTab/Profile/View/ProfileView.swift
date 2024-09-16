@@ -82,7 +82,7 @@ struct ProfileView: View {
                                     
                                     if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                         Button {
-                                            navRouter.move(.ProfileOptionView(viewModel))
+                                            navRouter.navigate(.ProfileOptionView(viewModel))
                                         } label: {
                                             Image(systemName: "gearshape")
                                                 .resizable()
@@ -146,7 +146,7 @@ struct ProfileView: View {
                                     
                                     if let isMyProfile = viewModel.isMyProfile, isMyProfile {
                                         Button {
-                                            navRouter.move(.ProfileEditView(viewModel))
+                                            navRouter.navigate(.ProfileEditView(viewModel))
                                         } label: {
                                             VStack {
                                                 Text("프로필 편집")
@@ -248,7 +248,7 @@ struct ProfileView: View {
                                         if let titlePost = viewModel.titlePost {
                                             Button {
                                                 let postViewModel = PostViewModel(post: titlePost)
-                                                navRouter.move(.PostDetailView(postViewModel, newCommentSheetCapsule))
+                                                navRouter.navigate(.PostDetailView(postViewModel, newCommentSheetCapsule))
                                             } label: {
                                                 HStack {
                                                     KFImage(URL(string: titlePost.book.image))

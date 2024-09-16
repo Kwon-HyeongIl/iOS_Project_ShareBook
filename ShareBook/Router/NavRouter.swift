@@ -12,7 +12,7 @@ class NavRouter {
     var path = NavigationPath()
     
     @ViewBuilder
-    func navigate(to view: NavStackView) -> some View {
+    func destinationNavigate(to view: NavStackView) -> some View {
         switch view {
             
         // Signup
@@ -62,7 +62,7 @@ class NavRouter {
         }
     }
     
-    func move(_ view: NavStackView) {
+    func navigate(_ view: NavStackView) {
         path.append(view)
     }
     

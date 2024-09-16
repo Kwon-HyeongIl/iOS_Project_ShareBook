@@ -121,7 +121,7 @@ struct ProfileEditView: View {
                     
                     Button {
                         if !viewModel.posts.isEmpty {
-                            navRouter.move(.ProfileEditPostPickerView(viewModel))
+                            navRouter.navigate(.ProfileEditPostPickerView(viewModel))
                         } else {
                             isTitleBookAlertShowing = true
                         }

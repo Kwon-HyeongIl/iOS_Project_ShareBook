@@ -163,7 +163,7 @@ struct HomeView: View {
                             Spacer()
                             
                             Button {
-                                navRouter.move(.PostSearchView)
+                                navRouter.navigate(.PostSearchView)
                             } label: {
                                 Image(systemName: "magnifyingglass")
                                     .resizable()
@@ -174,7 +174,7 @@ struct HomeView: View {
                             }
                             
                             Button {
-                                navRouter.move(.NotificationsView)
+                                navRouter.navigate(.NotificationsView)
                                 
                                 Task {
                                     await viewModel.notificationBadgeOff()

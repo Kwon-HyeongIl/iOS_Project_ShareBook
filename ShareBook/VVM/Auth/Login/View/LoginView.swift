@@ -51,7 +51,7 @@ struct LoginView: View {
                         Spacer()
                         
                         Button {
-                            navRouter.move(.EnterEmailView)
+                            navRouter.navigate(.EnterEmailView)
                         } label: {
                             Text("회원가입")
                                 .font(.system(size: 13))
