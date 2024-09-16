@@ -48,6 +48,7 @@ struct NotificationsView: View {
                                     .truncationMode(.tail)
                                     .multilineTextAlignment(.leading)
                                     .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+                                    .padding(.leading, 1)
                                 
                                 Text(notification.date.relativeTimeString())
                                     .font(.system(size: 10))

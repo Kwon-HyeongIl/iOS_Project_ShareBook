@@ -20,7 +20,8 @@ class NotificationSettingViewModel {
     }
     
     private func loadMyNotificationType() async {
-        let notificationType = await NotificationManager.loadMyNotificationType()
+        guard let userId = AuthManager.shared.currentUser?.id else { return }
+        let notificationType = await NotificationManager.loadUserNotificationType(userId: userId)
         
         self.commentNotification = notificationType.contains(.comment) ? true : false
         self.likeNotification = notificationType.contains(.like) ? true : false

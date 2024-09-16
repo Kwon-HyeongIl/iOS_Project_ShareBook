@@ -16,10 +16,16 @@ class FCMManager {
     var googleAccessToken: String?
     
     func sendFCMNotification(deviceToken: String, userId: String, notification: Notification) async {
-        await self.getGoogleOAuthAccessToken()
         
+        // 수신 사용자의 Firebstore에 알림 저장
         async let _ = NotificationManager.saveNotification(userId: userId, nofitication: notification)
-            // Firebstore에 알림 저장
+        
+        // 수신 사용자가 알림을 허용했는지 체크
+        if await !notificationCheckPoint(notification: notification, userId: userId) {
+            return
+        }
+        
+        await self.getGoogleOAuthAccessToken()
         
         guard let projectId = Bundle.main.infoDictionary?["FIREBASE_SHAREBOOK_PROJECT_ID"] as? String else { return }
         
@@ -82,6 +88,16 @@ class FCMManager {
             
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    private func notificationCheckPoint(notification: Notification, userId: String) async -> Bool {
+        let notificationType = await NotificationManager.loadUserNotificationType(userId: userId)
+        
+        if notificationType.contains(notification.type) {
+            return true
+        } else {
+            return false
         }
     }
 }

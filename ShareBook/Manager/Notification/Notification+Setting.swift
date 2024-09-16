@@ -9,9 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 extension NotificationManager {
-    static func loadMyNotificationType() async -> [NotificationType] {
-        guard let userId = AuthManager.shared.currentUser?.id else { return [] }
-        
+    static func loadUserNotificationType(userId: String) async -> [NotificationType] {
         do {
             let document = try await Firestore.firestore()
                 .collection("User").document(userId)
