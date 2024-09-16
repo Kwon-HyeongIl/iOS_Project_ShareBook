@@ -42,6 +42,8 @@ class HomeViewModel {
     
     func notificationBadgeOff() async {
         await NotificationManager.notificationBadgeOff()
+        
+        AuthManager.shared.currentUser?.isNotificationBadge = false
     }
     
     func resizePost(proxyWidth: CGFloat) -> CGFloat {
