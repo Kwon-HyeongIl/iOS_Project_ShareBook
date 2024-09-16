@@ -41,20 +41,20 @@ class AuthManager {
         }
     }
     
-    func uploadUserData(userId: String, email: String, username: String, kakaoHashedUid: String = "", appleHashedUid: String = "") async {
+    private func uploadUserData(userId: String, email: String, username: String, kakaoHashedUid: String = "", appleHashedUid: String = "") async {
         let deviceToken = FCMManager.shared.myDeviceToken ?? ""
         
         if kakaoHashedUid.isEmpty && appleHashedUid.isEmpty {
             // 베이직 회원가입
-            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email)
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, notificationType: [.comment, .like, .follow])
             
         } else if kakaoHashedUid.isEmpty { 
             // 애플 회원가입
-            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, appleHashedUid: appleHashedUid)
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, appleHashedUid: appleHashedUid, notificationType: [.comment, .like, .follow])
             
         } else { 
             // 카카오 회원가입
-            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, kakaoHashedUid: kakaoHashedUid)
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, kakaoHashedUid: kakaoHashedUid, notificationType: [.comment, .like, .follow])
         }
         
         do {

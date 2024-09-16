@@ -50,7 +50,28 @@ struct NotificationSettingView: View {
                 }
             }
         }
-        .modifier(BackTitleModifier(navigationTitle: "알림 설정"))
+        .toolbarBackground(Color.SBLightBlue, for: .navigationBar)
+        .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    Task {
+                        await viewModel.editNotificationType()
+                    }
+                    navRouter.back()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .fontWeight(.medium)
+                }
+            }
+            
+            ToolbarItem(placement: .principal) {
+                Text("알림 설정")
+                    .font(.system(size: 18))
+                    .fontWeight(.semibold)
+            }
+        }
     }
 }
 

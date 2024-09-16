@@ -12,4 +12,40 @@ class NotificationSettingViewModel {
     var commentNotification = true
     var likeNotification = true
     var followNotification = true
+    
+    init() {
+        Task {
+            await loadMyNotificationType()
+        }
+    }
+    
+    private func loadMyNotificationType() async {
+        let notificationType = await NotificationManager.loadMyNotificationType()
+        
+        self.commentNotification = notificationType.contains(.comment) ? true : false
+        self.likeNotification = notificationType.contains(.like) ? true : false
+        self.followNotification = notificationType.contains(.follow) ? true : false
+    }
+    
+    func editNotificationType() async {
+        var editedData: [String : Any] = [:]
+        
+        var tempNotificationType: [String] = []
+        
+        if commentNotification {
+            tempNotificationType.append("comment")
+        }
+        
+        if likeNotification {
+            tempNotificationType.append("like")
+        }
+        
+        if followNotification {
+            tempNotificationType.append("follow")
+        }
+        
+        editedData["notificationType"] = tempNotificationType
+        
+        await NotificationManager.editNotificationType(editedData: editedData)
+    }
 }
