@@ -84,19 +84,19 @@ class ProfileViewModel: Hashable, Equatable {
     
     
     func follow() async {
+        isFollow = true
         await AuthManager.shared.follow(followUserId: user?.id ?? "")
         
         await loadFollowingCount(userId: user?.id ?? "")
         await loadFollowerCount(userId: user?.id ?? "")
-        isFollow = true
     }
     
     func unFollow() async {
+        isFollow = false
         await AuthManager.shared.unFollow(unFollowUserId: user?.id ?? "")
         
         await loadFollowingCount(userId: user?.id ?? "")
         await loadFollowerCount(userId: user?.id ?? "")
-        isFollow = false
     }
     
     func loadFollowingCount(userId: String) async {

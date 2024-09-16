@@ -13,16 +13,16 @@ extension PostViewModel {
     }
     
     func like() async {
-        await PostManager.like(post: post)
-        
         self.isLike = true
         self.post.likeCount += 1
+        
+        await PostManager.like(post: post)
     }
     
     func unLike() async {
-        await PostManager.unLike(post: post)
-        
         self.isLike = false
         self.post.likeCount -= 1
+        
+        await PostManager.unLike(post: post)
     }
 }
