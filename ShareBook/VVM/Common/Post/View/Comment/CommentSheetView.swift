@@ -18,6 +18,8 @@ struct CommentSheetView: View {
     @State private var isLoadReplies = false
     @State private var isRedacted = false
     
+    @State private var isCommentDelete = false
+    
     init(post: Post) {
         self.viewModel = CommentSheetViewModel(post: post)
     }
@@ -36,7 +38,7 @@ struct CommentSheetView: View {
                 ScrollView {
                     LazyVStack(alignment: .leading) {
                         ForEach(viewModel.comments.indices, id: \.self) { index in
-                            CommentView(comment: viewModel.comments[index], selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies)
+                            CommentView(comment: viewModel.comments[index], selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies, isCommentDelete: $isCommentDelete)
                                 .padding(.top, index == 0 ? 10 : 0)
                                 .redacted(reason: isRedacted ? .placeholder : [])
                                 .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
@@ -132,6 +134,11 @@ struct CommentSheetView: View {
                 .padding(.horizontal)
                 .padding(.bottom)
                 .padding(.top, selectedCommentId.isEmpty ? 9 : 8)
+            }
+        }
+        .onChange(of: isCommentDelete) {
+            Task {
+                await viewModel.loadAllUserComment()
             }
         }
         .task {

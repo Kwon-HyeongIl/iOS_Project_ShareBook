@@ -15,6 +15,7 @@ class CommentViewModel {
     var commentText = ""
     
     var currentUser: User?
+    var isMyComment = false
     
     init(comment: Comment) {
         self.comment = comment
@@ -24,10 +25,21 @@ class CommentViewModel {
         
         Task {
             await loadAllCommentCommentReplies()
+            await isMyComment()
         }
     }
     
     func loadAllCommentCommentReplies() async {
         self.commentReplies = await CommentManager.loadAllCommentCommentReplies(postId: comment.postId, upperCommentId: comment.id)
+    }
+    
+    private func isMyComment() async {
+        if comment.commentUserId == AuthManager.shared.currentUser?.id {
+            self.isMyComment = true
+        }
+    }
+    
+    func deleteComment() async {
+        await CommentManager.deleteSpecificComment(postId: comment.postId, commentId: comment.id)
     }
 }

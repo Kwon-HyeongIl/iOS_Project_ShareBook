@@ -12,11 +12,17 @@ extension CommentManager {
     static func uploadCommentReply(commentReply: Comment, upperCommentId: String) async {
         guard let encodedCommentReply = try? Firestore.Encoder().encode(commentReply) else { return }
         
+        // 💌 FCM
+        let postUserDeviceToken = await AuthManager.shared.getSpecificUserDeviceToken(userId: commentReply.postUserId)
+        let notification = Notification(id: UUID().uuidString, type: .comment, data: commentReply.postId, title: "새 댓글", body: commentReply.commentText, date: Date())
+        await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, userId: commentReply.postUserId, notification: notification)
+        
         do {
             try await Firestore.firestore()
                 .collection("Post").document(commentReply.postId)
                 .collection("Post_Comment").document(upperCommentId)
-                .collection("Comment_Reply").addDocument(data: encodedCommentReply)
+                .collection("Comment_Reply").document(commentReply.id)
+                .setData(encodedCommentReply)
             
             try await Firestore.firestore()
                 .collection("Post").document(commentReply.postId)
@@ -43,6 +49,23 @@ extension CommentManager {
         } catch {
             print(error.localizedDescription)
             return []
+        }
+    }
+    
+    static func deleteSpecificCommentReply(postId: String, commentId: String, commentReplyId: String) async {
+        do {
+            try await Firestore.firestore()
+                .collection("Post").document(postId)
+                .collection("Post_Comment").document(commentId)
+                .collection("Comment_Reply").document(commentReplyId).delete()
+            
+            try await Firestore.firestore()
+                .collection("Post").document(postId)
+                .collection("Post_Comment").document(commentId)
+                .updateData(["commentReplyCount": FieldValue.increment(Int64(-1))])
+            
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

@@ -77,4 +77,16 @@ class CommentManager {
             return 0
         }
     }
+    
+    static func deleteSpecificComment(postId: String, commentId: String) async {
+        do {
+            try await Firestore.firestore()
+                .collection("Post").document(postId)
+                .collection("Post_Comment").document(commentId)
+                .delete()
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
