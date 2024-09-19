@@ -174,7 +174,7 @@ struct CommentView: View {
                 }
                 .padding(.top, 1)
                 
-                if isCommentReplyShowing {
+                if isCommentReplyShowing && !viewModel.commentReplies.isEmpty {
                     Button {
                         withAnimation(.smooth(duration: 0.4)) {
                             isCommentReplyShowing = false
@@ -196,7 +196,7 @@ struct CommentView: View {
                 }
             }
             .padding(.leading, 5)
-            .padding(.vertical)
+            .padding(.top)
             
             Spacer()
         }
