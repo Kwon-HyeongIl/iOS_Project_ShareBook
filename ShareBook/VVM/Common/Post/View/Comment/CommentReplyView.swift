@@ -60,6 +60,7 @@ struct CommentReplyView: View {
                         .truncationMode(.tail)
                         .padding(.leading, 2)
                         .padding(.bottom, 1.5)
+                    
                     Spacer()
                     
                     if viewModel.isMyCommentReply {
@@ -68,10 +69,8 @@ struct CommentReplyView: View {
                         } label: {
                             Image(systemName: "trash")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 13)
+                                .frame(width: 11, height: 13)
                                 .foregroundStyle(.red)
-                                .padding(.trailing, 5)
                         }
                         .alert("삭제 하시겠습니까?", isPresented: $isCommentDeleteAlertShowing) {
                             Button(role: .cancel) {
@@ -98,7 +97,6 @@ struct CommentReplyView: View {
                     .font(.system(size: 12))
             }
         }
-        .padding(.trailing)
         .padding(.vertical, 5)
     }
 }

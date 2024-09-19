@@ -84,8 +84,7 @@ struct CommentView: View {
                         } label: {
                             Image(systemName: "trash")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 13)
+                                .frame(width: 11, height: 13)
                                 .foregroundStyle(.red)
                                 .padding(.trailing, 5)
                         }
@@ -168,11 +167,11 @@ struct CommentView: View {
                             }
                             .foregroundStyle(Color.SBTitle)
                             .padding(.leading, 10)
-                            
                         }
                     }
                 }
                 .padding(.top, 1)
+                .padding(.bottom, 10)
                 
                 if isCommentReplyShowing && !viewModel.commentReplies.isEmpty {
                     Button {
@@ -191,6 +190,7 @@ struct CommentView: View {
                         }
                         .foregroundStyle(Color.SBTitle)
                         .padding(.leading, 20)
+                        .padding(.bottom, 10)
                     }
                     
                 }
