@@ -23,7 +23,7 @@ enum NavStackView: Hashable {
     case NewPostUploadPostView(Book)
     
     // Profile
-    case ProfileView(User?, CommentSheetCapsule?)
+    case ProfileView(User?, CommentSheetCapsule? = nil)
     case ProfileEditView(ProfileViewModel)
     case ProfileOptionView(ProfileViewModel)
     case ProfileEditPostPickerView(ProfileViewModel)

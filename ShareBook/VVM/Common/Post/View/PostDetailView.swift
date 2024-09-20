@@ -24,7 +24,7 @@ struct PostDetailView: View {
                 VStack {
                     HStack {
                         Button {
-                            navRouter.navigate(.ProfileView(viewModel.post.user, nil))
+                            navRouter.navigate(.ProfileView(viewModel.post.user))
                         } label: {
                             HStack {
                                 if let profileImageUrl = viewModel.post.user.profileImageUrl {

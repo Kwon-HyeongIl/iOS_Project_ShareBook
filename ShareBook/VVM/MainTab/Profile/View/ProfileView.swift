@@ -18,7 +18,7 @@ struct ProfileView: View {
     @State private var newCommentSheetCapsule = CommentSheetCapsule()
     var passedCommentSheetCapsule: CommentSheetCapsule?
 
-    init(user: User?, commentSheetCapsule: CommentSheetCapsule?) {
+    init(user: User?, commentSheetCapsule: CommentSheetCapsule? = nil) {
         self.viewModel = ProfileViewModel(user: user)
         self.passedCommentSheetCapsule = commentSheetCapsule
     }
