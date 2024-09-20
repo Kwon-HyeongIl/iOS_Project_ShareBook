@@ -37,10 +37,10 @@ struct HomeView: View {
                                                 .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                                         }
                                     } else {
-                                        ForEach(0..<3, id: \.self) { index in
+                                        ForEach(0..<6, id: \.self) { index in
                                             DummyPostCoverView(isHotPost: true)
                                                 .padding(.leading, index == 0 ? 15 : 0)
-                                                .padding(.trailing, index == 2 ? 15 : 0)
+                                                .padding(.trailing, index == 5 ? 15 : 0)
                                                 .scrollTransition(.interactive, axis: .horizontal) { view, phase in
                                                     view
                                                         .scaleEffect(phase.isIdentity ? 1 : 0.95)
@@ -67,76 +67,69 @@ struct HomeView: View {
                                 .padding(.top, 380)
                         }
                         
-                        ZStack {
-                            VStack {
-                                LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
-                                    if !isGenreRedacted {
-                                        ForEach(viewModel.posts) { post in
-                                            PostCoverView(post: post)
-                                                .redacted(reason: isGenreRedacted ? .placeholder : [])
-                                                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
-                                        }
-                                    } else {
-                                        ForEach(0..<6) { _ in
-                                            DummyPostCoverView(isHotPost: false)
-                                        }
-                                    }
-                                }
-                                .padding(.top, 90)
-                                .padding(.horizontal, 5)
-                                
-                                Spacer()
-                            }
-                            
-                            Text("모든 구절")
-                                .fontWeight(.semibold)
-                                .font(.title2)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
-                                .padding(.leading, 20)
-                                .padding(.bottom, 660)
-                            
-                            ScrollView(.horizontal) {
-                                HStack {
-                                    ForEach(Genre.allCases.indices, id: \.self) { index in
-                                        Button {
-                                            Task {
-                                                if index == 0 {
-                                                    await viewModel.loadAllPosts()
-                                                } else {
-                                                    await viewModel.loadSpecificGenrePosts(genre: Genre.allCases[index])
-                                                }
+                        Text("모든 구절")
+                            .fontWeight(.semibold)
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
+                            .padding(.leading, 20)
+                        
+                        ScrollView(.horizontal) {
+                            HStack {
+                                ForEach(Genre.allCases.indices, id: \.self) { index in
+                                    Button {
+                                        Task {
+                                            if index == 0 {
+                                                await viewModel.loadAllPosts()
+                                            } else {
+                                                await viewModel.loadSpecificGenrePosts(genre: Genre.allCases[index])
                                             }
-                                            selectedGenre = Genre.allCases[index]
+                                        }
+                                        selectedGenre = Genre.allCases[index]
+                                        
+                                        isGenreRedacted = true
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                            withAnimation(.easeOut(duration: 0.4)) {
+                                                isGenreRedacted = false
+                                            }
+                                        }
+                                    } label: {
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .frame(height: 27)
+                                                .foregroundStyle(selectedGenre == Genre.allCases[index] ? Color.SBTitle : .white)
+                                                .opacity(0.5)
                                             
-                                            isGenreRedacted = true
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                withAnimation(.easeOut(duration: 0.4)) {
-                                                    isGenreRedacted = false
-                                                }
-                                            }
-                                        } label: {
-                                            ZStack {
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .frame(height: 27)
-                                                    .foregroundStyle(selectedGenre == Genre.allCases[index] ? Color.SBTitle : .white)
-                                                    .opacity(0.5)
-                                                
-                                                Text("\(Genre.allCases[index].rawValue)")
-                                                    .foregroundStyle(selectedGenre == Genre.allCases[index] ? .white : .black)
-                                                    .font(.system(size: 13))
-                                                    .opacity(selectedGenre == Genre.allCases[index] ? 1.0 : 0.6)
-                                                    .padding(.horizontal)
-                                            }
-                                            .padding(.leading, index == 0 ? 15 : 0)
-                                            .padding(.trailing, index == Genre.allCases.count - 1 ? 15 : 0)
+                                            Text("\(Genre.allCases[index].rawValue)")
+                                                .foregroundStyle(selectedGenre == Genre.allCases[index] ? .white : .black)
+                                                .font(.system(size: 13))
+                                                .opacity(selectedGenre == Genre.allCases[index] ? 1.0 : 0.6)
+                                                .padding(.horizontal)
                                         }
+                                        .padding(.leading, index == 0 ? 15 : 0)
+                                        .padding(.trailing, index == Genre.allCases.count - 1 ? 15 : 0)
                                     }
                                 }
                             }
-                            .padding(.bottom, 580)
-                            .scrollIndicators(.hidden)
                         }
+                        .scrollIndicators(.hidden)
+                        .padding(.bottom, 10)
+                        
+                        LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
+                            if !isGenreRedacted {
+                                ForEach(viewModel.posts) { post in
+                                    PostCoverView(post: post)
+                                        .redacted(reason: isGenreRedacted ? .placeholder : [])
+                                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                                }
+                            } else {
+                                ForEach(0..<12) { _ in
+                                    DummyPostCoverView(isHotPost: false)
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 5)
+                        .padding(.bottom, 70)
                     }
                     .refreshable {
                         await viewModel.loadHotPosts()
