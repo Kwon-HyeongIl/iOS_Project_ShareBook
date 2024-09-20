@@ -68,6 +68,7 @@
 		CA7C5E462C81F156000F9F2B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C5E452C81F156000F9F2B /* Feedback.swift */; };
 		CA7C5E482C81F34C000F9F2B /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C5E472C81F34C000F9F2B /* FeedbackView.swift */; };
 		CA7C5E4B2C81F35C000F9F2B /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C5E4A2C81F35C000F9F2B /* FeedbackViewModel.swift */; };
+		CA7D9F2D2C9D9D3600374510 /* DummyPostCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7D9F2C2C9D9D3600374510 /* DummyPostCoverView.swift */; };
 		CA7DD0012C8E16BF00BE518C /* LightBlueColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DD0002C8E16BF00BE518C /* LightBlueColor.swift */; };
 		CA83A4912C4CB74B004F06E7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83A4902C4CB74B004F06E7 /* LoginView.swift */; };
 		CA840E962C9860D0002A2379 /* Notification+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA840E952C9860D0002A2379 /* Notification+Setting.swift */; };
@@ -203,6 +204,7 @@
 		CA7C5E452C81F156000F9F2B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		CA7C5E472C81F34C000F9F2B /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		CA7C5E4A2C81F35C000F9F2B /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
+		CA7D9F2C2C9D9D3600374510 /* DummyPostCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyPostCoverView.swift; sourceTree = "<group>"; };
 		CA7DD0002C8E16BF00BE518C /* LightBlueColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightBlueColor.swift; sourceTree = "<group>"; };
 		CA83A4902C4CB74B004F06E7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CA840E952C9860D0002A2379 /* Notification+Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Setting.swift"; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 		CA3CA9012C7A0FEE007F2EDC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CA7D9F2B2C9D9D2B00374510 /* Dummy */,
 				CA3CA8FD2C7A0FBB007F2EDC /* PostCoverView.swift */,
 				CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */,
 				CAC354A22C8234F400EEA8F9 /* PostProfileCoverContentView.swift */,
@@ -715,6 +718,14 @@
 				CA7C5E4A2C81F35C000F9F2B /* FeedbackViewModel.swift */,
 			);
 			path = Feedback;
+			sourceTree = "<group>";
+		};
+		CA7D9F2B2C9D9D2B00374510 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				CA7D9F2C2C9D9D3600374510 /* DummyPostCoverView.swift */,
+			);
+			path = Dummy;
 			sourceTree = "<group>";
 		};
 		CA83A48E2C4CB584004F06E7 /* Like */ = {
@@ -1138,6 +1149,7 @@
 				CA7C5E4B2C81F35C000F9F2B /* FeedbackViewModel.swift in Sources */,
 				CA6AC97E2C53CA3900703DB5 /* ProfileViewModel.swift in Sources */,
 				CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */,
+				CA7D9F2D2C9D9D3600374510 /* DummyPostCoverView.swift in Sources */,
 				CAD8FEFE2C53D6900000446B /* ImageManager.swift in Sources */,
 				CA6AAC2C2C4B8CA10045449E /* ShareBookApp.swift in Sources */,
 				CA3A8D892C8C58C60032ECB6 /* PostSearchView.swift in Sources */,

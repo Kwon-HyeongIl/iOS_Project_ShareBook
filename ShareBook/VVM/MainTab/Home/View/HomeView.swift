@@ -25,17 +25,27 @@ struct HomeView: View {
                         ZStack {
                             ScrollView(.horizontal) {
                                 LazyHStack(spacing: 20) {
-                                    ForEach(viewModel.hotPosts.indices, id: \.self) { index in
-                                        PostCoverView(post: viewModel.hotPosts[index], isHotPost: true)
-                                            .padding(.leading, index == 0 ? 15 : 0)
-                                            .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 15 : 0)
-                                            .scrollTransition(.interactive, axis: .horizontal) { view, phase in
-                                                view
-                                                    .scaleEffect(phase.isIdentity ? 1 : 0.95)
-                                            }
-                                            .redacted(reason: isHotRedacted ? .placeholder : [])
-                                            .shimmering(active: isHotRedacted ? true : false, bandSize: 0.4)
-                                            .shadow(color: isHotRedacted ? .clear : .gray.opacity(0.35), radius: isHotRedacted ? 0 : 10, x: isHotRedacted ? 0 : 5, y: isHotRedacted ? 0 : 5)
+                                    if !isHotRedacted {
+                                        ForEach(viewModel.hotPosts.indices, id: \.self) { index in
+                                            PostCoverView(post: viewModel.hotPosts[index], isHotPost: true)
+                                                .padding(.leading, index == 0 ? 15 : 0)
+                                                .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 15 : 0)
+                                                .scrollTransition(.interactive, axis: .horizontal) { view, phase in
+                                                    view
+                                                        .scaleEffect(phase.isIdentity ? 1 : 0.95)
+                                                }
+                                                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                                        }
+                                    } else {
+                                        ForEach(0..<3, id: \.self) { index in
+                                            DummyPostCoverView(isHotPost: true)
+                                                .padding(.leading, index == 0 ? 15 : 0)
+                                                .padding(.trailing, index == 2 ? 15 : 0)
+                                                .scrollTransition(.interactive, axis: .horizontal) { view, phase in
+                                                    view
+                                                        .scaleEffect(phase.isIdentity ? 1 : 0.95)
+                                                }
+                                        }
                                     }
                                 }
                             }
@@ -60,11 +70,16 @@ struct HomeView: View {
                         ZStack {
                             VStack {
                                 LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
-                                    ForEach(viewModel.posts) { post in
-                                        PostCoverView(post: post)
-                                            .redacted(reason: isGenreRedacted ? .placeholder : [])
-                                            .shimmering(active: isGenreRedacted ? true : false, bandSize: 0.4)
-                                            .shadow(color: isGenreRedacted ? .clear : .gray.opacity(0.35), radius: isGenreRedacted ? 0 : 10, x: isGenreRedacted ? 0 : 5, y: isGenreRedacted ? 0 : 5)
+                                    if !isGenreRedacted {
+                                        ForEach(viewModel.posts) { post in
+                                            PostCoverView(post: post)
+                                                .redacted(reason: isGenreRedacted ? .placeholder : [])
+                                                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                                        }
+                                    } else {
+                                        ForEach(0..<6) { _ in
+                                            DummyPostCoverView(isHotPost: false)
+                                        }
                                     }
                                 }
                                 .padding(.top, 90)
