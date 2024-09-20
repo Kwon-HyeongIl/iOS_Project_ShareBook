@@ -39,11 +39,16 @@ struct CommentSheetView: View {
                     
                     ScrollView {
                         LazyVStack(alignment: .leading, spacing: 5) {
-                            ForEach(viewModel.comments.indices, id: \.self) { index in
-                                CommentView(comment: viewModel.comments[index], selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies, isCommentDelete: $isCommentDelete)
-                                    .padding(.top, index == 0 ? 10 : 0)
-                                    .redacted(reason: isRedacted ? .placeholder : [])
-                                    .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
+                            if !isRedacted {
+                                ForEach(viewModel.comments.indices, id: \.self) { index in
+                                    CommentView(comment: viewModel.comments[index], selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies, isCommentDelete: $isCommentDelete)
+                                        .padding(.top, index == 0 ? 10 : 0)
+                                }
+                            } else {
+                                ForEach(0..<10, id: \.self) { index in
+                                    DummyCommentView()
+                                        .padding(.top, index == 0 ? 10 : 0)
+                                }
                             }
                         }
                     }
