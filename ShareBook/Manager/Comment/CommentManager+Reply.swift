@@ -29,6 +29,10 @@ extension CommentManager {
                 .collection("Post_Comment").document(upperCommentId)
                 .updateData(["commentReplyCount": FieldValue.increment(Int64(1))])
             
+            try await Firestore.firestore()
+                .collection("Post").document(commentReply.postId)
+                .updateData(["commentCount": FieldValue.increment(Int64(1))])
+            
         } catch {
             print(error.localizedDescription)
         }
@@ -63,6 +67,10 @@ extension CommentManager {
                 .collection("Post").document(postId)
                 .collection("Post_Comment").document(commentId)
                 .updateData(["commentReplyCount": FieldValue.increment(Int64(-1))])
+            
+            try await Firestore.firestore()
+                .collection("Post").document(postId)
+                .updateData(["commentCount": FieldValue.increment(Int64(-1))])
             
         } catch {
             print(error.localizedDescription)

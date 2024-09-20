@@ -11,11 +11,10 @@ import Shimmer
 
 struct HomeView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(IsPostAddedCapsule.self) var isPostAddedCapsule: IsPostAddedCapsule
     @State private var viewModel = HomeViewModel()
     
     @State private var selectedGenre = Genre.all
-    @State private var isHotRedacted = true
-    @State private var isGenreRedacted = true
     
     var body: some View {
         GeometryReader { proxy in
@@ -25,7 +24,7 @@ struct HomeView: View {
                         ZStack {
                             ScrollView(.horizontal) {
                                 LazyHStack(spacing: 20) {
-                                    if !isHotRedacted {
+                                    if !viewModel.isHotRedacted {
                                         ForEach(viewModel.hotPosts.indices, id: \.self) { index in
                                             PostCoverView(post: viewModel.hotPosts[index], isHotPost: true)
                                                 .padding(.leading, index == 0 ? 15 : 0)
@@ -87,10 +86,10 @@ struct HomeView: View {
                                         }
                                         selectedGenre = Genre.allCases[index]
                                         
-                                        isGenreRedacted = true
+                                        viewModel.isGenreRedacted = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                             withAnimation(.easeOut(duration: 0.4)) {
-                                                isGenreRedacted = false
+                                                viewModel.isGenreRedacted = false
                                             }
                                         }
                                     } label: {
@@ -116,10 +115,10 @@ struct HomeView: View {
                         .padding(.bottom, 10)
                         
                         LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
-                            if !isGenreRedacted {
+                            if !viewModel.isGenreRedacted {
                                 ForEach(viewModel.posts) { post in
                                     PostCoverView(post: post)
-                                        .redacted(reason: isGenreRedacted ? .placeholder : [])
+                                        .redacted(reason: viewModel.isGenreRedacted ? .placeholder : [])
                                         .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                                 }
                             } else {
@@ -132,29 +131,54 @@ struct HomeView: View {
                         .padding(.bottom, 70)
                     }
                     .refreshable {
+                        viewModel.isFirst = true
+                        
                         await viewModel.loadHotPosts()
                         await viewModel.loadAllPosts()
                         
-                        self.isHotRedacted = true
-                        self.isGenreRedacted = true
+                        viewModel.isHotRedacted = true
+                        viewModel.isGenreRedacted = true
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                             withAnimation(.easeOut(duration: 0.4)) {
-                                self.isHotRedacted = false
-                                self.isGenreRedacted = false
+                                viewModel.isHotRedacted = false
+                                viewModel.isGenreRedacted = false
                             }
+                        }
+                        
+                        viewModel.isFirst = false
+                    }
+                    .task {
+                        if viewModel.isFirst {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                withAnimation(.easeOut(duration: 0.4)) {
+                                    viewModel.isHotRedacted = false
+                                    viewModel.isGenreRedacted = false
+                                }
+                            }
+                            
+                            viewModel.isFirst = false
                         }
                     }
                     .task {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            withAnimation(.easeOut(duration: 0.4)) {
-                                self.isHotRedacted = false
-                                self.isGenreRedacted = false
+                        if isPostAddedCapsule.isPostAdded {
+                            viewModel.isHotRedacted = true
+                            viewModel.isGenreRedacted = true
+                            
+                            Task {
+                                await viewModel.loadHotPosts()
+                                await viewModel.loadAllPosts()
                             }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                withAnimation(.easeOut(duration: 0.4)) {
+                                    viewModel.isHotRedacted = false
+                                    viewModel.isGenreRedacted = false
+                                }
+                            }
+                            
+                            isPostAddedCapsule.isPostAdded = false
                         }
-                        
-                        await viewModel.loadHotPosts()
-                        await viewModel.loadAllPosts()
                     }
                 }
             }

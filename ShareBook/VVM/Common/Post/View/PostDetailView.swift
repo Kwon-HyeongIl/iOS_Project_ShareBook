@@ -173,7 +173,7 @@ struct PostDetailView: View {
                                     .foregroundStyle(.black)
                                     .padding(.leading, 3)
                                 
-                                Text("\(viewModel.commentCount)")
+                                Text("\(viewModel.post.commentCount)")
                                     .font(.system(size: 13))
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.black)
@@ -205,7 +205,7 @@ struct PostDetailView: View {
         }
         .sheet(isPresented: $commentSheetCapsule.isShowing, onDismiss: {
             Task {
-                await viewModel.loadAllPostCommentAndCommentReplyCount()
+                await viewModel.loadAllPostCommentCount()
             }
         }, content: {
             CommentSheetView(post: viewModel.post)

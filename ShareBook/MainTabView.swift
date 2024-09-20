@@ -12,6 +12,8 @@ struct MainTabView: View {
     
     let currentUser: User?
     
+    @State private var homeView = HomeView()
+    
     init() {
         self.currentUser = AuthManager.shared.currentUser
         
@@ -26,7 +28,7 @@ struct MainTabView: View {
                 switch mainTabCapsule.selectedTab {
                     
                 case .house:
-                    HomeView()
+                    homeView
                     
                 case .plusSquareOnSquare:
                     NewPostView()

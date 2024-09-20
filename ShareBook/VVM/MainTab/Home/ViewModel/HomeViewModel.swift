@@ -14,6 +14,12 @@ class HomeViewModel {
     
     var isNotificationBadge = false
     
+    var isHotRedacted = true
+    var isGenreRedacted = true
+    var isFirst = true
+    
+    var isAddPost = false
+    
     @ObservationIgnored let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0)

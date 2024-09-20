@@ -51,26 +51,13 @@ class CommentManager {
         }
     }
     
-    static func loadAllPostCommentAndCommentReplyCount(postId: String) async -> Int {
+    static func loadAllPostCommentCount(postId: String) async -> Int {
         do {
-            let commentDocuments = try await Firestore.firestore()
+            let post = try await Firestore.firestore()
                 .collection("Post").document(postId)
-                .collection("Post_Comment").getDocuments().documents
+                .getDocument().data(as: Post.self)
             
-            let comments = try commentDocuments.compactMap { document in
-                try document.data(as: Comment.self)
-            }
-            
-            var totalCommentCount = comments.count
-            
-            for comment in comments {
-                totalCommentCount += try await Firestore.firestore()
-                    .collection("Post").document(postId)
-                    .collection("Post_Comment").document(comment.id)
-                    .collection("Comment_Reply").getDocuments().documents.count
-            }
-            
-            return totalCommentCount
+            return post.commentCount
             
         } catch {
             print(error.localizedDescription)
@@ -84,6 +71,10 @@ class CommentManager {
                 .collection("Post").document(postId)
                 .collection("Post_Comment").document(commentId)
                 .delete()
+            
+            try await Firestore.firestore()
+                .collection("Post").document(postId)
+                .updateData(["commentCount": FieldValue.increment(Int64(-1))])
             
         } catch {
             print(error.localizedDescription)

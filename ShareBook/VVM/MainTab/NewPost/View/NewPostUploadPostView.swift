@@ -11,6 +11,7 @@ import Kingfisher
 struct NewPostUploadPostView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
+    @Environment(IsPostAddedCapsule.self) var isPostAddedCapsule: IsPostAddedCapsule
     @State private var viewModel: NewPostUploadPostViewModel
     
     @State private var isImpressivePhraseShowing = true
@@ -219,6 +220,7 @@ struct NewPostUploadPostView: View {
                                         
                                         navRouter.popToRoot()
                                         mainTabCapsule.selectedTab = .house
+                                        isPostAddedCapsule.isPostAdded = true
                                     } label: {
                                         Text("작성")
                                             .modifier(InViewButtonModifier(bgColor: .SBTitle))

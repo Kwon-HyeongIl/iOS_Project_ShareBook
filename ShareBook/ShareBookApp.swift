@@ -16,6 +16,7 @@ struct ShareBookApp: App {
     @State private var navStackControlTower = NavRouter()
     @State private var mainTabCapsule = MainTabCapsule()
     @State private var signupViewModel = SignupViewModel()
+    @State private var isPostAddedCapsule = IsPostAddedCapsule()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
@@ -46,6 +47,7 @@ struct ShareBookApp: App {
         .environment(navStackControlTower)
         .environment(mainTabCapsule)
         .environment(signupViewModel)
+        .environment(isPostAddedCapsule)
     }
 }
 

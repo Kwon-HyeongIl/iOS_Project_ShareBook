@@ -16,7 +16,7 @@ class PostManager {
         
         let bookTitleKeywords = self.generateKeywords(text: book.title)
         
-        let post = Post(id: postId, userId: userId, impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, likeCount: 0, date: Date(), book: book, bookTitleKeywords: bookTitleKeywords, genre: genre, user: user)
+        let post = Post(id: postId, userId: userId, impressivePhrase: impressivePhrase, feelingCaption: feelingCaption, likeCount: 0, date: Date(), book: book, bookTitleKeywords: bookTitleKeywords, genre: genre, commentCount: 0, user: user)
         
         do {
             let encodedPost = try Firestore.Encoder().encode(post)

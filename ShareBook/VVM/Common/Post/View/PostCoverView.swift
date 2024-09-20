@@ -129,7 +129,7 @@ struct PostCoverView: View {
                 }
                 .padding(.trailing, 3)
                 
-                Text("\(viewModel.commentCount)")
+                Text("\(viewModel.post.commentCount)")
                     .font(.system(size: isHotPost ? 13 : 10))
                     .foregroundStyle(Color.SBTitle)
                     .padding(.trailing, 15)

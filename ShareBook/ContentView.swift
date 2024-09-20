@@ -28,7 +28,7 @@ struct ContentView: View {
             }
         }
         .task {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 isContentReady = true
             }
         }
