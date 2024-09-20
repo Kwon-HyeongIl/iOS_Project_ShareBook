@@ -27,7 +27,7 @@ struct NewPostView: View {
                                 .scaledToFit()
                                 .clipShape(Rectangle())
                                 .opacity(0.5)
-                                .frame(width: 380)
+                                .frame(width: 350)
                                 .shadow(color: .SBTitle.opacity(1), radius: 10, x: 5, y: 5)
                                 .shimmering(animation: .easeInOut(duration: 3).repeatCount(.max, autoreverses: false).delay(0))
                                 .padding(.top, 30)

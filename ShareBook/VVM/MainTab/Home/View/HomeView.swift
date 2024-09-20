@@ -158,7 +158,7 @@ struct HomeView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(Rectangle())
-                                .frame(width: 130)
+                                .frame(width: 70)
                                 .padding(.leading)
                             Spacer()
                             
@@ -201,6 +201,7 @@ struct HomeView: View {
                             }
                         }
                         .frame(width: proxy.size.width)
+                        .padding(.bottom, 5)
                         
                         Divider()
                             .frame(width: proxy.size.width)
