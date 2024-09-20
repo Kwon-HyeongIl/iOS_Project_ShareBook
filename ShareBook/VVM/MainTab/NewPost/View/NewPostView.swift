@@ -14,7 +14,7 @@ struct NewPostView: View {
     @State private var searchText = ""
     @State private var isShowing = true
     
-    @State private var isBookCoverRedacted = false
+    @State private var isRedacted = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -26,11 +26,9 @@ struct NewPostView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(Rectangle())
-                                .opacity(0.5)
+                                .opacity(0.3)
                                 .frame(width: 300)
                                 .shadow(color: .SBTitle.opacity(1), radius: 10, x: 5, y: 5)
-                                .padding(.vertical, 150)
-                                .shimmering(animation: .easeInOut(duration: 3).repeatCount(.max, autoreverses: false).delay(0))
                                 .padding(.top, 30)
                             
                             ZStack {
@@ -54,10 +52,14 @@ struct NewPostView: View {
                     
                     ScrollView {
                         LazyVStack {
-                            ForEach(viewModel.bookList, id: \.self) { book in
-                                BookCoverView(book: book)
-                                    .redacted(reason: isBookCoverRedacted ? .placeholder : [])
-                                    .shimmering(active: isBookCoverRedacted ? true : false, bandSize: 0.4)
+                            if !isRedacted {
+                                ForEach(viewModel.bookList, id: \.self) { book in
+                                    BookCoverView(book: book)
+                                }
+                            } else {
+                                ForEach(0..<12) { _ in
+                                    DummyBookCoverView()
+                                }
                             }
                         }
                         .padding(.top, 5)
@@ -83,10 +85,10 @@ struct NewPostView: View {
                                     isShowing = false
                                     viewModel.searchBookWithTitle(searchQuery: searchText)
                                     
-                                    isBookCoverRedacted = true
+                                    isRedacted = true
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                         withAnimation(.easeOut(duration: 0.4)) {
-                                            isBookCoverRedacted = false
+                                            isRedacted = false
                                         }
                                     }
                                 }
@@ -99,7 +101,7 @@ struct NewPostView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.SBTitle, lineWidth: 1)
                     }
-                    .frame(width: max(0, proxy.size.width - 25))
+                    .frame(width: max(0, proxy.size.width - 30))
                     .padding(.top, 5)
                 }
             }

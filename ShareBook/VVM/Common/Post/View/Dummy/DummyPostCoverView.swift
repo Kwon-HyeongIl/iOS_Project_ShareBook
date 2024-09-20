@@ -19,7 +19,7 @@ struct DummyPostCoverView: View {
         VStack(spacing: 0) {
             ZStack {
                 Rectangle()
-                    .opacity(0.4)
+                    .opacity(0.3)
                     .frame(width: isHotPost ? 210 : 150, height: isHotPost ? 270 : 200)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .overlay {

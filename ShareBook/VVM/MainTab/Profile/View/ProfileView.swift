@@ -314,11 +314,16 @@ struct ProfileView: View {
                         }
                         
                         LazyVGrid(columns: viewModel.columns, spacing: viewModel.calSizeBase4And393(proxyWidth: proxy.size.width)) {
-                            ForEach(viewModel.posts) { post in
-                                PostProfileCoverView(post: post)
-                                    .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
-                                    .redacted(reason: isRedacted ? .placeholder : [])
-                                    .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
+                            if !isRedacted {
+                                ForEach(viewModel.posts) { post in
+                                    PostProfileCoverView(post: post)
+                                        .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
+                                }
+                            } else {
+                                ForEach(0..<12) { _ in
+                                    DummyPostProfileCoverView()
+                                        .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
+                                }
                             }
                         }
                     }

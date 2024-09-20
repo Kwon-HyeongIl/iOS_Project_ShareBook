@@ -16,12 +16,18 @@ struct BookmarkBookView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(viewModel.books.indices, id: \.self) { index in
-                    BookCoverView(book: viewModel.books[index])
-                        .padding(.top, index == 0 ? 10 : 0)
-                        .padding(.bottom, index == viewModel.books.count-1 ? 20 : 0)
-                        .redacted(reason: isRedacted ? .placeholder : [])
-                        .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
+                if !isRedacted {
+                    ForEach(viewModel.books.indices, id: \.self) { index in
+                        BookCoverView(book: viewModel.books[index])
+                            .padding(.top, index == 0 ? 10 : 0)
+                            .padding(.bottom, index == viewModel.books.count-1 ? 20 : 0)
+                    }
+                } else {
+                    ForEach(0..<10, id: \.self) { index in
+                        DummyBookCoverView()
+                            .padding(.top, index == 0 ? 10 : 0)
+                            .padding(.bottom, index == 9 ? 20 : 0)
+                    }
                 }
             }
         }
@@ -30,7 +36,7 @@ struct BookmarkBookView: View {
                 await viewModel.loadAllBookmarkBooks()
                 
                 isRedacted = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     withAnimation(.easeOut(duration: 0.4)) {
                         isRedacted = false
                     }

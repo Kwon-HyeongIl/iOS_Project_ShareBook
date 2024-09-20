@@ -21,10 +21,14 @@ struct PostSearchView: View {
                 ScrollView {
                     VStack {
                         LazyVGrid(columns: viewModel.columns, spacing: viewModel.postSpacing(proxyWidth: proxy.size.width)) {
-                            ForEach(viewModel.posts) { post in
-                                PostCoverView(post: post)
-                                    .redacted(reason: isRedacted ? .placeholder : [])
-                                    .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
+                            if !isRedacted {
+                                ForEach(viewModel.posts) { post in
+                                    PostCoverView(post: post)
+                                }
+                            } else {
+                                ForEach(0..<12) { _ in
+                                    DummyPostCoverView(isHotPost: false)
+                                }
                             }
                         }
                     }

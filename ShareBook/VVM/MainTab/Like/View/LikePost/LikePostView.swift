@@ -24,10 +24,14 @@ struct LikePostView: View {
         ScrollView {
             VStack {
                 LazyVGrid(columns: columns, spacing: viewModel.postSpacing(proxyWidth: proxyWidth)) {
-                    ForEach(viewModel.posts) { post in
-                        PostCoverView(post: post)
-                            .redacted(reason: isRedacted ? .placeholder : [])
-                            .shimmering(active: isRedacted ? true : false, bandSize: 0.4)
+                    if !isRedacted {
+                        ForEach(viewModel.posts) { post in
+                            PostCoverView(post: post)
+                        }
+                    } else {
+                        ForEach(0..<10) { _ in
+                            DummyPostCoverView(isHotPost: false)
+                        }
                     }
                 }
                 .padding(.vertical)
@@ -41,7 +45,7 @@ struct LikePostView: View {
                 await viewModel.loadAllLikePosts()
                 
                 isRedacted = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     withAnimation(.easeOut(duration: 0.4)) {
                         isRedacted = false
                     }
