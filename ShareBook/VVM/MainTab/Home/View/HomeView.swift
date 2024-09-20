@@ -160,6 +160,7 @@ struct HomeView: View {
                                 .clipShape(Rectangle())
                                 .frame(width: 70)
                                 .padding(.leading)
+                                
                             Spacer()
                             
                             Button {
@@ -187,7 +188,7 @@ struct HomeView: View {
                                         .scaledToFit()
                                         .frame(width: 21)
                                         .foregroundStyle(Color.SBTitle)
-                                        .padding(.trailing)
+                                        .padding(.trailing, 5)
                                     
                                     if viewModel.isNotificationBadge {
                                         Circle()
@@ -201,14 +202,11 @@ struct HomeView: View {
                             }
                         }
                         .frame(width: proxy.size.width)
-                        .padding(.bottom, 5)
-                        
-                        Divider()
-                            .frame(width: proxy.size.width)
                     }
                 }
             }
             .toolbarBackground(Color.SBLightBlue, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }

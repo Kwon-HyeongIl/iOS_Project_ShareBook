@@ -27,8 +27,9 @@ struct NewPostView: View {
                                 .scaledToFit()
                                 .clipShape(Rectangle())
                                 .opacity(0.5)
-                                .frame(width: 350)
+                                .frame(width: 300)
                                 .shadow(color: .SBTitle.opacity(1), radius: 10, x: 5, y: 5)
+                                .padding(.vertical, 150)
                                 .shimmering(animation: .easeInOut(duration: 3).repeatCount(.max, autoreverses: false).delay(0))
                                 .padding(.top, 30)
                             
@@ -98,10 +99,11 @@ struct NewPostView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.SBTitle, lineWidth: 1)
                     }
-                    .frame(width: max(0, proxy.size.width - 40))
+                    .frame(width: max(0, proxy.size.width - 25))
                     .padding(.top, 5)
                 }
             }
+            .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
         }
     }
 }

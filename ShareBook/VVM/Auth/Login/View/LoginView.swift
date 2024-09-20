@@ -15,15 +15,15 @@ struct LoginView: View {
         GradientBackgroundView {
             ZStack {
                 FullGirl3DView()
-                    .padding(.bottom, 220)
+                    .padding(.bottom, 260)
                 
                 VStack {
                     Image("ShareBook_TextLogo")
                         .resizable()
                         .scaledToFit()
                         .clipShape(Rectangle())
-                        .frame(width: 150, height: 100)
-                        .padding(.top, 40)
+                        .frame(width: 130)
+                        .padding(.top, 50)
                     Spacer()
                     
                     TextField("이메일 주소", text: $viewModel.email)

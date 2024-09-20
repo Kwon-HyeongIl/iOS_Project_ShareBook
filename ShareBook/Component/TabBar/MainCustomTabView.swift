@@ -44,7 +44,7 @@ struct MainCustomTabView: View {
             }
         }
         .frame(height: 50)
-        .background(.ultraThinMaterial)
+        .background(.regularMaterial)
     }
 }
 
