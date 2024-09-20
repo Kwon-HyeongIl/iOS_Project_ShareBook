@@ -866,12 +866,12 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		CAC330482C4F38CC003C8A71 /* background */ = {
+		CAC330482C4F38CC003C8A71 /* Background */ = {
 			isa = PBXGroup;
 			children = (
 				CAD0F3762C4E1B9C006ABFD1 /* GradientBackgroundView.swift */,
 			);
-			path = background;
+			path = Background;
 			sourceTree = "<group>";
 		};
 		CAC3304B2C4F3902003C8A71 /* Spline3D */ = {
@@ -960,7 +960,7 @@
 			isa = PBXGroup;
 			children = (
 				CA20A80E2C7CB524008F3E8B /* Splash */,
-				CAC330482C4F38CC003C8A71 /* background */,
+				CAC330482C4F38CC003C8A71 /* Background */,
 				CA2146D82C6B175E00BE8C3F /* Color */,
 				CA4FC6A72C4E992A00525570 /* Modifier */,
 				CA3221E12C7C29A1003658B3 /* TabBar */,

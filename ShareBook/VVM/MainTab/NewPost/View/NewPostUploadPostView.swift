@@ -26,10 +26,6 @@ struct NewPostUploadPostView: View {
         GradientBackgroundView {
             ScrollView {
                 VStack {
-                    Text("글 작성")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    
                     BookCoverContentView(book: viewModel.book)
                         .padding(.bottom, 10)
                     
@@ -248,6 +244,12 @@ struct NewPostUploadPostView: View {
                             .foregroundStyle(Color.SBTitle)
                             .padding(.trailing, 5)
                     }
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    Text("글 작성")
+                        .font(.system(size: 18))
+                        .fontWeight(.semibold)
                 }
             }
         }
