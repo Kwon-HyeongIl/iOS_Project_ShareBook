@@ -17,8 +17,8 @@ struct ProfileView: View {
     @State private var newCommentSheetCapsule = CommentSheetCapsule()
     var passedCommentSheetCapsule: CommentSheetCapsule?
 
-    init(user: User?, commentSheetCapsule: CommentSheetCapsule? = nil) {
-        self.viewModel = ProfileViewModel(user: user)
+    init(userId: String, commentSheetCapsule: CommentSheetCapsule? = nil) {
+        self.viewModel = ProfileViewModel(userId: userId)
         self.passedCommentSheetCapsule = commentSheetCapsule
     }
     
@@ -381,6 +381,6 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(user: User.DUMMY_USER, commentSheetCapsule: nil)
+    ProfileView(userId: "DUMMY", commentSheetCapsule: nil)
         .environment(NavRouter())
 }

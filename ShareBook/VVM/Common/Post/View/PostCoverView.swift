@@ -66,7 +66,7 @@ struct PostCoverView: View {
             
             HStack(spacing: 0) {
                 Button {
-                    navRouter.navigate(.ProfileView(viewModel.post.user))
+                    navRouter.navigate(.ProfileView(viewModel.post.user.id))
                 } label: {
                     HStack(spacing: 0) {
                         if let profileImageUrl = viewModel.post.user.profileImageUrl {

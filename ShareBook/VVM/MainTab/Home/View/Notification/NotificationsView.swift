@@ -79,7 +79,7 @@ struct NotificationsView: View {
                             } else if notification.type == NotificationType.follow {
                                 Task {
                                     let user = await AuthManager.shared.loadSpecificUser(userId: notification.data)
-                                    navRouter.navigate(.ProfileView(user, nil))
+                                    navRouter.navigate(.ProfileView(user?.id ?? "", nil))
                                 }
                             }
                         }

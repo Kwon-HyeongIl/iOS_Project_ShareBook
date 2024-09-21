@@ -25,7 +25,7 @@ struct CommentReplyView: View {
         HStack(alignment: .top) {
             Button {
                 commentSheetCapsule.isShowing = false
-                navRouter.navigate(.ProfileView(viewModel.commentReply.commentUser, commentSheetCapsule))
+                navRouter.navigate(.ProfileView(viewModel.commentReply.commentUser?.id ?? "", commentSheetCapsule))
             } label: {
                 if let profileImageUrl = viewModel.commentReply.commentUser?.profileImageUrl {
                         KFImage(URL(string: profileImageUrl))

@@ -36,8 +36,8 @@ class NavRouter {
             NewPostUploadPostView(book: book)
             
         // Profile
-        case .ProfileView(let user, let commentSheetCapsule):
-            ProfileView(user: user, commentSheetCapsule: commentSheetCapsule)
+        case .ProfileView(let userId, let commentSheetCapsule):
+            ProfileView(userId: userId, commentSheetCapsule: commentSheetCapsule)
         case .ProfileEditView(let viewModel):
             ProfileEditView(viewModel: viewModel)
         case .ProfileOptionView(let viewModel):

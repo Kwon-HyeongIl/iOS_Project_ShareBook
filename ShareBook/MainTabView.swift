@@ -23,7 +23,7 @@ struct MainTabView: View {
         
         UITabBar.appearance().isHidden = true
         
-        self.profileView = ProfileView(user: currentUser)
+        self.profileView = ProfileView(userId: currentUser?.id ?? "")
     }
     
     var body: some View {

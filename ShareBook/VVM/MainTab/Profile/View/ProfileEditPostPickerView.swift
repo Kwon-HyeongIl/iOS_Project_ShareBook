@@ -39,6 +39,6 @@ struct ProfileEditPostPickerView: View {
 }
 
 #Preview {
-    ProfileEditPostPickerView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
+    ProfileEditPostPickerView(viewModel: ProfileViewModel(userId: "DUMMY"))
         .environment(NavRouter())
 }

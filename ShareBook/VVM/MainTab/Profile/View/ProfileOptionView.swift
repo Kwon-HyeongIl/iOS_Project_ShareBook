@@ -116,7 +116,7 @@ struct ProfileOptionView: View {
 }
 
 #Preview {
-    ProfileOptionView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
+    ProfileOptionView(viewModel: ProfileViewModel(userId: "DUMMY"))
         .environment(NavRouter())
         .environment(MainTabCapsule())
 }

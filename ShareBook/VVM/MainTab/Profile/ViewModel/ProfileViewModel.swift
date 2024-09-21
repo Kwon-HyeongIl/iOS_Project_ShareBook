@@ -37,17 +37,22 @@ class ProfileViewModel: Hashable, Equatable {
         GridItem(.flexible(), spacing: 0)
     ]
     
-    init(user: User?) {
-        guard let _ = user else { return }
-        self.user = user
-        let currentUser = AuthManager.shared.currentUser
-        
+    init(userId: String) {
         Task {
-            if user?.id ?? "" == currentUser?.id ?? "" {
+            let loadUser = await AuthManager.shared.loadSpecificUser(userId: userId)
+            let currentUser = AuthManager.shared.currentUser
+            
+            // 유저 객체 주입
+            if loadUser?.id ?? "" == currentUser?.id ?? "" {
+                // 내 프로필
                 self.isMyProfile = true
+                self.user = currentUser
+                
             } else {
+                // 다른 사람 프로필
                 self.isMyProfile = false
-                await isFollow(userId: user?.id ?? "")
+                await isFollow(userId: loadUser?.id ?? "")
+                self.user = loadUser
             }
             
             await loadAllUserPosts(userId: user?.id ?? "")
@@ -70,14 +75,16 @@ class ProfileViewModel: Hashable, Equatable {
     func basicLoading() async {
         await loadAllUserPosts(userId: user?.id ?? "")
         
-        // 타이틀 글이 변경되었을 경우
-        if let postId = AuthManager.shared.currentUser?.titlePostId {
-            let post = await PostManager.loadSpecificPost(postId: postId)
-            self.titlePost = post
-            
-        // 타이틀 글이 삭제 되었을 경우
-        } else {
-            self.titlePost = nil
+        if isMyProfile == true {
+            // 타이틀 글이 변경되었을 경우
+            if let postId = AuthManager.shared.currentUser?.titlePostId {
+                let post = await PostManager.loadSpecificPost(postId: postId)
+                self.titlePost = post
+                
+                // 타이틀 글이 삭제 되었을 경우
+            } else {
+                self.titlePost = nil
+            }
         }
     }
     

@@ -256,7 +256,7 @@ struct ProfileEditView: View {
 }
 
 #Preview {
-    ProfileEditView(viewModel: ProfileViewModel(user: User.DUMMY_USER))
+    ProfileEditView(viewModel: ProfileViewModel(userId: "DUMMY"))
         .environment(NavRouter())
         .environment(MainTabCapsule())
 }
