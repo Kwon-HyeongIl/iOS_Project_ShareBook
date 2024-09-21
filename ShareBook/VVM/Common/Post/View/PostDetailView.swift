@@ -112,7 +112,7 @@ struct PostDetailView: View {
                                     Image(systemName: "chevron.up")
                                     
                                 } else {
-                                    Text("느낀점")
+                                    Text("캡션")
                                         .font(.system(size: 13))
                                     
                                     Image(systemName: "chevron.down")

@@ -69,7 +69,7 @@ struct NewPostUploadPostView: View {
                         }
                         
                         if isFeelingCaptionShowing {
-                            Text("느낀점")
+                            Text("캡션")
                                 .fontWeight(.semibold)
                                 .padding(.top)
                             
@@ -91,7 +91,7 @@ struct NewPostUploadPostView: View {
                                 }
                             
                         } else if !isImpressivePhraseShowing && isGenreShowing {
-                            Text("느낀점")
+                            Text("캡션")
                                 .fontWeight(.semibold)
                                 .opacity(0.5)
                                 .padding(.top)
