@@ -53,6 +53,7 @@ struct CompleteSignupView: View {
                     Spacer()
                 }
             }
+            .padding(.top, 100)
         }
         .modifier(BackModifier())
     }
