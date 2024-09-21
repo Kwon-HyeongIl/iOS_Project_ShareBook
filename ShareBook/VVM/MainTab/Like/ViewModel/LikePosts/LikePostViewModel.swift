@@ -11,6 +11,9 @@ import Foundation
 class LikePostViewModel {
     var posts: [Post] = []
     
+    var isFirstLoad = true
+    var isRedacted = true
+    
     init() {
         Task {
             await loadAllLikePosts()

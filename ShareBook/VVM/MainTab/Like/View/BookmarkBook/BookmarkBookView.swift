@@ -11,12 +11,10 @@ import Shimmer
 struct BookmarkBookView: View {
     @State private var viewModel = BookmarkBookViewModel()
     
-    @State private var isRedacted = false
-    
     var body: some View {
         ScrollView {
             LazyVStack {
-                if !isRedacted {
+                if !viewModel.isRedacted {
                     ForEach(viewModel.books.indices, id: \.self) { index in
                         BookCoverView(book: viewModel.books[index])
                             .padding(.top, index == 0 ? 10 : 0)
@@ -34,13 +32,17 @@ struct BookmarkBookView: View {
         .task {
             Task {
                 await viewModel.loadAllBookmarkBooks()
-                
-                isRedacted = true
+            }
+        }
+        .task {
+            if viewModel.isFirstLoad {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     withAnimation(.easeOut(duration: 0.4)) {
-                        isRedacted = false
+                        viewModel.isRedacted = false
                     }
                 }
+                
+                viewModel.isFirstLoad = false
             }
         }
     }

@@ -16,7 +16,7 @@ class HomeViewModel {
     var isNotificationBadge = false
     var isHotRedacted = true
     var isGenreRedacted = true
-    var isFirst = true
+    var isFirstLoad = true
     var isAddPost = false
     
     var isFetching = false

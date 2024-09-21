@@ -11,6 +11,9 @@ import Foundation
 class BookmarkBookViewModel {
     var books: [Book] = []
     
+    var isFirstLoad = true
+    var isRedacted = true
+    
     init() {
         Task {
             await loadAllBookmarkBooks()

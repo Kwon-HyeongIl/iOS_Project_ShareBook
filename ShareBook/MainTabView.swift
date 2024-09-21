@@ -12,12 +12,18 @@ struct MainTabView: View {
     
     let currentUser: User?
     
+    // MainTabViews 캐싱
     @State private var homeView = HomeView()
+    @State private var newPostView = NewPostView()
+    @State private var likeView = LikeView()
+    @State private var profileView: ProfileView
     
     init() {
         self.currentUser = AuthManager.shared.currentUser
         
         UITabBar.appearance().isHidden = true
+        
+        self.profileView = ProfileView(user: currentUser)
     }
     
     var body: some View {
@@ -31,13 +37,13 @@ struct MainTabView: View {
                     homeView
                     
                 case .plusSquareOnSquare:
-                    NewPostView()
+                    newPostView
                     
                 case .heart:
-                    LikeView()
+                    likeView
                     
                 case .person:
-                    ProfileView(user: currentUser)
+                    profileView
                 }
                 
                 VStack {

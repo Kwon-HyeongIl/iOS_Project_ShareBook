@@ -154,7 +154,7 @@ struct HomeView: View {
                     }
                     .refreshable {
                         viewModel.posts.removeAll()
-                        viewModel.isFirst = true
+                        viewModel.isFirstLoad = true
                         viewModel.lastDocumentSnapshot = nil
                         
                         await viewModel.loadHotPosts()
@@ -171,11 +171,11 @@ struct HomeView: View {
                             }
                         }
                         
-                        viewModel.isFirst = false
+                        viewModel.isFirstLoad = false
                     }
                     .task {
                         // Redacted 띄우기
-                        if viewModel.isFirst {
+                        if viewModel.isFirstLoad {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 withAnimation(.easeOut(duration: 0.4)) {
                                     viewModel.isHotRedacted = false
@@ -183,7 +183,7 @@ struct HomeView: View {
                                 }
                             }
                             
-                            viewModel.isFirst = false
+                            viewModel.isFirstLoad = false
                         }
                     }
                     .task {
@@ -193,7 +193,7 @@ struct HomeView: View {
                             DispatchQueue.main.async {
                                 viewModel.posts.removeAll()
                             }
-                            viewModel.isFirst = true
+                            viewModel.isFirstLoad = true
                             viewModel.lastDocumentSnapshot = nil
                             
                             await viewModel.loadHotPosts()
@@ -210,7 +210,7 @@ struct HomeView: View {
                                 }
                             }
                             
-                            viewModel.isFirst = false
+                            viewModel.isFirstLoad = false
                         }
                     }
                 }

@@ -11,8 +11,6 @@ import Shimmer
 struct LikePostView: View {
     @State private var viewModel = LikePostViewModel()
     
-    @State private var isRedacted = false
-    
     let proxyWidth: CGFloat
     
     let columns: [GridItem] = [
@@ -24,7 +22,7 @@ struct LikePostView: View {
         ScrollView {
             VStack {
                 LazyVGrid(columns: columns, spacing: viewModel.postSpacing(proxyWidth: proxyWidth)) {
-                    if !isRedacted {
+                    if !viewModel.isRedacted {
                         ForEach(viewModel.posts) { post in
                             PostCoverView(post: post)
                         }
@@ -43,13 +41,17 @@ struct LikePostView: View {
         .task {
             Task {
                 await viewModel.loadAllLikePosts()
-                
-                isRedacted = true
+            }
+        }
+        .task {
+            if viewModel.isFirstLoad {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     withAnimation(.easeOut(duration: 0.4)) {
-                        isRedacted = false
+                        viewModel.isRedacted = false
                     }
                 }
+                
+                viewModel.isFirstLoad = false
             }
         }
         
