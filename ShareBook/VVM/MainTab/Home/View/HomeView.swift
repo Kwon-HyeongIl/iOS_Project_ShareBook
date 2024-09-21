@@ -125,7 +125,7 @@ struct HomeView: View {
                         .scrollIndicators(.hidden)
                         .padding(.bottom, 10)
                         
-                        LazyVGrid(columns: viewModel.columns, spacing: viewModel.resizePost(proxyWidth: proxy.size.width)) {
+                        LazyVGrid(columns: viewModel.columns, spacing: 20) {
                             if !viewModel.isGenreRedacted {
                                 ForEach(viewModel.posts) { post in
                                     PostCoverView(post: post)

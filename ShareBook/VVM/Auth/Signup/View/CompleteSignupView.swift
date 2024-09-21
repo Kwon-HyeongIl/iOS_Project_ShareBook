@@ -23,7 +23,7 @@ struct CompleteSignupView: View {
                         .resizable()
                         .scaledToFit()
                         .clipShape(Rectangle())
-                        .frame(width: 150, height: 100)
+                        .frame(width: 130, height: 100)
                         .padding(.top)
                     Spacer()
                     

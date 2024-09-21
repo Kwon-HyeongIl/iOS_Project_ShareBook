@@ -11,33 +11,32 @@ import Shimmer
 struct LikePostView: View {
     @State private var viewModel = LikePostViewModel()
     
-    let proxyWidth: CGFloat
-    
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0)
     ]
     
     var body: some View {
-        ScrollView {
-            VStack {
-                LazyVGrid(columns: columns, spacing: viewModel.postSpacing(proxyWidth: proxyWidth)) {
-                    if !viewModel.isRedacted {
-                        ForEach(viewModel.posts) { post in
-                            PostCoverView(post: post)
-                        }
-                    } else {
-                        ForEach(0..<10) { _ in
-                            DummyPostCoverView(isHotPost: false)
+            ScrollView {
+                VStack {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        if !viewModel.isRedacted {
+                            ForEach(viewModel.posts) { post in
+                                PostCoverView(post: post)
+                            }
+                            
+                        } else {
+                            ForEach(0..<10) { _ in
+                                DummyPostCoverView(isHotPost: false)
+                            }
                         }
                     }
+                    .padding(.vertical)
+                    .padding(.horizontal, 5)
+                    
+                    Spacer()
                 }
-                .padding(.vertical)
-                .padding(.horizontal, 5)
-                
-                Spacer()
             }
-        }
         .task {
             Task {
                 await viewModel.loadAllLikePosts()
@@ -59,5 +58,5 @@ struct LikePostView: View {
 }
 
 #Preview {
-    LikePostView(proxyWidth: 100)
+    LikePostView()
 }
