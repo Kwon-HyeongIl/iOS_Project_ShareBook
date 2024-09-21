@@ -11,6 +11,10 @@ import Foundation
 class NewPostViewModel {
     var bookList = [Book]()
     
+    var searchText = ""
+    var isRedacted = false
+    var isShowing = true
+    
     func searchBookWithTitle(searchQuery: String) {
         BookManager.requestSearchBookList(searchQuery: searchQuery) { books in
             DispatchQueue.main.async {

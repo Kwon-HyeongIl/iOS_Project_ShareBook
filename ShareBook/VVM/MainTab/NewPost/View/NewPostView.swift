@@ -11,16 +11,11 @@ import Shimmer
 struct NewPostView: View {
     @State private var viewModel = NewPostViewModel()
     
-    @State private var searchText = ""
-    @State private var isShowing = true
-    
-    @State private var isRedacted = false
-    
     var body: some View {
         GeometryReader { proxy in
             GradientBackgroundView {
                 VStack {
-                    if isShowing {
+                    if viewModel.isShowing {
                         ZStack {
                             Image("ShareBook_TextLogo")
                                 .resizable()
@@ -52,7 +47,7 @@ struct NewPostView: View {
                     
                     ScrollView {
                         LazyVStack {
-                            if !isRedacted {
+                            if !viewModel.isRedacted {
                                 ForEach(viewModel.bookList, id: \.self) { book in
                                     BookCoverView(book: book)
                                 }
@@ -77,18 +72,18 @@ struct NewPostView: View {
                             .opacity(0.8)
                             .padding(.leading, 10)
                         
-                        TextField("등록할 책을 검색하세요", text: $searchText)
+                        TextField("등록할 책을 검색하세요", text: $viewModel.searchText)
                             .font(.system(size: 15))
                             .submitLabel(.search)
                             .onSubmit {
                                 Task {
-                                    isShowing = false
-                                    viewModel.searchBookWithTitle(searchQuery: searchText)
+                                    viewModel.isShowing = false
+                                    viewModel.searchBookWithTitle(searchQuery: viewModel.searchText)
                                     
-                                    isRedacted = true
+                                    viewModel.isRedacted = true
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                         withAnimation(.easeOut(duration: 0.4)) {
-                                            isRedacted = false
+                                            viewModel.isRedacted = false
                                         }
                                     }
                                 }
