@@ -216,11 +216,10 @@ struct NewPostUploadPostView: View {
                                     Button {
                                         Task {
                                             await viewModel.uploadPost()
+                                            isPostAddedCapsule.isPostAdded = true
+                                            navRouter.popToRoot()
+                                            mainTabCapsule.selectedTab = .house
                                         }
-                                        
-                                        navRouter.popToRoot()
-                                        mainTabCapsule.selectedTab = .house
-                                        isPostAddedCapsule.isPostAdded = true
                                     } label: {
                                         Text("작성")
                                             .modifier(InViewButtonModifier(bgColor: .SBTitle))

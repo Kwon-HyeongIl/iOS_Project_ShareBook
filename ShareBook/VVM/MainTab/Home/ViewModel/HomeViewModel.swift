@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 @Observable
 class HomeViewModel {
@@ -13,12 +14,14 @@ class HomeViewModel {
     var posts: [Post] = []
     
     var isNotificationBadge = false
-    
     var isHotRedacted = true
     var isGenreRedacted = true
     var isFirst = true
-    
     var isAddPost = false
+    
+    var isFetching = false
+    var lastDocumentSnapshot: DocumentSnapshot?
+    var selectedGenre = Genre.all
     
     @ObservationIgnored let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
@@ -30,7 +33,7 @@ class HomeViewModel {
         
         Task {
             await loadHotPosts()
-            await loadAllPosts()
+            await loadAllPostsByPagination()
         }
     }
     
@@ -38,12 +41,30 @@ class HomeViewModel {
         self.hotPosts = await PostManager.loadHotPosts()
     }
     
-    func loadAllPosts() async {
-        self.posts = await PostManager.loadAllPosts()
+    func loadAllPostsByPagination() async {
+        if isFetching { return }
+        isFetching = true
+        
+        let (posts, lastSnapshot) = await PostManager.loadAllPostsByPagination(lastDocument: lastDocumentSnapshot)
+        self.lastDocumentSnapshot = lastSnapshot
+        
+        DispatchQueue.main.async {
+            self.posts.append(contentsOf: posts)
+            self.isFetching = false
+        }
     }
     
-    func loadSpecificGenrePosts(genre: Genre) async {
-        self.posts = await PostManager.loadSpecificGenrePosts(genre: genre)
+    func loadSpecificGenrePostsByPagination(genre: Genre) async {
+        if isFetching { return }
+        isFetching = true
+        
+        let (posts, lastSnapshot) = await PostManager.loadSpecificGenrePostsByPagination(genre: genre, lastDocument: lastDocumentSnapshot)
+        self.lastDocumentSnapshot = lastSnapshot
+        
+        DispatchQueue.main.async {
+            self.posts.append(contentsOf: posts)
+            self.isFetching = false
+        }
     }
     
     func notificationBadgeOff() async {

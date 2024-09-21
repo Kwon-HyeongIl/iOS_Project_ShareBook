@@ -14,8 +14,6 @@ struct HomeView: View {
     @Environment(IsPostAddedCapsule.self) var isPostAddedCapsule: IsPostAddedCapsule
     @State private var viewModel = HomeViewModel()
     
-    @State private var selectedGenre = Genre.all
-    
     var body: some View {
         GeometryReader { proxy in
             GradientBackgroundView {
@@ -79,12 +77,25 @@ struct HomeView: View {
                                     Button {
                                         Task {
                                             if index == 0 {
-                                                await viewModel.loadAllPosts()
+                                                DispatchQueue.main.async {
+                                                    viewModel.posts.removeAll()
+                                                }
+                                                viewModel.lastDocumentSnapshot = nil
+                                                
+                                                await viewModel.loadAllPostsByPagination()
+                                                viewModel.selectedGenre = .all
+                                                
                                             } else {
-                                                await viewModel.loadSpecificGenrePosts(genre: Genre.allCases[index])
+                                                DispatchQueue.main.async {
+                                                    viewModel.posts.removeAll()
+                                                }
+                                                viewModel.lastDocumentSnapshot = nil
+                                                
+                                                await viewModel.loadSpecificGenrePostsByPagination(genre: Genre.allCases[index])
+                                                viewModel.selectedGenre = Genre.allCases[index]
                                             }
                                         }
-                                        selectedGenre = Genre.allCases[index]
+                                        viewModel.selectedGenre = Genre.allCases[index]
                                         
                                         viewModel.isGenreRedacted = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -96,13 +107,13 @@ struct HomeView: View {
                                         ZStack {
                                             RoundedRectangle(cornerRadius: 10)
                                                 .frame(height: 27)
-                                                .foregroundStyle(selectedGenre == Genre.allCases[index] ? Color.SBTitle : .white)
+                                                .foregroundStyle(viewModel.selectedGenre == Genre.allCases[index] ? Color.SBTitle : .white)
                                                 .opacity(0.5)
                                             
                                             Text("\(Genre.allCases[index].rawValue)")
-                                                .foregroundStyle(selectedGenre == Genre.allCases[index] ? .white : .black)
+                                                .foregroundStyle(viewModel.selectedGenre == Genre.allCases[index] ? .white : .black)
                                                 .font(.system(size: 13))
-                                                .opacity(selectedGenre == Genre.allCases[index] ? 1.0 : 0.6)
+                                                .opacity(viewModel.selectedGenre == Genre.allCases[index] ? 1.0 : 0.6)
                                                 .padding(.horizontal)
                                         }
                                         .padding(.leading, index == 0 ? 15 : 0)
@@ -120,6 +131,17 @@ struct HomeView: View {
                                     PostCoverView(post: post)
                                         .redacted(reason: viewModel.isGenreRedacted ? .placeholder : [])
                                         .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                                        .task {
+                                            if post == viewModel.posts.last {
+                                                Task {
+                                                    if viewModel.selectedGenre == .all {
+                                                        await viewModel.loadAllPostsByPagination()
+                                                    } else {
+                                                        await viewModel.loadSpecificGenrePostsByPagination(genre: viewModel.selectedGenre)
+                                                    }
+                                                }
+                                            }
+                                        }
                                 }
                             } else {
                                 ForEach(0..<12) { _ in
@@ -131,10 +153,13 @@ struct HomeView: View {
                         .padding(.bottom, 70)
                     }
                     .refreshable {
+                        viewModel.posts.removeAll()
                         viewModel.isFirst = true
+                        viewModel.lastDocumentSnapshot = nil
                         
                         await viewModel.loadHotPosts()
-                        await viewModel.loadAllPosts()
+                        await viewModel.loadAllPostsByPagination()
+                        viewModel.selectedGenre = .all
                         
                         viewModel.isHotRedacted = true
                         viewModel.isGenreRedacted = true
@@ -149,6 +174,7 @@ struct HomeView: View {
                         viewModel.isFirst = false
                     }
                     .task {
+                        // Redacted 띄우기
                         if viewModel.isFirst {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 withAnimation(.easeOut(duration: 0.4)) {
@@ -161,14 +187,21 @@ struct HomeView: View {
                         }
                     }
                     .task {
+                        // 글이 작성되었을 때
                         if isPostAddedCapsule.isPostAdded {
+                            
+                            DispatchQueue.main.async {
+                                viewModel.posts.removeAll()
+                            }
+                            viewModel.isFirst = true
+                            viewModel.lastDocumentSnapshot = nil
+                            
+                            await viewModel.loadHotPosts()
+                            await viewModel.loadAllPostsByPagination()
+                            viewModel.selectedGenre = .all
+                            
                             viewModel.isHotRedacted = true
                             viewModel.isGenreRedacted = true
-                            
-                            Task {
-                                await viewModel.loadHotPosts()
-                                await viewModel.loadAllPosts()
-                            }
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                 withAnimation(.easeOut(duration: 0.4)) {
@@ -177,7 +210,7 @@ struct HomeView: View {
                                 }
                             }
                             
-                            isPostAddedCapsule.isPostAdded = false
+                            viewModel.isFirst = false
                         }
                     }
                 }

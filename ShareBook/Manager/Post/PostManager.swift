@@ -52,20 +52,28 @@ class PostManager {
         return keywords
     }
     
-    static func loadAllPosts() async -> [Post] {
+    static func loadAllPostsByPagination(lastDocument: DocumentSnapshot? = nil) async -> ([Post], DocumentSnapshot?) {
         do {
-            let documents = try await Firestore.firestore().collection("Post")
-                .order(by: "date", descending: true).getDocuments().documents
+            var query = Firestore.firestore().collection("Post")
+                .order(by: "date", descending: true)
+                .limit(to: 10)
+            
+            // 이어서 요청하는 경우
+            if let lastDocument {
+                query = query.start(afterDocument: lastDocument)
+            }
+            
+            let documents = try await query.getDocuments().documents
             
             let posts = try documents.compactMap({ document in
                 return try document.data(as: Post.self)
             })
             
-            return posts
+            return (posts, documents.last)
             
         } catch {
             print(error.localizedDescription)
-            return []
+            return ([], nil)
         }
     }
     
@@ -105,20 +113,29 @@ class PostManager {
         }
     }
     
-    static func loadSpecificGenrePosts(genre: Genre) async -> [Post] {
+    static func loadSpecificGenrePostsByPagination(genre: Genre, lastDocument: DocumentSnapshot? = nil) async -> ([Post], DocumentSnapshot?) {
         do {
-            let documents = try await Firestore.firestore().collection("Post")
+            var query = Firestore.firestore().collection("Post")
                 .whereField("genre", isEqualTo: genre.rawValue) // FireStore에 RawValue 값이 저장
                 .order(by: "date", descending: true)
-                .getDocuments().documents
+                .limit(to: 10)
             
-            return try documents.compactMap({ document in
+            // 이어서 요청하는 경우
+            if let lastDocument {
+                query = query.start(afterDocument: lastDocument)
+            }
+            
+            let documents = try await query.getDocuments().documents
+            
+            let posts = try documents.compactMap({ document in
                 try document.data(as: Post.self)
             })
             
+            return (posts, documents.last)
+            
         } catch {
             print(error.localizedDescription)
-            return []
+            return ([], nil)
         }
     }
     

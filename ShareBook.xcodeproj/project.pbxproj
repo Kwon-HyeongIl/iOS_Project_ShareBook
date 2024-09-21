@@ -62,7 +62,6 @@
 		CA6CBD022C9DB95600650436 /* DummyBookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CBD012C9DB95600650436 /* DummyBookCoverView.swift */; };
 		CA6CBD042C9DBAC200650436 /* DummyPostProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CBD032C9DBAC200650436 /* DummyPostProfileCoverView.swift */; };
 		CA6CBD062C9DD67300650436 /* PostViewModel+Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CBD052C9DD67300650436 /* PostViewModel+Comment.swift */; };
-		CA6CBD082C9DDE4000650436 /* IsPostAddedCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CBD072C9DDE4000650436 /* IsPostAddedCapsule.swift */; };
 		CA70E7F62C785E6400E3B91B /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E7F52C785E6400E3B91B /* LikeView.swift */; };
 		CA70E7FC2C785EA100E3B91B /* LikePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E7FB2C785EA100E3B91B /* LikePostView.swift */; };
 		CA70E7FF2C785EC300E3B91B /* LikePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA70E7FE2C785EC300E3B91B /* LikePostViewModel.swift */; };
@@ -142,6 +141,7 @@
 		CAEDAB562C5A015A0077883E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAEDAB552C5A015A0077883E /* CryptoSwift */; };
 		CAF312C82C9088D70089A186 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C72C9088D70089A186 /* FirebaseAnalytics */; };
 		CAF312CA2C9088D70089A186 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C92C9088D70089A186 /* FirebaseMessaging */; };
+		CAF5B6742C9EBE930097FC38 /* IsPostAddedCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5B6732C9EBE930097FC38 /* IsPostAddedCapsule.swift */; };
 		CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAFE2C262C54F655000A3047 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -202,7 +202,6 @@
 		CA6CBD012C9DB95600650436 /* DummyBookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyBookCoverView.swift; sourceTree = "<group>"; };
 		CA6CBD032C9DBAC200650436 /* DummyPostProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyPostProfileCoverView.swift; sourceTree = "<group>"; };
 		CA6CBD052C9DD67300650436 /* PostViewModel+Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostViewModel+Comment.swift"; sourceTree = "<group>"; };
-		CA6CBD072C9DDE4000650436 /* IsPostAddedCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPostAddedCapsule.swift; sourceTree = "<group>"; };
 		CA70E7F52C785E6400E3B91B /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		CA70E7FB2C785EA100E3B91B /* LikePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostView.swift; sourceTree = "<group>"; };
 		CA70E7FE2C785EC300E3B91B /* LikePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostViewModel.swift; sourceTree = "<group>"; };
@@ -272,6 +271,7 @@
 		CAE601662C51005B0013413C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		CAE601672C5100FA0013413C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Hash.swift"; sourceTree = "<group>"; };
+		CAF5B6732C9EBE930097FC38 /* IsPostAddedCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPostAddedCapsule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -864,7 +864,7 @@
 			children = (
 				CAA235802C81D525009875A4 /* CommentSheetCapsule.swift */,
 				CA3A8D8E2C8C933C0032ECB6 /* MainTabCapsule.swift */,
-				CA6CBD072C9DDE4000650436 /* IsPostAddedCapsule.swift */,
+				CAF5B6732C9EBE930097FC38 /* IsPostAddedCapsule.swift */,
 			);
 			path = Capsule;
 			sourceTree = "<group>";
@@ -1190,6 +1190,7 @@
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
 				CA6CBD042C9DBAC200650436 /* DummyPostProfileCoverView.swift in Sources */,
 				CA10EEC52C60CC6400901979 /* NewPostUploadPostViewModel.swift in Sources */,
+				CAF5B6742C9EBE930097FC38 /* IsPostAddedCapsule.swift in Sources */,
 				CA8627B02C955FDF005A6BC8 /* Notification.swift in Sources */,
 				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */,
@@ -1234,7 +1235,6 @@
 				CA1FFD072C95F0760083450F /* NotificationSettingView.swift in Sources */,
 				CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */,
 				CA9A3FA92C78B77300804B8E /* BookDetailView.swift in Sources */,
-				CA6CBD082C9DDE4000650436 /* IsPostAddedCapsule.swift in Sources */,
 				CA9A3FA72C78B74500804B8E /* BookViewModel.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
