@@ -289,26 +289,28 @@ struct ProfileView: View {
                                             }
                                             
                                         } else {
-                                            Button {
-                                                navRouter.navigate(.ProfileEditView(viewModel))
-                                            } label: {
-                                                ZStack {
-                                                    Image(systemName: "book.closed")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 45)
-                                                        .foregroundStyle(.gray)
-                                                    
-                                                    Image(systemName: "plus")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 20)
-                                                        .fontWeight(.bold)
-                                                        .foregroundStyle(.gray)
-                                                        .padding(.leading, 6)
-                                                        .padding(.bottom, 11)
+                                            if viewModel.isMyProfile == true {
+                                                Button {
+                                                    navRouter.navigate(.ProfileEditView(viewModel))
+                                                } label: {
+                                                    ZStack {
+                                                        Image(systemName: "book.closed")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 45)
+                                                            .foregroundStyle(.gray)
+                                                        
+                                                        Image(systemName: "plus")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 20)
+                                                            .fontWeight(.bold)
+                                                            .foregroundStyle(.gray)
+                                                            .padding(.leading, 6)
+                                                            .padding(.bottom, 11)
+                                                    }
                                                 }
-                                            } 
+                                            }
                                         }
                                     }
                                 }

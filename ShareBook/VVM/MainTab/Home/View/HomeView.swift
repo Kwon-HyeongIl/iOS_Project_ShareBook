@@ -152,6 +152,7 @@ struct HomeView: View {
                         .padding(.horizontal, 5)
                         .padding(.bottom, 70)
                     }
+                    .scrollIndicators(.hidden)
                     .refreshable {
                         viewModel.posts.removeAll()
                         viewModel.isFirstLoad = true
