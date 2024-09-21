@@ -23,6 +23,7 @@ struct LikePostView: View {
                         if !viewModel.isRedacted {
                             ForEach(viewModel.posts) { post in
                                 PostCoverView(post: post)
+                                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                             }
                             
                         } else {

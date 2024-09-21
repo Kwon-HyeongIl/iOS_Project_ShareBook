@@ -13,7 +13,6 @@ struct ProfileView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel: ProfileViewModel
     
-    @State private var isRedacted = false
     @State private var isUnFollowAlertShowing = false
     @State private var newCommentSheetCapsule = CommentSheetCapsule()
     var passedCommentSheetCapsule: CommentSheetCapsule?
@@ -290,22 +289,26 @@ struct ProfileView: View {
                                             }
                                             
                                         } else {
-                                            ZStack {
-                                                Image(systemName: "book.closed")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 45)
-                                                    .foregroundStyle(.gray)
-                                                
-                                                Image(systemName: "plus")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 20)
-                                                    .fontWeight(.bold)
-                                                    .foregroundStyle(.gray)
-                                                    .padding(.leading, 6)
-                                                    .padding(.bottom, 11)
-                                            }
+                                            Button {
+                                                navRouter.navigate(.ProfileEditView(viewModel))
+                                            } label: {
+                                                ZStack {
+                                                    Image(systemName: "book.closed")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 45)
+                                                        .foregroundStyle(.gray)
+                                                    
+                                                    Image(systemName: "plus")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 20)
+                                                        .fontWeight(.bold)
+                                                        .foregroundStyle(.gray)
+                                                        .padding(.leading, 6)
+                                                        .padding(.bottom, 11)
+                                                }
+                                            } 
                                         }
                                     }
                                 }
@@ -314,7 +317,7 @@ struct ProfileView: View {
                         }
                         
                         LazyVGrid(columns: viewModel.columns, spacing: viewModel.calSizeBase4And393(proxyWidth: proxy.size.width)) {
-                            if !isRedacted {
+                            if !viewModel.isRedacted {
                                 ForEach(viewModel.posts) { post in
                                     PostProfileCoverView(post: post)
                                         .scaleEffect(viewModel.calSizemBase1And393(proxyWidth: proxy.size.width))
@@ -330,15 +333,20 @@ struct ProfileView: View {
                 }
             }
             .task {
-                Task {
-                    await viewModel.basicLoading()
-                    
-                    isRedacted = true
+                if viewModel.isFirstLoad {
+                    viewModel.isRedacted = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         withAnimation(.easeOut(duration: 0.4)) {
-                            isRedacted = false
+                            viewModel.isRedacted = false
                         }
                     }
+                    
+                    viewModel.isFirstLoad = false
+                }
+            }
+            .task {
+                Task {
+                    await viewModel.basicLoading()
                 }
             }
             .navigationBarBackButtonHidden()

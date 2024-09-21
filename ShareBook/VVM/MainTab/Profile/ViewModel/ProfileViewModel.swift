@@ -14,6 +14,9 @@ class ProfileViewModel: Hashable, Equatable {
     var user: User?
     var posts: [Post] = []
     
+    var isFirstLoad = true
+    var isRedacted = true
+    
     var followingCount = 0
     var followerCount = 0
     
