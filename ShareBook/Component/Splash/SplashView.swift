@@ -28,7 +28,7 @@ struct SplashView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200)
-                    .shimmering()
+                    .shimmering(animation: .easeInOut(duration: 1.5))
                     .padding(.bottom, 30)
             }
         }

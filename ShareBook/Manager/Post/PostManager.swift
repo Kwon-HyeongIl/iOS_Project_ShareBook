@@ -56,7 +56,7 @@ class PostManager {
         do {
             var query = Firestore.firestore().collection("Post")
                 .order(by: "date", descending: true)
-                .limit(to: 10)
+                .limit(to: 20)
             
             // 이어서 요청하는 경우
             if let lastDocument {
@@ -118,7 +118,7 @@ class PostManager {
             var query = Firestore.firestore().collection("Post")
                 .whereField("genre", isEqualTo: genre.rawValue) // FireStore에 RawValue 값이 저장
                 .order(by: "date", descending: true)
-                .limit(to: 10)
+                .limit(to: 20)
             
             // 이어서 요청하는 경우
             if let lastDocument {

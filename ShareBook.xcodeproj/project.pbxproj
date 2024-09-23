@@ -118,6 +118,7 @@
 		CAC354A12C822AA400EEA8F9 /* ProfileEditPostPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */; };
 		CAC354A32C8234F400EEA8F9 /* PostProfileCoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC354A22C8234F400EEA8F9 /* PostProfileCoverContentView.swift */; };
 		CAC354A82C823AEE00EEA8F9 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC354A72C823AEE00EEA8F9 /* ProfileManager.swift */; };
+		CAC7549F2CA19CAB002EF90B /* DummyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC7549E2CA19CAB002EF90B /* DummyProfileView.swift */; };
 		CACD58832C7307020070593A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58822C7307020070593A /* CommentViewModel.swift */; };
 		CACD58852C73096E0070593A /* CommentReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58842C73096E0070593A /* CommentReplyView.swift */; };
 		CAD01ED52C5F48F6001E479F /* BookManager+Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */; };
@@ -252,6 +253,7 @@
 		CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditPostPickerView.swift; sourceTree = "<group>"; };
 		CAC354A22C8234F400EEA8F9 /* PostProfileCoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCoverContentView.swift; sourceTree = "<group>"; };
 		CAC354A72C823AEE00EEA8F9 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		CAC7549E2CA19CAB002EF90B /* DummyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyProfileView.swift; sourceTree = "<group>"; };
 		CACD58822C7307020070593A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		CACD58842C73096E0070593A /* CommentReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyView.swift; sourceTree = "<group>"; };
 		CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookManager+Bookmark.swift"; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 		CA6AC97F2C53CA3D00703DB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CAC7549D2CA19C9E002EF90B /* Dummy */,
 				CABE31C82C4CAE170010AC20 /* ProfileView.swift */,
 				CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */,
 				CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */,
@@ -931,6 +934,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		CAC7549D2CA19C9E002EF90B /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				CAC7549E2CA19CAB002EF90B /* DummyProfileView.swift */,
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
 		CAD01ED82C5F4A29001E479F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1217,6 +1228,7 @@
 				CAC354A12C822AA400EEA8F9 /* ProfileEditPostPickerView.swift in Sources */,
 				CAD0F3732C4E11C6006ABFD1 /* EnterEmailView.swift in Sources */,
 				CACD58832C7307020070593A /* CommentViewModel.swift in Sources */,
+				CAC7549F2CA19CAB002EF90B /* DummyProfileView.swift in Sources */,
 				CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */,
 				CA3A8D8F2C8C933C0032ECB6 /* MainTabCapsule.swift in Sources */,
 				CA70E7FF2C785EC300E3B91B /* LikePostViewModel.swift in Sources */,

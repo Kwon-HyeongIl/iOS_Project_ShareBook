@@ -261,7 +261,7 @@ struct HomeView: View {
                                             .scaledToFit()
                                             .frame(width: 7)
                                             .foregroundStyle(.red)
-                                            .padding(.leading, 10)
+                                            .padding(.leading, 18)
                                             .padding(.bottom, 24)
                                     }
                                 }
