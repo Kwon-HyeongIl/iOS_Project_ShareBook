@@ -20,6 +20,6 @@ struct TextFieldModifier: ViewModifier {
                     .opacity(0.35)
             }
             .frame(height: 42)
-            .padding(.horizontal, 35)
+            .padding(.horizontal, 30)
     }
 }

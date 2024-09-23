@@ -514,8 +514,8 @@
 		CA4FC6A72C4E992A00525570 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
-				CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */,
 				CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */,
+				CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */,
 				CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */,
 				CAC3549C2C8214DA00EEA8F9 /* InViewButtonModifier.swift */,
 				CA1FFD0E2C95FCF80083450F /* NavBack */,

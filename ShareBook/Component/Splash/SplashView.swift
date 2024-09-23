@@ -18,7 +18,7 @@ struct SplashView: View {
             ], startPoint: .topLeading, endPoint: .bottomTrailing)
             .ignoresSafeArea(edges: .vertical)
             
-            VStack {
+            VStack(spacing: 0) {
                 Image("Icon_Raw")
                     .resizable()
                     .scaledToFit()
@@ -27,7 +27,7 @@ struct SplashView: View {
                 Image("ShareBook_TextLogo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 200)
+                    .frame(width: 250)
                     .shimmering(animation: .easeInOut(duration: 1.5))
                     .padding(.bottom, 30)
             }

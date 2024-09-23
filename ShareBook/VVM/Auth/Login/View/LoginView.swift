@@ -24,14 +24,14 @@ struct LoginView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(Rectangle())
-                                .frame(width: 130)
+                                .frame(width: 180)
                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                                 .padding(.top, proxy.size.height < 700 ? 0 : 50)
 
                             TextField("이메일 주소", text: $viewModel.email)
                                 .modifier(TextFieldModifier())
                                 .padding(.bottom, 10)
-                                .padding(.top, proxy.size.height < 700 ? proxy.size.height - 410 : proxy.size.height - 480)
+                                .padding(.top, proxy.size.height < 700 ? proxy.size.height - 400 : proxy.size.height - 480)
                             
                             SecureField("비밀번호", text: $viewModel.password)
                                 .modifier(TextFieldModifier())
@@ -76,7 +76,7 @@ struct LoginView: View {
                                     Divider().frame(width: 100)
                                 }
                             }
-                            .padding(.bottom)
+                            .padding(.bottom, 10)
                             
                             HStack(spacing: 20) {
                                 Button {
