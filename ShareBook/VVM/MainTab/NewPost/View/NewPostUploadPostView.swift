@@ -25,232 +25,242 @@ struct NewPostUploadPostView: View {
     
     var body: some View {
         GradientBackgroundView {
-            ScrollView {
-                VStack {
-                    BookCoverContentView(book: viewModel.book)
-                        .padding(.bottom, 10)
-                    
+            ScrollViewReader { scrollProxy in
+                ScrollView {
                     VStack {
-                        if isImpressivePhraseShowing {
-                            Text("인상깊은 구절")
-                                .fontWeight(.semibold)
-                                .padding(.top)
-                            
-                            TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
-                                .padding(.horizontal)
-                                .frame(height: 160)
-                                .background(.regularMaterial)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .padding(.horizontal, 30)
-                                .overlay {
-                                    if viewModel.impressivePhrase.isEmpty {
-                                        Text("큰 따옴표(\")는 자동으로 붙습니다")
-                                            .modifier(ItalicFontModifier())
-                                            .font(.caption)
-                                            .opacity(0.2)
-                                    }
-                                }
-                            
-                        } else if !isImpressivePhraseShowing {
-                            Text("인상깊은 구절")
-                                .fontWeight(.semibold)
-                                .opacity(0.5)
-                                .padding(.top)
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(height: 30)
-                                .foregroundStyle(.gray)
-                                .opacity(0.4)
-                                .padding(.horizontal, 30)
-                                .padding(.bottom)
-                            
-                            Divider()
-                                .padding(.horizontal, 35)
-                        }
+                        BookCoverContentView(book: viewModel.book)
+                            .padding(.bottom, 10)
                         
-                        if isFeelingCaptionShowing {
-                            Text("캡션")
-                                .fontWeight(.semibold)
-                                .padding(.top)
-                            
-                            TextField("", text: $viewModel.feelingCaption, axis: .vertical)
-                                .padding(.horizontal)
-                                .frame(height: 160)
-                                .background(.regularMaterial)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .padding(.horizontal, 30)
-                                .padding(.bottom)
-                                .overlay {
-                                    if viewModel.feelingCaption.isEmpty {
-                                        Text("생략 가능")
-                                            .modifier(ItalicFontModifier())
-                                            .font(.caption)
-                                            .opacity(0.2)
-                                            .padding(.bottom)
-                                    }
-                                }
-                            
-                        } else if !isImpressivePhraseShowing && isGenreShowing {
-                            Text("캡션")
-                                .fontWeight(.semibold)
-                                .opacity(0.5)
-                                .padding(.top)
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(height: 30)
-                                .foregroundStyle(.gray)
-                                .opacity(0.4)
-                                .padding(.horizontal, 30)
-                                .padding(.bottom)
-                            
-                            Divider()
-                                .padding(.horizontal, 35)
-                        }
-                        
-                        if isGenreShowing {
-                            VStack {
-                                Text("책 장르")
+                        VStack {
+                            if isImpressivePhraseShowing {
+                                Text("인상깊은 구절")
                                     .fontWeight(.semibold)
                                     .padding(.top)
                                 
-                                Picker("책 장르", selection: $viewModel.genre) {
-                                    ForEach(Genre.allCases.dropFirst()) { genre in
-                                        Text(genre.rawValue).tag(genre)
+                                TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
+                                    .padding(.horizontal)
+                                    .frame(height: 160)
+                                    .background(.regularMaterial)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .padding(.horizontal, 30)
+                                    .overlay {
+                                        if viewModel.impressivePhrase.isEmpty {
+                                            Text("큰 따옴표(\")는 자동으로 붙습니다")
+                                                .modifier(ItalicFontModifier())
+                                                .font(.caption)
+                                                .opacity(0.2)
+                                        }
                                     }
-                                }
-                                .pickerStyle(.wheel)
-                                .padding(.horizontal, 30)
-                            }
-                        }
-                        
-                        if isImpressivePhraseShowing {
-                            Button {
-                                withAnimation(.smooth(duration: 0.4)) {
-                                    if !viewModel.impressivePhrase.isEmpty {
-                                        isImpressivePhraseShowing = false
-                                        isFeelingCaptionShowing = true
-                                    } else {
-                                        isImpressiveAlertShowing = true
-                                    }
-                                }
-                            } label: {
-                                if viewModel.impressivePhrase.isEmpty {
-                                    Text("다음")
-                                        .modifier(InViewButtonModifier(bgColor: .gray))
-                                        .padding(.top)
-                                    
-                                } else {
-                                    Text("다음")
-                                        .modifier(InViewButtonModifier(bgColor: .SBTitle))
-                                        .padding(.top)
-                                }
-                            }
-                            .alert("!!", isPresented: $isImpressiveAlertShowing) {
-                                Button {
-                                    
-                                } label: {
-                                    Text("확인")
-                                }
-                            } message: {
-                                Text("인상 깊은 구절은 필수로 작성하셔야 됩니다.")
+                                
+                            } else if !isImpressivePhraseShowing {
+                                Text("인상깊은 구절")
+                                    .fontWeight(.semibold)
+                                    .opacity(0.5)
+                                    .padding(.top)
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 30)
+                                    .foregroundStyle(.gray)
+                                    .opacity(0.4)
+                                    .padding(.horizontal, 30)
+                                    .padding(.bottom)
+                                
+                                Divider()
+                                    .padding(.horizontal, 35)
                             }
                             
-                        } else if isFeelingCaptionShowing {
-                            ZStack {
-                                HStack {
-                                    Button {
-                                        withAnimation(.smooth(duration: 0.4)) {
-                                            isImpressivePhraseShowing = true
-                                            isFeelingCaptionShowing = false
-                                        }
-                                    } label: {
-                                        Image(systemName: "chevron.left")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 10)
-                                            .foregroundStyle(Color.SBTitle)
-                                            .fontWeight(.bold)
-                                            .padding(.bottom, 20)
-                                            .padding(.leading, 50)
-                                    }
-                                    
-                                    Spacer()
-                                }
+                            if isFeelingCaptionShowing {
+                                Text("캡션")
+                                    .fontWeight(.semibold)
+                                    .padding(.top)
                                 
-                                HStack {
-                                    Button {
-                                        withAnimation(.smooth(duration: 0.4)) {
-                                            isFeelingCaptionShowing = false
-                                            isGenreShowing = true
+                                TextField("", text: $viewModel.feelingCaption, axis: .vertical)
+                                    .padding(.horizontal)
+                                    .frame(height: 160)
+                                    .background(.regularMaterial)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .padding(.horizontal, 30)
+                                    .padding(.bottom, 10)
+                                    .overlay {
+                                        if viewModel.feelingCaption.isEmpty {
+                                            Text("생략 가능")
+                                                .modifier(ItalicFontModifier())
+                                                .font(.caption)
+                                                .opacity(0.2)
+                                                .padding(.bottom)
                                         }
-                                    } label: {
+                                    }
+                                    .id("FeelingCaption")
+                                
+                            } else if !isImpressivePhraseShowing && isGenreShowing {
+                                Text("캡션")
+                                    .fontWeight(.semibold)
+                                    .opacity(0.5)
+                                    .padding(.top)
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .frame(height: 30)
+                                    .foregroundStyle(.gray)
+                                    .opacity(0.4)
+                                    .padding(.horizontal, 30)
+                                    .padding(.bottom)
+                                
+                                Divider()
+                                    .padding(.horizontal, 35)
+                            }
+                            
+                            if isGenreShowing {
+                                VStack {
+                                    Text("책 장르")
+                                        .fontWeight(.semibold)
+                                        .padding(.top)
+                                    
+                                    Picker("책 장르", selection: $viewModel.genre) {
+                                        ForEach(Genre.allCases.dropFirst()) { genre in
+                                            Text(genre.rawValue).tag(genre)
+                                        }
+                                    }
+                                    .pickerStyle(.wheel)
+                                    .padding(.horizontal, 30)
+                                }
+                            }
+                            
+                            if isImpressivePhraseShowing {
+                                Button {
+                                    withAnimation(.smooth(duration: 0.4)) {
+                                        if !viewModel.impressivePhrase.isEmpty {
+                                            isImpressivePhraseShowing = false
+                                            isFeelingCaptionShowing = true
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                                withAnimation {
+                                                    scrollProxy.scrollTo("FeelingCaption", anchor: .top)
+                                                }
+                                            }
+                                            
+                                        } else {
+                                            isImpressiveAlertShowing = true
+                                        }
+                                    }
+                                } label: {
+                                    if viewModel.impressivePhrase.isEmpty {
+                                        Text("다음")
+                                            .modifier(InViewButtonModifier(bgColor: .gray))
+                                            .padding(.top, 10)
+                                        
+                                    } else {
                                         Text("다음")
                                             .modifier(InViewButtonModifier(bgColor: .SBTitle))
+                                            .padding(.top, 10)
                                     }
                                 }
-                            }
-                            
-                        } else if isGenreShowing {
-                            ZStack {
-                                HStack {
+                                .alert("!!", isPresented: $isImpressiveAlertShowing) {
                                     Button {
-                                        withAnimation(.smooth(duration: 0.4)) {
-                                            isFeelingCaptionShowing = true
-                                            isGenreShowing = false
-                                        }
+                                        
                                     } label: {
-                                        Image(systemName: "chevron.left")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 10)
-                                            .foregroundStyle(Color.SBTitle)
-                                            .fontWeight(.bold)
-                                            .padding(.bottom, 20)
-                                            .padding(.leading, 50)
+                                        Text("확인")
                                     }
-                                    
-                                    Spacer()
+                                } message: {
+                                    Text("인상 깊은 구절은 필수로 작성하셔야 됩니다.")
                                 }
                                 
-                                HStack {
-                                    Button {
-                                        Task {
-                                            await viewModel.uploadPost()
-                                            isPostAddedCapsule.isPostAdded = true
-                                            navRouter.popToRoot()
-                                            mainTabCapsule.selectedTab = .house
+                            } else if isFeelingCaptionShowing {
+                                ZStack {
+                                    HStack {
+                                        Button {
+                                            withAnimation(.smooth(duration: 0.4)) {
+                                                isImpressivePhraseShowing = true
+                                                isFeelingCaptionShowing = false
+                                            }
+                                        } label: {
+                                            Image(systemName: "chevron.left")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 10)
+                                                .foregroundStyle(Color.SBTitle)
+                                                .fontWeight(.bold)
+                                                .padding(.bottom, 20)
+                                                .padding(.leading, 50)
                                         }
-                                    } label: {
-                                        Text("작성")
-                                            .modifier(InViewButtonModifier(bgColor: .SBTitle))
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    HStack {
+                                        Button {
+                                            withAnimation(.smooth(duration: 0.4)) {
+                                                isFeelingCaptionShowing = false
+                                                isGenreShowing = true
+                                            }
+                                        } label: {
+                                            Text("다음")
+                                                .modifier(InViewButtonModifier(bgColor: .SBTitle))
+                                        }
+                                    }
+                                }
+                                
+                            } else if isGenreShowing {
+                                ZStack {
+                                    HStack {
+                                        Button {
+                                            withAnimation(.smooth(duration: 0.4)) {
+                                                isFeelingCaptionShowing = true
+                                                isGenreShowing = false
+                                            }
+                                        } label: {
+                                            Image(systemName: "chevron.left")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 10)
+                                                .foregroundStyle(Color.SBTitle)
+                                                .fontWeight(.bold)
+                                                .padding(.bottom, 20)
+                                                .padding(.leading, 50)
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    HStack {
+                                        Button {
+                                            Task {
+                                                await viewModel.uploadPost()
+                                                isPostAddedCapsule.isPostAdded = true
+                                                navRouter.popToRoot()
+                                                mainTabCapsule.selectedTab = .house
+                                            }
+                                        } label: {
+                                            Text("작성")
+                                                .modifier(InViewButtonModifier(bgColor: .SBTitle))
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    .modifier(TileModifier())
-                }
-            }
-            .modifier(BackModifier())
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        navRouter.popToRoot()
-                        mainTabCapsule.selectedTab = .house
-                    } label: {
-                        Image(systemName: "house")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25, height: 25)
-                            .foregroundStyle(Color.SBTitle)
-                            .padding(.trailing, 5)
+                        .modifier(TileModifier())
                     }
                 }
-                
-                ToolbarItem(placement: .principal) {
-                    Text("글 작성")
-                        .font(.system(size: 18))
-                        .fontWeight(.semibold)
+                .modifier(BackModifier())
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            navRouter.popToRoot()
+                            mainTabCapsule.selectedTab = .house
+                        } label: {
+                            Image(systemName: "house")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25, height: 25)
+                                .foregroundStyle(Color.SBTitle)
+                                .padding(.trailing, 5)
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .principal) {
+                        Text("글 작성")
+                            .font(.system(size: 18))
+                            .fontWeight(.semibold)
+                    }
                 }
             }
         }
@@ -261,4 +271,5 @@ struct NewPostUploadPostView: View {
     NewPostUploadPostView(book: Book.DUMMY_BOOK)
         .environment(NavRouter())
         .environment(MainTabCapsule())
+        .environment(IsPostAddedCapsule())
 }
