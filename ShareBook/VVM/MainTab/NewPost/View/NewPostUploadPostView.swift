@@ -19,6 +19,8 @@ struct NewPostUploadPostView: View {
     @State private var isFeelingCaptionShowing = false
     @State private var isGenreShowing = false
     
+    @FocusState private var focus: NewPostFocusField?
+    
     init(book: Book) {
         self.viewModel = NewPostUploadPostViewModel(book: book)
     }
@@ -51,6 +53,7 @@ struct NewPostUploadPostView: View {
                                                 .opacity(0.2)
                                         }
                                     }
+                                    .focused($focus, equals: .impressivePhrase)
                                 
                             } else if !isImpressivePhraseShowing {
                                 Text("인상깊은 구절")
@@ -91,6 +94,7 @@ struct NewPostUploadPostView: View {
                                         }
                                     }
                                     .id("FeelingCaption")
+                                    .focused($focus, equals: .feelingCaption)
                                 
                             } else if !isImpressivePhraseShowing && isGenreShowing {
                                 Text("캡션")
@@ -126,6 +130,7 @@ struct NewPostUploadPostView: View {
                             }
                             
                             if isImpressivePhraseShowing {
+                                // 다음
                                 Button {
                                     withAnimation(.smooth(duration: 0.4)) {
                                         if !viewModel.impressivePhrase.isEmpty {
@@ -135,6 +140,7 @@ struct NewPostUploadPostView: View {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                                 withAnimation {
                                                     scrollProxy.scrollTo("FeelingCaption", anchor: .top)
+                                                    focus = .feelingCaption
                                                 }
                                             }
                                             
@@ -166,11 +172,15 @@ struct NewPostUploadPostView: View {
                                 
                             } else if isFeelingCaptionShowing {
                                 ZStack {
+                                    // 뒤로가기
                                     HStack {
                                         Button {
-                                            withAnimation(.smooth(duration: 0.4)) {
-                                                isImpressivePhraseShowing = true
-                                                isFeelingCaptionShowing = false
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                                withAnimation(.smooth(duration: 0.4)) {
+                                                    isImpressivePhraseShowing = true
+                                                    isFeelingCaptionShowing = false
+                                                    focus = .impressivePhrase
+                                                }
                                             }
                                         } label: {
                                             Image(systemName: "chevron.left")
@@ -186,11 +196,15 @@ struct NewPostUploadPostView: View {
                                         Spacer()
                                     }
                                     
+                                    // 다음
                                     HStack {
                                         Button {
-                                            withAnimation(.smooth(duration: 0.4)) {
-                                                isFeelingCaptionShowing = false
-                                                isGenreShowing = true
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                                withAnimation(.smooth(duration: 0.4)) {
+                                                    isFeelingCaptionShowing = false
+                                                    isGenreShowing = true
+                                                    focus = nil
+                                                }
                                             }
                                         } label: {
                                             Text("다음")
@@ -201,11 +215,19 @@ struct NewPostUploadPostView: View {
                                 
                             } else if isGenreShowing {
                                 ZStack {
+                                    // 뒤로가기
                                     HStack {
                                         Button {
                                             withAnimation(.smooth(duration: 0.4)) {
                                                 isFeelingCaptionShowing = true
                                                 isGenreShowing = false
+                                                
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                    withAnimation {
+                                                        scrollProxy.scrollTo("FeelingCaption", anchor: .top)
+                                                        focus = .feelingCaption
+                                                    }
+                                                }
                                             }
                                         } label: {
                                             Image(systemName: "chevron.left")
@@ -221,6 +243,7 @@ struct NewPostUploadPostView: View {
                                         Spacer()
                                     }
                                     
+                                    // 완료
                                     HStack {
                                         Button {
                                             Task {
@@ -263,6 +286,9 @@ struct NewPostUploadPostView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            focus = .impressivePhrase
         }
     }
 }

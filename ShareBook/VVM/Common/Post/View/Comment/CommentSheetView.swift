@@ -52,7 +52,6 @@ struct CommentSheetView: View {
                             }
                         }
                     }
-                    .blur(radius: isProgressive ? 1 : 0)
                     
                     Divider()
                     
