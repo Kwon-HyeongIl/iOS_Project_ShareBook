@@ -41,7 +41,7 @@ struct NewPostUploadPostView: View {
                                 
                                 TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
                                     .padding(.horizontal)
-                                    .frame(height: 260)
+                                    .frame(height: 160)
                                     .background(.regularMaterial)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .padding(.horizontal, 30)
