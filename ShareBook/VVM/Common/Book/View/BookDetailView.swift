@@ -11,6 +11,7 @@ import Kingfisher
 struct BookDetailView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
+    @Environment(\.openURL) var openURL
     @Bindable var viewModel: BookViewModel
     
     var body: some View {
@@ -92,7 +93,7 @@ struct BookDetailView: View {
         .modifier(BackModifier())
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                HStack(spacing: 10) {
+                HStack(spacing: 12) {
                     Button {
                         Task {
                             viewModel.isBookmark ? await viewModel.unBookmark() : await viewModel.bookmark()
@@ -118,7 +119,9 @@ struct BookDetailView: View {
                     }
                     
                     Button {
-                        
+                        if let url = URL(string: viewModel.book.link) {
+                            openURL(url)
+                        }
                     } label: {
                         Image(systemName: "link")
                             .resizable()
