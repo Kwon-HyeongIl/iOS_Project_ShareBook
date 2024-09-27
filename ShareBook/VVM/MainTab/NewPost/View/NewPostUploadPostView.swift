@@ -41,7 +41,7 @@ struct NewPostUploadPostView: View {
                                 
                                 TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
                                     .padding(.horizontal)
-                                    .frame(height: 160)
+                                    .frame(height: 260)
                                     .background(.regularMaterial)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .padding(.horizontal, 30)
@@ -282,16 +282,10 @@ struct NewPostUploadPostView: View {
                             Image(systemName: "house")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 25, height: 25)
+                                .frame(width: 24)
                                 .foregroundStyle(Color.SBTitle)
                                 .padding(.trailing, 5)
                         }
-                    }
-                    
-                    ToolbarItem(placement: .principal) {
-                        Text("글 작성")
-                            .font(.system(size: 18))
-                            .fontWeight(.semibold)
                     }
                 }
             }

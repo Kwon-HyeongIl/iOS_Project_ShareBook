@@ -31,16 +31,19 @@ struct BookDetailView: View {
                     Button {
                         navRouter.navigate(.NewPostUploadPostView(viewModel.book))
                     } label: {
-                        HStack {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 70, height: 35)
+                                .foregroundStyle(Color.SBTitle)
+                                .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                            
                             Text("글 작성")
-                                .font(.system(size: 18))
-                            Image(systemName: "chevron.right")
-                                .resizable()
-                                .frame(width: 13, height: 13)
+                                .font(.system(size: 17))
+                                .fontWeight(.medium)
+                                .foregroundStyle(.white)
                         }
-                        .foregroundStyle(Color.SBTitle)
                         .padding(.leading, 280)
-                        .padding(.top, 195)
+                        .padding(.top, 185)
                     }
                 }
                 
@@ -114,7 +117,7 @@ struct BookDetailView: View {
                         Image(systemName: "house")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 23)
+                            .frame(width: 24)
                             .foregroundStyle(Color.SBTitle)
                     }
                     
@@ -126,7 +129,7 @@ struct BookDetailView: View {
                         Image(systemName: "link")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 23)
+                            .frame(width: 24)
                             .foregroundStyle(Color.SBTitle)
                     }
                 }
