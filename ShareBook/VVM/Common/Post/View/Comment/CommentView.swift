@@ -15,22 +15,22 @@ struct CommentView: View {
     
     @Binding var selectedComment: String
     @Binding var selectedCommentUsername: String
-    
     @Binding var isLoadReplies: Bool
     @Binding var isCommentDelete: Bool
+    @Binding var isProgressive: Bool
     
     @State private var isCommentReplyDelete = false
-    
     @State private var isCommentReplyShowing = true
     @State private var isCommentDeleteAlertShowing = false
     
-    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>, isCommentDelete: Binding<Bool>) {
+    init(comment: Comment, selectedCommentToReply: Binding<String>, selectedCommentUsername: Binding<String>, isLoadReplies: Binding<Bool>, isCommentDelete: Binding<Bool>, isProgressive: Binding<Bool>) {
         self.viewModel = CommentViewModel(comment: comment)
         
         self._selectedComment = selectedCommentToReply
         self._selectedCommentUsername = selectedCommentUsername
         self._isLoadReplies = isLoadReplies
         self._isCommentDelete = isCommentDelete
+        self._isProgressive = isProgressive
     }
     
     var body: some View {
@@ -86,6 +86,7 @@ struct CommentView: View {
                                 .resizable()
                                 .frame(width: 11, height: 13)
                                 .foregroundStyle(.red)
+                                .opacity(0.8)
                                 .padding(.trailing, 5)
                         }
                         .alert("삭제 하시겠습니까?", isPresented: $isCommentDeleteAlertShowing) {
@@ -97,8 +98,16 @@ struct CommentView: View {
                             
                             Button(role: .destructive) {
                                 Task {
+                                    withAnimation(.easeInOut(duration: 0.4)) {
+                                        isProgressive = true
+                                    }
+                                    
                                     await viewModel.deleteComment()
                                     isCommentDelete.toggle()
+                                    
+                                    withAnimation(.easeInOut(duration: 0.4)) {
+                                        isProgressive = false
+                                    }
                                 }
                             } label: {
                                 Text("삭제")
@@ -220,7 +229,7 @@ struct CommentView: View {
 }
 
 #Preview {
-    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false), isCommentDelete: .constant(false))
+    CommentView(comment: Comment.DUMMY_COMMENT, selectedCommentToReply: .constant(UUID().uuidString), selectedCommentUsername: .constant("행이"), isLoadReplies: .constant(false), isCommentDelete: .constant(false), isProgressive: .constant(false))
         .environment(NavRouter())
         .environment(CommentSheetCapsule())
 }

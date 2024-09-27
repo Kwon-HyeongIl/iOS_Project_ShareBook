@@ -41,7 +41,7 @@ struct CommentSheetView: View {
                         LazyVStack(alignment: .leading, spacing: 5) {
                             if !isRedacted {
                                 ForEach(viewModel.comments.indices, id: \.self) { index in
-                                    CommentView(comment: viewModel.comments[index], selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies, isCommentDelete: $isCommentDelete)
+                                    CommentView(comment: viewModel.comments[index], selectedCommentToReply: $selectedCommentId, selectedCommentUsername: $selectedCommentUsername, isLoadReplies: $isLoadReplies, isCommentDelete: $isCommentDelete, isProgressive: $isProgressive)
                                         .padding(.top, index == 0 ? 10 : 0)
                                 }
                             } else {
