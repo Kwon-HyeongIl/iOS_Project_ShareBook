@@ -71,4 +71,4 @@ LoginViewModel+Kakao.swift
 LoginViewModel+Apple.swift
 
 ### Key File
-GoogleService-Info
+GoogleService-Info.plist
