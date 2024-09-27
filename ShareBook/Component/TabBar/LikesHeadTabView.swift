@@ -30,7 +30,7 @@ struct LikesHeadTabView: View {
                     Divider()
                 }
                 .onTapGesture {
-                    withAnimation(.smooth(duration: 0.4)) {
+                    withAnimation(.easeInOut(duration: 0.1)) {
                         selectedTab = tab
                     }
                 }
