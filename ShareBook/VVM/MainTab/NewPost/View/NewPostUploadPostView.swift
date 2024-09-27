@@ -41,7 +41,7 @@ struct NewPostUploadPostView: View {
                                 
                                 TextField("", text: $viewModel.impressivePhrase, axis: .vertical)
                                     .padding(.horizontal)
-                                    .frame(height: 160)
+                                    .frame(height: 260)
                                     .background(.regularMaterial)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .padding(.horizontal, 30)
@@ -53,6 +53,7 @@ struct NewPostUploadPostView: View {
                                                 .opacity(0.2)
                                         }
                                     }
+                                    .id("ImpressivePhrase")
                                     .focused($focus, equals: .impressivePhrase)
                                 
                             } else if !isImpressivePhraseShowing {
@@ -221,11 +222,11 @@ struct NewPostUploadPostView: View {
                                             withAnimation(.smooth(duration: 0.4)) {
                                                 isFeelingCaptionShowing = true
                                                 isGenreShowing = false
+                                                focus = .feelingCaption
                                                 
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                                     withAnimation {
                                                         scrollProxy.scrollTo("FeelingCaption", anchor: .top)
-                                                        focus = .feelingCaption
                                                     }
                                                 }
                                             }
@@ -264,6 +265,14 @@ struct NewPostUploadPostView: View {
                     }
                 }
                 .modifier(BackModifier())
+                .onAppear {
+                    focus = .impressivePhrase
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                        withAnimation(.smooth(duration: 0.4)) {
+                            scrollProxy.scrollTo("ImpressivePhrase", anchor: .top)
+                        }
+                    }
+                }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
