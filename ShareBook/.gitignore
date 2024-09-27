@@ -65,7 +65,10 @@ fastlane/test_output
 Config
 *.xcconfig
 
-### Security
+### .swift
 AuthManager+Hash.swift
 LoginViewModel+Kakao.swift
 LoginViewModel+Apple.swift
+
+### Key File
+GoogleService-Info
