@@ -27,7 +27,7 @@ struct SplashView: View {
                 Image("ShareBook_TextLogo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 250)
+                    .frame(width: 260)
                     .shimmering(animation: .easeInOut(duration: 1.5))
                     .padding(.bottom, 30)
             }

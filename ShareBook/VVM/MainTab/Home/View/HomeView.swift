@@ -224,7 +224,7 @@ struct HomeView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .clipShape(Rectangle())
-                                .frame(width: 95)
+                                .frame(width: 120)
                                 .padding(.leading)
                                 
                             Spacer()

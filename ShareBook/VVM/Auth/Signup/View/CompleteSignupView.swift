@@ -12,7 +12,6 @@ struct CompleteSignupView: View {
     @Environment(SignupViewModel.self) var viewModel
     
     var body: some View {
-        
         GradientBackgroundView {
             ZStack {
                 Girl3DView()
@@ -23,13 +22,13 @@ struct CompleteSignupView: View {
                         .resizable()
                         .scaledToFit()
                         .clipShape(Rectangle())
-                        .frame(width: 210, height: 100)
+                        .frame(width: 210)
                         .padding(.top)
                     Spacer()
                     
                     Text("\(viewModel.username)님, 환영합니다")
                         .font(.title)
-                        .padding(.top, 60)
+                        .padding(.top, 120)
                         .padding(.bottom, 30)
                     
                     Text("여러분이 책에서 발견한 가치를 공유하고, 더 큰 가치를 발견하세요!")
