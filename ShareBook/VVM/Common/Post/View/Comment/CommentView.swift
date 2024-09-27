@@ -61,7 +61,7 @@ struct CommentView: View {
                     }
             }
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Text(viewModel.comment.commentUser?.username ?? "")
                         .font(.system(size: 12))
@@ -108,9 +108,11 @@ struct CommentView: View {
                         }
                     }
                 }
+                .padding(.bottom, 5)
                 
                 Text(viewModel.comment.commentText)
                     .font(.system(size: 12))
+                    .padding(.bottom, 5)
                 
                 if isCommentReplyShowing {
                     Button {
@@ -128,11 +130,12 @@ struct CommentView: View {
                 }
                 
                 if isCommentReplyShowing {
-                    LazyVStack(alignment: .leading) {
+                    LazyVStack(alignment: .leading, spacing: 15) {
                         ForEach(viewModel.commentReplies) { commentReply in
                             CommentReplyView(commentReply: commentReply, commentId: viewModel.comment.id, isCommentReplyDelete: $isCommentReplyDelete)
                         }
                     }
+                    .padding(.top, 10)
                 }
                 
                 HStack {
@@ -171,7 +174,6 @@ struct CommentView: View {
                     }
                 }
                 .padding(.top, 1)
-                .padding(.bottom, 10)
                 
                 if isCommentReplyShowing && !viewModel.commentReplies.isEmpty {
                     Button {

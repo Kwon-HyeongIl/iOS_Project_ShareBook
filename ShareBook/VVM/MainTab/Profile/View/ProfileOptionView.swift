@@ -36,6 +36,7 @@ struct ProfileOptionView: View {
                     .foregroundStyle(.black)
                     .padding(.horizontal)
                     .font(.system(size: 17))
+                    .fontWeight(.medium)
                     .padding(.top)
                     .padding(.bottom, 10)
                 }
@@ -61,6 +62,7 @@ struct ProfileOptionView: View {
                     .foregroundStyle(.black)
                     .padding(.horizontal)
                     .font(.system(size: 17))
+                    .fontWeight(.medium)
                     .padding(.top, 10)
                     .padding(.bottom, 10)
                 }
@@ -86,6 +88,7 @@ struct ProfileOptionView: View {
                     .foregroundStyle(.red)
                     .padding(.horizontal)
                     .font(.system(size: 17))
+                    .fontWeight(.medium)
                     .padding(.top, 10)
                 }
                 .alert("정말 로그아웃 하시겠습니까?", isPresented: $isLogoutAlertShowing) {

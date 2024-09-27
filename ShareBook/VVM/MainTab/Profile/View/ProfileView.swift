@@ -76,8 +76,6 @@ struct ProfileView: View {
                                                 .fontWeight(.semibold)
                                                 .foregroundStyle(.black)
                                                 .opacity(0.6)
-                                                .padding(.leading, 3)
-                                            
                                         }
                                         
                                         Spacer()

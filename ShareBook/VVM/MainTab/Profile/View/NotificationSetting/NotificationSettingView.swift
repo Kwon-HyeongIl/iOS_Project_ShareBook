@@ -17,6 +17,7 @@ struct NotificationSettingView: View {
                 VStack(alignment: .leading, spacing: 15) {
                     Toggle("댓글", isOn: $viewModel.commentNotification)
                         .font(.system(size: 18))
+                        .fontWeight(.medium)
                         .tint(.SBTitle)
                         .padding(.horizontal)
                     Text(viewModel.commentNotification ? "다른 사용자가 여러분의 글에 댓글을 작성하면 앱을 종료한 상태에서도 알림을 받을 수 있어요" : "앱을 종료한 상태에서는 알림이 울리지 않지만 앱 내의 알림창에서는 확인할 수 있어요")
@@ -30,6 +31,7 @@ struct NotificationSettingView: View {
                     Toggle("좋아요", isOn: $viewModel.likeNotification)
                         .font(.system(size: 18))
                         .tint(.SBTitle)
+                        .fontWeight(.medium)
                         .padding(.horizontal)
                     Text(viewModel.likeNotification ? "다른 사용자가 여러분의 글에 좋아요를 누르면 앱을 종료한 상태에서도 알림을 받을 수 있어요" : "앱을 종료한 상태에서는 알림이 울리지 않지만 앱 내의 알림창에서는 확인할 수 있어요")
                         .font(.system(size: 12))
@@ -41,6 +43,7 @@ struct NotificationSettingView: View {
                     
                     Toggle("팔로우", isOn: $viewModel.followNotification)
                         .font(.system(size: 18))
+                        .fontWeight(.medium)
                         .tint(.SBTitle)
                         .padding(.horizontal)
                     Text(viewModel.followNotification ? "다른 사용자가 여러분을 팔로우하면 앱을 종료한 상태에서도 알림을 받을 수 있어요" : "앱을 종료한 상태에서는 알림이 울리지 않지만 앱 내의 알림창에서는 확인할 수 있어요")

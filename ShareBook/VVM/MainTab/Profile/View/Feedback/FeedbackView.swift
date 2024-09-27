@@ -15,6 +15,8 @@ struct FeedbackView: View {
     @State private var isSubmitAlertShowing = false
     @State private var isSubmitFinishAlertShowing = false
     
+    @FocusState private var focus: FeedbackFocusField?
+    
     var body: some View {
         GradientBackgroundView {
             VStack {
@@ -26,11 +28,14 @@ struct FeedbackView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.horizontal, 30)
                         .padding(.top, 25)
+                        .padding(.bottom, 5)
+                        .focused($focus, equals: .main)
                         .overlay {
                             if viewModel.content.isEmpty {
                                 Text("건의할 내용을 입력해주세요!")
                                     .modifier(ItalicFontModifier())
                                     .font(.caption)
+                                    .padding(.top)
                                     .opacity(0.2)
                             }
                     }
@@ -96,6 +101,9 @@ struct FeedbackView: View {
             }
         }
         .modifier(BackTitleModifier(navigationTitle: "건의하기"))
+        .onAppear {
+            focus = .main
+        }
     }
 }
 

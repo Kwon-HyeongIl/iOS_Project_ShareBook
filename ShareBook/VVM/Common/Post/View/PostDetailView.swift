@@ -54,6 +54,7 @@ struct PostDetailView: View {
                             .font(.system(size: 13))
                             .foregroundStyle(.gray)
                             .padding(.leading, 4)
+                            .padding(.top, 3)
                         
                         Spacer()
                         

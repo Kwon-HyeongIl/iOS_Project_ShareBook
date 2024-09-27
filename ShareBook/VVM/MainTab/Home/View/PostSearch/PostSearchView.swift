@@ -13,7 +13,9 @@ struct PostSearchView: View {
     @State private var viewModel = PostSearchViewModel()
     
     @State private var searchText = ""
-    @State private var isRedacted = true
+    @State private var isRedacted = false
+    
+    @FocusState private var focus: PostSearchFocusField?
     
     var body: some View {
         GeometryReader { proxy in
@@ -35,6 +37,9 @@ struct PostSearchView: View {
                     .padding(.top, 10)
                     .padding(.horizontal, 5)
                 }
+            }
+            .onAppear {
+                focus = .main
             }
             .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
             .navigationBarBackButtonHidden()
@@ -61,6 +66,7 @@ struct PostSearchView: View {
                             TextField("관심있는 책을 검색하세요", text: $searchText)
                                 .font(.system(size: 15))
                                 .submitLabel(.search)
+                                .focused($focus, equals: .main)
                                 .onSubmit {
                                     Task {
                                         await viewModel.searchPostByBookName(searchText: searchText)

@@ -67,6 +67,11 @@ class CommentManager {
     
     static func deleteSpecificComment(postId: String, commentId: String) async {
         do {
+            let replyCount = try await Firestore.firestore()
+                .collection("Post").document(postId)
+                .collection("Post_Comment").document(commentId)
+                .collection("Comment_Reply").getDocuments().count
+            
             try await Firestore.firestore()
                 .collection("Post").document(postId)
                 .collection("Post_Comment").document(commentId)
@@ -74,7 +79,8 @@ class CommentManager {
             
             try await Firestore.firestore()
                 .collection("Post").document(postId)
-                .updateData(["commentCount": FieldValue.increment(Int64(-1))])
+                .updateData(["commentCount": FieldValue.increment(Int64(replyCount == 0 ? -1 : -(replyCount + 1)))])
+                    // 답글이 있는 댓글을 삭제할 경우 답글의 개수 + 1 만큼 총 댓글 카운트 마이너스
             
         } catch {
             print(error.localizedDescription)
