@@ -151,7 +151,6 @@
 		CAF312C82C9088D70089A186 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C72C9088D70089A186 /* FirebaseAnalytics */; };
 		CAF312CA2C9088D70089A186 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C92C9088D70089A186 /* FirebaseMessaging */; };
 		CAF5B6742C9EBE930097FC38 /* IsPostAddedCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5B6732C9EBE930097FC38 /* IsPostAddedCapsule.swift */; };
-		CAF6E7D92CA7B7DF0094B103 /* FollowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7D82CA7B7DF0094B103 /* FollowViewModel.swift */; };
 		CAF6E7DB2CA7B8040094B103 /* FollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7DA2CA7B8040094B103 /* FollowerViewModel.swift */; };
 		CAF6E7DD2CA7B80C0094B103 /* FollowingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7DC2CA7B80C0094B103 /* FollowingViewModel.swift */; };
 		CAF6E7E02CA7BD080094B103 /* ProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7DF2CA7BD080094B103 /* ProfileCoverView.swift */; };
@@ -296,7 +295,6 @@
 		CAEEF11C2CA703B000515E14 /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
 		CAEEF11E2CA703B600515E14 /* FollowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingView.swift; sourceTree = "<group>"; };
 		CAF5B6732C9EBE930097FC38 /* IsPostAddedCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPostAddedCapsule.swift; sourceTree = "<group>"; };
-		CAF6E7D82CA7B7DF0094B103 /* FollowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
 		CAF6E7DA2CA7B8040094B103 /* FollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewModel.swift; sourceTree = "<group>"; };
 		CAF6E7DC2CA7B80C0094B103 /* FollowingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewModel.swift; sourceTree = "<group>"; };
 		CAF6E7DF2CA7BD080094B103 /* ProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoverView.swift; sourceTree = "<group>"; };
@@ -711,8 +709,8 @@
 			isa = PBXGroup;
 			children = (
 				CA70E7F52C785E6400E3B91B /* LikeView.swift */,
-				CA70E7FD2C785EAD00E3B91B /* LikePost */,
-				CA70E8032C785EDE00E3B91B /* BookmarkBook */,
+				CA70E7FB2C785EA100E3B91B /* LikePostView.swift */,
+				CA70E8012C785ED600E3B91B /* BookmarkBookView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -720,42 +718,10 @@
 		CA70E7FA2C785E7400E3B91B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CA70E8002C785EC700E3B91B /* LikePosts */,
-				CA70E8062C785F0500E3B91B /* BookmarkBooks */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CA70E7FD2C785EAD00E3B91B /* LikePost */ = {
-			isa = PBXGroup;
-			children = (
-				CA70E7FB2C785EA100E3B91B /* LikePostView.swift */,
-			);
-			path = LikePost;
-			sourceTree = "<group>";
-		};
-		CA70E8002C785EC700E3B91B /* LikePosts */ = {
-			isa = PBXGroup;
-			children = (
 				CA70E7FE2C785EC300E3B91B /* LikePostViewModel.swift */,
-			);
-			path = LikePosts;
-			sourceTree = "<group>";
-		};
-		CA70E8032C785EDE00E3B91B /* BookmarkBook */ = {
-			isa = PBXGroup;
-			children = (
-				CA70E8012C785ED600E3B91B /* BookmarkBookView.swift */,
-			);
-			path = BookmarkBook;
-			sourceTree = "<group>";
-		};
-		CA70E8062C785F0500E3B91B /* BookmarkBooks */ = {
-			isa = PBXGroup;
-			children = (
 				CA70E8042C785EF100E3B91B /* BookmarkBookViewModel.swift */,
 			);
-			path = BookmarkBooks;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CA7C5E422C81F076000F9F2B /* UserSupportService */ = {
@@ -1108,7 +1074,6 @@
 		CAEEF1202CA704AD00515E14 /* Follow */ = {
 			isa = PBXGroup;
 			children = (
-				CAF6E7D82CA7B7DF0094B103 /* FollowViewModel.swift */,
 				CAF6E7DA2CA7B8040094B103 /* FollowerViewModel.swift */,
 				CAF6E7DC2CA7B80C0094B103 /* FollowingViewModel.swift */,
 			);
@@ -1306,7 +1271,6 @@
 				CAF5B6742C9EBE930097FC38 /* IsPostAddedCapsule.swift in Sources */,
 				CAAF22072CA6EC350083417C /* PostSearchFocusField.swift in Sources */,
 				CA8627B02C955FDF005A6BC8 /* Notification.swift in Sources */,
-				CAF6E7D92CA7B7DF0094B103 /* FollowViewModel.swift in Sources */,
 				CAEEF11B2CA7026D00515E14 /* FollowView.swift in Sources */,
 				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */,

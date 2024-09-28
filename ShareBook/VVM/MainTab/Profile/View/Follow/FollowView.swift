@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FollowView: View {
-    @State private var viewModel: FollowViewModel
+    let user: User?
     
     @State private var selectedTab: FollowTab
     
@@ -23,7 +23,7 @@ struct FollowView: View {
             self.selectedTab = .following
         }
         
-        self.viewModel = FollowViewModel(user: user)
+        self.user = user
         
         self.followerView = FollowerView(user: user)
         self.followingView = FollowingView(user: user)
@@ -46,7 +46,7 @@ struct FollowView: View {
                 }
             }
         }
-        .modifier(BackTitleModifier(navigationTitle: "\(viewModel.user?.username ?? "")"))
+        .modifier(BackTitleModifier(navigationTitle: "\(user?.username ?? "")"))
     }
 }
 
