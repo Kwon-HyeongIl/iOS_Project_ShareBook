@@ -17,6 +17,12 @@ class FCMManager {
     
     func sendFCMNotification(deviceToken: String, userId: String, notification: Notification) async {
         
+        // 본인 관련 내용일 경우
+        let currentUserId = AuthManager.shared.currentUser?.id ?? ""
+        if currentUserId == userId {
+            return
+        }
+        
         // 수신 사용자의 Firebstore에 알림 저장
         async let _ = NotificationManager.saveNotification(userId: userId, nofitication: notification)
         
