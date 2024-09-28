@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class NewPostUploadPostViewModel {
+class UploadPostViewModel {
     var book: Book
     
     var impressivePhrase = ""

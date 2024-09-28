@@ -32,8 +32,10 @@ class NavRouter {
             NotificationsView()
             
         // NewPost
+        case .SearchBookView:
+            SearchBookView()
         case .NewPostUploadPostView(let book):
-            NewPostUploadPostView(book: book)
+            UploadPostView(book: book)
             
         // Profile
         case .ProfileView(let userId, let commentSheetCapsule):
@@ -69,10 +71,14 @@ class NavRouter {
     }
     
     func back() {
-        path.removeLast()
+        if !path.isEmpty {
+            path.removeLast()
+        }
     }
     
     func popToRoot() {
-        path.removeLast(path.count)
+        if !path.isEmpty {
+            path.removeLast(path.count)
+        }
     }
 }

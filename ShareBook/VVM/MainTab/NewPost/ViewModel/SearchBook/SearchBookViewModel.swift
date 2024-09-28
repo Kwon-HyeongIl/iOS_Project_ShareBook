@@ -1,14 +1,14 @@
 //
-//  SearchViewModel.swift
+//  NewPostSearchViewModel.swift
 //  ShareBook
 //
-//  Created by 권형일 on 7/27/24.
+//  Created by 권형일 on 9/28/24.
 //
 
 import Foundation
 
 @Observable
-class NewPostViewModel {
+class SearchBookViewModel {
     var bookList = [Book]()
     
     var searchText = ""

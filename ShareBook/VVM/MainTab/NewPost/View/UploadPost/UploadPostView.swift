@@ -8,11 +8,11 @@
 import SwiftUI
 import Kingfisher
 
-struct NewPostUploadPostView: View {
+struct UploadPostView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @Environment(IsPostAddedCapsule.self) var isPostAddedCapsule: IsPostAddedCapsule
-    @State private var viewModel: NewPostUploadPostViewModel
+    @State private var viewModel: UploadPostViewModel
     
     @State private var isImpressivePhraseShowing = true
     @State private var isImpressiveAlertShowing = false
@@ -22,7 +22,7 @@ struct NewPostUploadPostView: View {
     @FocusState private var focus: NewPostFocusField?
     
     init(book: Book) {
-        self.viewModel = NewPostUploadPostViewModel(book: book)
+        self.viewModel = UploadPostViewModel(book: book)
     }
     
     var body: some View {
@@ -297,7 +297,7 @@ struct NewPostUploadPostView: View {
 }
 
 #Preview {
-    NewPostUploadPostView(book: Book.DUMMY_BOOK)
+    UploadPostView(book: Book.DUMMY_BOOK)
         .environment(NavRouter())
         .environment(MainTabCapsule())
         .environment(IsPostAddedCapsule())
