@@ -38,7 +38,7 @@ extension PostManager {
         
         async let _ = Firestore.firestore()
             .collection("Post").document(post.id)
-            .updateData(["likeCount": post.likeCount + 1])
+            .updateData(["likeCount": post.likeCount])
     }
     
     static func unLike(post: Post) async {
@@ -56,7 +56,7 @@ extension PostManager {
         
         async let _ = Firestore.firestore()
             .collection("Post").document(post.id)
-            .updateData(["likeCount": post.likeCount - 1])
+            .updateData(["likeCount": post.likeCount])
     }
     
     static func isLike(post: Post) async -> Bool {
