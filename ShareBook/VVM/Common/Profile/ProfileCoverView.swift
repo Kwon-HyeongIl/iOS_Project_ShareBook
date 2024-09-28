@@ -13,7 +13,7 @@ struct ProfileCoverView: View {
     
     var body: some View {
         Button {
-//            navRouter.navigate(.BookDetailView(viewModel))
+            navRouter.navigate(.ProfileView(user?.id ?? ""))
         } label: {
             ProfileCoverContentView(user: user)
         }

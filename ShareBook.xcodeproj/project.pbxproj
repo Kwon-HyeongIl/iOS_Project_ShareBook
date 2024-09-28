@@ -505,7 +505,6 @@
 			isa = PBXGroup;
 			children = (
 				CAF6E7DE2CA7BCCE0094B103 /* Profile */,
-				CAF6E7E62CA7C30E0094B103 /* ViewModel */,
 				CA3CA8FC2C7A0FAF007F2EDC /* Post */,
 				CA3E7B332C78D91E00F610A4 /* Book */,
 			);
@@ -1086,6 +1085,7 @@
 				CAF6E7E12CA7BD130094B103 /* Dummy */,
 				CAF6E7DF2CA7BD080094B103 /* ProfileCoverView.swift */,
 				CAF6E7E42CA7BD540094B103 /* ProfileCoverContentView.swift */,
+				CAF6E7E62CA7C30E0094B103 /* ViewModel */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

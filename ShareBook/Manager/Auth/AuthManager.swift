@@ -46,15 +46,15 @@ class AuthManager {
         
         if kakaoHashedUid.isEmpty && appleHashedUid.isEmpty {
             // 베이직 회원가입
-            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, notificationType: [.comment, .like, .follow])
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, notificationType: [.comment, .like, .follow], titleGenre: .all)
             
         } else if kakaoHashedUid.isEmpty { 
             // 애플 회원가입
-            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, appleHashedUid: appleHashedUid, notificationType: [.comment, .like, .follow])
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, appleHashedUid: appleHashedUid, notificationType: [.comment, .like, .follow], titleGenre: .all)
             
         } else { 
             // 카카오 회원가입
-            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, kakaoHashedUid: kakaoHashedUid, notificationType: [.comment, .like, .follow])
+            self.currentUser = User(id: userId, deviceToken: deviceToken, username: username, authEmail: email, kakaoHashedUid: kakaoHashedUid, notificationType: [.comment, .like, .follow], titleGenre: .all)
         }
         
         do {
