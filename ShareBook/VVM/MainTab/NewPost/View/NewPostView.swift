@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Shimmer
 
 struct NewPostView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter

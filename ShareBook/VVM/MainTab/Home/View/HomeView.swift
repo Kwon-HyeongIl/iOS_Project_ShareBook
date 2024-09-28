@@ -155,7 +155,6 @@ struct HomeView: View {
                     .scrollIndicators(.hidden)
                     .refreshable {
                         viewModel.posts.removeAll()
-                        viewModel.isFirstLoad = true
                         viewModel.lastDocumentSnapshot = nil
                         
                         await viewModel.loadHotPosts()
@@ -171,8 +170,6 @@ struct HomeView: View {
                                 viewModel.isGenreRedacted = false
                             }
                         }
-                        
-                        viewModel.isFirstLoad = false
                     }
                     .task {
                         // Redacted 띄우기
@@ -190,28 +187,27 @@ struct HomeView: View {
                     .task {
                         // 글이 작성되었을 때
                         if isPostAddedCapsule.isPostAdded {
+                            viewModel.isHotRedacted = true
+                            viewModel.isGenreRedacted = true
                             
                             DispatchQueue.main.async {
                                 viewModel.posts.removeAll()
                             }
-                            viewModel.isFirstLoad = true
+                            
                             viewModel.lastDocumentSnapshot = nil
                             
                             await viewModel.loadHotPosts()
                             await viewModel.loadAllPostsByPagination()
                             viewModel.selectedGenre = .all
                             
-                            viewModel.isHotRedacted = true
-                            viewModel.isGenreRedacted = true
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 withAnimation(.easeOut(duration: 0.4)) {
                                     viewModel.isHotRedacted = false
                                     viewModel.isGenreRedacted = false
                                 }
                             }
                             
-                            viewModel.isFirstLoad = false
+                            isPostAddedCapsule.isPostAdded = false
                         }
                     }
                 }
