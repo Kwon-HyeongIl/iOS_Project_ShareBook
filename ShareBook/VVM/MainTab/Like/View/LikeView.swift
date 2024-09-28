@@ -21,6 +21,7 @@ struct LikeView: View {
                 
                 ScrollView {
                     switch selectedTab {
+                        
                     case .likePosts:
                         likePostView
                         

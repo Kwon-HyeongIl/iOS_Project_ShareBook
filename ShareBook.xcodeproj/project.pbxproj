@@ -143,9 +143,20 @@
 		CAE601682C5100FA0013413C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CAE601672C5100FA0013413C /* .gitignore */; };
 		CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */; };
 		CAEDAB562C5A015A0077883E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAEDAB552C5A015A0077883E /* CryptoSwift */; };
+		CAEEF1162CA7016500515E14 /* FollowTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEF1152CA7016500515E14 /* FollowTab.swift */; };
+		CAEEF1182CA701E100515E14 /* FollowTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEF1172CA701E100515E14 /* FollowTabView.swift */; };
+		CAEEF11B2CA7026D00515E14 /* FollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEF11A2CA7026D00515E14 /* FollowView.swift */; };
+		CAEEF11D2CA703B000515E14 /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEF11C2CA703B000515E14 /* FollowerView.swift */; };
+		CAEEF11F2CA703B600515E14 /* FollowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEEF11E2CA703B600515E14 /* FollowingView.swift */; };
 		CAF312C82C9088D70089A186 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C72C9088D70089A186 /* FirebaseAnalytics */; };
 		CAF312CA2C9088D70089A186 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = CAF312C92C9088D70089A186 /* FirebaseMessaging */; };
 		CAF5B6742C9EBE930097FC38 /* IsPostAddedCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5B6732C9EBE930097FC38 /* IsPostAddedCapsule.swift */; };
+		CAF6E7D92CA7B7DF0094B103 /* FollowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7D82CA7B7DF0094B103 /* FollowViewModel.swift */; };
+		CAF6E7DB2CA7B8040094B103 /* FollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7DA2CA7B8040094B103 /* FollowerViewModel.swift */; };
+		CAF6E7DD2CA7B80C0094B103 /* FollowingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7DC2CA7B80C0094B103 /* FollowingViewModel.swift */; };
+		CAF6E7E02CA7BD080094B103 /* ProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7DF2CA7BD080094B103 /* ProfileCoverView.swift */; };
+		CAF6E7E32CA7BD230094B103 /* DummyProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7E22CA7BD230094B103 /* DummyProfileCoverView.swift */; };
+		CAF6E7E52CA7BD540094B103 /* ProfileCoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF6E7E42CA7BD540094B103 /* ProfileCoverContentView.swift */; };
 		CAFE2C272C54F655000A3047 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CAFE2C262C54F655000A3047 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -279,7 +290,18 @@
 		CAE601662C51005B0013413C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		CAE601672C5100FA0013413C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CAEDAB522C5A00B80077883E /* AuthManager+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Hash.swift"; sourceTree = "<group>"; };
+		CAEEF1152CA7016500515E14 /* FollowTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTab.swift; sourceTree = "<group>"; };
+		CAEEF1172CA701E100515E14 /* FollowTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTabView.swift; sourceTree = "<group>"; };
+		CAEEF11A2CA7026D00515E14 /* FollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowView.swift; sourceTree = "<group>"; };
+		CAEEF11C2CA703B000515E14 /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
+		CAEEF11E2CA703B600515E14 /* FollowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingView.swift; sourceTree = "<group>"; };
 		CAF5B6732C9EBE930097FC38 /* IsPostAddedCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPostAddedCapsule.swift; sourceTree = "<group>"; };
+		CAF6E7D82CA7B7DF0094B103 /* FollowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
+		CAF6E7DA2CA7B8040094B103 /* FollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewModel.swift; sourceTree = "<group>"; };
+		CAF6E7DC2CA7B80C0094B103 /* FollowingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewModel.swift; sourceTree = "<group>"; };
+		CAF6E7DF2CA7BD080094B103 /* ProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoverView.swift; sourceTree = "<group>"; };
+		CAF6E7E22CA7BD230094B103 /* DummyProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyProfileCoverView.swift; sourceTree = "<group>"; };
+		CAF6E7E42CA7BD540094B103 /* ProfileCoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoverContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,12 +415,11 @@
 			isa = PBXGroup;
 			children = (
 				CA20A8132C7CC824008F3E8B /* HttpMethod.swift */,
-				CA20A8152C7CC84A008F3E8B /* LikeTab.swift */,
-				CA20A8172C7CC8F9008F3E8B /* MainTab.swift */,
 				CA20A8192C7CC93A008F3E8B /* Genre.swift */,
 				CA20A81B2C7CC9ED008F3E8B /* ImagePath.swift */,
 				CA20A81D2C7CCA0B008F3E8B /* NavStackView.swift */,
 				CA8627A82C954E86005A6BC8 /* NotificationType.swift */,
+				CAEEF1142CA7015700515E14 /* Tab */,
 				CAAF22032CA6EAF10083417C /* Focus */,
 			);
 			path = Enum;
@@ -440,8 +461,9 @@
 		CA3221E12C7C29A1003658B3 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				CA3E7B302C78CBD300F610A4 /* LikesHeadTabView.swift */,
 				CA32836C2C8DEDE60015C294 /* MainCustomTabView.swift */,
+				CA3E7B302C78CBD300F610A4 /* LikesHeadTabView.swift */,
+				CAEEF1172CA701E100515E14 /* FollowTabView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -484,6 +506,8 @@
 		CA3E7B322C78D83D00F610A4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CAF6E7DE2CA7BCCE0094B103 /* Profile */,
+				CAF6E7E62CA7C30E0094B103 /* ViewModel */,
 				CA3CA8FC2C7A0FAF007F2EDC /* Post */,
 				CA3E7B332C78D91E00F610A4 /* Book */,
 			);
@@ -649,6 +673,7 @@
 				CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */,
 				CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */,
 				CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */,
+				CAEEF1192CA7026100515E14 /* Follow */,
 				CA7C5E492C81F34F000F9F2B /* Feedback */,
 				CA1FFD082C95F07D0083450F /* NotificationSetting */,
 			);
@@ -659,6 +684,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */,
+				CAEEF1202CA704AD00515E14 /* Follow */,
 				CA7C5E4C2C81F35E000F9F2B /* Feedback */,
 				CA1FFD0B2C95F0940083450F /* NotificationSetting */,
 			);
@@ -1059,6 +1085,61 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CAEEF1142CA7015700515E14 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A8172C7CC8F9008F3E8B /* MainTab.swift */,
+				CA20A8152C7CC84A008F3E8B /* LikeTab.swift */,
+				CAEEF1152CA7016500515E14 /* FollowTab.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		CAEEF1192CA7026100515E14 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				CAEEF11A2CA7026D00515E14 /* FollowView.swift */,
+				CAEEF11C2CA703B000515E14 /* FollowerView.swift */,
+				CAEEF11E2CA703B600515E14 /* FollowingView.swift */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		CAEEF1202CA704AD00515E14 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				CAF6E7D82CA7B7DF0094B103 /* FollowViewModel.swift */,
+				CAF6E7DA2CA7B8040094B103 /* FollowerViewModel.swift */,
+				CAF6E7DC2CA7B80C0094B103 /* FollowingViewModel.swift */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		CAF6E7DE2CA7BCCE0094B103 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CAF6E7E12CA7BD130094B103 /* Dummy */,
+				CAF6E7DF2CA7BD080094B103 /* ProfileCoverView.swift */,
+				CAF6E7E42CA7BD540094B103 /* ProfileCoverContentView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CAF6E7E12CA7BD130094B103 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				CAF6E7E22CA7BD230094B103 /* DummyProfileCoverView.swift */,
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
+		CAF6E7E62CA7C30E0094B103 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1194,6 +1275,7 @@
 				CAD01ED52C5F48F6001E479F /* BookManager+Bookmark.swift in Sources */,
 				CA8627B22C95691E005A6BC8 /* NotificationsView.swift in Sources */,
 				CAEDAB532C5A00B80077883E /* AuthManager+Hash.swift in Sources */,
+				CAEEF1162CA7016500515E14 /* FollowTab.swift in Sources */,
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CA62D0742C6DB8D300A652EA /* Comment.swift in Sources */,
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
@@ -1202,9 +1284,11 @@
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
 				CA7DD0012C8E16BF00BE518C /* LightBlueColor.swift in Sources */,
 				CAA0C6012C54B39300E7433D /* BookList.swift in Sources */,
+				CAF6E7E32CA7BD230094B103 /* DummyProfileCoverView.swift in Sources */,
 				CA6CBCFF2C9DB5DB00650436 /* DummyCommentView.swift in Sources */,
 				CA7C5E4B2C81F35C000F9F2B /* FeedbackViewModel.swift in Sources */,
 				CA6CBD062C9DD67300650436 /* PostViewModel+Comment.swift in Sources */,
+				CAF6E7DD2CA7B80C0094B103 /* FollowingViewModel.swift in Sources */,
 				CA6AC97E2C53CA3900703DB5 /* ProfileViewModel.swift in Sources */,
 				CA9A3FA42C78B6CB00804B8E /* BookCoverView.swift in Sources */,
 				CA7D9F2D2C9D9D3600374510 /* DummyPostCoverView.swift in Sources */,
@@ -1214,6 +1298,7 @@
 				CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */,
 				CA2567052C56A060009F13A2 /* Test3DView.swift in Sources */,
 				CACD58852C73096E0070593A /* CommentReplyView.swift in Sources */,
+				CAEEF11F2CA703B600515E14 /* FollowingView.swift in Sources */,
 				CA70E8052C785EF100E3B91B /* BookmarkBookViewModel.swift in Sources */,
 				CAC3304A2C4F38FB003C8A71 /* FullGirl3DView.swift in Sources */,
 				CA6CBD042C9DBAC200650436 /* DummyPostProfileCoverView.swift in Sources */,
@@ -1221,12 +1306,15 @@
 				CAF5B6742C9EBE930097FC38 /* IsPostAddedCapsule.swift in Sources */,
 				CAAF22072CA6EC350083417C /* PostSearchFocusField.swift in Sources */,
 				CA8627B02C955FDF005A6BC8 /* Notification.swift in Sources */,
+				CAF6E7D92CA7B7DF0094B103 /* FollowViewModel.swift in Sources */,
+				CAEEF11B2CA7026D00515E14 /* FollowView.swift in Sources */,
 				CAA0C5FF2C54B38600E7433D /* Book.swift in Sources */,
 				CAC116E02C573FB40047E7D4 /* BookManager.swift in Sources */,
 				CA7C5E442C81F0B6000F9F2B /* UserSupportService.swift in Sources */,
 				CA6609BC2C4D4BE30091091F /* User.swift in Sources */,
 				CA20A81C2C7CC9ED008F3E8B /* ImagePath.swift in Sources */,
 				CA8EDE912C5356A500641983 /* LoginViewModel+Apple.swift in Sources */,
+				CAF6E7DB2CA7B8040094B103 /* FollowerViewModel.swift in Sources */,
 				CA5DBD0A2CA3D2B5004DA40C /* NewPostFocusField.swift in Sources */,
 				CAC3549F2C821E9E00EEA8F9 /* TileModifier.swift in Sources */,
 				CA6CBD022C9DB95600650436 /* DummyBookCoverView.swift in Sources */,
@@ -1246,6 +1334,7 @@
 				CAAF22052CA6EB0A0083417C /* FeedbackFocusField.swift in Sources */,
 				CA84D1A32C808E4E00F2A910 /* ProfileEditView.swift in Sources */,
 				CAC354A12C822AA400EEA8F9 /* ProfileEditPostPickerView.swift in Sources */,
+				CAEEF11D2CA703B000515E14 /* FollowerView.swift in Sources */,
 				CAD0F3732C4E11C6006ABFD1 /* EnterEmailView.swift in Sources */,
 				CACD58832C7307020070593A /* CommentViewModel.swift in Sources */,
 				CAC7549F2CA19CAB002EF90B /* DummyProfileView.swift in Sources */,
@@ -1266,16 +1355,19 @@
 				CA20A81E2C7CCA0B008F3E8B /* NavStackView.swift in Sources */,
 				CA1FFD072C95F0760083450F /* NotificationSettingView.swift in Sources */,
 				CAB2E9942C69FB52006E1063 /* PostManager.swift in Sources */,
+				CAEEF1182CA701E100515E14 /* FollowTabView.swift in Sources */,
 				CA9A3FA92C78B77300804B8E /* BookDetailView.swift in Sources */,
 				CA9A3FA72C78B74500804B8E /* BookViewModel.swift in Sources */,
 				CABE31C72C4CADA60010AC20 /* MainTabView.swift in Sources */,
 				CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */,
 				CA8627C12C95D1FA005A6BC8 /* NotificationManager+Badge.swift in Sources */,
+				CAF6E7E52CA7BD540094B103 /* ProfileCoverContentView.swift in Sources */,
 				CA1FFD0A2C95F0910083450F /* NotificationSettingViewModel.swift in Sources */,
 				CA3A8D8B2C8C58CF0032ECB6 /* PostSearchViewModel.swift in Sources */,
 				CA62D06F2C6DB72500A652EA /* CommentManager.swift in Sources */,
 				CAC354A82C823AEE00EEA8F9 /* ProfileManager.swift in Sources */,
 				CA1126B82C6D27CF009277F3 /* CommentSheetViewModel.swift in Sources */,
+				CAF6E7E02CA7BD080094B103 /* ProfileCoverView.swift in Sources */,
 				CA3CA8FE2C7A0FBB007F2EDC /* PostCoverView.swift in Sources */,
 				CA20A8182C7CC8F9008F3E8B /* MainTab.swift in Sources */,
 			);

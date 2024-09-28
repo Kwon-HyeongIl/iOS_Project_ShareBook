@@ -113,32 +113,40 @@ struct ProfileView: View {
                                                     .opacity(0.7)
                                             }
                                             
-                                            VStack(spacing: 3) {
-                                                Text("팔로워")
-                                                    .font(.system(size: 15))
-                                                    .fontWeight(.semibold)
-                                                    .foregroundStyle(.black)
-                                                    .opacity(0.7)
-                                                
-                                                Text("\(viewModel.followerCount)")
-                                                    .font(.system(size: 15))
-                                                    .fontWeight(.semibold)
-                                                    .foregroundStyle(.black)
-                                                    .opacity(0.7)
+                                            Button {
+                                                navRouter.navigate(.FollowView(.follower, viewModel.user))
+                                            } label: {
+                                                VStack(spacing: 3) {
+                                                    Text("팔로워")
+                                                        .font(.system(size: 15))
+                                                        .fontWeight(.semibold)
+                                                        .foregroundStyle(.black)
+                                                        .opacity(0.7)
+                                                    
+                                                    Text("\(viewModel.followerCount)")
+                                                        .font(.system(size: 15))
+                                                        .fontWeight(.semibold)
+                                                        .foregroundStyle(.black)
+                                                        .opacity(0.7)
+                                                }
                                             }
                                             
-                                            VStack(spacing: 3) {
-                                                Text("팔로잉")
-                                                    .font(.system(size: 15))
-                                                    .fontWeight(.semibold)
-                                                    .foregroundStyle(.black)
-                                                    .opacity(0.7)
-                                                
-                                                Text("\(viewModel.followingCount)")
-                                                    .font(.system(size: 15))
-                                                    .fontWeight(.semibold)
-                                                    .foregroundStyle(.black)
-                                                    .opacity(0.7)
+                                            Button {
+                                                navRouter.navigate(.FollowView(.following, viewModel.user))
+                                            } label: {
+                                                VStack(spacing: 3) {
+                                                    Text("팔로잉")
+                                                        .font(.system(size: 15))
+                                                        .fontWeight(.semibold)
+                                                        .foregroundStyle(.black)
+                                                        .opacity(0.7)
+                                                    
+                                                    Text("\(viewModel.followingCount)")
+                                                        .font(.system(size: 15))
+                                                        .fontWeight(.semibold)
+                                                        .foregroundStyle(.black)
+                                                        .opacity(0.7)
+                                                }
                                             }
                                         }
                                         .padding(.top, 5)

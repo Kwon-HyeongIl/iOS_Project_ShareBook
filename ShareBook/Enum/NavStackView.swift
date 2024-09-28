@@ -27,6 +27,7 @@ enum NavStackView: Hashable {
     case ProfileEditView(ProfileViewModel)
     case ProfileOptionView(ProfileViewModel)
     case ProfileEditPostPickerView(ProfileViewModel)
+    case FollowView(FollowTab, User?)
     
     case FeedbackView
     case NotificationSettingView

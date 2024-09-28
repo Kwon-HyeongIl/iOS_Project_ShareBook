@@ -44,6 +44,8 @@ class NavRouter {
             ProfileOptionView(viewModel: viewModel)
         case .ProfileEditPostPickerView(let viewModel):
             ProfileEditPostPickerView(viewModel: viewModel)
+        case .FollowView(let type, let user):
+            FollowView(type: type, user: user)
             
         case .FeedbackView:
             FeedbackView()

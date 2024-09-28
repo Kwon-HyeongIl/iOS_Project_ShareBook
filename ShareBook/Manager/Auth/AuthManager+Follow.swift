@@ -92,4 +92,36 @@ extension AuthManager {
             return 0
         }
     }
+    
+    func loadAllFollowers(userId: String) async -> [User] {
+        do {
+            let documents = try await Firestore.firestore()
+                .collection("User").document(userId)
+                .collection("User_Follower").getDocuments().documents
+            
+            return try documents.compactMap({ document in
+                try document.data(as: User.self)
+            })
+            
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
+    func loadAllFollowings(userId: String) async -> [User] {
+        do {
+            let documents = try await Firestore.firestore()
+                .collection("User").document(userId)
+                .collection("User_Following").getDocuments().documents
+            
+            return try documents.compactMap({ document in
+                try document.data(as: User.self)
+            })
+            
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
 }
