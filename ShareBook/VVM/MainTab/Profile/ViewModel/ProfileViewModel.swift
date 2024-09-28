@@ -74,6 +74,8 @@ class ProfileViewModel: Hashable, Equatable {
     
     func basicLoading() async {
         await loadAllUserPosts(userId: user?.id ?? "")
+        await loadFollowerCount(userId: user?.id ?? "")
+        await loadFollowingCount(userId: user?.id ?? "")
         
         if isMyProfile == true {
             // 타이틀 글이 변경되었을 경우

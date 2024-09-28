@@ -46,7 +46,7 @@ struct ProfileCoverContentView: View {
             Image(systemName: "chevron.right")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 10)
+                .frame(width: 8)
                 .fontWeight(.medium)
                 .padding(.trailing)
         }

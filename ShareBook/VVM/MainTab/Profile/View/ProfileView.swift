@@ -357,8 +357,10 @@ struct ProfileView: View {
                 }
             }
             .task {
-                Task {
-                    await viewModel.basicLoading()
+                if viewModel.isMyProfile == true {
+                    Task {
+                        await viewModel.basicLoading()
+                    }
                 }
             }
             .navigationBarBackButtonHidden()

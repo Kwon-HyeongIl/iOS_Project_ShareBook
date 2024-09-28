@@ -18,15 +18,21 @@ extension AuthManager {
         await FCMManager.shared.sendFCMNotification(deviceToken: postUserDeviceToken, userId: followUserId, notification: notification)
         
         do {
+            let targetUser = await AuthManager.shared.loadSpecificUser(userId: followUserId)
+            let encodedTargetUser = try Firestore.Encoder().encode(targetUser)
+            
             async let _ = try await Firestore.firestore()
                 .collection("User").document(currentUserId)
                 .collection("User_Following").document(followUserId)
-                .setData([:])
+                .setData(encodedTargetUser)
+            
+            let currentUser = AuthManager.shared.currentUser
+            let encodedCurrentUser = try Firestore.Encoder().encode(currentUser)
             
             async let _ = try await Firestore.firestore()
                 .collection("User").document(followUserId)
                 .collection("User_Follower").document(currentUserId)
-                .setData([:])
+                .setData(encodedCurrentUser)
             
         } catch {
             print(error.localizedDescription)
