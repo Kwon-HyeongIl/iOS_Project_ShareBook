@@ -155,7 +155,6 @@ struct HomeView: View {
                     .scrollIndicators(.hidden)
                     .refreshable {
                         viewModel.posts.removeAll()
-                        viewModel.hotPosts.removeAll()
                         viewModel.lastDocumentSnapshot = nil
                         
                         await viewModel.loadHotPosts()
@@ -192,7 +191,6 @@ struct HomeView: View {
                             viewModel.isGenreRedacted = true
                             
                             DispatchQueue.main.async {
-                                viewModel.hotPosts.removeAll()
                                 viewModel.posts.removeAll()
                             }
                             
