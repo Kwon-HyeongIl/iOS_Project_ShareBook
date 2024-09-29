@@ -86,7 +86,7 @@ struct PostCoverView: View {
                         
                         Text("\(viewModel.post.user.username)")
                             .font(.system(size: isHotPost ? 14 :  11))
-                            .frame(width: 30, alignment: .leading)
+                            .frame(width: 50, alignment: .leading)
                             .lineLimit(1)
                             .truncationMode(.tail)
                             .opacity(0.8)

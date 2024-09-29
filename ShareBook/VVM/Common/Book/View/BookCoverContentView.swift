@@ -48,7 +48,6 @@ struct BookCoverContentView: View {
             .padding(.horizontal)
             .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
         }
-        
     }
 }
 

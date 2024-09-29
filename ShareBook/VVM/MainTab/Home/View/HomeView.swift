@@ -155,6 +155,7 @@ struct HomeView: View {
                     .scrollIndicators(.hidden)
                     .refreshable {
                         viewModel.posts.removeAll()
+                        viewModel.hotPosts.removeAll()
                         viewModel.lastDocumentSnapshot = nil
                         
                         await viewModel.loadHotPosts()
