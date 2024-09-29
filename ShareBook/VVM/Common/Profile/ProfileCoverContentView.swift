@@ -16,7 +16,7 @@ struct ProfileCoverContentView: View {
             if let imageUrl = user?.profileImageUrl {
                 KFImage(URL(string: imageUrl))
                     .resizable()
-                    .frame(width: 45, height: 45)
+                    .frame(width: 40, height: 40)
                     .clipShape(Circle())
                     .padding(.trailing, 10)
                     .padding(.leading)
@@ -24,7 +24,7 @@ struct ProfileCoverContentView: View {
             } else {
                 Image(systemName: "person.circle.fill")
                     .resizable()
-                    .frame(width: 45, height: 45)
+                    .frame(width: 40, height: 40)
                     .opacity(0.8)
                     .padding(.trailing, 10)
                     .padding(.leading)
@@ -32,6 +32,7 @@ struct ProfileCoverContentView: View {
             
             VStack {
                 Text("\(user?.username ?? "")")
+                    .font(.system(size: 15))
                     .fontWeight(.medium)
                 
                 Text("\(user?.titleGenre?.rawValue ?? "")")

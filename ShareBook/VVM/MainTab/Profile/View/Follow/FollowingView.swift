@@ -16,18 +16,19 @@ struct FollowingView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyVStack(spacing: 0) {
                 if !viewModel.isRedacted {
                     ForEach(viewModel.users.indices, id: \.self) { index in
                         ProfileCoverView(user: viewModel.users[index])
-                            .padding(.top, index == 0 ? 10 : 0)
+                            .padding(.top, index == 0 ? 5 : 0)
                             .padding(.bottom, index == viewModel.users.count-1 ? 20 : 0)
                     }
                 } else {
-                    ForEach(0..<10, id: \.self) { index in
+                    ForEach(0..<20, id: \.self) { index in
                         DummyProfileCoverView()
-                            .padding(.top, index == 0 ? 10 : 0)
-                            .padding(.bottom, index == 9 ? 20 : 0)
+                            .padding(.bottom, 5)
+                            .padding(.top, index == 0 ? 5 : 0)
+                            .padding(.bottom, index == 19 ? 20 : 0)
                     }
                 }
             }
