@@ -12,7 +12,7 @@ class LoginViewModel: NSObject {
     var email = ""
     var password = ""
     
-    func login() async {
-        await AuthManager.shared.login(email: self.email, password: self.password)
+    func login() async -> Bool {
+        return await AuthManager.shared.login(email: self.email, password: self.password)
     }
 }

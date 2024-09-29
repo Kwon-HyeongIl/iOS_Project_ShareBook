@@ -11,6 +11,8 @@ struct LoginView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @State private var viewModel = LoginViewModel()
     
+    @State private var loginAlertShowing = false
+    
     var body: some View {
         GeometryReader { proxy in
             GradientBackgroundView {
@@ -39,11 +41,23 @@ struct LoginView: View {
                             
                             Button {
                                 Task {
-                                    await viewModel.login()
+                                    let result = await viewModel.login()
+                                    if !result {
+                                        loginAlertShowing = true
+                                    }
                                 }
                             } label: {
                                 Text("로그인")
                                     .modifier(AuthViewButtonModifier(bgColor: .SBTitle))
+                            }
+                            .alert("!!", isPresented: $loginAlertShowing) {
+                                Button {
+                                    
+                                } label: {
+                                    Text("확인")
+                                }
+                            } message: {
+                                Text("이메일 또는 비밀번호가 일치하지 않습니다.")
                             }
                             
                             HStack {

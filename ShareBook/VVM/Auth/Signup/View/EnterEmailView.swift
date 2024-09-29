@@ -58,7 +58,7 @@ struct EnterEmailView: View {
                         Text("확인")
                     }
                 } message: {
-                    Text("이메일 형식과 일치하지 않습니다")
+                    Text("이메일 형식과 일치하지 않습니다.")
                 }
                     
                 Spacer()

@@ -67,14 +67,17 @@ class AuthManager {
         }
     }
     
-    func login(email: String, password: String) async {
+    func login(email: String, password: String) async -> Bool {
         do {
             _ = try await Auth.auth().signIn(withEmail: email, password: password)
             await updateDeviceToken()
             await loadCurrentUserData()
             
+            return true
+            
         } catch {
             print(error.localizedDescription)
+            return false
         }
     }
     
