@@ -43,7 +43,7 @@ struct LoginView: View {
                                 }
                             } label: {
                                 Text("로그인")
-                                    .modifier(AuthViewButtonModifier())
+                                    .modifier(AuthViewButtonModifier(bgColor: .SBTitle))
                             }
                             
                             HStack {

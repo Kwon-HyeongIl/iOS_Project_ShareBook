@@ -126,6 +126,7 @@
 		CAC7549F2CA19CAB002EF90B /* DummyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC7549E2CA19CAB002EF90B /* DummyProfileView.swift */; };
 		CACD58832C7307020070593A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58822C7307020070593A /* CommentViewModel.swift */; };
 		CACD58852C73096E0070593A /* CommentReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD58842C73096E0070593A /* CommentReplyView.swift */; };
+		CAD006E82CA9154800AA091C /* SignupFocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD006E72CA9154800AA091C /* SignupFocusField.swift */; };
 		CAD01ED52C5F48F6001E479F /* BookManager+Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */; };
 		CAD01ED72C5F4960001E479F /* AuthManager+SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD01ED62C5F4960001E479F /* AuthManager+SocialLogin.swift */; };
 		CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD0F3692C4DF2D7006ABFD1 /* SignupViewModel.swift */; };
@@ -276,6 +277,7 @@
 		CAC7549E2CA19CAB002EF90B /* DummyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyProfileView.swift; sourceTree = "<group>"; };
 		CACD58822C7307020070593A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		CACD58842C73096E0070593A /* CommentReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyView.swift; sourceTree = "<group>"; };
+		CAD006E72CA9154800AA091C /* SignupFocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFocusField.swift; sourceTree = "<group>"; };
 		CAD01ED42C5F48F6001E479F /* BookManager+Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookManager+Bookmark.swift"; sourceTree = "<group>"; };
 		CAD01ED62C5F4960001E479F /* AuthManager+SocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+SocialLogin.swift"; sourceTree = "<group>"; };
 		CAD0F3692C4DF2D7006ABFD1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
@@ -580,8 +582,7 @@
 			children = (
 				CAD0F3742C4E1618006ABFD1 /* ItalicFontModifier.swift */,
 				CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */,
-				CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */,
-				CAC3549C2C8214DA00EEA8F9 /* InViewButtonModifier.swift */,
+				CAD006E92CA916AD00AA091C /* Button */,
 				CA1FFD0E2C95FCF80083450F /* NavBack */,
 				CAC3549E2C821E9E00EEA8F9 /* TileModifier.swift */,
 			);
@@ -922,6 +923,7 @@
 				CAAF22042CA6EB0A0083417C /* FeedbackFocusField.swift */,
 				CAAF22062CA6EC350083417C /* PostSearchFocusField.swift */,
 				CA4B216F2CA841B80075DF7E /* BookSearchFocusField.swift */,
+				CAD006E72CA9154800AA091C /* SignupFocusField.swift */,
 			);
 			path = Focus;
 			sourceTree = "<group>";
@@ -986,6 +988,15 @@
 				CAC7549E2CA19CAB002EF90B /* DummyProfileView.swift */,
 			);
 			path = Dummy;
+			sourceTree = "<group>";
+		};
+		CAD006E92CA916AD00AA091C /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */,
+				CAC3549C2C8214DA00EEA8F9 /* InViewButtonModifier.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		CAD01ED82C5F4A29001E479F /* Auth */ = {
@@ -1341,6 +1352,7 @@
 				CA4B216A2CA83E480075DF7E /* SearchBookViewModel.swift in Sources */,
 				CACD58832C7307020070593A /* CommentViewModel.swift in Sources */,
 				CAC7549F2CA19CAB002EF90B /* DummyProfileView.swift in Sources */,
+				CAD006E82CA9154800AA091C /* SignupFocusField.swift in Sources */,
 				CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */,
 				CA3A8D8F2C8C933C0032ECB6 /* MainTabCapsule.swift in Sources */,
 				CA70E7FF2C785EC300E3B91B /* LikePostViewModel.swift in Sources */,

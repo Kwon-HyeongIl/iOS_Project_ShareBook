@@ -46,7 +46,7 @@ struct CompleteSignupView: View {
                         }
                     } label: {
                         Text("완료")
-                            .modifier(AuthViewButtonModifier())
+                            .modifier(AuthViewButtonModifier(bgColor: .SBTitle))
                     }
                     .padding(.horizontal)
                     Spacer()

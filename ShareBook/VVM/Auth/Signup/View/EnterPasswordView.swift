@@ -11,6 +11,8 @@ struct EnterPasswordView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(SignupViewModel.self) var viewModel
     
+    @FocusState private var focus: SignupFocusField?
+    
     var body: some View {
         @Bindable var viewModel = viewModel
         
@@ -27,13 +29,21 @@ struct EnterPasswordView: View {
                 
                 SecureField("비밀번호", text: $viewModel.password)
                     .modifier(TextFieldModifier())
+                    .focused($focus, equals: .main)
                     .padding(.bottom, 5)
                 
                 Button {
-                    navRouter.navigate(.EnterUsernameView)
+                    if viewModel.password.count >= 8 {
+                        navRouter.navigate(.EnterUsernameView)
+                    }
                 } label: {
-                    Text("다음")
-                        .modifier(AuthViewButtonModifier())
+                    if viewModel.password.count >= 8 {
+                        Text("다음")
+                            .modifier(AuthViewButtonModifier(bgColor: .SBTitle))
+                    } else {
+                        Text("다음")
+                            .modifier(AuthViewButtonModifier(bgColor: .gray))
+                    }
                 }
                 Spacer()
                 
@@ -55,6 +65,9 @@ struct EnterPasswordView: View {
             }
         }
         .modifier(BackModifier())
+        .onAppear {
+            focus = .main
+        }
     }
 }
 

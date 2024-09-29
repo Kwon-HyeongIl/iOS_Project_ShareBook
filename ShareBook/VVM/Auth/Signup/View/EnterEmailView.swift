@@ -11,6 +11,10 @@ struct EnterEmailView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(SignupViewModel.self) var viewModel
     
+    @State private var isEmailAlertShowing = false
+    
+    @FocusState private var focus: SignupFocusField?
+    
     var body: some View {
         @Bindable var viewModel = viewModel
         
@@ -27,13 +31,34 @@ struct EnterEmailView: View {
                 
                 TextField("이메일 주소", text: $viewModel.email)
                     .modifier(TextFieldModifier())
+                    .focused($focus, equals: .main)
                     .padding(.bottom, 5)
                 
                 Button {
-                    navRouter.navigate(.EnterPasswordView)
+                    if !viewModel.email.isEmpty {
+                        if viewModel.isValidEmail(email: viewModel.email) {
+                            navRouter.navigate(.EnterPasswordView)
+                        } else {
+                            isEmailAlertShowing = true
+                        }
+                    }
                 } label: {
-                    Text("다음")
-                        .modifier(AuthViewButtonModifier())
+                    if !viewModel.email.isEmpty {
+                        Text("다음")
+                            .modifier(AuthViewButtonModifier(bgColor: .SBTitle))
+                    } else {
+                        Text("다음")
+                            .modifier(AuthViewButtonModifier(bgColor: .gray))
+                    }
+                }
+                .alert("!!", isPresented: $isEmailAlertShowing) {
+                    Button {
+                        
+                    } label: {
+                        Text("확인")
+                    }
+                } message: {
+                    Text("이메일 형식과 일치하지 않습니다")
                 }
                     
                 Spacer()
@@ -56,6 +81,9 @@ struct EnterEmailView: View {
             }
         }
         .modifier(BackModifier())
+        .onAppear {
+            focus = .main
+        }
     }
 }
 

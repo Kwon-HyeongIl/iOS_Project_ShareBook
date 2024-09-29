@@ -11,6 +11,8 @@ struct EnterUsernameView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(SignupViewModel.self) var viewModel
     
+    @FocusState private var focus: SignupFocusField?
+    
     var body: some View {
         @Bindable var viewModel = viewModel
         
@@ -27,13 +29,21 @@ struct EnterUsernameView: View {
                 
                 TextField("닉네임", text: $viewModel.username)
                     .modifier(TextFieldModifier())
+                    .focused($focus, equals: .main)
                     .padding(.bottom, 5)
                 
                 Button {
-                    navRouter.navigate(.CompleteSignupView)
+                    if !viewModel.username.isEmpty {
+                        navRouter.navigate(.CompleteSignupView)
+                    }
                 } label: {
-                    Text("다음")
-                        .modifier(AuthViewButtonModifier())
+                    if !viewModel.username.isEmpty {
+                        Text("다음")
+                            .modifier(AuthViewButtonModifier(bgColor: .SBTitle))
+                    } else {
+                        Text("다음")
+                            .modifier(AuthViewButtonModifier(bgColor: .gray))
+                    }
                 }
                 Spacer()
                 
@@ -55,6 +65,9 @@ struct EnterUsernameView: View {
             }
         }
         .modifier(BackModifier())
+        .onAppear {
+            focus = .main
+        }
     }
 }
 
