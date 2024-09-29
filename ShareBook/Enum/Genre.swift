@@ -11,8 +11,9 @@ enum Genre: String, Codable, CaseIterable, Identifiable {
     var id: String { self.rawValue }
     
     case all = "전체"
-    case humanities = "인문학"
+    case humanities = "인문"
     case self_improvement = "자기개발"
+    case healing = "힐링"
     case animation = "애니메이션"
     case studying = "공부"
     case fiction = "소설"
@@ -21,6 +22,7 @@ enum Genre: String, Codable, CaseIterable, Identifiable {
     case scientific = "과학"
     case health = "건강"
     case cooking = "요리"
+    case psychology = "심리"
     case traveling = "여행"
     case history = "역사"
 }
