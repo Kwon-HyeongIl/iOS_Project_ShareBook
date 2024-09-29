@@ -192,6 +192,7 @@ struct HomeView: View {
                             viewModel.isGenreRedacted = true
                             
                             DispatchQueue.main.async {
+                                viewModel.hotPosts.removeAll()
                                 viewModel.posts.removeAll()
                             }
                             
