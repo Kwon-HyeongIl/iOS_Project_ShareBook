@@ -34,7 +34,6 @@ struct EnterUsernameView: View {
                 } label: {
                     Text("다음")
                         .modifier(AuthViewButtonModifier())
-                        .padding(.horizontal)
                 }
                 Spacer()
                 
