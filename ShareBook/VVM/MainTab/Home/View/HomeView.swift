@@ -98,7 +98,7 @@ struct HomeView: View {
                                         viewModel.selectedGenre = Genre.allCases[index]
                                         
                                         viewModel.isGenreRedacted = true
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                             withAnimation(.easeOut(duration: 0.4)) {
                                                 viewModel.isGenreRedacted = false
                                             }
