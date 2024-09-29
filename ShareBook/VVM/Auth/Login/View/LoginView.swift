@@ -99,7 +99,7 @@ struct LoginView: View {
                                     Image("Kakao_SocialLogin_Logo")
                                         .resizable()
                                         .frame(width: 55, height: 55)
-                                        .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
+                                        .shadow(color: .gray.opacity(0.2), radius: 10, x: 5, y: 5)
                                 }
                                 
                                 Button {
