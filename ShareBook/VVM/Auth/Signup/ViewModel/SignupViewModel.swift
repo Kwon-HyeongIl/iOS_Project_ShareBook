@@ -27,4 +27,8 @@ class SignupViewModel {
         
         return emailPredicate.evaluate(with: email)
     }
+    
+    func checkEmailDuplication() async -> Bool {
+        return await AuthManager.shared.checkEmailDuplication(email: self.email)
+    }
 }

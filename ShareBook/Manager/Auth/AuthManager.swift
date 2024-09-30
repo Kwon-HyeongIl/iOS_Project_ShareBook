@@ -81,6 +81,16 @@ class AuthManager {
         }
     }
     
+    func checkEmailDuplication(email: String) async -> Bool {
+        do {
+            return try await Firestore.firestore()
+                .collection("User").whereField("authEmail", isEqualTo: email).getDocuments().documents.isEmpty
+            
+        }  catch {
+            return false
+        }
+    }
+    
     func loadCurrentUserData() async {
         do {
             guard let userId = Auth.auth().currentUser?.uid else { return }

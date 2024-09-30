@@ -11,7 +11,8 @@ struct EnterEmailView: View {
     @Environment(NavRouter.self) var navRouter: NavRouter
     @Environment(SignupViewModel.self) var viewModel
     
-    @State private var isEmailAlertShowing = false
+    @State private var isEmailFormValidateAlertShowing = false
+    @State private var isEmailDulicateAlertShowing = false
     
     @FocusState private var focus: SignupFocusField?
     
@@ -35,11 +36,17 @@ struct EnterEmailView: View {
                     .padding(.bottom, 5)
                 
                 Button {
-                    if !viewModel.email.isEmpty {
-                        if viewModel.isValidEmail(email: viewModel.email) {
-                            navRouter.navigate(.EnterPasswordView)
-                        } else {
-                            isEmailAlertShowing = true
+                    Task {
+                        if !viewModel.email.isEmpty {
+                            if viewModel.isValidEmail(email: viewModel.email) {
+                                if await viewModel.checkEmailDuplication() {
+                                    navRouter.navigate(.EnterPasswordView)
+                                } else {
+                                    isEmailDulicateAlertShowing = true
+                                }
+                            } else {
+                                isEmailFormValidateAlertShowing = true
+                            }
                         }
                     }
                 } label: {
@@ -51,7 +58,7 @@ struct EnterEmailView: View {
                             .modifier(AuthViewButtonModifier(bgColor: .gray))
                     }
                 }
-                .alert("!!", isPresented: $isEmailAlertShowing) {
+                .alert("!!", isPresented: $isEmailFormValidateAlertShowing) {
                     Button {
                         
                     } label: {
@@ -59,6 +66,15 @@ struct EnterEmailView: View {
                     }
                 } message: {
                     Text("이메일 형식과 일치하지 않습니다.")
+                }
+                .alert("!!", isPresented: $isEmailDulicateAlertShowing) {
+                    Button {
+                        
+                    } label: {
+                        Text("확인")
+                    }
+                } message: {
+                    Text("중복된 이메일입니다.")
                 }
                     
                 Spacer()
