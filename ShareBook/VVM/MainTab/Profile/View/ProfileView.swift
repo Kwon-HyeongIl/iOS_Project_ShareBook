@@ -33,7 +33,7 @@ struct ProfileView: View {
                             ZStack {
                                 Rectangle()
                                     .foregroundStyle(Color.SBTitle)
-                                    .opacity(0.6)
+                                    .opacity(0.4)
                                     .frame(height: 340)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
@@ -75,6 +75,7 @@ struct ProfileView: View {
                                                 .font(.system(size: 14))
                                                 .fontWeight(.semibold)
                                                 .foregroundStyle(.black)
+                                                .padding(.leading, 3)
                                                 .opacity(0.6)
                                         }
                                         
