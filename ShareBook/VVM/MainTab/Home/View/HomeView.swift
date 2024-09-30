@@ -23,13 +23,12 @@ struct HomeView: View {
                             ScrollView(.horizontal) {
                                 LazyHStack(spacing: 20) {
                                     if !viewModel.isHotRedacted {
-                                        ForEach(viewModel.hotPosts.indices, id: \.self) { index in
-                                            PostCoverView(post: viewModel.hotPosts[index], isHotPost: true)
-                                                .padding(.leading, index == 0 ? 15 : 0)
-                                                .padding(.trailing, index == viewModel.hotPosts.count - 1 ? 15 : 0)
+                                        ForEach(viewModel.hotPosts, id: \.id) { post in
+                                            PostCoverView(post: post, isHotPost: true)
+                                                .padding(.leading, viewModel.hotPosts.firstIndex(of: post) == 0 ? 15 : 0)
+                                                .padding(.trailing, viewModel.hotPosts.firstIndex(of: post) == viewModel.hotPosts.count - 1 ? 15 : 0)
                                                 .scrollTransition(.interactive, axis: .horizontal) { view, phase in
-                                                    view
-                                                        .scaleEffect(phase.isIdentity ? 1 : 0.95)
+                                                    view.scaleEffect(phase.isIdentity ? 1 : 0.95)
                                                 }
                                                 .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
                                         }
