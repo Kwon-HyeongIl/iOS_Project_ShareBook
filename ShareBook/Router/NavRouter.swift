@@ -48,6 +48,8 @@ class NavRouter {
             ProfileEditPostPickerView(viewModel: viewModel)
         case .FollowView(let type, let user):
             FollowView(type: type, user: user)
+        case .AccountDeleteView:
+            AccountDeleteView()
             
         case .FeedbackView:
             FeedbackView()
@@ -66,16 +68,19 @@ class NavRouter {
         }
     }
     
+    @MainActor
     func navigate(_ view: NavStackView) {
         path.append(view)
     }
     
+    @MainActor
     func back() {
         if !path.isEmpty {
             path.removeLast()
         }
     }
     
+    @MainActor
     func popToRoot() {
         if !path.isEmpty {
             path.removeLast(path.count)

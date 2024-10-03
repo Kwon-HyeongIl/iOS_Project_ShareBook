@@ -25,6 +25,8 @@ struct User: Codable, Identifiable, Hashable, Equatable {
     
     var titleGenre: Genre?
     var titlePostId: String?
+    
+    var isAccountDeleted: Bool?
 }
 
 extension User {

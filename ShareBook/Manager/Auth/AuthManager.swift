@@ -157,4 +157,35 @@ class AuthManager {
             print(error.localizedDescription)
         }
     }
+    
+    func deleteAccount() {
+        if  let user = Auth.auth().currentUser {
+            user.delete { error in
+                if let error {
+                    print(error.localizedDescription)
+                } else {
+                    // 삭제 성공
+                    Task {
+                        await self.markUserDeleted()
+                        self.currentUser = nil
+                    }
+                }
+            }
+        } 
+    }
+    
+    private func markUserDeleted() async {
+        do {
+            guard let userId = Auth.auth().currentUser?.uid else { return }
+            var editedData: [String : Any] = [:]
+            editedData["isAccountDeleted"] = true
+            
+            try await Firestore.firestore()
+                .collection("User").document(userId)
+                .updateData(editedData)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

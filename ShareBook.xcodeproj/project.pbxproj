@@ -137,6 +137,8 @@
 		CADBA2F42C4E63CD001C6445 /* EnterPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */; };
 		CADBA2F82C4E63DF001C6445 /* EnterUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */; };
 		CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */; };
+		CADD0A3D2CAEA9420057FDA1 /* AccountDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD0A3C2CAEA9420057FDA1 /* AccountDeleteView.swift */; };
+		CADD0A402CAEA9570057FDA1 /* AccountDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD0A3F2CAEA9570057FDA1 /* AccountDeleteViewModel.swift */; };
 		CADD907A2C6A55740023C512 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD90792C6A55740023C512 /* HomeViewModel.swift */; };
 		CAE6015B2C5096D30013413C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6015A2C5096D30013413C /* SplashView.swift */; };
 		CAE6015E2C50F5D50013413C /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CAE6015D2C50F5D50013413C /* KakaoSDKAuth */; };
@@ -288,6 +290,8 @@
 		CADBA2F32C4E63CD001C6445 /* EnterPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordView.swift; sourceTree = "<group>"; };
 		CADBA2F72C4E63DF001C6445 /* EnterUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUsernameView.swift; sourceTree = "<group>"; };
 		CADBA2F92C4E63FE001C6445 /* CompleteSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupView.swift; sourceTree = "<group>"; };
+		CADD0A3C2CAEA9420057FDA1 /* AccountDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeleteView.swift; sourceTree = "<group>"; };
+		CADD0A3F2CAEA9570057FDA1 /* AccountDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeleteViewModel.swift; sourceTree = "<group>"; };
 		CADD90792C6A55740023C512 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CAE6015A2C5096D30013413C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CAE601632C50F6570013413C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -707,6 +711,7 @@
 				CA84D1A22C808E4E00F2A910 /* ProfileEditView.swift */,
 				CAC354A02C822AA400EEA8F9 /* ProfileEditPostPickerView.swift */,
 				CA84D1A62C80A21100F2A910 /* ProfileOptionView.swift */,
+				CADD0A3B2CAEA92D0057FDA1 /* AccountDelete */,
 				CAEEF1192CA7026100515E14 /* Follow */,
 				CA7C5E492C81F34F000F9F2B /* Feedback */,
 				CA1FFD082C95F07D0083450F /* NotificationSetting */,
@@ -718,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6AC97D2C53CA3900703DB5 /* ProfileViewModel.swift */,
+				CADD0A3E2CAEA94C0057FDA1 /* AccountDelete */,
 				CAEEF1202CA704AD00515E14 /* Follow */,
 				CA7C5E4C2C81F35E000F9F2B /* Feedback */,
 				CA1FFD0B2C95F0940083450F /* NotificationSetting */,
@@ -1079,6 +1085,22 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		CADD0A3B2CAEA92D0057FDA1 /* AccountDelete */ = {
+			isa = PBXGroup;
+			children = (
+				CADD0A3C2CAEA9420057FDA1 /* AccountDeleteView.swift */,
+			);
+			path = AccountDelete;
+			sourceTree = "<group>";
+		};
+		CADD0A3E2CAEA94C0057FDA1 /* AccountDelete */ = {
+			isa = PBXGroup;
+			children = (
+				CADD0A3F2CAEA9570057FDA1 /* AccountDeleteViewModel.swift */,
+			);
+			path = AccountDelete;
+			sourceTree = "<group>";
+		};
 		CADD907B2C6A55770023C512 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1292,6 +1314,7 @@
 				CA6AAC2E2C4B8CA10045449E /* ContentView.swift in Sources */,
 				CA62D0742C6DB8D300A652EA /* Comment.swift in Sources */,
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
+				CADD0A3D2CAEA9420057FDA1 /* AccountDeleteView.swift in Sources */,
 				CA8627AE2C955C59005A6BC8 /* NotificationManager.swift in Sources */,
 				CA10EEC22C60CC4700901979 /* UploadPostView.swift in Sources */,
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
@@ -1332,6 +1355,7 @@
 				CA6CBD022C9DB95600650436 /* DummyBookCoverView.swift in Sources */,
 				CA20A8162C7CC84A008F3E8B /* LikeTab.swift in Sources */,
 				CAA0C5F52C549FE300E7433D /* NewPostView.swift in Sources */,
+				CADD0A402CAEA9570057FDA1 /* AccountDeleteViewModel.swift in Sources */,
 				CA4B21682CA83E3E0075DF7E /* SearchBookView.swift in Sources */,
 				CAD0F36A2C4DF2D7006ABFD1 /* SignupViewModel.swift in Sources */,
 				CABE31CB2C4CAE550010AC20 /* HomeView.swift in Sources */,

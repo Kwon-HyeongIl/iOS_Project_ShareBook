@@ -40,6 +40,8 @@ class ProfileViewModel: Hashable, Equatable {
     init(userId: String) {
         Task {
             let loadUser = await AuthManager.shared.loadSpecificUser(userId: userId)
+            
+            
             let currentUser = AuthManager.shared.currentUser
             
             // 유저 객체 주입
