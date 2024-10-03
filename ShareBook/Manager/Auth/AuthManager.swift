@@ -176,12 +176,11 @@ class AuthManager {
     
     private func markUserDeleted() async {
         do {
-            guard let userId = Auth.auth().currentUser?.uid else { return }
             var editedData: [String : Any] = [:]
             editedData["isAccountDeleted"] = true
             
             try await Firestore.firestore()
-                .collection("User").document(userId)
+                .collection("User").document(currentUser?.id ?? "")
                 .updateData(editedData)
             
         } catch {

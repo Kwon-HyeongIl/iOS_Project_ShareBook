@@ -189,9 +189,7 @@ struct HomeView: View {
                             viewModel.isHotRedacted = true
                             viewModel.isGenreRedacted = true
                             
-                            DispatchQueue.main.async {
-                                viewModel.posts.removeAll()
-                            }
+                            viewModel.posts.removeAll()
                             
                             viewModel.lastDocumentSnapshot = nil
                             

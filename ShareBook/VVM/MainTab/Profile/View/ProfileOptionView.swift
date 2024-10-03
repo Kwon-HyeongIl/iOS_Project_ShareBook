@@ -74,7 +74,7 @@ struct ProfileOptionView: View {
                     navRouter.navigate(.AccountDeleteView)
                 } label: {
                     HStack(spacing: 14) {
-                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                        Image(systemName: "person.slash")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 18)
@@ -97,7 +97,7 @@ struct ProfileOptionView: View {
                     isLogoutAlertShowing = true
                 } label: {
                     Text("로그아웃")
-                        .font(.system(size: 10))
+                        .font(.system(size: 14))
                         .foregroundStyle(.red)
                 }
                 .alert("정말 로그아웃 하시겠습니까?", isPresented: $isLogoutAlertShowing) {
@@ -119,8 +119,6 @@ struct ProfileOptionView: View {
                         Text("계속")
                     }
                 }
-                
-                Spacer()
             }
         }
         .modifier(BackTitleModifier(navigationTitle: "설정"))

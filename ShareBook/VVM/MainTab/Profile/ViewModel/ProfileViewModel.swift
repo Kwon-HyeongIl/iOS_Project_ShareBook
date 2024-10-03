@@ -31,6 +31,8 @@ class ProfileViewModel: Hashable, Equatable {
     var selectedItem: PhotosPickerItem?
     var uiImage: UIImage?
     
+    var isDeletedUser = false
+    
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0),
@@ -41,6 +43,12 @@ class ProfileViewModel: Hashable, Equatable {
         Task {
             let loadUser = await AuthManager.shared.loadSpecificUser(userId: userId)
             
+            // 삭제된 계정인지 확인
+            if loadUser?.isAccountDeleted == true {
+                self.isDeletedUser = true
+                
+                return
+            }
             
             let currentUser = AuthManager.shared.currentUser
             

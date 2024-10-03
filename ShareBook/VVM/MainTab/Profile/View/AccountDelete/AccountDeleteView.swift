@@ -18,35 +18,44 @@ struct AccountDeleteView: View {
     var body: some View {
         GradientBackgroundView {
             VStack {
-                Text("계정을 삭제할 경우 계정과 관련된 모든 데이터가 삭제되며, 복구할 수 없습니다.")
+                Image(systemName: "person.slash")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 120)
+                    .padding(.top)
+
+                Text("계정을 삭제할 경우 복구할 수 없으며, 작성하신 글과 댓글들은 자동으로 삭제되지 않습니다.")
                     .font(.system(size: 20))
-                    .fontWeight(.medium)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                     .padding(.top)
                     .padding(.bottom)
                 
-                Text("삭제")
-                    .modifier(InViewButtonModifier(bgColor: .SBTitle))
-                    .alert("정말 삭제 하시겠습니까?", isPresented: $isAccountDeleteAlertShowing) {
-                        Button(role: .cancel) {
-                            
-                        } label: {
-                            Text("취소")
-                        }
+                Button {
+                    isAccountDeleteAlertShowing = true
+                } label: {
+                    Text("삭제")
+                        .modifier(InViewButtonModifier(bgColor: .SBTitle))
+                }
+                .alert("정말 삭제 하시겠습니까?", isPresented: $isAccountDeleteAlertShowing) {
+                    Button(role: .cancel) {
                         
-                        Button(role: .destructive) {
-                            withAnimation(.easeOut(duration: 0.4)) {
-                                viewModel.deleteAccount()
-                            }
-                            navRouter.popToRoot()
-                            mainTabCapsule.selectedTab = .house
-                            
-                            appDelegate.refreshDeviceToken()
-                        } label: {
-                            Text("계속")
-                        }
+                    } label: {
+                        Text("취소")
                     }
+                    
+                    Button(role: .destructive) {
+                        withAnimation(.easeOut(duration: 0.4)) {
+                            viewModel.deleteAccount()
+                        }
+                        navRouter.popToRoot()
+                        mainTabCapsule.selectedTab = .house
+                        
+                        appDelegate.refreshDeviceToken()
+                    } label: {
+                        Text("계속")
+                    }
+                }
                 
                 Spacer()
             }
