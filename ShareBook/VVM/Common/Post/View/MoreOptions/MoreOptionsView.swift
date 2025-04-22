@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoreOptionsView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel: MoreOptionsViewModel
     
     @State private var isDeleteAlertShowing = false
@@ -117,5 +117,5 @@ struct MoreOptionsView: View {
 
 #Preview {
     MoreOptionsView(post: Post.DUMMY_POST, isMoreOptionsSheetShowing: .constant(true))
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

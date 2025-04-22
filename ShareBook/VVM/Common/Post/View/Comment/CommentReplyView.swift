@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct CommentReplyView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(CommentSheetCapsule.self) var commentSheetCapsule: CommentSheetCapsule
     @State private var viewModel: CommentReplyViewModel
     
@@ -103,6 +103,6 @@ struct CommentReplyView: View {
 
 #Preview {
     CommentReplyView(commentReply: Comment.DUMMY_COMMENT, commentId: "", isCommentReplyDelete: .constant(false))
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(CommentSheetCapsule())
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileOptionView: View {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: ProfileViewModel
     
@@ -127,6 +127,6 @@ struct ProfileOptionView: View {
 
 #Preview {
     ProfileOptionView(viewModel: ProfileViewModel(userId: "DUMMY"))
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(MainTabCapsule())
 }

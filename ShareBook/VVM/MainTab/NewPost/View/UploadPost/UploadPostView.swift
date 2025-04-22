@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct UploadPostView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @Environment(IsPostAddedCapsule.self) var isPostAddedCapsule: IsPostAddedCapsule
     @State private var viewModel: UploadPostViewModel
@@ -298,7 +298,7 @@ struct UploadPostView: View {
 
 #Preview {
     UploadPostView(book: Book.DUMMY_BOOK)
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(MainTabCapsule())
         .environment(IsPostAddedCapsule())
 }

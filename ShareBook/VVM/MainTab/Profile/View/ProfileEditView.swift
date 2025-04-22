@@ -10,7 +10,7 @@ import PhotosUI
 import Kingfisher
 
 struct ProfileEditView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: ProfileViewModel
     
@@ -275,6 +275,6 @@ struct ProfileEditView: View {
 
 #Preview {
     ProfileEditView(viewModel: ProfileViewModel(userId: "DUMMY"))
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(MainTabCapsule())
 }

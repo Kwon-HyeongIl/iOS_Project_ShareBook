@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountDeleteView: View {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @State private var viewModel = AccountDeleteViewModel()
     
@@ -66,6 +66,6 @@ struct AccountDeleteView: View {
 
 #Preview {
     AccountDeleteView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(MainTabCapsule())
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostDetailView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @Bindable var viewModel: PostViewModel
     
@@ -240,6 +240,6 @@ struct PostDetailView: View {
 
 #Preview {
     PostDetailView(viewModel: PostViewModel(post: Post.DUMMY_POST), commentSheetCapsule: CommentSheetCapsule())
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(MainTabCapsule())
 }

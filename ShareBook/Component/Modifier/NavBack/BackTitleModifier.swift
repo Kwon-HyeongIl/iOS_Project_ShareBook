@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BackTitleModifier: ViewModifier {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     var navigationTitle: String
     
     func body(content: Content) -> some View {

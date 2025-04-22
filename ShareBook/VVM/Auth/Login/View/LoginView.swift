@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel = LoginViewModel()
     
     @State private var loginAlertShowing = false
@@ -142,6 +142,6 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }
 

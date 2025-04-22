@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BackModifier: ViewModifier {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     
     func body(content: Content) -> some View {
         content

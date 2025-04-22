@@ -13,10 +13,6 @@ import KakaoSDKAuth
 
 @main
 struct ShareBookApp: App {
-    @State private var navStackControlTower = NavRouter()
-    @State private var mainTabCapsule = MainTabCapsule()
-    @State private var signupViewModel = SignupViewModel()
-    @State private var isPostAddedCapsule = IsPostAddedCapsule()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
@@ -28,24 +24,15 @@ struct ShareBookApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $navStackControlTower.path) {
-                ContentView()
-                    .navigationDestination(for: NavStackView.self) { view in
-                        navStackControlTower.destinationNavigate(to: view)
+            NavigationBaseView()
+                .onOpenURL { url in
+                    // Kakao 로그인 URL 처리
+                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                        _ = AuthController.handleOpenUrl(url: url)
                     }
-                    .onOpenURL { url in
-                        // Kakao 로그인 URL 처리
-                        if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                            _ = AuthController.handleOpenUrl(url: url)
-                        }
-                    }
-            }
-            .tint(.black)
+                }
+                .tint(.black)
         }
-        .environment(navStackControlTower)
-        .environment(mainTabCapsule)
-        .environment(signupViewModel)
-        .environment(isPostAddedCapsule)
     }
 }
 

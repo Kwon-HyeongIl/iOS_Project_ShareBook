@@ -10,7 +10,7 @@ import Kingfisher
 import Shimmer
 
 struct HomeView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(IsPostAddedCapsule.self) var isPostAddedCapsule: IsPostAddedCapsule
     @State private var viewModel = HomeViewModel()
     
@@ -272,5 +272,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CompleteSignupView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(SignupViewModel.self) var viewModel
     
     @State private var isProgressive = false
@@ -79,5 +79,5 @@ struct CompleteSignupView: View {
 #Preview {
     CompleteSignupView()
         .environment(SignupViewModel())
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

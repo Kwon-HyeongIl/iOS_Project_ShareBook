@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchBookView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel = SearchBookViewModel()
     
     @FocusState private var focus: BookSearchFocusField?

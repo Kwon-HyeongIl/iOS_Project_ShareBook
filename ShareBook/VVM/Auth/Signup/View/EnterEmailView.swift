@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnterEmailView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(SignupViewModel.self) var viewModel
     
     @State private var isEmailFormValidateAlertShowing = false
@@ -105,6 +105,6 @@ struct EnterEmailView: View {
 
 #Preview {
     EnterEmailView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(SignupViewModel())
 }

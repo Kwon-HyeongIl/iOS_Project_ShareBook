@@ -10,7 +10,7 @@ import Kingfisher
 import Shimmer
 
 struct ProfileView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel: ProfileViewModel
     
     @State private var isUnFollowAlertShowing = false
@@ -418,5 +418,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView(userId: "DUMMY", commentSheetCapsule: nil)
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

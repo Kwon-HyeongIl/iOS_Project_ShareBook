@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeedbackView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel = FeedbackViewModel()
     
     @State private var isContentAlertShowing = false
@@ -109,5 +109,5 @@ struct FeedbackView: View {
 
 #Preview {
     FeedbackView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

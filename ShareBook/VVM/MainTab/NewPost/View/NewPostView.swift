@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewPostView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     
     var body: some View {
         GeometryReader { proxy in
@@ -78,5 +78,5 @@ struct NewPostView: View {
 
 #Preview {
     NewPostView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

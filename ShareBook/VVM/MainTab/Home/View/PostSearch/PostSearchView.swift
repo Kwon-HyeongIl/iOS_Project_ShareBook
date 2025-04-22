@@ -9,7 +9,7 @@ import SwiftUI
 import Shimmer
 
 struct PostSearchView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel = PostSearchViewModel()
     
     @State private var searchText = ""
@@ -99,5 +99,5 @@ struct PostSearchView: View {
 
 #Preview {
     PostSearchView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

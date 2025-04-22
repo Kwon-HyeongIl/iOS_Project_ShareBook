@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookCoverView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel: BookViewModel
     
     init(book: Book) {
@@ -27,5 +27,5 @@ struct BookCoverView: View {
 
 #Preview {
     BookCoverView(book: Book.DUMMY_BOOK)
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

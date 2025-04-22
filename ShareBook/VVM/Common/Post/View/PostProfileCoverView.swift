@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostProfileCoverView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel: PostViewModel
     
     @State private var commentSheetCapsule = CommentSheetCapsule()
@@ -29,5 +29,5 @@ struct PostProfileCoverView: View {
 
 #Preview {
     PostProfileCoverView(post: Post.DUMMY_POST)
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

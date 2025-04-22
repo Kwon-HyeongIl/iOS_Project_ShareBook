@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnterPasswordView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(SignupViewModel.self) var viewModel
     
     @FocusState private var focus: SignupFocusField?
@@ -74,5 +74,5 @@ struct EnterPasswordView: View {
 #Preview {
     EnterPasswordView()
         .environment(SignupViewModel())
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

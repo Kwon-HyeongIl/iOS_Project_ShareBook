@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotificationSettingView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel = NotificationSettingViewModel()
     
     var body: some View {
@@ -80,5 +80,5 @@ struct NotificationSettingView: View {
 
 #Preview {
     NotificationSettingView()
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

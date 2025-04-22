@@ -26,7 +26,7 @@
 		CA2CA1B12C591682001D8B89 /* JwtManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CA1B02C591682001D8B89 /* JwtManager.swift */; };
 		CA3139AB2C77766B001AF2AE /* MoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */; };
 		CA3139AE2C778599001AF2AE /* MoreOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */; };
-		CA3221E02C7C2992003658B3 /* NavRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3221DF2C7C2992003658B3 /* NavRouter.swift */; };
+		CA3221E02C7C2992003658B3 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3221DF2C7C2992003658B3 /* NavigationRouter.swift */; };
 		CA32836D2C8DEDE60015C294 /* MainCustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32836C2C8DEDE60015C294 /* MainCustomTabView.swift */; };
 		CA3A8D892C8C58C60032ECB6 /* PostSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A8D882C8C58C60032ECB6 /* PostSearchView.swift */; };
 		CA3A8D8B2C8C58CF0032ECB6 /* PostSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3A8D8A2C8C58CF0032ECB6 /* PostSearchViewModel.swift */; };
@@ -46,6 +46,8 @@
 		CA4FC6A62C4E987100525570 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */; };
 		CA4FC6A92C4E993B00525570 /* AuthViewButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */; };
 		CA4FC6AD2C4EC3BC00525570 /* BackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FC6AC2C4EC3BC00525570 /* BackModifier.swift */; };
+		CA50A5CE2DB7C8FD0055989C /* NavigationBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50A5CD2DB7C8FD0055989C /* NavigationBaseView.swift */; };
+		CA50A5D02DB7C92B0055989C /* AisleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50A5CF2DB7C92B0055989C /* AisleView.swift */; };
 		CA512E262C7D9E6700995C69 /* PostProfileCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */; };
 		CA56F23E2C7259FE00F4980D /* CommentManager+Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */; };
 		CA5DBD0A2CA3D2B5004DA40C /* NewPostFocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5DBD092CA3D2B5004DA40C /* NewPostFocusField.swift */; };
@@ -184,7 +186,7 @@
 		CA2CA1B02C591682001D8B89 /* JwtManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwtManager.swift; sourceTree = "<group>"; };
 		CA3139AA2C77766B001AF2AE /* MoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsView.swift; sourceTree = "<group>"; };
 		CA3139AD2C778599001AF2AE /* MoreOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsViewModel.swift; sourceTree = "<group>"; };
-		CA3221DF2C7C2992003658B3 /* NavRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavRouter.swift; sourceTree = "<group>"; };
+		CA3221DF2C7C2992003658B3 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		CA32836C2C8DEDE60015C294 /* MainCustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCustomTabView.swift; sourceTree = "<group>"; };
 		CA3A8D882C8C58C60032ECB6 /* PostSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchView.swift; sourceTree = "<group>"; };
 		CA3A8D8A2C8C58CF0032ECB6 /* PostSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +206,8 @@
 		CA4FC6A52C4E987100525570 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		CA4FC6A82C4E993B00525570 /* AuthViewButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewButtonModifier.swift; sourceTree = "<group>"; };
 		CA4FC6AC2C4EC3BC00525570 /* BackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackModifier.swift; sourceTree = "<group>"; };
+		CA50A5CD2DB7C8FD0055989C /* NavigationBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBaseView.swift; sourceTree = "<group>"; };
+		CA50A5CF2DB7C92B0055989C /* AisleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AisleView.swift; sourceTree = "<group>"; };
 		CA512E252C7D9E6700995C69 /* PostProfileCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCoverView.swift; sourceTree = "<group>"; };
 		CA56F23D2C7259FE00F4980D /* CommentManager+Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentManager+Reply.swift"; sourceTree = "<group>"; };
 		CA5DBD092CA3D2B5004DA40C /* NewPostFocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostFocusField.swift; sourceTree = "<group>"; };
@@ -461,7 +465,7 @@
 		CA3221DE2C7C297B003658B3 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				CA3221DF2C7C2992003658B3 /* NavRouter.swift */,
+				CA3221DF2C7C2992003658B3 /* NavigationRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -652,6 +656,8 @@
 				CA450DB12C8397B300BCCC0E /* girl3D.splineswift */,
 				CAE601632C50F6570013413C /* Info.plist */,
 				CA6AAC2B2C4B8CA10045449E /* ShareBookApp.swift */,
+				CA50A5CD2DB7C8FD0055989C /* NavigationBaseView.swift */,
+				CA50A5CF2DB7C92B0055989C /* AisleView.swift */,
 				CA6AAC2D2C4B8CA10045449E /* ContentView.swift */,
 				CABE31C62C4CADA60010AC20 /* MainTabView.swift */,
 				CA3221DE2C7C297B003658B3 /* Router */,
@@ -1302,7 +1308,7 @@
 				CA70E7FC2C785EA100E3B91B /* LikePostView.swift in Sources */,
 				CA1D9ABB2C9C59EF00851C4D /* NavGestureEnable.swift in Sources */,
 				CA3CA9042C7A104F007F2EDC /* PostViewModel+Like.swift in Sources */,
-				CA3221E02C7C2992003658B3 /* NavRouter.swift in Sources */,
+				CA3221E02C7C2992003658B3 /* NavigationRouter.swift in Sources */,
 				CA0846D72C608BBE00D86A91 /* Post.swift in Sources */,
 				CA62D0762C6DC58F00A652EA /* Date+RelativeTimeString.swift in Sources */,
 				CA62D0722C6DB7DA00A652EA /* CommentView.swift in Sources */,
@@ -1316,6 +1322,7 @@
 				CADBA2FA2C4E63FE001C6445 /* CompleteSignupView.swift in Sources */,
 				CADD0A3D2CAEA9420057FDA1 /* AccountDeleteView.swift in Sources */,
 				CA8627AE2C955C59005A6BC8 /* NotificationManager.swift in Sources */,
+				CA50A5CE2DB7C8FD0055989C /* NavigationBaseView.swift in Sources */,
 				CA10EEC22C60CC4700901979 /* UploadPostView.swift in Sources */,
 				CAD0F3752C4E1618006ABFD1 /* ItalicFontModifier.swift in Sources */,
 				CA7DD0012C8E16BF00BE518C /* LightBlueColor.swift in Sources */,
@@ -1378,6 +1385,7 @@
 				CAC7549F2CA19CAB002EF90B /* DummyProfileView.swift in Sources */,
 				CAD006E82CA9154800AA091C /* SignupFocusField.swift in Sources */,
 				CAE601652C50FCB90013413C /* LoginViewModel+Kakao.swift in Sources */,
+				CA50A5D02DB7C92B0055989C /* AisleView.swift in Sources */,
 				CA3A8D8F2C8C933C0032ECB6 /* MainTabCapsule.swift in Sources */,
 				CA70E7FF2C785EC300E3B91B /* LikePostViewModel.swift in Sources */,
 				CADD907A2C6A55740023C512 /* HomeViewModel.swift in Sources */,

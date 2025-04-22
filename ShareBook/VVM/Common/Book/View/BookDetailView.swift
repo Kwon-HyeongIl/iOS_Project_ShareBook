@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct BookDetailView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Environment(MainTabCapsule.self) var mainTabCapsule
     @Environment(\.openURL) var openURL
     @Bindable var viewModel: BookViewModel
@@ -140,6 +140,6 @@ struct BookDetailView: View {
 
 #Preview {
     BookDetailView(viewModel: BookViewModel(book: Book.DUMMY_BOOK))
-        .environment(NavRouter())
+        .environment(NavigationRouter())
         .environment(MainTabCapsule())
 }

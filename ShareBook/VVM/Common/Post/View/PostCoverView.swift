@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct PostCoverView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @State private var viewModel: PostViewModel
     
     @State private var commentSheetCapsule = CommentSheetCapsule()
@@ -144,6 +144,6 @@ struct PostCoverView: View {
 
 #Preview {
     PostCoverView(post: Post.DUMMY_POST)
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }
 

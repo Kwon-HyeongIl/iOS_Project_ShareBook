@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileEditPostPickerView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     @Bindable var viewModel: ProfileViewModel
     
     let columns: [GridItem] = [
@@ -40,5 +40,5 @@ struct ProfileEditPostPickerView: View {
 
 #Preview {
     ProfileEditPostPickerView(viewModel: ProfileViewModel(userId: "DUMMY"))
-        .environment(NavRouter())
+        .environment(NavigationRouter())
 }

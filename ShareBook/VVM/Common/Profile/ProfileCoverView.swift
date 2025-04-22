@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileCoverView: View {
-    @Environment(NavRouter.self) var navRouter: NavRouter
+    @Environment(NavigationRouter.self) var navRouter: NavigationRouter
     let user: User?
     
     var body: some View {
