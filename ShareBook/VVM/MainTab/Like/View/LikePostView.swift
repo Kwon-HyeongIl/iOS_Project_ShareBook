@@ -23,7 +23,7 @@ struct LikePostView: View {
                         if !viewModel.isRedacted {
                             ForEach(viewModel.posts) { post in
                                 PostCoverView(post: post)
-                                    .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                             }
                             
                         } else {
@@ -46,7 +46,7 @@ struct LikePostView: View {
         .task {
             if viewModel.isFirstLoad {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    withAnimation(.easeOut(duration: 0.4)) {
+                    withAnimation {
                         viewModel.isRedacted = false
                     }
                 }

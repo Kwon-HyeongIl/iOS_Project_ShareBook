@@ -133,7 +133,7 @@ struct UploadPostView: View {
                             if isImpressivePhraseShowing {
                                 // 다음
                                 Button {
-                                    withAnimation(.smooth(duration: 0.4)) {
+                                    withAnimation {
                                         if !viewModel.impressivePhrase.isEmpty {
                                             isImpressivePhraseShowing = false
                                             isFeelingCaptionShowing = true
@@ -177,7 +177,7 @@ struct UploadPostView: View {
                                     HStack {
                                         Button {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                                withAnimation(.smooth(duration: 0.4)) {
+                                                withAnimation {
                                                     isImpressivePhraseShowing = true
                                                     isFeelingCaptionShowing = false
                                                     focus = .impressivePhrase
@@ -201,7 +201,7 @@ struct UploadPostView: View {
                                     HStack {
                                         Button {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                                withAnimation(.smooth(duration: 0.4)) {
+                                                withAnimation {
                                                     isFeelingCaptionShowing = false
                                                     isGenreShowing = true
                                                     focus = nil
@@ -219,7 +219,7 @@ struct UploadPostView: View {
                                     // 뒤로가기
                                     HStack {
                                         Button {
-                                            withAnimation(.smooth(duration: 0.4)) {
+                                            withAnimation {
                                                 isFeelingCaptionShowing = true
                                                 isGenreShowing = false
                                                 focus = .feelingCaption
@@ -268,7 +268,7 @@ struct UploadPostView: View {
                 .onAppear {
                     focus = .impressivePhrase
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                        withAnimation(.smooth(duration: 0.4)) {
+                        withAnimation {
                             scrollProxy.scrollTo("ImpressivePhrase", anchor: .top)
                         }
                     }

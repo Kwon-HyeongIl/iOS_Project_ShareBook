@@ -108,7 +108,7 @@ struct ProfileOptionView: View {
                     }
                     
                     Button(role: .destructive) {
-                        withAnimation(.easeOut(duration: 0.4)) {
+                        withAnimation {
                             viewModel.signOut()
                         }
                         navRouter.popToRoot()

@@ -84,7 +84,7 @@ struct CommentSheetView: View {
                                         .padding(.trailing, 25)
                                     
                                     Button {
-                                        withAnimation(.easeInOut(duration: 0.4)) {
+                                        withAnimation {
                                             selectedCommentId = ""
                                             selectedCommentUsername = ""
                                         }
@@ -118,22 +118,16 @@ struct CommentSheetView: View {
                         Button {
                             Task {
                                 if selectedCommentId.isEmpty { // 댓글 작성
-                                    withAnimation(.easeInOut(duration: 0.4)) {
-                                        isProgressive = true
-                                    }
+                                    isProgressive = true
                                     
                                     
                                     await viewModel.uploadComment()
                                     await viewModel.loadAllUserComment()
                                     
-                                    withAnimation(.easeInOut(duration: 0.2)) {
-                                        isProgressive = false
-                                    }
+                                    isProgressive = false
                                     
                                 } else { // 답글 작성
-                                    withAnimation(.easeInOut(duration: 0.4)) {
-                                        isProgressive = true
-                                    }
+                                    isProgressive = true
                                     
                                     await viewModel.uploadCommentReply(upperCommentId: selectedCommentId)
                                     
@@ -142,9 +136,7 @@ struct CommentSheetView: View {
                                     
                                     isLoadReplies.toggle()
                                     
-                                    withAnimation(.easeInOut(duration: 0.2)) {
-                                        isProgressive = false
-                                    }
+                                    isProgressive = false
                                 }
                                 viewModel.commentText = ""
                             }
@@ -173,7 +165,7 @@ struct CommentSheetView: View {
         .task {
             isRedacted = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                withAnimation(.easeOut(duration: 0.4)) {
+                withAnimation {
                     isRedacted = false
                 }
             }

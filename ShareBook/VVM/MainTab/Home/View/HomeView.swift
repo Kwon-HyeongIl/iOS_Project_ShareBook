@@ -52,7 +52,7 @@ struct HomeView: View {
                                     .fontWeight(.semibold)
                                     .font(.title2)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
+                                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                     .padding(.leading, 20)
                                     .padding(.top)
                             }
@@ -67,7 +67,7 @@ struct HomeView: View {
                             .fontWeight(.semibold)
                             .font(.title2)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .shadow(color: .gray.opacity(0.7), radius: 10, x: 5, y: 5)
+                            .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                             .padding(.leading, 20)
                         
                         ScrollView(.horizontal) {
@@ -98,7 +98,7 @@ struct HomeView: View {
                                         
                                         viewModel.isGenreRedacted = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                            withAnimation(.easeOut(duration: 0.4)) {
+                                            withAnimation {
                                                 viewModel.isGenreRedacted = false
                                             }
                                         }
@@ -129,7 +129,7 @@ struct HomeView: View {
                                 ForEach(viewModel.posts) { post in
                                     PostCoverView(post: post)
                                         .redacted(reason: viewModel.isGenreRedacted ? .placeholder : [])
-                                        .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                                        .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                         .task {
                                             if post == viewModel.posts.last {
                                                 Task {
@@ -164,7 +164,7 @@ struct HomeView: View {
                         viewModel.isGenreRedacted = true
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            withAnimation(.easeOut(duration: 0.4)) {
+                            withAnimation {
                                 viewModel.isHotRedacted = false
                                 viewModel.isGenreRedacted = false
                             }
@@ -174,7 +174,7 @@ struct HomeView: View {
                         // Redacted 띄우기
                         if viewModel.isFirstLoad {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                withAnimation(.easeOut(duration: 0.4)) {
+                                withAnimation {
                                     viewModel.isHotRedacted = false
                                     viewModel.isGenreRedacted = false
                                 }
@@ -198,7 +198,7 @@ struct HomeView: View {
                             viewModel.selectedGenre = .all
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                withAnimation(.easeOut(duration: 0.4)) {
+                                withAnimation {
                                     viewModel.isHotRedacted = false
                                     viewModel.isGenreRedacted = false
                                 }
@@ -273,4 +273,5 @@ struct HomeView: View {
 #Preview {
     HomeView()
         .environment(NavigationRouter())
+        .environment(IsPostAddedCapsule())
 }

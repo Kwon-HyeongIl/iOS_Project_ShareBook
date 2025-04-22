@@ -100,7 +100,7 @@ struct ProfileEditView: View {
                                 
                                 if let _ = viewModel.titlePost {
                                     Button {
-                                        withAnimation(.easeInOut(duration: 0.4)) {
+                                        withAnimation {
                                             viewModel.titlePost = nil
                                         }
                                     } label: {
@@ -241,16 +241,12 @@ struct ProfileEditView: View {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     Task {
-                        withAnimation(.easeInOut(duration: 0.4)) {
-                            isProgressive = true
-                        }
+                        isProgressive = true
                         
                         try await viewModel.updateUser()
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            withAnimation(.easeInOut(duration: 0.1)) {
-                                isProgressive = false
-                            }
+                            isProgressive = false
                         }
                         
                         navRouter.back()

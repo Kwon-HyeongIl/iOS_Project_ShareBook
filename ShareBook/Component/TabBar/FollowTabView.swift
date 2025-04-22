@@ -30,7 +30,7 @@ struct FollowTabView: View {
                     Divider()
                 }
                 .onTapGesture {
-                    withAnimation(.easeInOut(duration: 0.1)) {
+                    withAnimation {
                         selectedTab = tab
                     }
                 }

@@ -43,16 +43,12 @@ struct CompleteSignupView: View {
                         
                         Button {
                             Task {
-                                withAnimation(.easeInOut(duration: 0.4)) {
-                                    isProgressive = true
-                                }
+                                isProgressive = true
                                 
                                 await viewModel.createUser()
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                    withAnimation(.easeInOut(duration: 0.1)) {
-                                        isProgressive = false
-                                    }
+                                    isProgressive = false
                                 }
                                 
                                 navRouter.popToRoot()

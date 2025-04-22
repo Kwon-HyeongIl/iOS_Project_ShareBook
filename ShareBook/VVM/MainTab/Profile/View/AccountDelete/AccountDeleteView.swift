@@ -45,7 +45,7 @@ struct AccountDeleteView: View {
                     }
                     
                     Button(role: .destructive) {
-                        withAnimation(.easeOut(duration: 0.4)) {
+                        withAnimation {
                             viewModel.deleteAccount()
                         }
                         navRouter.popToRoot()

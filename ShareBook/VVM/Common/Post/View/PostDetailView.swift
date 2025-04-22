@@ -104,7 +104,7 @@ struct PostDetailView: View {
                         }
                         
                         Button {
-                            withAnimation(.easeInOut(duration: 0.4)) {
+                            withAnimation {
                                 isFeelingCaptionExpanding.toggle()
                             }
                         } label: {

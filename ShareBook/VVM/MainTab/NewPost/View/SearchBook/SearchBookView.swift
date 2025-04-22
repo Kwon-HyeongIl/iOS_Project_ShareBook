@@ -67,7 +67,7 @@ struct SearchBookView: View {
                                         
                                         viewModel.isRedacted = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                            withAnimation(.easeOut(duration: 0.4)) {
+                                            withAnimation {
                                                 viewModel.isRedacted = false
                                             }
                                         }

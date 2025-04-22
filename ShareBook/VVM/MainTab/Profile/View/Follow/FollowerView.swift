@@ -41,7 +41,7 @@ struct FollowerView: View {
         .task {
             if viewModel.isFirstLoad {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    withAnimation(.easeOut(duration: 0.4)) {
+                    withAnimation {
                         viewModel.isRedacted = false
                     }
                 }

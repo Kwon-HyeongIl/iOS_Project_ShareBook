@@ -73,7 +73,7 @@ struct PostSearchView: View {
                                         
                                         isRedacted = true
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                            withAnimation(.easeOut(duration: 0.4)) {
+                                            withAnimation {
                                                 isRedacted = false
                                             }
                                         }

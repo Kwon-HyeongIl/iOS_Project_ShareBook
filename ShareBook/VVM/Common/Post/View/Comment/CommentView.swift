@@ -98,16 +98,12 @@ struct CommentView: View {
                             
                             Button(role: .destructive) {
                                 Task {
-                                    withAnimation(.easeInOut(duration: 0.4)) {
-                                        isProgressive = true
-                                    }
+                                    isProgressive = true
                                     
                                     await viewModel.deleteComment()
                                     isCommentDelete.toggle()
                                     
-                                    withAnimation(.easeInOut(duration: 0.4)) {
-                                        isProgressive = false
-                                    }
+                                    isProgressive = false
                                 }
                             } label: {
                                 Text("삭제")
@@ -125,7 +121,7 @@ struct CommentView: View {
                 
                 if isCommentReplyShowing {
                     Button {
-                        withAnimation(.easeInOut(duration: 0.4)) {
+                        withAnimation {
                             selectedComment = viewModel.comment.id
                             selectedCommentUsername = viewModel.comment.commentUser?.username ?? ""
                         }
@@ -150,7 +146,7 @@ struct CommentView: View {
                 HStack {
                     if !isCommentReplyShowing {
                         Button {
-                            withAnimation(.easeInOut(duration: 0.4)) {
+                            withAnimation {
                                 selectedComment = viewModel.comment.id
                                 selectedCommentUsername = viewModel.comment.commentUser?.username ?? ""
                             }
@@ -164,7 +160,7 @@ struct CommentView: View {
                     
                     if !viewModel.commentReplies.isEmpty && !isCommentReplyShowing {
                         Button {
-                            withAnimation(.smooth(duration: 0.4)) {
+                            withAnimation {
                                 isCommentReplyShowing = true
                             }
                         } label: {
@@ -186,7 +182,7 @@ struct CommentView: View {
                 
                 if isCommentReplyShowing && !viewModel.commentReplies.isEmpty {
                     Button {
-                        withAnimation(.smooth(duration: 0.4)) {
+                        withAnimation {
                             isCommentReplyShowing = false
                         }
                     } label: {
