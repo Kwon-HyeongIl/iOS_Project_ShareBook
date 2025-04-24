@@ -7,11 +7,12 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 class BookManager {
     private init() {}
     
-    static func requestSearchBookList(searchQuery: String, completion: @escaping ([Book]) -> Void) {
+    static func requestSearchBookList(searchQuery: String) -> AnyPublisher<[Book], Error> {
         let baseURL = "https://openapi.naver.com/v1/search/book.json"
         
         let headers: HTTPHeaders = [
@@ -24,27 +25,16 @@ class BookManager {
             "display": 50
         ]
         
-        AF.request(baseURL,
+        return AF.request(baseURL,
                    method: .get,
                    parameters: parameters,
                    encoding: URLEncoding.default,
                    headers: headers)
-        
-        .validate(statusCode: 200...500)
-        
-        .responseDecodable(of: BookList.self) { response in
-            switch response.result {
-                case .success(let data):
-                    guard let statusCode = response.response?.statusCode else { return }
-                
-                    if statusCode == 200 {
-                        completion(data.items)
-                    }
-                
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    completion([])
-            }
-        }
+        .validate()
+        .publishDecodable(type: BookList.self)
+        .value()
+        .map { $0.items }
+        .mapError { $0 as Error }
+        .eraseToAnyPublisher()
     }
 }

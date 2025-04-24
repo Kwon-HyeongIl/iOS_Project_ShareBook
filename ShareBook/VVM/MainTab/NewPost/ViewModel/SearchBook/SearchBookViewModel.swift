@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 @Observable
 class SearchBookViewModel {
@@ -15,11 +16,21 @@ class SearchBookViewModel {
     var isRedacted = false
     var isShowing = true
     
+    @ObservationIgnored private var cancellables = Set<AnyCancellable>()
+    
     func searchBookWithTitle(searchQuery: String) {
-        BookManager.requestSearchBookList(searchQuery: searchQuery) { books in
-            DispatchQueue.main.async {
-                self.bookList = books
+        BookManager.requestSearchBookList(searchQuery: searchQuery)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Book API Success")
+                case .failure(let error):
+                    print("Book API Failed: \(error)")
+                }
+            } receiveValue: { [weak self] data in
+                self?.bookList = data
             }
-        }
+            .store(in: &cancellables)
     }
 }
