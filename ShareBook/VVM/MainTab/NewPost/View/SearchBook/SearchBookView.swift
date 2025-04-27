@@ -60,19 +60,6 @@ struct SearchBookView: View {
                                 .font(.system(size: 15))
                                 .submitLabel(.search)
                                 .focused($focus, equals: .main)
-                                .onSubmit {
-                                    Task {
-                                        viewModel.isShowing = false
-                                        viewModel.searchBookWithTitle(searchQuery: viewModel.searchText)
-                                        
-                                        viewModel.isRedacted = true
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                            withAnimation {
-                                                viewModel.isRedacted = false
-                                            }
-                                        }
-                                    }
-                                }
                         }
                         .frame(height: 38)
                         .background(.regularMaterial)
