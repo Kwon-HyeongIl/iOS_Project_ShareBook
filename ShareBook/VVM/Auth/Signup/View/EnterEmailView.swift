@@ -93,7 +93,7 @@ struct EnterEmailView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .shadow(color: .gray.opacity(0.5), radius: 10, x: 5, y: 5)
                 .padding(.horizontal)
-                Spacer()
+                .padding(.bottom)
             }
         }
         .modifier(BackModifier())

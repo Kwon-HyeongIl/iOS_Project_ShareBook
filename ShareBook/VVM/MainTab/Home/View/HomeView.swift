@@ -30,7 +30,7 @@ struct HomeView: View {
                                                 .scrollTransition(.interactive, axis: .horizontal) { view, phase in
                                                     view.scaleEffect(phase.isIdentity ? 1 : 0.95)
                                                 }
-                                                .shadow(color: .gray.opacity(0.35), radius: 10, x: 5, y: 5)
+                                                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
                                         }
                                     } else {
                                         ForEach(0..<6, id: \.self) { index in
@@ -173,7 +173,7 @@ struct HomeView: View {
                     .task {
                         // Redacted 띄우기
                         if viewModel.isFirstLoad {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                 withAnimation {
                                     viewModel.isHotRedacted = false
                                     viewModel.isGenreRedacted = false
@@ -197,7 +197,7 @@ struct HomeView: View {
                             await viewModel.loadAllPostsByPagination()
                             viewModel.selectedGenre = .all
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 withAnimation {
                                     viewModel.isHotRedacted = false
                                     viewModel.isGenreRedacted = false

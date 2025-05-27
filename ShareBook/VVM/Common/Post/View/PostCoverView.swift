@@ -81,6 +81,7 @@ struct PostCoverView: View {
                                 .resizable()
                                 .frame(width: isHotPost ? 19 : 15, height: isHotPost ? 19 : 15)
                                 .clipShape(Circle())
+                                .foregroundStyle(.gray)
                                 .padding(.leading, 13)
                         }
                         

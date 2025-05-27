@@ -58,7 +58,6 @@ struct SearchBookView: View {
                             
                             TextField("등록할 책을 검색하세요", text: $viewModel.searchText)
                                 .font(.system(size: 15))
-                                .submitLabel(.search)
                                 .focused($focus, equals: .main)
                         }
                         .frame(height: 38)

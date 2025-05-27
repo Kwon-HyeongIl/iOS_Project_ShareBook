@@ -36,7 +36,7 @@ struct ProfileView: View {
                                         .foregroundStyle(Color.SBTitle)
                                         .opacity(0.4)
                                         .frame(height: 340)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        .clipShape(RoundedRectangle(cornerRadius: 20))
                                         .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                                     
                                     VStack(spacing: 0) {
@@ -61,7 +61,7 @@ struct ProfileView: View {
                                                 Image(systemName: "person.circle.fill")
                                                     .resizable()
                                                     .frame(width: 60, height: 60)
-                                                    .opacity(0.8)
+                                                    .foregroundStyle(.gray)
                                                     .padding(.trailing, 10)
                                                     .padding(.leading)
                                             }
