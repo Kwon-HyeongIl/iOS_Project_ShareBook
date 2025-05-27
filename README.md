@@ -12,7 +12,7 @@
 
 - 특정 장르의 책에만 관심이 있다면 원하는 장르의 책 구절만 볼 수 있어요
 
-- 다른 사람이 작성한 글에서 댓글로 글 작성자와 책에 대해 소통할 수 있어요
+- 다른 사람이 작성한 글에서 댓글로 글 작성자와 책에 대해 소통하고 원하는 사용자를 팔로우 할 수 있어요
 
 <br><br>
 
@@ -26,6 +26,13 @@
 | iOS 개발 |
 
 </div>
+
+<br><br>
+
+## 🧩 아키텍처 패턴
+<br>
+
+- MVVM
 
 <br><br>
 
@@ -67,98 +74,73 @@
       <img src="https://github.com/user-attachments/assets/f9c8bc1f-163e-4407-91e5-20e05d4e9b28">
     </td>
     <td>
-      - 앱 접속시 Firestore에 저장되어 있는 글 로드
+      - 앱 접속시 Firestore에 저장되어 있는 글 로드<br><br>
       - Firebase 쿼리를 사용하여 일주일 내의 글 중에서 가장 좋아요 숫자가 많은 글 8개 선별해서 로드
     </td>
   </tr>
 </table>
 
 <br>
-<!--
 <table>
   <tr>
     <td colspan="2" align="center"><b>로그인 화면</b></td>
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/user-attachments/assets/0e3392c3-3e77-4535-a9a7-1fe0c55f509e">
+      <img src="https://github.com/user-attachments/assets/ee76c77f-ccfa-4dc3-a794-32c6175a67ec">
     </td>
     <td>
-      - 로그인을 수행한 이후부터 데이터를 SwiftData가 아닌 Firebase Firestore에 저장<br><br>
-      - Apple, Google, Kakao 소셜 로그인 및 이메일 기반 로그인 방식도 제공
-    </td>
-  </tr>
-</table>
-
-<br>
-<!--
-<table>
-  <tr>
-    <td colspan="2" align="center"><b>경제 강의</b></td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/user-attachments/assets/72f40fc2-52c9-442c-bafe-7334a21754dd">
-    </td>
-    <td>
-      - Lottie를 활용하여 애니메이션 기반 인터랙티브 UI 경제 강의 구현<br><br>
-      - 로그인 여부에 따라 강의 진행 기록을 SwiftData와 Firebase Firestore에 분기하여 저장<br><br>
-      - 프로젝트 네비게이션 전역을 관리하는 경로 클래스를 활용하여 특정 페이지부터 이어서 학습 가능<br><br>
-      - 뷰 내부의 요소에 id를 붙여 특정 요소로 자동 스크롤
+      - Apple, Kakao 소셜 로그인 및 이메일 기반 로그인 방식 제공
+      - SignupViewModel을 Environment로 등록하여 회원가입 화면 전반에서 같은 ViewModel 사용
     </td>
   </tr>
 </table>
 
 <br>
-<!--
 <table>
   <tr>
-    <td colspan="2" align="center"><b>경제 뉴스</b></td>
+    <td colspan="2" align="center"><b>책 검색 화면</b></td>
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/user-attachments/assets/45e0274e-14fc-4c74-889f-8e220212d5fa">
+      <img src="https://github.com/user-attachments/assets/74a73177-1e5a-423b-b143-bfd504d586ea">
     </td>
     <td>
-      - 가상의 경제 뉴스를 기반으로 경제 내용 분석 및 퀴즈 제공<br><br>
-      - 로그인 여부에 따라 강의 진행 기록을 SwiftData와 Firebase Firestore에 분기하여 저장<br><br>
-      - 프로젝트 네비게이션 전역을 관리하는 경로 클래스를 활용하여 특정 페이지부터 이어서 학습 가능<br><br>
-      - 뷰 내부의 요소에 id를 붙여 특정 요소로 자동 스크롤
+      - Naver Book API 연동을 통해 실시간 도서 검색 및 선택 후 콘텐츠 작성까지 연결되는 흐름 구축<br><br>
+      - Alamofire에서 제공하는 Combine 로직으로 Naver Book API 통신<br><br>
+      - 검색창에 Combine의 Debounce를 적용해서 사용자가 검색 버튼을 누르지 않고도 입력이 끝나면 자동으로 검색 요청
     </td>
   </tr>
 </table>
 
 <br>
-<!--
 <table>
   <tr>
-    <td colspan="2" align="center"><b>AI 서비스</b></td>
+    <td colspan="2" align="center"><b>프로필 화면</b></td>
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/user-attachments/assets/767ff12c-adc7-48b0-bfb2-99322bf93e36">
+      <img src="https://github.com/user-attachments/assets/14bbcd31-921c-4db4-944b-f9ade1cad5e2">
     </td>
     <td>
-      - GoogleGenerativeAI SDK를 통해 Gemini-1.5-flash 모델을 사용하여 챗봇 구성<br><br>
-      - 챗봇 모델 생성시 초기값을 주입하여 경제 관련 답변만 하도록 챗봇 튜닝<br><br>
-      - history 방식을 사용하여 연속적인 질의에도 맥락을 이어갈 수 있도록 구현
+      - 사용자가 작성한 글을 Firestore에서 로드
     </td>
   </tr>
 </table>
 
 <br>
-<!--
 <table>
   <tr>
-    <td colspan="2" align="center"><b>알림 서비스</b></td>
+    <td colspan="2" align="center"><b>알림 설정 화면</b></td>
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/user-attachments/assets/8d57ada5-41af-42c4-9f86-74df81c3ec65">
+      <img src="https://github.com/user-attachments/assets/382ee7f3-3bc2-4325-b8fa-f6a68497346b">
     </td>
     <td>
       - Firebase Cloud Messaging api(v1)을 사용하여 푸시 알림 시스템 구현<br><br>
-      - Topic 구독 상태에 따라 알림 수신 여부를 제어하도록, 내부적으로 Topic 구독 및 해제 기능 구현
+      - 유저간 알림 송수신을 위해 Clound Functions에 구글 OAuth 인증 발급용 Node.js 함수를 등록<br><br>
+      - 사용자 객체의 기능별 알림 수신 여부 필드를 기반하여 알림 송신시 수신자의 필드 체크 후 송신 여부 결정
     </td>
   </tr>
 </table>
@@ -167,5 +149,8 @@
 
 ## 📅 개발 기간
 
+<br>
+
+- 2024.07~2024.11
 
 <br><br>
