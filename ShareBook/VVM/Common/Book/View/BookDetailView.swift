@@ -38,7 +38,7 @@ struct BookDetailView: View {
                                 .shadow(color: .gray.opacity(0.3), radius: 10, x: 5, y: 5)
                             
                             Text("글 작성")
-                                .font(.system(size: 17))
+                                .font(.system(size: 15))
                                 .fontWeight(.medium)
                                 .foregroundStyle(.white)
                         }
