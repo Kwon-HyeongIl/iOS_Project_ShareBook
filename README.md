@@ -90,7 +90,7 @@
       <img src="https://github.com/user-attachments/assets/ee76c77f-ccfa-4dc3-a794-32c6175a67ec">
     </td>
     <td>
-      - Apple, Kakao 소셜 로그인 및 이메일 기반 로그인 방식 제공
+      - Apple, Kakao 소셜 로그인 및 이메일 기반 로그인 방식 제공<br><br>
       - SignupViewModel을 Environment로 등록하여 회원가입 화면 전반에서 같은 ViewModel 사용
     </td>
   </tr>
@@ -99,7 +99,7 @@
 <br>
 <table>
   <tr>
-    <td colspan="2" align="center"><b>책 검색 화면</b></td>
+    <td colspan="2" align="center"><b>책 검색 및 글 작성 화면</b></td>
   </tr>
   <tr>
     <td>
