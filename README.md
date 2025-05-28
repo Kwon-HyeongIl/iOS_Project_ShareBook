@@ -103,7 +103,7 @@
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/user-attachments/assets/222f8004-a55f-4f79-8c18-0394c9e40527">
+      <img src="https://github.com/user-attachments/assets/af866364-b9c4-44eb-9693-cc822eb7edf9">
     </td>
     <td>
       - Naver Book API 연동을 통해 실시간 도서 검색 및 선택 후 콘텐츠 작성까지 연결되는 흐름 구축<br><br>
